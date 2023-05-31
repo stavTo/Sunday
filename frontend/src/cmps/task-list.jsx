@@ -7,7 +7,7 @@ export function TaskList(tasks) {
 
     return (
         <ul className="task-list">
-            <TaskListHeader task={task} />
+            <TaskListHeader tasks={tasks} />
             {tasks.map((task) => {
                 <li key={task._id}>
                     <TaskPreview task={task} />

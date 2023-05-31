@@ -1,8 +1,10 @@
 
 import { GroupPreview } from "./group-preview";
 
-export function Grouplist({ groups }) {
+export function GroupList({ groups }) {
 
+
+    if (!groups) return <h1>Loading...</h1>
     return (
         <section className="group-list">
 
