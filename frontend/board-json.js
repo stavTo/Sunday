@@ -172,7 +172,7 @@ const board = {
 		},
 	],
 
-	cmpsOrder: ['status-picker', 'member-picker', 'date-picker'],
+	cmpsOrder: ['status-picker', 'collaborator-picker', 'date-picker'],
 }
 
 const user = {
