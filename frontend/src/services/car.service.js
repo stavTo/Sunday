@@ -52,8 +52,3 @@ function getEmptyCar() {
         price: utilService.getRandomIntInclusive(1000, 9000),
     }
 }
-
-
-
-
-
