@@ -1,5 +1,4 @@
 
-
 import { GroupPreview } from "./group-preview";
 
 export function Grouplist({ groups }) {

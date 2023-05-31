@@ -1,20 +1,18 @@
 // Setup
-// @import "setup/variables";
-// @import "setup/functions";
-// @import "setup/mixins";
-// @import "setup/typography";
+@import 'setup/variables';
+@import 'setup/functions';
+@import 'setup/mixins';
+@import 'setup/typography';
 
-// // Basics
-// @import "basics/helpers";
-// @import "basics/layout";
-// @import "basics/base";
-// @import "basics/links";
-// @import "basics/forms";
+// Basics
+@import 'basics/helpers';
+@import 'basics/layout';
+@import 'basics/base';
+@import 'basics/links';
+@import 'basics/forms';
 
-// // Views
-// @import "views/AboutUs";
-// @import "views/HomePage";
-// @import "views/CarIndex";
+// Views
+@import 'views/board-details';
 // @import "views/ReviewIndex";
 // @import "views/UserDetails";
 
@@ -22,4 +20,3 @@
 // @import "cmps/AppHeader";
 // @import "cmps/AppFooter";
 // @import "cmps/UserMsg";
-// @import "cmps/ShoppingCart";
