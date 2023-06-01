@@ -8,7 +8,9 @@ import { SideBar } from './cmps/side-bar'
 import { UserDetails } from './pages/user-details'
 import { TaskDetails } from './cmps/task-details'
 import { UserMsg } from './cmps/user-msg'
+
 function App() {
+
 	return (
 		<div className="App">
 			<Provider store={store}>
