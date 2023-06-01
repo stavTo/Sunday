@@ -21,3 +21,28 @@
 		@content;
 	}
 }
+
+@mixin for-extra-wide-layout {
+	@media (min-width: calc($extra-wide-breakpoint + 40px)) {
+		@content;
+	}
+}
+
+@mixin btn-get-started() {
+	display: inline-block;
+	border-radius: em(40px);
+	padding: em(16px) em(32px) em(16px) em(32px);
+	line-height: 1.25;
+	font-size: em(16px);
+	color: #FFFFFF;
+	background-color: #6161ff;
+	border: none;
+	cursor: pointer;
+
+	transition: background-color .3s;
+
+
+	&:hover {
+		background-color: #5151d5;
+	}
+}
