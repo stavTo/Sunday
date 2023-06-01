@@ -1,3 +1,2 @@
 frontend/node_modules
-frontend/.vscode
-.gitignore
+backend/node_modules
