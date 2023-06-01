@@ -5,25 +5,20 @@ import { GroupList } from '../cmps/group-list'
 import { boardService } from '../services/board.service.local'
 import { useEffect, useState } from 'react'
 import { showErrorMsg } from '../services/event-bus.service'
+import { useSelector } from 'react-redux'
+import { loadBoard } from '../store/selected-board.actions'
+import { SideBar } from '../cmps/side-bar'
 
 export function BoardDetails() {
 	const { boardId } = useParams()
-	const [board, setBoard] = useState(boardService.getEmptyBoard())
+	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 	useEffect(() => {
-		if (boardId) loadBoard()
+		if (boardId) loadBoard(boardId)
 	}, [boardId])
 
-	async function loadBoard() {
-		try {
-			const board = await boardService.getById(boardId)
-			setBoard(board)
-		} catch (err) {
-			console.log(err)
-			showErrorMsg(`Board ${boardId} does not exists.`)
-		}
-	}
 	return (
 		<section className="board-details">
+			<SideBar />
 			<BoardList />
 			<section className="board-container">
 				<BoardHeader board={board} />
