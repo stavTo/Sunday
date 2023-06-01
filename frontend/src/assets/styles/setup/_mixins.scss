@@ -43,8 +43,8 @@
 	// width: em(130px);
 	text-align: center;
 	position: relative;
-	
-	transition: background-color .3s;
+
+	transition: background-color 0.3s;
 	transition: padding 0.4s;
 	color: #ffffff;
 	background-color: #6161ff;
@@ -56,36 +56,14 @@
 	&:hover {
 		background-color: #5151d5;
 		// padding-inline-end: 2.5em;
-		
 	}
-	
+
 	// &::after {
 	// 	content: "\2192";
 	// 	/* Right Arrow Unicode*/
 	// 	position: absolute;
 	// 	right: 0.875em;
 	// }
-
-}
-
-@mixin btn-board-default($fontSize: 1em, $padding: 0px) {
-	color: #ffffff;
-	border: #ffffff;
-	background-color: $bg-clr1;
-	cursor: pointer;
-	border: none;
-	padding: $padding;
-	&:hover {
-		background-color: $bg-clr1-darker;
-	}
-	
-	// &::after {
-	// 	content: "\2192";
-	// 	/* Right Arrow Unicode*/
-	// 	position: absolute;
-	// 	right: 0.875em;
-	// }
-
 }
 
 @mixin btn-board-default($fontSize: 1em, $padding: 0px) {

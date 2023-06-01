@@ -45,6 +45,16 @@ export async function addTask(boardId, groupId, task, activity = '') {
 	}
 }
 
+export async function addTaskToFirstGroup(boardId, activity = '') {
+	try {
+		const board = await boardService.addTaskToFirstGroup(boardId, activity)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant add task')
+		throw err
+	}
+}
+
 export async function removeTask(boardId, groupId, taskId, activity = '') {
 	try {
 		const board = await boardService.removeTask(boardId, groupId, taskId, activity)

@@ -17,6 +17,7 @@ export const boardService = {
 	addEmptyGroup,
 	getEmptyGroup,
 	removeTask,
+	addTaskToFirstGroup,
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -139,6 +140,18 @@ async function addTask(boardId, groupId, task, activity = '') {
 	board.groups = board.groups.map(group =>
 		group.id !== groupId ? group : { ...group, tasks: [...group.tasks, task] }
 	)
+	// board.board.activities.unshift(activity)
+	await save(board)
+	return board
+}
+
+async function addTaskToFirstGroup(boardId, activity = '') {
+	const board = await getById(boardId)
+	const task = getEmptyTask()
+	task.title = 'New Task'
+	task.id = utilService.makeId()
+	// PUT /api/board/b123/task/t678
+	board.groups[0].tasks.push(task)
 	// board.board.activities.unshift(activity)
 	await save(board)
 	return board
