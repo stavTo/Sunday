@@ -2,21 +2,27 @@
 .fs12 {
 	font-size: rem(12px);
 }
+
 .fs14 {
 	font-size: rem(14px);
 }
+
 .fs18 {
 	font-size: rem(18px);
 }
+
 .fs20 {
 	font-size: rem(20px);
 }
+
 .fs24 {
 	font-size: rem(24px);
 }
+
 .fs28 {
 	font-size: rem(28px);
 }
+
 .fs30 {
 	font-size: rem(30px);
 }
@@ -43,16 +49,34 @@
 .flex {
 	display: flex;
 
-	> *.full {
+	>*.full {
 		flex: 1;
 	}
+
 	&.column {
 		flex-direction: column;
 	}
+
 	&.justify-center {
 		justify-content: center;
 	}
+
 	&.align-center {
 		align-items: center;
 	}
+	&.space-between {
+		justify-content: space-between;
+	}
+	&.space-evenly {
+		justify-content: space-evenly;
+	}
+}
+
+// Sidebar helpers
+.rotate-arrow-right {
+	transform: rotate(180deg);
+}
+
+.rotate-arrow-left {
+	transform: rotate(0deg);
 }
