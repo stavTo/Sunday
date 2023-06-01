@@ -20,7 +20,11 @@
 // Components
 @import 'cmps/board-list';
 @import 'cmps/group-preview';
+// Sidebar cmps
 @import 'cmps/side-bar';
+@import 'cmps/expandable-sidebar';
+// Board cmps
+@import 'cmps/board-container';
 @import 'cmps/task-preview';
 @import 'cmps/task-list-header';
 @import 'cmps/dynamic-task-cmps/label-picker';
