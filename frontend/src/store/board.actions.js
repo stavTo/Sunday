@@ -41,3 +41,5 @@ export async function updateBoard(board) {
 		throw err
 	}
 }
+
+// commit(ACTION) // dispatch(ACTION)

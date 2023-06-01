@@ -11,6 +11,7 @@ export const boardService = {
 	remove,
 	getEmptyBoard,
 	addBoardMsg,
+	saveTask,
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -76,6 +77,19 @@ function getEmptyBoard() {
 	}
 }
 
+async function saveTask(boardId, groupId, task, activity = '') {
+	console.log(boardId, groupId, task)
+	const board = await getById(boardId)
+	// PUT /api/board/b123/task/t678
+
+	board.groups = board.groups.map(group =>
+		group.id !== groupId ? group : { ...group, tasks: group.tasks.map(t => (t.id === task.id ? task : t)) }
+	)
+	// board.board.activities.unshift(activity)
+	await save(board)
+	return board
+}
+
 function _getDummyBoard(boardNum) {
 	return {
 		title: `board${boardNum}`,
@@ -87,6 +101,18 @@ function _getDummyBoard(boardNum) {
 			imgUrl: 'http://some-img',
 		},
 		style: {},
+		labels: [
+			{
+				id: 'l101',
+				title: 'Done',
+				color: '#00C875',
+			},
+			{
+				id: 'l102',
+				title: 'In-progress',
+				color: '#FDAB3D',
+			},
+		],
 		members: [
 			{
 				_id: 'u101',
@@ -116,60 +142,98 @@ function _getDummyBoard(boardNum) {
 				title: 'Group 2',
 				tasks: [
 					{
+						id: 'c101',
+						title: 'Product Research',
+						status: 'not-started',
+						assignee: 'John Smith',
+						dueDate: '2023-05-15',
+						description: 'Conduct market research for popular toy categories and trends',
+						priority: 'high',
+						category: 'research',
+					},
+					{
+						id: 'c102',
+						title: 'Define Target Audience',
+						status: 'not-started',
+						assignee: 'Mary Johnson',
+						dueDate: '2023-05-17',
+						description: 'Identify the target audience for the online toy store',
+						priority: 'medium',
+						category: 'strategy',
+					},
+					{
 						id: 'c103',
-						title: 'Do that',
-						archivedAt: 1589983468418,
+						title: 'Create Product Catalog',
+						status: 'in-progress',
+						assignee: 'Sarah Davis',
+						dueDate: '2023-05-20',
+						description: 'Compile a comprehensive catalog of toys available for sale',
+						priority: 'high',
+						category: 'catalog',
 					},
 					{
 						id: 'c104',
-						title: 'Help me',
-						status: 'in-progress', // monday
+						title: 'Website Development',
+						status: 'not-started',
+						assignee: 'David Wilson',
+						dueDate: '2023-05-22',
+						description: 'Develop an engaging and user-friendly website for the online store',
 						priority: 'high',
-						description: 'description',
-						comments: [
-							{
-								id: 'ZdPnm',
-								txt: 'also @yaronb please CR this',
-								createdAt: 1590999817436,
-								byMember: {
-									_id: 'u101',
-									fullname: 'Tal Tarablus',
-									imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
-								},
-							},
-						],
-						checklists: [
-							{
-								id: 'YEhmF',
-								title: 'Checklist',
-								todos: [
-									{
-										id: '212jX',
-										title: 'To Do 1',
-										isDone: false,
-									},
-								],
-							},
-						],
-						memberIds: ['u101'],
-						labelIds: ['l101', 'l102'],
-						dueDate: 16156215211,
-						byMember: {
-							_id: 'u101',
-							username: 'Tal',
-							fullname: 'Tal Tarablus',
-							imgUrl: 'http://res.cloudinary.com/shaishar9/image/upload/v1590850482/j1glw3c9jsoz2py0miol.jpg',
-						},
-						style: {
-							bgColor: '#26de81',
-						},
+						category: 'development',
+					},
+					{
+						id: 'c105',
+						title: 'Inventory Management System',
+						status: 'not-started',
+						assignee: 'Mark Thompson',
+						dueDate: '2023-05-25',
+						description: 'Implement a system to manage toy inventory and stock levels',
+						priority: 'medium',
+						category: 'operations',
+					},
+					{
+						id: 'c106',
+						title: 'Marketing Strategy',
+						status: 'not-started',
+						assignee: 'Emily Brown',
+						dueDate: '2023-05-30',
+						description: 'Develop a marketing strategy to promote the online toy store',
+						priority: 'high',
+						category: 'marketing',
 					},
 				],
 				style: {},
 			},
 		],
-		cmpsOrder: ['status-picker', 'member-picker', 'date-picker'],
+		activities: [
+			{
+				id: 'a101',
+				txt: 'Changed Color',
+				createdAt: 154514,
+				byMember: {
+					_id: 'u101',
+					fullname: 'Abi Abambi',
+					imgUrl: 'http://some-img',
+				},
+				task: {
+					id: 'c101',
+					title: 'Replace Logo',
+				},
+			},
+		],
+		cmpsOrder: [
+			{ id: utilService.makeId(), cmpName: 'status-picker' },
+			{ id: utilService.makeId(), cmpName: 'member-picker' },
+			{ id: utilService.makeId(), cmpName: 'date-picker' },
+		],
 	}
 }
+
+// Product Research	Not Started	John Smith	2023-05-15	Conduct market research for popular toy categories and trends	High	Research
+// Define Target Audience	Not Started	Mary Johnson	2023-05-17	Identify the target audience for the online toy store	Medium	Strategy
+// Create Product Catalog	In Progress	Sarah Davis	2023-05-20	Compile a comprehensive catalog of toys available for sale	High	Catalog
+// Website Development	Not Started	David Wilson	2023-05-22	Develop an engaging and user-friendly website for the online store	High	Development
+// Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
+// Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
 
 // storageService.post(STORAGE_KEY, _getDummyBoard(1))

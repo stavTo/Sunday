@@ -1,0 +1,9 @@
+.group-preview {
+	.task-row {
+		& > * {
+			user-select: none;
+			height: 36px;
+			border: 1px solid rgb(208, 212, 228);
+		}
+	}
+}

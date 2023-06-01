@@ -1,0 +1,33 @@
+.label-picker {
+	cursor: pointer;
+	color: white;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 130px;
+	position: relative;
+	text-align: center;
+	span {
+		font-size: rem(14px);
+		line-height: rem(36px);
+	}
+
+	&:hover .corner-fold {
+		border-width: 0 10px 10px 0;
+	}
+
+	.corner-fold {
+		border-style: solid;
+		border-color: rgba(0, 0, 0, 0.2) #ffffff;
+		border-width: 0;
+		transition: border-width 0.3s 0.2s ease;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.label-picker-popup {
+		position: absolute;
+		z-index: 9999999999999;
+	}
+}

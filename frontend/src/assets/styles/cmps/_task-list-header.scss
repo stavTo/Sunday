@@ -1,0 +1,6 @@
+.task-list-header {
+	display: flex;
+	& > * {
+		line-height: rem(23px);
+	}
+}

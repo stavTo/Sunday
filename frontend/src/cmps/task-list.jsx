@@ -2,13 +2,13 @@ import { taskService } from '../services/task.service.js'
 import { TaskListHeader } from './task-list-header.jsx'
 import { TaskPreview } from './task-preview.jsx'
 
-export function TaskList({ board, tasks }) {
+export function TaskList({ board, tasks, groupId }) {
 	return (
 		<ul className="task-list clean-list">
-			<TaskListHeader tasks={tasks} />
+			<TaskListHeader groupId={groupId} tasks={tasks} />
 			{tasks.map(task => (
 				<li key={task.id}>
-					<TaskPreview board={board} task={task} />
+					<TaskPreview groupId={groupId} board={board} task={task} />
 				</li>
 			))}
 		</ul>

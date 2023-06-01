@@ -7,8 +7,24 @@ export const SET_USERS = 'SET_USERS'
 export const SET_SCORE = 'SET_SCORE'
 
 const initialState = {
-	count: 10,
-	user: userService.getLoggedInUser(),
+	// user: userService.getLoggedInUser(),
+	// !JUST FOR DEBUGGING
+	user: {
+		_id: 'u101',
+		fullname: 'Abi Abambi',
+		username: 'abi@ababmi.com',
+		password: 'aBambi123',
+		imgUrl: 'http://some-img.jpg',
+		mentions: [
+			{
+				//optional
+				id: 'm101',
+				boardId: 'm101',
+				taskId: 't101',
+			},
+		],
+	},
+
 	users: [],
 	watchedUser: null,
 }
