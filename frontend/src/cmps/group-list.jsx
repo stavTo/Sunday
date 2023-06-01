@@ -1,7 +1,13 @@
+import { useSelector } from 'react-redux'
+import { addEmptyGroup } from '../store/selected-board.actions'
 import { GroupPreview } from './group-preview'
 
 export function GroupList({ groups }) {
-	if (!groups.length) return <h1>Loading...</h1>
+	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
+	function onAddGroup() {
+		addEmptyGroup(board._id, true)
+	}
+
 	return (
 		<section className="group-list">
 			<ul className="clean-list">
@@ -12,7 +18,7 @@ export function GroupList({ groups }) {
 				))}
 			</ul>
 
-			<button>Add new group</button>
+			<button onClick={onAddGroup}>Add new group</button>
 		</section>
 	)
 }

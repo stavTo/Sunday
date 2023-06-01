@@ -27,4 +27,11 @@
 @import 'cmps/board-container';
 @import 'cmps/task-preview';
 @import 'cmps/task-list-header';
+@import 'cmps/add-task';
+@import 'cmps/board-header';
+@import 'cmps/board-loader';
+
+// Dynamic Task Components
 @import 'cmps/dynamic-task-cmps/label-picker';
+@import 'cmps/dynamic-task-cmps/member-picker';
+@import 'cmps/dynamic-task-cmps/task-title';

@@ -12,18 +12,28 @@ body {
 	height: 100%;
 }
 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: .5em 0 .5em;
+}
+
 img {
-	width: 100%;
+	height: 100%;
 }
 
 a {
 	text-decoration: none;
 }
 
-
 .btn-get-started {
 	@include btn-get-started;
 }
+
 ul {
 	margin: 0;
 }
@@ -59,3 +69,10 @@ ul {
 // [data-title] {
 // 	position: relative;
 // }
+
+img,
+embed,
+video,
+object {
+  max-width: 100%
+}

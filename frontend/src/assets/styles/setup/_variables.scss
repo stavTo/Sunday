@@ -5,6 +5,7 @@ $clr2: #d1d5e5;
 $clr3: #797a7d;
 $clr4: #323338;
 $bg-clr1: #0073ea;
+$bg-clr1-darker: #0060b9;
 $bg-clr2: #292f4c; //side-bar
 $bg-clr3: #f6f7fb;
 $bg-clr4: #10131e;
@@ -12,7 +13,7 @@ $bg-clr5: #DCDFEC;
 
 //OTHER COLORS
 $task-hover-bgc: #f5f6f8;
-
+$input-hover-border-clr: #c3c6d4;
 // Breakpoints
 $mobile-breakpoint: 460px;
 $narrow-breakpoint: 720px;
@@ -21,3 +22,4 @@ $extra-wide-breakpoint: 1200px;
 
 // Fonts
 $title-font: Poppins, Roboto, Rubik, sans-serif;
+$title-font2: Poppins, Roboto, Helvetica, Arial, sans-serif
