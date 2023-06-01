@@ -11,7 +11,7 @@ export function GroupPreview({ group }) {
 				<button>Collapse group</button>
 			</div>
 
-			<TaskList tasks={group.tasks} />
+			<TaskList groupId={group.id} tasks={group.tasks} />
 		</article>
 	)
 }

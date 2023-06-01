@@ -12,3 +12,13 @@ export async function loadBoard(boardId) {
 		throw err
 	}
 }
+
+export async function saveTask(boardId, groupId, task, activity = '') {
+	try {
+		const board = await boardService.saveTask(boardId, groupId, task, activity)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant save task')
+		throw err
+	}
+}

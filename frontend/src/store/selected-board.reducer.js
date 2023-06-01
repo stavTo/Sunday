@@ -1,13 +1,6 @@
 import { boardService } from '../services/board.service.local'
 
 export const SET_BOARD = 'SET_BOARD'
-export const UPDATE_BOARD = 'UPDATE_BOARD'
-// export const ADD_TASK = 'ADD_TASK'
-// export const UPDATE_TASK = 'UPDATE_TASK'
-// export const REMOVE_TASK = 'REMOVE_TASK'
-// export const ADD_GROUP = 'ADD_GROUP'
-// export const UPDATE_GROUP = 'UPDATE_GROUP'
-// export const REMOVE_GROUP = 'REMOVE_GROUP'
 
 const initialState = {
 	selectedBoard: boardService.getEmptyBoard(),

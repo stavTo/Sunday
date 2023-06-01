@@ -11,6 +11,7 @@ export const boardService = {
 	remove,
 	getEmptyBoard,
 	addBoardMsg,
+	saveTask,
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -76,6 +77,19 @@ function getEmptyBoard() {
 	}
 }
 
+async function saveTask(boardId, groupId, task, activity = '') {
+	console.log(boardId, groupId, task)
+	const board = await getById(boardId)
+	// PUT /api/board/b123/task/t678
+
+	board.groups = board.groups.map(group =>
+		group.id !== groupId ? group : { ...group, tasks: group.tasks.map(t => (t.id === task.id ? task : t)) }
+	)
+	// board.board.activities.unshift(activity)
+	await save(board)
+	return board
+}
+
 function _getDummyBoard(boardNum) {
 	return {
 		title: `board${boardNum}`,
@@ -87,6 +101,18 @@ function _getDummyBoard(boardNum) {
 			imgUrl: 'http://some-img',
 		},
 		style: {},
+		labels: [
+			{
+				id: 'l101',
+				title: 'Done',
+				color: '#00C875',
+			},
+			{
+				id: 'l102',
+				title: 'In-progress',
+				color: '#FDAB3D',
+			},
+		],
 		members: [
 			{
 				_id: 'u101',
@@ -116,14 +142,9 @@ function _getDummyBoard(boardNum) {
 				title: 'Group 2',
 				tasks: [
 					{
-						id: 'c103',
-						title: 'Do that',
-						archivedAt: 1589983468418,
-					},
-					{
 						id: 'c104',
 						title: 'Help me',
-						status: 'in-progress', // monday
+						status: 'In-progress', // monday
 						priority: 'high',
 						description: 'description',
 						comments: [
@@ -168,7 +189,27 @@ function _getDummyBoard(boardNum) {
 				style: {},
 			},
 		],
-		cmpsOrder: ['status-picker', 'member-picker', 'date-picker'],
+		activities: [
+			{
+				id: 'a101',
+				txt: 'Changed Color',
+				createdAt: 154514,
+				byMember: {
+					_id: 'u101',
+					fullname: 'Abi Abambi',
+					imgUrl: 'http://some-img',
+				},
+				task: {
+					id: 'c101',
+					title: 'Replace Logo',
+				},
+			},
+		],
+		cmpsOrder: [
+			{ id: utilService.makeId(), cmpName: 'status-picker' },
+			{ id: utilService.makeId(), cmpName: 'member-picker' },
+			{ id: utilService.makeId(), cmpName: 'date-picker' },
+		],
 	}
 }
 
