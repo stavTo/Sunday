@@ -34,15 +34,26 @@
 	padding: em(16px) em(32px) em(16px) em(32px);
 	line-height: 1.25;
 	font-size: em(16px);
-	color: #FFFFFF;
+	color: #ffffff;
 	background-color: #6161ff;
 	border: none;
 	cursor: pointer;
 
-	transition: background-color .3s;
-
+	transition: background-color 0.3s;
 
 	&:hover {
 		background-color: #5151d5;
+	}
+}
+
+@mixin btn-board-default($fontSize: 1em, $padding: 0px) {
+	color: #ffffff;
+	border: #ffffff;
+	background-color: $bg-clr1;
+	cursor: pointer;
+	border: none;
+	padding: $padding;
+	&:hover {
+		background-color: $bg-clr1-darker;
 	}
 }

@@ -1,6 +1,13 @@
 .group-preview {
+	display: flex;
+	flex-direction: column;
+	.group-header {
+		display: flex;
+		align-items: center;
+	}
 	.task-row {
 		& > * {
+			flex: 1;
 			user-select: none;
 			height: 36px;
 			border: 1px solid rgb(208, 212, 228);

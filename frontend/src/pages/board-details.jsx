@@ -7,10 +7,17 @@ import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { loadBoard } from '../store/selected-board.actions'
 import { SideBar } from '../cmps/side-bar'
+import { BoardLoader } from '../cmps/BoardLoader'
 
 export function BoardDetails() {
 	const { boardId } = useParams()
-	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
+	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
+	const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoadingBoard)
+
+	useEffect(() => {
+		console.log(isLoading)
+	}, [isLoading])
+
 	useEffect(() => {
 		if (boardId) onLoadBoard(boardId)
 	}, [boardId])
@@ -27,6 +34,7 @@ export function BoardDetails() {
 		}
 	}
 
+	if (isLoading) return <BoardLoader />
 	return (
 		<section className="board-details">
 			<SideBar />
