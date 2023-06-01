@@ -10,9 +10,22 @@ import taskIcon from '../assets/img/task_icon.png'
 import workflowsIcon from '../assets/img/workflows_icon.png'
 import HP_asset_white_bg from '../assets/img/HP_asset_white_bg.avif'
 
+import bdSponser from '../assets/img/img-sponser/bd.png'
+import canvaSponser from '../assets/img/img-sponser/canva.png'
+import cocaColaSponser from '../assets/img/img-sponser/coca_cola.png'
+import glossierSponser from '../assets/img/img-sponser/glossier.png'
+import holtCatSponser from '../assets/img/img-sponser/HoltCat.avif'
+import huluSponser from '../assets/img/img-sponser/hulu.png'
+import lionsgateSponser from '../assets/img/img-sponser/lionsgate.avif'
+import oxySponser from '../assets/img/img-sponser/oxy.png'
+import universalSponser from '../assets/img/img-sponser/universal.png'
+
+import { BTN_ARROW } from '../assets/icons/icons'
+
+
+
+
 export function HomePage() {
-
-
 
 	return <section className="home-page main-layout">
 
@@ -22,9 +35,12 @@ export function HomePage() {
 					logo!
 				</div>
 				<ul className="clean-list flex">
-					<li>About</li>
-					<li>Log in</li>
-					<li><button className='btn-get-started'>Get Started</button></li>
+					<li> <a href="">About</a> </li>
+					<li><a href="">Log in</a> </li>
+					<li><button className='btn-get-started btn-arrow'>
+						<span className='btn-title'>Get Started</span>
+						<span className='btn-arrow'>{BTN_ARROW}</span>
+					</button></li>
 				</ul>
 			</nav>
 		</header>
@@ -80,18 +96,36 @@ export function HomePage() {
 			</section>
 
 			<section className='btn-container'>
-				<button className='btn-get-started'>Get Started</button>
+				<button className='btn-get-started btn-arrow'>
+					<span className='btn-title'>Get Started</span>
+					<span className='btn-arrow'>{BTN_ARROW}</span>
+				</button>
 				<span>No credit card needed   ✦   Unlimited time on Free plan</span>
 			</section>
-
-
-			<div className="img-container full">
-				<img src={HP_asset_white_bg} alt="" />
-			</div>
 		</main>
 
+		<section className="img-container">
+			<img src={HP_asset_white_bg} alt="" />
+		</section>
 
 
+		<section className='sponsers'>
+
+			<h2>Trusted by 180,000+ customers worldwide</h2>
+
+			<ul className='sponsers-list clean-list'>
+				<li><img src={bdSponser} alt="" /></li>
+				<li><img src={canvaSponser} alt="" /></li>
+				<li><img src={cocaColaSponser} alt="" /></li>
+				<li><img src={glossierSponser} alt="" /></li>
+				<li><img src={holtCatSponser} alt="" /></li>
+				<li><img src={huluSponser} alt="" /></li>
+				<li><img src={lionsgateSponser} alt="" /></li>
+				<li><img src={oxySponser} alt="" /></li>
+				<li><img src={universalSponser} alt="" /></li>
+			</ul>
+
+		</section>
 
 
 

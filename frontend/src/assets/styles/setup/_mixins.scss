@@ -31,18 +31,33 @@
 @mixin btn-get-started() {
 	display: inline-block;
 	border-radius: em(40px);
-	padding: em(16px) em(32px) em(16px) em(32px);
+	padding: em(16px) em(20px) em(16px) em(31px);
 	line-height: 1.25;
 	font-size: em(16px);
 	color: #FFFFFF;
+	font-family: $title-font;
+	font-weight: 300;
 	background-color: #6161ff;
 	border: none;
 	cursor: pointer;
-
+	// width: em(130px);
+	text-align: center;
+	position: relative;
+	
 	transition: background-color .3s;
-
+	transition: padding 0.4s;
 
 	&:hover {
 		background-color: #5151d5;
+		// padding-inline-end: 2.5em;
+		
 	}
+	
+	// &::after {
+	// 	content: "\2192";
+	// 	/* Right Arrow Unicode*/
+	// 	position: absolute;
+	// 	right: 0.875em;
+	// }
+
 }
