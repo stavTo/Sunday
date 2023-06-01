@@ -4,6 +4,7 @@
 
 html {
 	font-family: Figtree, Roboto, Rubik, sans-serif;
+	line-height: 1.15;
 }
 
 body {
@@ -17,4 +18,9 @@ img {
 
 a {
 	text-decoration: none;
+}
+
+
+.btn-get-started {
+	@include btn-get-started;
 }

@@ -1,0 +1,82 @@
+.home-page {
+
+
+
+    .home-header {
+        // background-color: aqua;
+        // position: fixed;
+        // top: 0;
+        width: 100%;
+        height: em(72px);
+
+        .main-nav {
+            justify-content: space-between;
+            align-items: center;
+
+            ul {
+                align-items: center;
+            }
+        }
+    }
+
+    .home-main {
+        min-height: calc(100vh - em(72px));
+
+        .titles-container {
+            display: flex;
+            width: em(754px);
+            flex-direction: column;
+            align-items: center;
+            margin-inline: auto;
+            // justify-items: center;
+            text-align: center;
+
+            span.main-title {
+                font-size: em(72px);
+            }
+
+            span.secondary-title {
+                font-size: em(22px);
+            }
+        }
+
+
+        .card-container {
+            height: em(324px);
+            display: flex;
+            align-items: center;
+            // flex-wrap: wrap;
+
+            img {
+                height: em(40px);
+                width: em(40px);
+            }
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                min-width: em(120px);
+                min-height: em(120px);
+                margin: em(8px);
+                padding: em(8px);
+                border-radius: em(8px);
+                border: 1px solid rgb(195, 198, 212);
+            }
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            button {
+                height: em(49px);
+            }
+            // width: 100%;
+            // justify-content: center;
+        }
+    }
+}
