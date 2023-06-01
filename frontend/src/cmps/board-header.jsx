@@ -1,4 +1,4 @@
-import { addEmptyGroup } from '../store/selected-board.actions'
+import { addEmptyGroup, addTaskToFirstGroup } from '../store/selected-board.actions'
 import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,6 +9,10 @@ export function BoardHeader({ board }) {
 		addEmptyGroup(board._id, false)
 	}
 
+	function onAddTask() {
+		addTaskToFirstGroup(board._id)
+	}
+
 	return (
 		<section className="board-header">
 			<div className="board-header-top">
@@ -16,10 +20,10 @@ export function BoardHeader({ board }) {
 			</div>
 			<BoardToolbar />
 			<div className="board-header-bottom">
-				<button className="btn-new-task btn-text" onClick={onAddGroup}>
+				<button className="btn-new-task btn-text" onClick={onAddTask}>
 					New Task
 				</button>
-				<button className="btn-new-task btn-icon">
+				<button className="btn-new-task btn-icon" onClick={onAddGroup}>
 					<FontAwesomeIcon icon={faAngleDown} />
 				</button>
 				<BoardFilter />

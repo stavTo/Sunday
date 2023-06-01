@@ -31,6 +31,14 @@
 	font-family: $title-font;
 }
 
+.btn-primary {
+	border-radius: 4px;
+	cursor: pointer;
+	&:hover {
+		background-color: $button-hover-bgc;
+	}
+}
+
 .clean-list {
 	padding: 0;
 	list-style: none;

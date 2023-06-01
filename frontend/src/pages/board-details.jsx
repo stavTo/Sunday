@@ -15,10 +15,6 @@ export function BoardDetails() {
 	const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoadingBoard)
 
 	useEffect(() => {
-		console.log(isLoading)
-	}, [isLoading])
-
-	useEffect(() => {
 		if (boardId) onLoadBoard(boardId)
 	}, [boardId])
 
