@@ -1,4 +1,22 @@
 .board-list {
 	width: 254px;
 	background-color: $bg-clr3;
+
+	.board-title-preview {
+		cursor: pointer;
+		padding: .5em;
+		gap: .5em;
+		color: $clr4;
+		border-radius: .4em;
+
+		&:hover {
+			background-color: $bg-clr5;
+		}
+
+		svg {
+			path {
+				margin-right: 0;
+			}
+		}
+	}
 }

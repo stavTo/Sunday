@@ -1,0 +1,19 @@
+.board-filter {
+	display: flex;
+	input {
+		all: unset;
+		cursor: pointer;
+	}
+
+	.filter-container {
+		.extra-filter {
+			&:hover {
+				background-color: $input-hover-border-clr;
+			}
+		}
+	}
+}
+
+.board-header-bottom {
+	display: flex;
+}

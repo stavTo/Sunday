@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { BoardList } from '../cmps/board-list'
+// import { BoardList } from '../cmps/board-list'
 import { BoardHeader } from '../cmps/board-header'
 import { GroupList } from '../cmps/group-list'
 import { useEffect } from 'react'
@@ -13,10 +13,6 @@ export function BoardDetails() {
 	const { boardId } = useParams()
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoadingBoard)
-
-	useEffect(() => {
-		console.log(isLoading)
-	}, [isLoading])
 
 	useEffect(() => {
 		if (boardId) onLoadBoard(boardId)
@@ -38,7 +34,7 @@ export function BoardDetails() {
 	return (
 		<section className="board-details">
 			<SideBar />
-			<BoardList />
+			{/* <BoardList /> */}
 			<section className="board-container">
 				<BoardHeader board={board} />
 				<GroupList groups={board.groups} />
