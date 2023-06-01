@@ -17,8 +17,7 @@ export function ExpandableSidebar() {
             <section className={`${isFixed ? 'open expandable-sidebar' : 'expandable-sidebar'}`}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}>
-                {isFixed ? <BoardList fixed={isFixed} /> : ''}
-                {isHovered ? <BoardList hovered={isHovered} /> : ''}
+                {isFixed || isHovered ?<BoardList fixed={isFixed} /> : ''}
             </section >
         </div>
     )

@@ -303,4 +303,4 @@ function _getDummyBoard(boardNum) {
 // Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
 
-// storageService.post(STORAGE_KEY, _getDummyBoard(1))
+storageService.post(STORAGE_KEY, _getDummyBoard(1))
