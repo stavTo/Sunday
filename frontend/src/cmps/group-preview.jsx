@@ -1,9 +1,6 @@
-
-
-
+import { TaskList } from "./task-list"
 
 export function GroupPreview({ group }) {
-
 
 
     return (

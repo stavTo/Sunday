@@ -1,7 +1,7 @@
 
 import { GroupPreview } from "./group-preview";
 
-export function Grouplist({ groups }) {
+export function GroupList({ groups }) {
 
     return (
         <section className="group-list">
