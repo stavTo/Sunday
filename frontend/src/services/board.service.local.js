@@ -12,6 +12,11 @@ export const boardService = {
 	getEmptyBoard,
 	addBoardMsg,
 	saveTask,
+	addTask,
+	getEmptyTask,
+	addEmptyGroup,
+	getEmptyGroup,
+	removeTask,
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -67,6 +72,7 @@ function getEmptyBoard() {
 	return {
 		_id: '',
 		title: '',
+		description: '',
 		isStarred: false,
 		archivedAt: null,
 		createdBy: { _id: '', fullname: '', imgUrl: '' },
@@ -77,8 +83,43 @@ function getEmptyBoard() {
 	}
 }
 
+function getEmptyTask() {
+	return {
+		id: '',
+		title: '',
+		status: '',
+		priority: '',
+		comments: [],
+		memberIds: [],
+		dueDate: null,
+		byMember: {
+			_id: '',
+			username: '',
+			fullname: '',
+			imgUrl: 'https://asset.cloudinary.com/diyikz4gq/3a419ce071a927e482ec39a775a4677d',
+		},
+	}
+}
+
+function getEmptyGroup() {
+	return {
+		id: '',
+		title: 'New Group',
+		tasks: [],
+		style: { backgroundColor: utilService.getRandomColor() },
+	}
+}
+
+async function addEmptyGroup(boardId, pushToTop, activity = '') {
+	const newGroup = getEmptyGroup()
+	newGroup.id = utilService.makeId()
+	const board = await getById(boardId)
+	pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
+	await save(board)
+	return board
+}
+
 async function saveTask(boardId, groupId, task, activity = '') {
-	console.log(boardId, groupId, task)
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
 
@@ -90,9 +131,35 @@ async function saveTask(boardId, groupId, task, activity = '') {
 	return board
 }
 
+async function addTask(boardId, groupId, task, activity = '') {
+	const board = await getById(boardId)
+	task.id = utilService.makeId()
+	// PUT /api/board/b123/task/t678
+
+	board.groups = board.groups.map(group =>
+		group.id !== groupId ? group : { ...group, tasks: [...group.tasks, task] }
+	)
+	// board.board.activities.unshift(activity)
+	await save(board)
+	return board
+}
+
+async function removeTask(boardId, groupId, taskId, activity = '') {
+	const board = await getById(boardId)
+	// PUT /api/board/b123/task/t678
+
+	board.groups = board.groups.map(group =>
+		group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
+	)
+	// board.board.activities.unshift(activity)
+	await save(board)
+	return board
+}
+
 function _getDummyBoard(boardNum) {
 	return {
 		title: `board${boardNum}`,
+		description: '',
 		isStarred: false,
 		archivedAt: 1589983468418,
 		createdBy: {
@@ -223,7 +290,7 @@ function _getDummyBoard(boardNum) {
 		],
 		cmpsOrder: [
 			{ id: utilService.makeId(), cmpName: 'status-picker' },
-			{ id: utilService.makeId(), cmpName: 'member-picker' },
+			{ id: utilService.makeId(), cmpName: 'owner-picker' },
 			{ id: utilService.makeId(), cmpName: 'date-picker' },
 		],
 	}

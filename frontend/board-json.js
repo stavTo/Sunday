@@ -139,7 +139,6 @@ const board = {
 						},
 					],
 					memberIds: ['u101'],
-					labelIds: ['l101', 'l102'],
 					dueDate: 16156215211,
 					byMember: {
 						_id: 'u101',
