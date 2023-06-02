@@ -7,4 +7,51 @@
 		width: 30px;
 		height: 30px;
 	}
+
+	.member-picker-modal {
+		position: absolute;
+		z-index: 99999;
+		background-color: #ffffff;
+		border-radius: 8px;
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.32);
+		padding: 16px 16px 0px 16px;
+
+		input {
+			all: unset;
+			width: 320px;
+			height: 32px;
+			border-radius: 4px;
+			outline: 1px solid $input-hover-border-clr;
+			&:hover {
+				outline: 1px solid $clr1;
+			}
+		}
+
+		.members-list {
+			display: flex;
+			flex-direction: column;
+
+			span {
+				color: $icon-color;
+			}
+
+			li {
+				display: flex;
+				align-items: center;
+				width: 316px;
+				height: 40px;
+			}
+		}
+
+		.seperator {
+			height: 4px;
+			width: em(168px);
+			color: rgb(50, 51, 56);
+		}
+
+		button.edit-labels {
+			background-color: inherit;
+			border: none;
+		}
+	}
 }

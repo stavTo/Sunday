@@ -74,16 +74,16 @@
 .home-main {
 	min-height: calc(100vh - em(72px));
 
-	.titles-container {
-		display: flex;
-		width: em(754px);
-		flex-direction: column;
-		align-items: center;
-		margin-inline: auto;
-		text-align: center;
-		font-family: $title-font;
-		padding-block-start: calc(em(40px) + em(72px));
-		color: rgb(51, 51, 51);
+    .titles-container {
+        display: flex;
+        width: em(754px);
+        flex-direction: column;
+        align-items: center;
+        margin-inline: auto;
+        text-align: center;
+        font-family: $title-font;
+        padding-block-start: 4em;
+        color: rgb(51, 51, 51);
 
 		span.main-title {
 			font-size: 4.4em;
