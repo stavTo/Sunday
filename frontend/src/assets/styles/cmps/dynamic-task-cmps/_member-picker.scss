@@ -1,4 +1,5 @@
 .member-picker {
+	position: relative;
 	display: flex;
 	cursor: pointer;
 	align-items: center;
@@ -6,5 +7,83 @@
 	img {
 		width: 30px;
 		height: 30px;
+	}
+
+	.member-picker-modal {
+		font-size: em(14px);
+		position: absolute;
+		top: calc($task-row-height + 5px);
+		z-index: 99999;
+		background-color: #ffffff;
+		border-radius: 8px;
+		box-shadow: $default-box-shadow;
+		padding: 16px 16px 0px 16px;
+
+		.input-container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 320px;
+			height: 32px;
+			outline: 1px solid $input-hover-border-clr;
+			border-radius: 4px;
+
+			&:has(input:focus) {
+				outline: 1px solid $bg-clr1;
+			}
+
+			&:hover:not(:focus) {
+				outline: 1px solid $clr1;
+			}
+			.svg-container {
+				.active-search {
+					transform: translate(45deg);
+				}
+
+				color: $icon-color;
+				padding-inline-end: 4px;
+				display: flex;
+				align-items: center;
+
+				svg {
+					width: 16px;
+					height: 16px;
+				}
+				&.clear-icon {
+					transform: rotate(45deg);
+				}
+			}
+		}
+		input {
+			all: unset;
+			padding: 8px 24px 8px 16px;
+		}
+
+		.members-list {
+			display: flex;
+			flex-direction: column;
+
+			span {
+				color: $icon-color;
+			}
+
+			li {
+				display: flex;
+				align-items: center;
+				width: 316px;
+				height: 40px;
+			}
+		}
+
+		.seperator {
+			height: 4px;
+			width: em(168px);
+			color: rgb(50, 51, 56);
+		}
+
+		button.edit-labels {
+			background-color: inherit;
+			border: none;
+		}
 	}
 }

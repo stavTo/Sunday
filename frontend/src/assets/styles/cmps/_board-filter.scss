@@ -2,12 +2,29 @@
 	color: $clr1;
 	display: flex;
 	gap: 1px;
-	input {
-		height: 28px;
+
+	.search-container {
+		width: 92px;
+		transition: outline 0.1s;
+		transition: width 0.1s;
+	}
+	.search-container.focused {
+		cursor: text;
+		width: 235px;
+
+		outline: 1px solid $bg-clr1;
+		height: 100%;
+		border-radius: 4px;
+		.filter-search-input {
+			width: 100%;
+		}
+	}
+
+	.filter-search-input {
 		all: unset;
-		cursor: pointer;
-		font-size: em(14px);
 		width: 60px;
+		height: 28px;
+		font-size: em(14px);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;

@@ -1,7 +1,6 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
-import { async } from 'q'
 
 const STORAGE_KEY = 'board'
 
@@ -19,24 +18,40 @@ export const boardService = {
 	getEmptyGroup,
 	removeTask,
 	addTaskToFirstGroup,
-	updateLabelInTask,
+	getDefaultFilter,
 	updateDueDateInTask,
 }
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filter = {}) {
 	var boards = await storageService.query(STORAGE_KEY)
-	if (filterBy.txt) {
-		const regex = new RegExp(filterBy.txt, 'i')
-		boards = boards.filter(board => regex.test(board.vendor) || regex.test(board.description))
-	}
-	if (filterBy.price) {
-		boards = boards.filter(board => board.price <= filterBy.price)
+	//TODO MOVE FILTER TO BACKEND
+	if (filter.txt) {
+		const regex = new RegExp(filter.txt, 'i')
+		boards = boards.filter(board => regex.test(board.title))
 	}
 	return boards
 }
 
-function getById(boardId) {
-	return storageService.get(STORAGE_KEY, boardId)
+async function getById(boardId, filter = {}) {
+	let board
+	try {
+		board = await storageService.get(STORAGE_KEY, boardId)
+	} catch (err) {
+		console.log(err)
+	}
+	//TODO MOVE FILTER TO BACKEND
+	if (filter.txt) {
+		const regex = new RegExp(filter.txt, 'i')
+
+		// filter groups with title, if group title doesn't match, filter its tasks.
+		board.groups = board.groups.map(group =>
+			regex.test(group.title) ? group : { ...group, tasks: group.tasks.filter(task => regex.test(task.title)) }
+		)
+
+		// after filtering tasks, remove groups where no task matches.
+		board.groups = board.groups.filter(group => group.tasks.length)
+	}
+	return board
 }
 
 async function remove(boardId) {
@@ -87,15 +102,15 @@ function getEmptyBoard() {
 			{ id: 'sl100', title: 'Done', color: '#00C875' },
 			{ id: 'sl101', title: 'Working on it', color: '#fdab3d' },
 			{ id: 'sl102', title: 'Stuck', color: '#e2445c' },
-			{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' }
+			{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' },
 		],
 		priorityLabels: [
 			{ id: 'pl100', title: 'Critical', color: '#333333' },
 			{ id: 'pl101', title: 'High', color: '#401694' },
 			{ id: 'pl102', title: 'Medium', color: '#5559df' },
 			{ id: 'pl103', title: 'Low', color: '#579bfc' },
-			{ id: 'pl104', title: '', color: '#c4c4c4' }
-		]
+			{ id: 'pl104', title: '', color: '#c4c4c4' },
+		],
 	}
 }
 
@@ -184,16 +199,34 @@ async function removeTask(boardId, groupId, taskId, activity = '') {
 	return board
 }
 
-async function updateLabelInTask(boardId, groupId, taskId, labelTaskName, label) {
-	const board = await getById(boardId)
-	// console.log(groupId)
-	// console.log(board.groups[groupId])
-	const group = board.groups.find(group => group.id === groupId)
-	const task = group.tasks.find(task => task.id === taskId)
-	console.log(task)
-	task[labelTaskName] = label.title
-	await save(board)
-	return board
+// async function updateLabelInTask(boardId, groupId, taskId, labelTaskName, label) {
+// 	const board = await getById(boardId)
+// 	// console.log(groupId)
+// 	// console.log(board.groups[groupId])
+// 	const group = board.groups.find(group => group.id === groupId)
+// 	const task = group.tasks.find(task => task.id === taskId)
+// 	console.log(task)
+// 	task[labelTaskName] = label.title
+// 	await save(board)
+// 	return board
+// }
+
+function getDefaultFilter() {
+	return {
+		txt: '',
+		byUserId: '',
+		advancedFilter: {
+			groups: {},
+			tasks: {},
+			members: {},
+			timeLines: {},
+			durations: {},
+			priorities: {},
+			statuses: {},
+		},
+		sort: {},
+		shownColumns: [],
+	}
 }
 
 async function updateDueDateInTask(boardId, groupId, taskId, dueDate) {
@@ -203,14 +236,12 @@ async function updateDueDateInTask(boardId, groupId, taskId, dueDate) {
 	const group = board.groups.find(group => group.id === groupId)
 	const task = group.tasks.find(task => task.id === taskId)
 	console.log(task)
-	console.log("task before assignment", task)
+	console.log('task before assignment', task)
 	task.dueDate = dueDate
-	console.log("task after assignment", task)
+	console.log('task after assignment', task)
 	await save(board)
 	return board
 }
-
-
 
 function _getDummyBoard(boardNum) {
 	return {
@@ -334,7 +365,7 @@ function _getDummyBoard(boardNum) {
 		],
 		cmpsOrder: [
 			{ id: utilService.makeId(), cmpName: 'statusPicker' },
-			{ id: utilService.makeId(), cmpName: 'priorityPicker'},
+			{ id: utilService.makeId(), cmpName: 'priorityPicker' },
 			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'datePicker' },
 		],
@@ -342,15 +373,15 @@ function _getDummyBoard(boardNum) {
 			{ id: 'sl100', title: 'Done', color: '#00C875' },
 			{ id: 'sl101', title: 'Working on it', color: '#fdab3d' },
 			{ id: 'sl102', title: 'Stuck', color: '#e2445c' },
-			{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' }
+			{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' },
 		],
 		priorityLabels: [
 			{ id: 'pl100', title: 'Critical', color: '#333333' },
 			{ id: 'pl101', title: 'High', color: '#401694' },
 			{ id: 'pl102', title: 'Medium', color: '#5559df' },
 			{ id: 'pl103', title: 'Low', color: '#579bfc' },
-			{ id: 'pl104', title: '', color: '#c4c4c4' }
-		]
+			{ id: 'pl104', title: '', color: '#c4c4c4' },
+		],
 	}
 }
 
@@ -361,4 +392,4 @@ function _getDummyBoard(boardNum) {
 // Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
 
-// storageService.post(STORAGE_KEY, _getDummyBoard())
+// storageService.post(STORAGE_KEY, _getDummyBoard(1))

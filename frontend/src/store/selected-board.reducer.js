@@ -14,6 +14,7 @@ export function selectedBoardReducer(state = initialState, action) {
 			return { ...state, selectedBoard: action.board }
 		case SET_IS_LOADING_BOARD:
 			return { ...state, isLoadingBoard: action.isLoading }
+
 		default:
 			return { ...state }
 	}

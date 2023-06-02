@@ -3,6 +3,7 @@ import { LabelPicker } from './dynamic-task-cmps/label-picker'
 import { TaskTitle } from './dynamic-task-cmps/task-title'
 import { DatePicker } from './dynamic-task-cmps/date-picker'
 import { MemberPicker } from './dynamic-task-cmps/member-picker'
+import { useState } from 'react'
 
 export function TaskPreview({ task, groupId }) {
 	const STATUS_PICKER = 'statusPicker'
@@ -12,6 +13,7 @@ export function TaskPreview({ task, groupId }) {
 	const COLLABORATOR_PICKER = 'collaboratorPicker'
 
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
+
 	return (
 		<ul className="task-preview task-row clean-list">
 			<TaskTitle groupId={groupId} task={task} />

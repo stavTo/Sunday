@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useEffect, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 import { EDIT_LABEL } from '../../assets/icons/icons'
-import { faL } from '@fortawesome/free-solid-svg-icons'
-import { func } from 'prop-types'
-import { updateLabelInTask } from '../../store/selected-board.actions'
+import { saveTask } from '../../store/selected-board.actions'
+import { SET_IS_MODAL_OPEN } from '../../store/selected-board.reducer'
 
 const DEFAULT_STATUS_LABELS = [
 	{ id: 'sl100', title: 'Done', color: '#00C875' },
@@ -24,31 +23,24 @@ const DEFAULT_PRIORITY_LABELS = [
 export function LabelPicker({ type, task, groupId }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
 	const [label, setLabel] = useState({})
-	const [labelTxt, setLabelTxt] = useState('')
 	const [labelsName, setLabelsName] = useState('')
-	const [labelTaskName, setLabelTaskName] = useState('')
+	const labelPickerRef = useRef()
 	const [isEditor, setIsEditor] = useState(false)
 
-	console.log(isEditor)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
 	useEffect(() => {
 		if (type === 'statusPicker') {
-			setLabelTxt(task.status)
 			setLabelsName('statusLabels')
-			setLabelTaskName('status')
-		}
-		else if (type === 'priorityPicker') {
-			setLabelTxt(task.priority)
+		} else if (type === 'priorityPicker') {
 			setLabelsName('priorityLabels')
-			setLabelTaskName('priority')
 		}
 	}, [task, type])
 
 	useEffect(() => {
-		document.addEventListener('click', () => onPickerClose(false))
+		document.addEventListener('mousedown', onPickerClose)
 		return () => {
-			document.removeEventListener('click', () => onPickerClose(false))
+			document.removeEventListener('mousedown', onPickerClose)
 		}
 	}, [])
 
@@ -58,48 +50,51 @@ export function LabelPicker({ type, task, groupId }) {
 	}
 
 	useEffectUpdate(() => {
+		const labelTxt = type === 'statusPicker' ? task.status : task.priority
 		setLabel(board[labelsName].find(l => l.title === labelTxt))
-	}, [labelTxt])
+	}, [labelsName])
 
-	function onChangeLabel(label) {
-		updateLabelInTask(board._id, groupId, task.id, labelTaskName, label)
-		setLabel(label)
+	function onPickerClose(ev) {
+		if (!ev.target.closest('.label-picker-popup')) {
+			setIsPickerOpen(false)
+		}
 	}
 
 	function handleClick(ev) {
-		ev.stopPropagation()
-		setIsPickerOpen(prev => !prev)
+		setIsPickerOpen(true)
+	}
 
-		//TODO in default app, every click closes picker no matter where clicked.
+	function onChangeLabel(ev, label) {
+		ev.stopPropagation()
+		setIsPickerOpen(false)
+		const labelTaskName = labelsName === 'statusLabels' ? 'status' : 'priority'
+		const taskToEdit = { ...task }
+		taskToEdit[labelTaskName] = label.title
+		saveTask(board._id, groupId, taskToEdit, 'changed label')
+		setLabel(label)
 	}
 
 	return (
-		<li className="label-picker"
-			onClick={handleClick}
-			style={{ backgroundColor: label?.color || '#C4C4C4' }}>
+		<li className="label-picker" onClick={handleClick} style={{ backgroundColor: label?.color || '#C4C4C4' }}>
 			<span>{label?.title || ''}</span>
 			<div className="corner-fold"></div>
 
-			{isPickerOpen && (isEditor ?
-				<LabelPickerPopUpEditor
-					board={board}
-					labelsName={labelsName}
-					onChangeLabel={onChangeLabel}
-				/>
-				:
-				<LabelPickerPopUp
-					board={board}
-					labelsName={labelsName}
-					onChangeLabel={onChangeLabel}
-					setIsEditor={setIsEditor}
-				/>
-			)}
+			{isPickerOpen &&
+				(isEditor ? (
+					<LabelPickerPopUpEditor board={board} labelsName={labelsName} onChangeLabel={onChangeLabel} />
+				) : (
+					<LabelPickerPopUp
+						board={board}
+						labelsName={labelsName}
+						onChangeLabel={onChangeLabel}
+						setIsEditor={setIsEditor}
+					/>
+				))}
 		</li>
 	)
 }
 
 function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
-
 	function onSetIsEditor() {
 		setIsEditor(true)
 	}
@@ -108,16 +103,16 @@ function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
 		<div className="label-picker-popup">
 			<ul className="labels-list clean-list">
 				{board[labelsName].map(label => (
-					<li key={label.id}
+					<li
+						key={label.id}
 						style={{ backgroundColor: label.color }}
-						onClick={() => onChangeLabel(label)}>
+						onClick={ev => onChangeLabel(ev, label)}>
 						{label.title}
 					</li>
 				))}
 			</ul>
 			<div className="sperator"></div>
-			<button className="edit-labels"
-				onClick={onSetIsEditor}>
+			<button className="edit-labels" onClick={onSetIsEditor}>
 				<span>{EDIT_LABEL}</span>
 				<span>Edit Labels</span>
 			</button>
@@ -130,9 +125,10 @@ function LabelPickerPopUpEditor({ board, labelsName, onChangeLabel }) {
 		<div className="label-picker-popup">
 			<ul className="labels-list clean-list">
 				{board[labelsName].map(label => (
-					<li key={label.id}
+					<li
+						key={label.id}
 						style={{ backgroundColor: label.color }}
-						onClick={() => onChangeLabel(label)}>
+						onClick={ev => onChangeLabel(ev, label)}>
 						{label.title}
 					</li>
 				))}
