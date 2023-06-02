@@ -1,3 +1,9 @@
 .task-preview {
 	display: flex;
+
+	.label-picker {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 }
