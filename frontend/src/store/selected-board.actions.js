@@ -75,14 +75,3 @@ export async function updateLabelInTask(boardId, groupId, taskId, labelTaskName,
 		throw err
 	}
 }
-
-export async function updateDueDateInTask(boardId, groupId, taskId, dueDate) {
-	console.log('reached here', dueDate)
-	try {
-		const board = await boardService.updateDueDateInTask(boardId, groupId, taskId, dueDate)
-		store.dispatch({ type: SET_BOARD, board })
-	} catch (err) {
-		console.log('Cannot set date')
-		throw err
-	}
-}

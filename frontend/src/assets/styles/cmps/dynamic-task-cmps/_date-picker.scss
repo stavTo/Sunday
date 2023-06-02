@@ -6,19 +6,16 @@
     -webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
     -moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
     box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-    position: relative;
-    margin-block-start: 2em;
-    left: 100%;
-    border: 1px solid $clr2;
-    -webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-    -moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
     background-color: $clr0;
 }
 
 .date-picker-container {
     position: absolute;
     z-index: 1;
+}
+
+li.date-picker:hover {
+    cursor: text;
 }
 
 .date-preview-container {
@@ -43,15 +40,6 @@
     .span-container {
         width: 80%;
         height: 80%;
-
-
-        &:hover {
-            cursor: text;
-        }
-
-        &.hovered {
-            background-color: red;
-        }
     }
 
     &:hover {
@@ -68,7 +56,6 @@
 }
 
 .date-preview {
-    border: 1px solid $clr4;
     width: 80%;
     height: 80%;
 }
