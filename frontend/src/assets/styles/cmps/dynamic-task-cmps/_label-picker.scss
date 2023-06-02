@@ -1,12 +1,13 @@
 .label-picker {
 	cursor: pointer;
 	color: $clr0;
-	overflow: hidden;
+	// overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	width: 130px;
 	position: relative;
 	text-align: center;
+
 	span {
 		font-size: rem(14px);
 		line-height: rem(36px);
@@ -28,6 +29,40 @@
 
 	.label-picker-popup {
 		position: absolute;
-		z-index: 9999999999999;
+		z-index: 10;
+		width: em(200px);
+		height: em(280px);
+		background-color: #ffffff;
+		border-radius: 8px;
+		box-shadow: 0 8px 16px 0 rgba(0,0,0,.32);
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			padding: em(16px) em(24px) em(8px) em(24px);
+
+			li {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: em(32px);
+				width: em(144px);
+				padding-inline: 4px;
+				margin-inline: auto;
+				font-size: rem(14px);
+				margin-block-end: 8px;
+			}
+		}
+
+		.seperator {
+			height: 4px;
+			width: em(168px);
+			color: rgb(50, 51, 56);
+		}
+
+		button.edit-labels {
+			background-color: inherit;
+			border: none;
+		}
 	}
 }
