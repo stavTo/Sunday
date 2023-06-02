@@ -22,20 +22,36 @@ export const boardService = {
 	updateDueDateInTask,
 }
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filter = {}) {
 	var boards = await storageService.query(STORAGE_KEY)
-	if (filterBy.txt) {
-		const regex = new RegExp(filterBy.txt, 'i')
-		boards = boards.filter(board => regex.test(board.vendor) || regex.test(board.description))
-	}
-	if (filterBy.price) {
-		boards = boards.filter(board => board.price <= filterBy.price)
+	//TODO MOVE FILTER TO BACKEND
+	if (filter.txt) {
+		const regex = new RegExp(filter.txt, 'i')
+		boards = boards.filter(board => regex.test(board.title))
 	}
 	return boards
 }
 
-function getById(boardId) {
-	return storageService.get(STORAGE_KEY, boardId)
+async function getById(boardId, filter = {}) {
+	let board
+	try {
+		board = await storageService.get(STORAGE_KEY, boardId)
+	} catch (err) {
+		console.log(err)
+	}
+	//TODO MOVE FILTER TO BACKEND
+	if (filter.txt) {
+		const regex = new RegExp(filter.txt, 'i')
+
+		// filter groups with title, if group title doesn't match, filter its tasks.
+		board.groups = board.groups.map(group =>
+			regex.test(group.title) ? group : { ...group, tasks: group.tasks.filter(task => regex.test(task.title)) }
+		)
+
+		// after filtering tasks, remove groups where no task matches.
+		board.groups = board.groups.filter(group => group.tasks.length)
+	}
+	return board
 }
 
 async function remove(boardId) {
@@ -376,4 +392,4 @@ function _getDummyBoard(boardNum) {
 // Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
 
-storageService.post(STORAGE_KEY, _getDummyBoard(1))
+// storageService.post(STORAGE_KEY, _getDummyBoard(1))

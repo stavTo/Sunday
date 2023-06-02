@@ -27,7 +27,6 @@ export function LabelPicker({ type, task, groupId }) {
 	const labelPickerRef = useRef()
 	const [isEditor, setIsEditor] = useState(false)
 
-	console.log(isEditor)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
 	useEffect(() => {
@@ -104,7 +103,10 @@ function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
 		<div className="label-picker-popup">
 			<ul className="labels-list clean-list">
 				{board[labelsName].map(label => (
-					<li key={label.id} style={{ backgroundColor: label.color }} onClick={() => onChangeLabel(label)}>
+					<li
+						key={label.id}
+						style={{ backgroundColor: label.color }}
+						onClick={ev => onChangeLabel(ev, label)}>
 						{label.title}
 					</li>
 				))}
@@ -123,7 +125,10 @@ function LabelPickerPopUpEditor({ board, labelsName, onChangeLabel }) {
 		<div className="label-picker-popup">
 			<ul className="labels-list clean-list">
 				{board[labelsName].map(label => (
-					<li key={label.id} style={{ backgroundColor: label.color }} onClick={() => onChangeLabel(label)}>
+					<li
+						key={label.id}
+						style={{ backgroundColor: label.color }}
+						onClick={ev => onChangeLabel(ev, label)}>
 						{label.title}
 					</li>
 				))}

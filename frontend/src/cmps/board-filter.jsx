@@ -4,8 +4,9 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useRef, useState } from 'react'
 import { boardService } from '../services/board.service.local'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
+import { loadBoard } from '../store/selected-board.actions'
 
-export function BoardFilter() {
+export function BoardFilter({ board }) {
 	const [filter, setFilter] = useState(boardService.getDefaultFilter())
 	const [inputFocused, setInputFocused] = useState(false)
 	const [active, setActive] = useState('')
@@ -19,7 +20,7 @@ export function BoardFilter() {
 	}, [])
 
 	useEffectUpdate(() => {
-		console.log(filter)
+		loadBoard(board._id, filter)
 	}, [filter])
 
 	function handleSearch({ target }) {
@@ -36,7 +37,9 @@ export function BoardFilter() {
 	}
 
 	function onSetActive(ev, state) {
+		console.log(state, active)
 		ev.stopPropagation()
+		if (state === active) return setActive('')
 		setActive(state)
 	}
 

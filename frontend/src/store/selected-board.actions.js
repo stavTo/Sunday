@@ -2,10 +2,10 @@ import { boardService } from '../services/board.service.local'
 import { SET_BOARD, SET_IS_LOADING_BOARD } from './selected-board.reducer'
 import { store } from './store'
 
-export async function loadBoard(boardId) {
-	store.dispatch({ type: SET_IS_LOADING_BOARD, isLoading: true })
+export async function loadBoard(boardId, filter = {}) {
+	!filter && store.dispatch({ type: SET_IS_LOADING_BOARD, isLoading: true })
 	try {
-		const board = await boardService.getById(boardId)
+		const board = await boardService.getById(boardId, filter)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log(err)

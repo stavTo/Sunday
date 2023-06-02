@@ -1,5 +1,7 @@
 .group-preview {
-	border-inline-start: 1px solid $border-clr;
+	& > ul {
+		border-inline-start: 1px solid $border-clr;
+	}
 	border-block-end: 1px solid $border-clr;
 	display: flex;
 	flex-direction: column;
@@ -11,7 +13,7 @@
 		& > * {
 			flex: 1;
 			user-select: none;
-			height: 36px;
+			height: $task-row-height;
 			border-block-start: 1px solid $border-clr;
 			border-inline-end: 1px solid $border-clr;
 		}

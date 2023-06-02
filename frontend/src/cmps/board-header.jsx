@@ -42,7 +42,7 @@ export function BoardHeader({ board }) {
 				<button className="btn-new-task btn-icon" onClick={onAddGroup}>
 					<FontAwesomeIcon icon={faAngleDown} />
 				</button>
-				<BoardFilter />
+				<BoardFilter board={board} />
 			</div>
 		</section>
 	)
