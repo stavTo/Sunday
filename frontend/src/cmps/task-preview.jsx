@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { LabelPicker } from './dynamic-task-cmps/label-picker'
 import { TaskTitle } from './dynamic-task-cmps/task-title'
-import { DatePicker } from './dynamic-task-cmps/date-picker'
+import { OpenCalendar } from './dynamic-task-cmps/date-picker'
 import { MemberPicker } from './dynamic-task-cmps/member-picker'
 
 export function TaskPreview({ task, groupId }) {
@@ -15,12 +15,12 @@ export function TaskPreview({ task, groupId }) {
 					case 'priority-picker':
 						return <LabelPicker key={cmp.id} groupId={groupId} type={cmp.cmpName} task={task} />
 					case 'date-picker':
-						return <DatePicker key={cmp.id} groupId={groupId} task={task} />
+						return <OpenCalendar key={cmp.id} groupId={groupId} task={task} />
 					case 'owner-picker':
 					case 'collaborator-picker':
 						return <MemberPicker key={cmp.id} type={cmp.cmpName} groupId={groupId} task={task} />
-					case ' date-picker':
-						return <DatePicker key={cmp.id} groupId={groupId} task={task} />
+					// case ' date-picker':
+					// 	return <DatePicker key={cmp.id} groupId={groupId} task={task} />
 					default:
 						return null
 				}
