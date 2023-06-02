@@ -35,9 +35,14 @@ export function AddTask({ groupId }) {
 	}
 
 	return (
-		<ul className="add-task clean-list  task-row">
+		<ul
+			className="add-task clean-list  task-row"
+			onClick={() => {
+				elInput.current.focus()
+			}}>
 			<li>
 				<input
+					className="add-task-input"
 					ref={elInput}
 					onKeyDown={handleKeyPressed}
 					placeholder="+ Add item"

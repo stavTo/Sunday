@@ -1,4 +1,6 @@
 .group-preview {
+	border-inline-start: 1px solid $border-clr;
+	border-block-end: 1px solid $border-clr;
 	display: flex;
 	flex-direction: column;
 	.group-header {
@@ -10,7 +12,8 @@
 			flex: 1;
 			user-select: none;
 			height: 36px;
-			border: 1px solid rgb(208, 212, 228);
+			border-block-start: 1px solid $border-clr;
+			border-inline-end: 1px solid $border-clr;
 		}
 	}
 }
