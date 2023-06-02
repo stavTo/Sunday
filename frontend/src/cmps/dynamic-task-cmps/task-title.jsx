@@ -40,6 +40,7 @@ export function TaskTitle({ task, groupId }) {
 			{!isInputVisible && <span onClick={handleClick}>{task.title}</span>}
 			{isInputVisible && (
 				<input
+					autoFocus={true}
 					onBlur={setNewTitle}
 					onClick={ev => ev.stopPropagation()}
 					className="title-input"

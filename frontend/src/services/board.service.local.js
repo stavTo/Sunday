@@ -18,6 +18,7 @@ export const boardService = {
 	getEmptyGroup,
 	removeTask,
 	addTaskToFirstGroup,
+	getDefaultFilter,
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -166,6 +167,24 @@ async function removeTask(boardId, groupId, taskId, activity = '') {
 	// board.board.activities.unshift(activity)
 	await save(board)
 	return board
+}
+
+function getDefaultFilter() {
+	return {
+		txt: '',
+		byUserId: '',
+		advancedFilter: {
+			groups: {},
+			tasks: {},
+			members: {},
+			timeLines: {},
+			durations: {},
+			priorities: {},
+			statuses: {},
+		},
+		sort: {},
+		shownColumns: [],
+	}
 }
 
 function _getDummyBoard(boardNum) {

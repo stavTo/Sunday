@@ -8,15 +8,18 @@
 			border-radius: 4px;
 			cursor: text;
 		}
-		margin: 6px 10px;
-		padding: 2px 0px 3px 16px;
+		margin: 6px 10px 6px 26px;
+		padding: 2px 0px 3px;
 	}
 	input {
 		all: unset;
-		margin: 6px 10px;
-		padding: 2px 0px 3px 16px;
+		width: 100%;
+		margin: 6px 10px 6px 26px;
+
 		&:focus {
 			background-color: unset;
+			outline: 1px solid $bg-clr1;
+			border-radius: 4px;
 		}
 	}
 

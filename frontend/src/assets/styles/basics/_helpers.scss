@@ -37,6 +37,9 @@
 	&:hover {
 		background-color: $button-hover-bgc;
 	}
+	&.active {
+		background-color: $button-clicked-bgc;
+	}
 }
 
 .clean-list {
@@ -49,7 +52,7 @@
 .flex {
 	display: flex;
 
-	>*.full {
+	> *.full {
 		flex: 1;
 	}
 
