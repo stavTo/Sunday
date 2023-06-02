@@ -1,6 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+import { async } from 'q'
 
 const STORAGE_KEY = 'board'
 
@@ -18,6 +19,7 @@ export const boardService = {
 	getEmptyGroup,
 	removeTask,
 	addTaskToFirstGroup,
+	updateLabelInTask
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -73,7 +75,6 @@ function getEmptyBoard() {
 	return {
 		_id: '',
 		title: '',
-		description: '',
 		isStarred: false,
 		archivedAt: null,
 		createdBy: { _id: '', fullname: '', imgUrl: '' },
@@ -81,6 +82,19 @@ function getEmptyBoard() {
 		members: [],
 		groups: [],
 		cmpsOrder: [],
+		statusLabels: [
+			{ id: 'sl100', title: 'Done', color: '#00C875' },
+			{ id: 'sl101', title: 'Working on it', color: '#fdab3d' },
+			{ id: 'sl102', title: 'Stuck', color: '#e2445c' },
+			{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' }
+		],
+		priorityLabels: [
+			{ id: 'pl100', title: 'Critical', color: '#333333' },
+			{ id: 'pl101', title: 'High', color: '#401694' },
+			{ id: 'pl102', title: 'Medium', color: '#5559df' },
+			{ id: 'pl103', title: 'Low', color: '#579bfc' },
+			{ id: 'pl104', title: '', color: '#c4c4c4' }
+		]
 	}
 }
 
@@ -169,9 +183,23 @@ async function removeTask(boardId, groupId, taskId, activity = '') {
 	return board
 }
 
+async function updateLabelInTask(boardId, groupId, taskId, labelTaskName, label) {
+	const board = await getById(boardId)
+	// console.log(groupId)
+	// console.log(board.groups[groupId])
+	const group = board.groups.find(group => group.id === groupId)
+	const task = group.tasks.find(task => task.id === taskId)
+	console.log(task)
+	task[labelTaskName] = label.title
+	await save(board)
+	return board
+}
+
+
+
 function _getDummyBoard(boardNum) {
 	return {
-		title: `board${boardNum}`,
+		title: `Fake Board`,
 		description: '',
 		isStarred: false,
 		archivedAt: 1589983468418,
@@ -181,18 +209,6 @@ function _getDummyBoard(boardNum) {
 			imgUrl: 'http://some-img',
 		},
 		style: {},
-		labels: [
-			{
-				id: 'l101',
-				title: 'Done',
-				color: '#00C875',
-			},
-			{
-				id: 'l102',
-				title: 'In-progress',
-				color: '#FDAB3D',
-			},
-		],
 		members: [
 			{
 				_id: 'u101',
@@ -274,7 +290,7 @@ function _getDummyBoard(boardNum) {
 					{
 						id: 'c106',
 						title: 'Marketing Strategy',
-						status: 'not-started',
+						status: '',
 						assignee: 'Emily Brown',
 						dueDate: '2023-05-30',
 						description: 'Develop a marketing strategy to promote the online toy store',
@@ -302,10 +318,24 @@ function _getDummyBoard(boardNum) {
 			},
 		],
 		cmpsOrder: [
-			{ id: utilService.makeId(), cmpName: 'status-picker' },
-			{ id: utilService.makeId(), cmpName: 'owner-picker' },
-			{ id: utilService.makeId(), cmpName: 'date-picker' },
+			{ id: utilService.makeId(), cmpName: 'statusPicker' },
+			{ id: utilService.makeId(), cmpName: 'priorityPicker'},
+			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
+			{ id: utilService.makeId(), cmpName: 'datePicker' },
 		],
+		statusLabels: [
+			{ id: 'sl100', title: 'Done', color: '#00C875' },
+			{ id: 'sl101', title: 'Working on it', color: '#fdab3d' },
+			{ id: 'sl102', title: 'Stuck', color: '#e2445c' },
+			{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' }
+		],
+		priorityLabels: [
+			{ id: 'pl100', title: 'Critical', color: '#333333' },
+			{ id: 'pl101', title: 'High', color: '#401694' },
+			{ id: 'pl102', title: 'Medium', color: '#5559df' },
+			{ id: 'pl103', title: 'Low', color: '#579bfc' },
+			{ id: 'pl104', title: '', color: '#c4c4c4' }
+		]
 	}
 }
 
@@ -316,4 +346,4 @@ function _getDummyBoard(boardNum) {
 // Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
 
-// storageService.post(STORAGE_KEY, _getDummyBoard(1))
+// storageService.post(STORAGE_KEY, _getDummyBoard())

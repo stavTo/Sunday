@@ -51,5 +51,8 @@ function getEmptyBoard() {
 		members: [],
 		groups: [],
 		cmpsOrder: [],
+		description: '',
+		statusLabels: [],
+		priorityLabels: []
 	}
 }

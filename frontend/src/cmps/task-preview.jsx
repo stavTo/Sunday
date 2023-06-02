@@ -11,16 +11,14 @@ export function TaskPreview({ task, groupId }) {
 			<TaskTitle groupId={groupId} task={task} />
 			{board.cmpsOrder.map(cmp => {
 				switch (cmp.cmpName) {
-					case 'status-picker':
-					case 'priority-picker':
+					case 'statusPicker':
+					case 'priorityPicker':
 						return <LabelPicker key={cmp.id} groupId={groupId} type={cmp.cmpName} task={task} />
-					case 'date-picker':
-						return <OpenCalendar key={cmp.id} groupId={groupId} task={task} />
-					case 'owner-picker':
-					case 'collaborator-picker':
+					case 'ownerPicker':
+					case 'collaboratorPicker':
 						return <MemberPicker key={cmp.id} type={cmp.cmpName} groupId={groupId} task={task} />
-					// case ' date-picker':
-					// 	return <DatePicker key={cmp.id} groupId={groupId} task={task} />
+					case ' datePicker':
+						return <DatePicker key={cmp.id} groupId={groupId} task={task} />
 					default:
 						return null
 				}

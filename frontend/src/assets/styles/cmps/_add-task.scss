@@ -1,10 +1,14 @@
 .add-task {
 	cursor: pointer;
+
+	&:hover input {
+		outline: 1px solid $input-hover-border-clr;
+		border-radius: 4px;
+	}
+
 	input {
 		all: unset;
-		&:hover {
-			outline: 1px solid $input-hover-border-clr;
-			border-radius: 4px;
-		}
+		margin: 6px 10px;
+		padding: 2px 0px 3px 16px;
 	}
 }
