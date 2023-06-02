@@ -6,6 +6,7 @@
 	color: #ffffff;
 	background-color: $bg-clr2;
 	width: 66px;
+	min-width: 66px;
 
 	.nav-container {
 		height: 100%;
@@ -18,12 +19,11 @@
 			flex-direction: column;
 			align-items: center;
 
-
 			ul {
-				gap: .5em;
+				gap: 0.5em;
 
 				li:first-child {
-					margin-block-start: .5em;
+					margin-block-start: 0.5em;
 					height: 2.5em;
 					width: 2.5em;
 
@@ -33,7 +33,7 @@
 				}
 
 				li:nth-child(2) {
-					margin-block-start: .6em;
+					margin-block-start: 0.6em;
 
 					svg {
 						height: 1.7em;
@@ -63,7 +63,7 @@
 
 				&:hover {
 					background-color: $bg-clr4;
-					border-radius: .4em;
+					border-radius: 0.4em;
 				}
 			}
 		}
@@ -86,10 +86,10 @@
 
 				&:hover {
 					background-color: $bg-clr4;
-					border-radius: .4em;
+					border-radius: 0.4em;
 				}
 
-				&[data-title="apps"] {
+				&[data-title='apps'] {
 					svg {
 						color: #6c6cff;
 					}
@@ -124,8 +124,6 @@
 						background-color: inherit;
 					}
 				}
-
-
 			}
 		}
 

@@ -1,4 +1,72 @@
 .board-header {
+	color: $clr1;
+	padding: 16px 30px 0px 38px;
+	.board-header-top {
+		display: flex;
+		justify-content: space-between;
+		.board-header-top-left {
+			display: flex;
+			align-items: center;
+			.board-name {
+				font-size: em(32px);
+				font-weight: 500;
+				padding-inline: em(4px);
+			}
+
+			.header-icon {
+				display: flex;
+				cursor: pointer;
+			}
+		}
+
+		.board-header-top-right {
+			font-size: em(14px);
+			display: flex;
+			gap: 8px;
+			align-self: center;
+			align-items: center;
+			& > * {
+				height: 32px;
+				cursor: pointer;
+			}
+
+			.activity-container {
+				display: flex;
+				align-items: center;
+			}
+
+			.invite-container {
+				display: flex;
+				align-items: center;
+				padding: 4px 8px;
+				cursor: pointer;
+				border: 1px solid $input-hover-border-clr;
+				border-radius: 4px;
+
+				svg {
+					color: $icon-color;
+					height: 20px;
+					line-height: 22px;
+					margin-inline-end: em(8px);
+				}
+			}
+			.menu-container {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 40px;
+				width: 32px;
+			}
+		}
+
+		.header-icon {
+			color: $icon-color;
+			cursor: text;
+			font-family: Figtree, Roboto, Rubik, 'Noto Kufi Arabic', 'Noto Sans JP', sans-serif;
+			padding: 4px;
+			user-select: none;
+		}
+	}
 	.btn-new-task {
 		@include btn-board-default($fontSize: em(14px), $padding: 4px 8px);
 		height: 32px;
@@ -8,6 +76,7 @@
 			border-bottom-left-radius: 4px;
 		}
 		&.btn-icon {
+			margin-inline-end: em(14px);
 			border-top-right-radius: 4px;
 			border-bottom-right-radius: 4px;
 			border-inline-start: 1px solid $bg-clr1-darker;

@@ -1,8 +1,33 @@
 .board-filter {
+	color: $clr1;
 	display: flex;
+	gap: 1px;
 	input {
+		height: 28px;
 		all: unset;
 		cursor: pointer;
+		font-size: em(14px);
+		width: 60px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	& > * {
+		display: flex;
+		align-items: center;
+		.filter-text {
+			padding-inline-end: em(12px);
+			font-size: em(14px);
+		}
+	}
+
+	.filter-icon {
+		color: $icon-color;
+		width: 32px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.filter-container {
@@ -11,6 +36,9 @@
 				background-color: $input-hover-border-clr;
 			}
 		}
+	}
+	svg {
+		font-weight: lighter;
 	}
 }
 

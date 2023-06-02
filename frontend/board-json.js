@@ -51,6 +51,7 @@ function saveTask(boardId, groupId, task, activity) {
 
 const board = {
 	_id: 'b101',
+	description: '',
 	title: 'Robot dev proj',
 	isStarred: false,
 	archivedAt: 1589983468418,
@@ -58,9 +59,6 @@ const board = {
 		_id: 'u101',
 		fullname: 'Abi Abambi',
 		imgUrl: 'http://some-img',
-	},
-	style: {
-		backgroundImage: '',
 	},
 	labels: [
 		{
@@ -171,7 +169,7 @@ const board = {
 		},
 	],
 
-	cmpsOrder: ['status-picker', 'collaborator-picker', 'date-picker'],
+	cmpsOrder: ['statusPicker', 'collaboratorPicker', 'datePicker'],
 }
 
 const user = {
