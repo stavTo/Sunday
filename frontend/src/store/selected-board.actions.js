@@ -65,12 +65,23 @@ export async function removeTask(boardId, groupId, taskId, activity = '') {
 	}
 }
 
-// export async function updateLabelInTask(boardId, groupId, taskId, labelTaskName, label) {
-// 	try {
-// 		const board = await boardService.updateLabelInTask(boardId, groupId, taskId, labelTaskName, label)
-// 		store.dispatch({ type: SET_BOARD, board })
-// 	} catch (err) {
-// 		console.log('cant remove task')
-// 		throw err
-// 	}
-// }
+export async function updateLabelInTask(boardId, groupId, taskId, labelTaskName, label) {
+	try {
+		const board = await boardService.updateLabelInTask(boardId, groupId, taskId, labelTaskName, label)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant remove task')
+		throw err
+	}
+}
+
+export async function updateDueDateInTask(boardId, groupId, taskId, dueDate) {
+	console.log('reached here', dueDate)
+	try {
+		const board = await boardService.updateDueDateInTask(boardId, groupId, taskId, dueDate)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('Cannot set date')
+		throw err
+	}
+}

@@ -6,6 +6,12 @@ import { MemberPicker } from './dynamic-task-cmps/member-picker'
 import { useState } from 'react'
 
 export function TaskPreview({ task, groupId }) {
+	const STATUS_PICKER = 'statusPicker'
+	const PRIORITY_PICKER = 'priorityPicker'
+	const DATE_PICKER = 'datePicker'
+	const OWNER_PICKER = 'ownerPicker'
+	const COLLABORATOR_PICKER = 'collaboratorPicker'
+
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	return (
@@ -13,16 +19,14 @@ export function TaskPreview({ task, groupId }) {
 			<TaskTitle groupId={groupId} task={task} />
 			{board.cmpsOrder.map(cmp => {
 				switch (cmp.cmpName) {
-					case 'statusPicker':
-					case 'priorityPicker':
+					case STATUS_PICKER:
+					case PRIORITY_PICKER:
 						return <LabelPicker key={cmp.id} groupId={groupId} type={cmp.cmpName} task={task} />
-					case 'datePicker':
+					case DATE_PICKER:
 						return <DatePicker key={cmp.id} groupId={groupId} task={task} />
-					case 'ownerPicker':
-					case 'collaboratorPicker':
+					case OWNER_PICKER:
+					case COLLABORATOR_PICKER:
 						return <MemberPicker key={cmp.id} type={cmp.cmpName} groupId={groupId} task={task} />
-					case ' datePicker':
-						return <DatePicker key={cmp.id} groupId={groupId} task={task} />
 					default:
 						return null
 				}

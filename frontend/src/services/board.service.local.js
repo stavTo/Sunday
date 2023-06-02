@@ -19,6 +19,7 @@ export const boardService = {
 	removeTask,
 	addTaskToFirstGroup,
 	getDefaultFilter,
+	updateDueDateInTask,
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -210,6 +211,20 @@ function getDefaultFilter() {
 		sort: {},
 		shownColumns: [],
 	}
+}
+
+async function updateDueDateInTask(boardId, groupId, taskId, dueDate) {
+	const board = await getById(boardId)
+	// console.log(groupId)
+	// console.log(board.groups[groupId])
+	const group = board.groups.find(group => group.id === groupId)
+	const task = group.tasks.find(task => task.id === taskId)
+	console.log(task)
+	console.log('task before assignment', task)
+	task.dueDate = dueDate
+	console.log('task after assignment', task)
+	await save(board)
+	return board
 }
 
 function _getDummyBoard(boardNum) {

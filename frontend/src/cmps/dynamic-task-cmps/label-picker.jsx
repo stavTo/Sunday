@@ -25,7 +25,9 @@ export function LabelPicker({ type, task, groupId }) {
 	const [label, setLabel] = useState({})
 	const [labelsName, setLabelsName] = useState('')
 	const labelPickerRef = useRef()
+	const [isEditor, setIsEditor] = useState(false)
 
+	console.log(isEditor)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
 	useEffect(() => {
@@ -42,6 +44,11 @@ export function LabelPicker({ type, task, groupId }) {
 			document.removeEventListener('mousedown', onPickerClose)
 		}
 	}, [])
+
+	function onPickerClose() {
+		setIsEditor(false)
+		setIsPickerOpen(false)
+	}
 
 	useEffectUpdate(() => {
 		const labelTxt = type === 'statusPicker' ? task.status : task.priority
@@ -70,28 +77,62 @@ export function LabelPicker({ type, task, groupId }) {
 
 	return (
 		<li className="label-picker" onClick={handleClick} style={{ backgroundColor: label?.color || '#C4C4C4' }}>
-			{label?.title || ''}
+			<span>{label?.title || ''}</span>
 			<div className="corner-fold"></div>
 
-			{isPickerOpen && (
-				<div className="label-picker-popup" ref={labelPickerRef}>
-					<ul className="labels-list clean-list">
-						{board[labelsName].map(label => (
-							<li
-								key={label.id}
-								style={{ backgroundColor: label.color }}
-								onClick={ev => onChangeLabel(ev, label)}>
-								{label.title}
-							</li>
-						))}
-					</ul>
-					<div className="sperator"></div>
-					<button className="edit-labels">
-						<span>{EDIT_LABEL}</span>
-						<span>Edit Labels</span>
-					</button>
-				</div>
-			)}
+			{isPickerOpen &&
+				(isEditor ? (
+					<LabelPickerPopUpEditor board={board} labelsName={labelsName} onChangeLabel={onChangeLabel} />
+				) : (
+					<LabelPickerPopUp
+						board={board}
+						labelsName={labelsName}
+						onChangeLabel={onChangeLabel}
+						setIsEditor={setIsEditor}
+					/>
+				))}
 		</li>
+	)
+}
+
+function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
+	function onSetIsEditor() {
+		setIsEditor(true)
+	}
+
+	return (
+		<div className="label-picker-popup">
+			<ul className="labels-list clean-list">
+				{board[labelsName].map(label => (
+					<li key={label.id} style={{ backgroundColor: label.color }} onClick={() => onChangeLabel(label)}>
+						{label.title}
+					</li>
+				))}
+			</ul>
+			<div className="sperator"></div>
+			<button className="edit-labels" onClick={onSetIsEditor}>
+				<span>{EDIT_LABEL}</span>
+				<span>Edit Labels</span>
+			</button>
+		</div>
+	)
+}
+
+function LabelPickerPopUpEditor({ board, labelsName, onChangeLabel }) {
+	return (
+		<div className="label-picker-popup">
+			<ul className="labels-list clean-list">
+				{board[labelsName].map(label => (
+					<li key={label.id} style={{ backgroundColor: label.color }} onClick={() => onChangeLabel(label)}>
+						{label.title}
+					</li>
+				))}
+			</ul>
+			<div className="sperator"></div>
+			<button className="edit-labels">
+				<span>{EDIT_LABEL}</span>
+				<span>Apply</span>
+			</button>
+		</div>
 	)
 }

@@ -1,53 +1,68 @@
-.expandable-sidebar-container {
+.workspace-container {
 	height: auto;
 	background-color: $bg-clr3;
 	border-inline-end: 1px solid $clr2;
-	position: relative;
 
-	.expandable-sidebar {
+	&:not(.expand-btn):hover {
+		box-shadow: 23px 10px 32px -3px rgba(0, 0, 0, 0.1);
+	}
+
+	.expandable-sidebar-container {
 		height: 100%;
-		transition: width .2s;
-		background-color: $bg-clr3;
-		width: 33px;
+		position: relative;
+
+		.expandable-sidebar {
+			height: 100%;
+			transition: width .2s;
+			background-color: $bg-clr3;
+			width: 33px;
 
 
-		ul {
-			padding: 1em;
+			ul {
+				padding: 1em;
+			}
+
+			&:hover {
+				width: 254px;
+				height: 100%;
+				left: 66px;
+			}
 		}
 
-		&:hover {
+		.open {
 			width: 254px;
 			height: 100%;
 			left: 66px;
-			box-shadow: 23px 10px 32px -3px rgba(0, 0, 0, 0.1);
 		}
 	}
 
 	.open {
-		width: 254px;
-		height: 100%;
-		left: 66px;
 		box-shadow: 23px 10px 32px -3px rgba(0, 0, 0, 0.1);
 	}
 
 	.expand-btn {
-		position: relative;
-		left: calc(100% - 14px);
-		border: 1px solid $clr2;
+		// left: 308px;
+		border: 1px solid #d1d5e5;
 		border-radius: 50%;
 		top: 20px;
 		height: 25px;
 		width: 25px;
-		background-color: $clr0;
-		transition: width .3s;
+		background-color: #fff;
+		transition: width 0.3s;
+		z-index: 1;
+		left: calc(100% - 14px);
+		position: relative;
 
 		svg {
 			color: $clr3;
 			left: 3em;
 
 			path {
+				position: relative;
+
 				&:focus {
 					outline: none;
+
 				}
 			}
 		}

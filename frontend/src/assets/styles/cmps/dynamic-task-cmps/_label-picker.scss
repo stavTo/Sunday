@@ -1,14 +1,14 @@
 .label-picker {
 	cursor: pointer;
 	color: $clr0;
-	// overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
 	width: 130px;
 	position: relative;
 	text-align: center;
-
+	
 	span {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 		font-size: rem(14px);
 		line-height: rem(36px);
 	}
@@ -29,6 +29,7 @@
 
 	.label-picker-popup {
 		position: absolute;
+		top: em(46px);
 		z-index: 10;
 		width: em(200px);
 		height: em(280px);
