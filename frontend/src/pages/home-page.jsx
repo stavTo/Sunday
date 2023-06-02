@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 
 import marketingIcon from '../assets/img/marketing_icon.png'
 import designIcon from '../assets/img/design_icon.png'
@@ -21,30 +22,46 @@ import oxySponser from '../assets/img/img-sponser/oxy.png'
 import universalSponser from '../assets/img/img-sponser/universal.png'
 
 import { BTN_ARROW } from '../assets/icons/icons'
-
-
+import { loadBoards } from '../store/board.actions'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router'
 
 
 export function HomePage() {
+	const navigate = useNavigate()
+	const boards = useSelector(({ boardModule }) => boardModule.boards)
+	const [scrolled, setScrolled] = useState(false)
 
-	return <section className="home-page main-layout">
+	useEffect(() => {
+		loadBoards()
+	}, [])
 
-		<header className="home-header main-layout full">
+	window.onscroll = function handleScroll() {
+		const isScrolled = window.scrollY > 0
+		setScrolled(isScrolled)
+	}
+
+	function onNavigate() {
+		navigate(`/boards/${boards[0]._id}`)
+	}
+
+	return <section className="home-page main-layout scrolled">
+		<header className={`home-header main-layout full ${`${scrolled ? 'scrolled' : ''}`}`}>
 			<nav className="main-nav flex">
 				<div className="logo">
-					logo!
+					LOGO!
 				</div>
 				<ul className="clean-list flex">
 					<li> <a href="">About</a> </li>
 					<li><a href="">Log in</a> </li>
-					<li><button className='btn-get-started btn-arrow'>
+					<li><button className='btn-get-started btn-arrow'
+						onClick={onNavigate}>
 						<span className='btn-title'>Get Started</span>
 						<span className='btn-arrow'>{BTN_ARROW}</span>
 					</button></li>
 				</ul>
 			</nav>
 		</header>
-
 		<main className='home-main'>
 			<div className="titles-container">
 				<span className='main-title'>
@@ -55,48 +72,64 @@ export function HomePage() {
 					What would you like to manage with sunday.com Work OS?
 				</span>
 			</div>
-
 			<section className="card-container">
 				<div className="card">
-					<img src={designIcon} alt="" />
+					<div className="icon-container"><img src={designIcon} alt="" />
+					</div>
 					<span>Creative & design</span>
 				</div>
 				<div className="card">
-					<img src={devIcon} alt="" />
+					<div className="icon-container">
+						<img src={devIcon} alt="" />
+					</div>
 					<span>Software development</span>
 				</div>
 				<div className="card">
-					<img src={marketingIcon} alt="" />
+					<div className="icon-container">
+						<img src={marketingIcon} alt="" />
+					</div>
 					<span>Marketing</span>
 				</div>
 				<div className="card">
-					<img src={pmoIcon} alt="" />
+					<div className="icon-container">
+						<img src={pmoIcon} alt="" />
+					</div>
 					<span>Project management</span>
 				</div>
 				<div className="card">
-					<img src={crmIcon} alt="" />
+					<div className="icon-container">
+						<img src={crmIcon} alt="" />
+					</div>
 					<span>Sales & CRM</span>
 				</div>
 				<div className="card">
-					<img src={taskIcon} alt="" />
+					<div className="icon-container">
+						<img src={taskIcon} alt="" />
+					</div>
 					<span>Task management</span>
 				</div>
 				<div className="card">
-					<img src={hrIcon} alt="" />
+					<div className="icon-container">
+						<img src={hrIcon} alt="" />
+					</div>
 					<span>HR</span>
 				</div>
 				<div className="card">
-					<img src={operationIcon} alt="" />
+					<div className="icon-container">
+						<img src={operationIcon} alt="" />
+					</div>
 					<span>Operations</span>
 				</div>
 				<div className="card">
-					<img src={workflowsIcon} alt="" />
+					<div className="icon-container">
+						<img src={workflowsIcon} alt="" />
+					</div>
 					<span>More workflows</span>
 				</div>
 			</section>
-
 			<section className='btn-container'>
-				<button className='btn-get-started btn-arrow'>
+				<button className='btn-get-started btn-arrow'
+					onClick={onNavigate}>
 					<span className='btn-title'>Get Started</span>
 					<span className='btn-arrow'>{BTN_ARROW}</span>
 				</button>
@@ -107,12 +140,8 @@ export function HomePage() {
 		<section className="img-container">
 			<img src={HP_asset_white_bg} alt="" />
 		</section>
-
-
 		<section className='sponsers'>
-
 			<h2>Trusted by 180,000+ customers worldwide</h2>
-
 			<ul className='sponsers-list clean-list'>
 				<li><img src={bdSponser} alt="" /></li>
 				<li><img src={canvaSponser} alt="" /></li>
@@ -124,10 +153,6 @@ export function HomePage() {
 				<li><img src={oxySponser} alt="" /></li>
 				<li><img src={universalSponser} alt="" /></li>
 			</ul>
-
 		</section>
-
-
-
 	</section>
 }
