@@ -4,9 +4,9 @@
     margin-block-start: 2em;
     left: 100%;
     border: 1px solid $clr2;
-    -webkit-box-shadow: 0px 0px 25px -3px rgba(0,0,0,0.31);
-    -moz-box-shadow: 0px 0px 25px -3px rgba(0,0,0,0.31);
-    box-shadow: 0px 0px 25px -3px rgba(0,0,0,0.31);
+    -webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
 }
 
 .date-picker-container {
@@ -20,8 +20,42 @@
     height: 100%;
 
     .date-preview {
-        border: 1px solid $clr4;
         width: 80%;
         height: 80%;
+    }
+
+    span.date-preview {
+        display: block;
+        width: fit-content;
+    }
+
+    span:hover {
+        color: $clr5;
+    }
+
+    .span-container {
+        width: 80%;
+        height: 80%;
+
+
+        &:hover {
+            cursor: text;
+        }
+
+        &.hovered {
+            background-color: red;
+        }
+    }
+
+    &:hover {
+        width: 80%;
+        height: 80%;
+        border: 1px solid $clr4;
+        // top: 10%;
+        // position: relative;
+    }
+
+    .reset-btn {
+        background-color: $bg-clr1;
     }
 }
