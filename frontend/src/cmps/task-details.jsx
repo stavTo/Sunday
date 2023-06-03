@@ -55,15 +55,16 @@ export function TaskDetails() {
     return (
         <section className="task-details">
             <div className="close-modal-btn"
-             onClick={onCloseModal}>
+                onClick={onCloseModal}>
                 {ICON_CLOSE}</div>
-            <h1>{task.title}</h1>
+            <h1 className="task-details-title">{task.title}</h1>
             <div>
-                <ul className="clean-list flex">
-                    <li><a href="">Updates |</a></li>
-                    <li><a href="">Files |</a></li>
-                    <li><a href="">Activity Log</a></li>
+                <ul className="clean-list flex nav-bar">
+                    <li><a className="btn-primary" href="">Updates </a></li>
+                    <li><a className="btn-primary" href="">Files </a></li>
+                    <li><a className="btn-primary" href="">Activity Log</a></li>
                 </ul>
+                <div className="separator"></div>
             </div>
 
             <section className="editor-container">
