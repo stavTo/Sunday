@@ -255,18 +255,6 @@ function getEmptyComment() {
 	}
 }
 
-// async function updateLabelInTask(boardId, groupId, taskId, labelTaskName, label) {
-// 	const board = await getById(boardId)
-// 	// console.log(groupId)
-// 	// console.log(board.groups[groupId])
-// 	const group = board.groups.find(group => group.id === groupId)
-// 	const task = group.tasks.find(task => task.id === taskId)
-// 	console.log(task)
-// 	task[labelTaskName] = label.title
-// 	await save(board)
-// 	return board
-// }
-
 function getDefaultFilter() {
 	return {
 		txt: '',

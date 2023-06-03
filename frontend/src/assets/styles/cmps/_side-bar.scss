@@ -43,6 +43,7 @@
 			}
 
 			li {
+				cursor: pointer;
 				width: 2.5em;
 				height: 2.5em;
 				align-items: center;
@@ -78,6 +79,10 @@
 			}
 
 			li {
+				&.apps {
+					color: #6c6cff;
+				}
+				cursor: pointer;
 				width: 2em;
 				text-align: center;
 				height: 2em;
@@ -87,12 +92,6 @@
 				&:hover {
 					background-color: $bg-clr4;
 					border-radius: 0.4em;
-				}
-
-				&[data-title='apps'] {
-					svg {
-						color: #6c6cff;
-					}
 				}
 
 				&:last-child img {

@@ -1,24 +1,29 @@
 import { useState } from 'react'
 import { BoardList } from '../cmps/board-list'
 import { ICON_EXPAND_ARROW } from '../assets/icons/icons'
+import { utilService } from '../services/util.service'
 
 export function ExpandableSidebar() {
 	const [isHovered, setIsHovered] = useState(false)
 	const [isFixed, setIsFixed] = useState(false)
 
+	const debouncedSetIsHovered = utilService.debounce(setIsHovered, 200)
+
 	return (
 		<div className="workspace-container">
-			<div className="expand-btn flex align-center justify-center" onClick={() => setIsFixed(!isFixed)}>
-				<div className={`arrow ${isFixed ? 'rotate-arrow-left' : 'rotate-arrow-right'}`}>
-					{ICON_EXPAND_ARROW}
-				</div>
+			<div
+				className={`expand-btn flex align-center justify-center ${
+					isFixed ? 'rotate-arrow-left' : 'rotate-arrow-right'
+				}`}
+				onClick={() => setIsFixed(!isFixed)}>
+				{ICON_EXPAND_ARROW}
 			</div>
-			<div className="expandable-sidebar-container">
+			<div className={`expandable-sidebar-container ${isHovered ? 'expanded' : ''}`}>
 				<section
 					className={`${isFixed ? 'open expandable-sidebar' : 'expandable-sidebar'}`}
-					onMouseEnter={() => setIsHovered(true)}
-					onMouseLeave={() => setIsHovered(false)}>
-					{isFixed || isHovered ? <BoardList fixed={isFixed} /> : ''}
+					onMouseEnter={() => debouncedSetIsHovered(true)}
+					onMouseLeave={() => debouncedSetIsHovered(false)}>
+					{(isFixed || isHovered) && <BoardList fixed={isFixed} />}
 				</section>
 			</div>
 		</div>

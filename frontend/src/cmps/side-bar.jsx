@@ -27,7 +27,7 @@ export function SideBar() {
 	return (
 		<>
 			<section className="side-bar">
-				<ul className="clean-list nav-container flex">
+				<ul className="nav-container clean-list flex">
 					<li className="top-navigation-area">
 						<ul className="clean-list flex column align-center">
 							<li className="flex" data-tippy-content="home page">
