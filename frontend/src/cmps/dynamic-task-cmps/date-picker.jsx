@@ -5,75 +5,54 @@ import { useSelector } from "react-redux"
 import 'react-day-picker/dist/style.css'
 import { saveTask } from '../../store/selected-board.actions'
 
-import { ICON_CLOSE } from "../../assets/icons/icons"
+import { ICON_CLOSE, ICON_ADD_DATE } from "../../assets/icons/icons"
 
 
 // ** Positioning calendar patch edit imports-related stuff
 
-import React, { ChangeEventHandler, useRef } from 'react';
-
-import { isValid, parse } from 'date-fns';
-import FocusTrap from 'focus-trap-react';
 import { usePopper } from 'react-popper';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons"
 
 export function DatePicker({ task, groupId }) {
-	const [selected, setSelected] = useState(null)
+	const [selected, setSelected] = useState()
 	const [isHovered, setIsHovered] = useState(false)
 	const [toggle, setToggle] = useState(false)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
+	const [hasDate, setHasDate] = useState(task.dueDate)
 
+	const [referenceElement, setReferenceElement] = useState(null)
+	const [popperElement, setPopperElement] = useState(null)
+	const [arrowElement, setArrowElement] = useState(null)
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+		modifiers: [
+			{ name: 'arrow', options: { element: arrowElement } },
+			{ name: 'offset', options: { offset: [0, 8] } },
+		],
+	})
 
-	const boxRef = useRef()
-	const tooltipRef = useRef()
-	const {styles, attributes} = usePopper(boxRef.current, tooltipRef.current)
+	useEffect(() => {
+		document.addEventListener('mousedown', onClosePicker)
+		return () => {
+			document.removeEventListener('mousedown', onClosePicker)
+		}
+	}, [])
 
-	// **POPPER SECTION START
-	// const [inputValue, setInputValue] = useState('');
-	// const [isPopperOpen, setIsPopperOpen] = useState(false);
+	function onClosePicker(ev) {
+		if (ev.target.closest('.date-picker-container')) return
+		setToggle(false)
+	}
 
-	// const popperRef = useRef(null);
-	// const buttonRef = useRef(null);
-	// const [popperElement, setPopperElement] = useState(null);
-
-	// const popper = usePopper(popperRef.current, popperElement, {
-	// 	placement: 'bottom'
-	// });
-
-	// const closePopper = () => {
-	// 	setIsPopperOpen(false);
-	// 	buttonRef?.current?.focus();
-	// };
-
-	// const handleInputChange = (e) => {
-	// 	setInputValue(e.currentTarget.value);
-	// 	const date = parse(e.currentTarget.value, 'y-MM-dd', new Date());
-	// 	if (isValid(date)) {
-	// 		setSelected(date);
-	// 	} else {
-	// 		setSelected(undefined);
-	// 	}
-	// };
-
-	// const handleButtonClick = () => {
-	// 	setIsPopperOpen(true);
-	// };
-
-	// const handleDaySelect = (date) => {
-	// 	setSelected(date);
-	// 	if (date) {
-	// 		setInputValue(format(date, 'y-MM-dd'));
-	// 		closePopper();
-	// 	} else {
-	// 		setInputValue('');
-	// 	}
-	// };
-
-
-	// **POPPER SECTION END
+	function onToggleModal(ev) {
+		if (ev.target.closest('.date-picker-container')) return
+		ev.stopPropagation()
+		setToggle(prev => !prev)
+	}
 
 	useEffect(() => {
 		if (selected) {
 			onChangeDueDate()
+			setHasDate(task)
 			setToggle(!toggle)
 		}
 	}, [selected])
@@ -86,6 +65,7 @@ export function DatePicker({ task, groupId }) {
 
 	async function clearTaskDueDate() {
 		const taskToEdit = { ...task, dueDate: null }
+		setHasDate(taskToEdit.dueDate)
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 
@@ -96,37 +76,43 @@ export function DatePicker({ task, groupId }) {
 
 	return (
 		<>
-			<li className="date-picker flex align-center" ref={boxRef}
-			// <li className="date-picker flex align-center" onClick={() => setToggle(!toggle)}
+			<li className="date-picker flex align-center" ref={setReferenceElement}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}>
-				<div className="date-preview-container flex align-center justify-center">
+				<div className="date-preview-container flex align-center justify-center"
+					onClick={ev => onToggleModal(ev)}>
+					{isHovered && !hasDate &&
+						<div className="add-date-btn pointer flex align-center justify-center">
+							<FontAwesomeIcon icon={faCirclePlus} style={{ color: "#0073ea", }} />
+							{ICON_ADD_DATE}
+						</div>
+					}
 					{task.dueDate &&
 						<div className="span-container flex align-center justify-center">
 							<span className="date-preview">{new Date(task.dueDate).toLocaleDateString('en-US', {
 								month: 'short',
 								day: 'numeric'
 							})}</span>
-							{isHovered &&
-								<div className="reset-date-btn flex align-center justify-end"
-									onClick={() => clearTaskDueDate()}>
-									{ICON_CLOSE}
-								</div>
-							}
 						</div>
 					}
 				</div>
+				{isHovered && hasDate &&
+					<div className="reset-date-btn pointer flex align-center"
+						onClick={() => clearTaskDueDate()}>
+						{ICON_CLOSE}
+					</div>
+				}
+				{toggle &&
+					<div className="date-picker-container" ref={setPopperElement}>
+						<DayPicker
+							mode="single"
+							selected={selected}
+							onSelect={setSelected}
+							footer={footer}
+						/>
+					</div>
+				}
 			</li>
-			{toggle &&
-				<div className="date-picker-container" classNames={classNames('tooltip',{'tooltip-hidden' : !toggle})} ref={tooltipRef} style={styles.popper} {...attributes.popper}>
-					<DayPicker
-						mode="single"
-						selected={selected}
-						onSelect={setSelected}
-						footer={footer}
-					/>
-				</div>
-			}
 		</>
 	)
 }
