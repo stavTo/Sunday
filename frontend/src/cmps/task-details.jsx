@@ -46,11 +46,8 @@ export function TaskDetails() {
 	function loadComments() {
 		const currGroup = board.groups.find(g => g.id === group.id)
 		const task = currGroup.tasks.find(t => t.id === taskId)
-		// console.log(task)
 		setComments(task.comments)
 	}
-	// console.log(board)
-	// console.log(comments)
 	if (!task) return
 	return (
 		<section className="task-details">

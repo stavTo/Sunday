@@ -7,7 +7,7 @@
 	.open-task-details {
 		display: none;
 		// flex-direction: row-reverse;
-		
+
 		.open {
 			color: rgb(50, 51, 56);
 			font-size: rem(13px);
@@ -17,9 +17,10 @@
 			font-size: rem(13px);
 		}
 	}
-	
+
 	&:hover {
 		.open-task-details {
+			margin-inline-end: 10px;
 			display: flex;
 			flex-direction: row-reverse;
 			gap: 4px;
@@ -27,8 +28,6 @@
 			// justify-content: center;
 		}
 	}
-
-
 
 	span {
 		margin: 6px 10px 6px 26px;

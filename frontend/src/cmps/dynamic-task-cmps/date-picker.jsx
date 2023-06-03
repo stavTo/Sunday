@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import { DayPicker } from 'react-day-picker'
-import { useSelector } from "react-redux"
+import { useSelector } from 'react-redux'
 import { saveTask } from '../../store/selected-board.actions'
 
-import { usePopper } from 'react-popper';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons"
-import { ICON_CLOSE, ICON_ADD_DATE } from "../../assets/icons/icons"
+import { usePopper } from 'react-popper'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
+import { ICON_CLOSE, ICON_ADD_DATE } from '../../assets/icons/icons'
 import 'react-day-picker/dist/style.css'
 
 export function DatePicker({ task, groupId }) {
@@ -70,43 +70,44 @@ export function DatePicker({ task, groupId }) {
 	}
 
 	return (
-		<>
-			<li
-				className="date-picker flex align-center"
-				ref={setReferenceElement}
-				onMouseEnter={() => setIsHovered(true)}
-				onMouseLeave={() => setIsHovered(false)}>
-				<div
-					className="date-preview-container flex align-center justify-center"
-					onClick={ev => onToggleModal(ev)}>
-					{isHovered && !hasDate && (
-						<div className="add-date-btn pointer flex align-center justify-center">
-							<FontAwesomeIcon icon={faCirclePlus} style={{ color: '#0073ea' }} />
-							{ICON_ADD_DATE}
-						</div>
-					)}
-					{task.dueDate && (
-						<div className="span-container flex align-center justify-center">
-							<span className="date-preview">
-								{new Date(task.dueDate).toLocaleDateString('en-US', {
-									month: 'short',
-									day: 'numeric',
-								})}
-							</span>
-						</div>
-					)}
+		<li
+			className="date-picker flex align-center"
+			ref={setReferenceElement}
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}>
+			<div className="date-preview-container flex align-center justify-center" onClick={ev => onToggleModal(ev)}>
+				{isHovered && !hasDate && (
+					<div className="add-date-btn pointer flex align-center justify-center">
+						<FontAwesomeIcon icon={faCirclePlus} style={{ color: '#0073ea' }} />
+						{ICON_ADD_DATE}
+					</div>
+				)}
+				{task.dueDate && (
+					<div className="span-container flex align-center justify-center">
+						<span className="date-preview">
+							{new Date(task.dueDate).toLocaleDateString('en-US', {
+								month: 'short',
+								day: 'numeric',
+							})}
+						</span>
+					</div>
+				)}
+			</div>
+			{isHovered && hasDate && (
+				<div className="reset-date-btn pointer flex align-center" onClick={() => clearTaskDueDate()}>
+					{ICON_CLOSE}
 				</div>
-				{isHovered && hasDate && (
-					<div className="reset-date-btn pointer flex align-center" onClick={() => clearTaskDueDate()}>
-						{ICON_CLOSE}
-					</div>
-				)}
-				{toggle && (
-					<div className="date-picker-container" ref={setPopperElement}>
-						<DayPicker mode="single" selected={selected} onSelect={setSelected} footer={footer} />
-					</div>
-				)}
-			</li>
-		</>
+			)}
+			{toggle && (
+				<div
+					className="date-picker-container"
+					ref={setPopperElement}
+					style={styles.popper}
+					{...attributes.popper}>
+					<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
+					<DayPicker mode="single" selected={selected} onSelect={setSelected} footer={footer} />
+				</div>
+			)}
+		</li>
 	)
 }

@@ -4,15 +4,24 @@ import { useSelector } from 'react-redux'
 import { usePopper } from 'react-popper'
 import { DateRange, DayPicker } from 'react-day-picker'
 import { addDays, format } from 'date-fns'
-import 'react-day-picker/dist/style.css'
 import { ICON_CLOSE } from '../../assets/icons/icons'
 import { utilService } from '../../services/util.service'
+import 'react-day-picker/dist/style.css'
+
+const pastMonth = new Date() // Define your past month date here
+
+const defaultSelected = {
+	from: pastMonth,
+	to: addDays(pastMonth, 4),
+}
 
 export function TimelinePicker({ task, groupId }) {
 	const [toggle, setToggle] = useState(false)
 	const [isHovered, setIsHovered] = useState(false)
-	const [hasTimeline, setHasTimeline] = useState(task.timeline)
+	const [hasTimeline, setHasTimeline] = useState(task.timeline && true)
+	const [range, setRange] = useState(defaultSelected)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
+	const [modalFooter, setModalFooter] = useState(<p>Please pick the first day.</p>)
 
 	const [referenceElement, setReferenceElement] = useState(null)
 	const [popperElement, setPopperElement] = useState(null)
@@ -23,21 +32,11 @@ export function TimelinePicker({ task, groupId }) {
 			{ name: 'offset', options: { offset: [0, 8] } },
 		],
 	})
-	const pastMonth = new Date() // Define your past month date here
-
-	const defaultSelected = {
-		from: pastMonth,
-		to: addDays(pastMonth, 4),
-	}
-
-	const [range, setRange] = useState(defaultSelected)
 
 	useEffect(() => {
 		if (range) {
 			onChangeTimelineRange()
-			// setHasRange(task)
-			// * This line causes all timelines to render on component load
-			// setToggle(!toggle)
+			onSetFooter()
 		}
 	}, [range])
 
@@ -49,10 +48,13 @@ export function TimelinePicker({ task, groupId }) {
 	}, [])
 
 	async function onChangeTimelineRange() {
-		// setToggle(!toggle)
-		const { timeline } = task
+		if (!range.from || !range.to) return
+		const startDate = new Date(range.from).getTime()
+		const endDate = new Date(range.to).getTime()
+		const timeline = { startDate, endDate }
 		const taskToEdit = { ...task, timeline }
 		await saveTask(board._id, groupId, taskToEdit, '')
+		setHasTimeline(true)
 	}
 
 	function onClosePicker(ev) {
@@ -72,22 +74,23 @@ export function TimelinePicker({ task, groupId }) {
 		return utilService.millisecondsToDays(estTime)
 	}
 
-	let footer = <p>Please pick the first day.</p>
-	if (range?.from) {
-		if (!range.to) {
-			footer = <p>{format(range.from, 'PPP')}</p>
-		} else if (range.to) {
-			footer = (
-				<p>
-					{format(range.from, 'PPP')}-{format(range.to, 'PPP')}
-				</p>
-			)
+	function onSetFooter() {
+		if (range?.from) {
+			if (!range.to) {
+				setModalFooter(<p>{format(range.from, 'PPP')}</p>)
+			} else if (range.to) {
+				setModalFooter(
+					<p>
+						{format(range.from, 'PPP')}-{format(range.to, 'PPP')}
+					</p>
+				)
+			}
 		}
 	}
 
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
-		setHasTimeline(null)
+		setHasTimeline(false)
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 
@@ -112,12 +115,12 @@ export function TimelinePicker({ task, groupId }) {
 										{utilService.timeStampToDate(timeline.endDate)}
 									</span>
 								))}
+							{isHovered && hasTimeline && (
+								<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
+									{ICON_CLOSE}
+								</div>
+							)}
 						</span>
-						{isHovered && hasTimeline && (
-							<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
-								{ICON_CLOSE}
-							</div>
-						)}
 					</div>
 				)}
 				{toggle && (
@@ -126,7 +129,7 @@ export function TimelinePicker({ task, groupId }) {
 						mode="range"
 						defaultMonth={pastMonth}
 						selected={range}
-						footer={footer}
+						footer={modalFooter}
 						onSelect={setRange}
 					/>
 				)}

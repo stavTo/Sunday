@@ -131,5 +131,5 @@ function timeStampToDate(timeStamp) {
 }
 
 function millisecondsToDays(ms) {
-	return ms / 86400000
+	return Math.floor(ms / 86400000) //num of ms in day
 }
