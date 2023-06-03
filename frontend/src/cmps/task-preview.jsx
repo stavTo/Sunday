@@ -4,6 +4,7 @@ import { TaskTitle } from './dynamic-task-cmps/task-title'
 import { DatePicker } from './dynamic-task-cmps/date-picker'
 import { MemberPicker } from './dynamic-task-cmps/member-picker'
 import { useState } from 'react'
+import { TaskSelection } from './task-selection'
 
 export function TaskPreview({ task, groupId }) {
 	const STATUS_PICKER = 'statusPicker'
@@ -14,8 +15,11 @@ export function TaskPreview({ task, groupId }) {
 
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
+	function handleSelect() {}
+
 	return (
 		<ul className="task-preview task-row clean-list">
+			<TaskSelection onSelect={handleSelect} isSelected={false} />
 			<TaskTitle groupId={groupId} task={task} />
 			{board.cmpsOrder.map(cmp => {
 				switch (cmp.cmpName) {

@@ -5,12 +5,18 @@ import { useEffect, useRef, useState } from 'react'
 import { boardService } from '../services/board.service.local'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 import { loadBoard } from '../store/selected-board.actions'
+import { setTippy } from '../services/tippy.service'
 
 export function BoardFilter({ board }) {
 	const [filter, setFilter] = useState(boardService.getDefaultFilter())
 	const [inputFocused, setInputFocused] = useState(false)
 	const [active, setActive] = useState('')
 	const elSearchInput = useRef('')
+
+	setTippy('.person-container', 'Filter by person', 'top', [0, 15])
+	setTippy('.filter-container', 'Filter by anything', 'top', [0, 15])
+	setTippy('.sort-container', 'Sort by any column', 'top', [0, 15])
+	setTippy('.hide-container', 'Hidden columns', 'top', [0, 15])
 
 	useEffect(() => {
 		document.addEventListener('click', unsetActive)

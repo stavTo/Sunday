@@ -1,14 +1,41 @@
 .group-preview {
-	& > ul {
-		border-inline-start: 1px solid $border-clr;
-	}
-	border-block-end: 1px solid $border-clr;
-	display: flex;
-	flex-direction: column;
+	font-size: em(18px);
+	line-height: 24px;
+
 	.group-header {
 		display: flex;
 		align-items: center;
+		margin-inline-start: 4px;
+
+		.group-title-container {
+			padding-inline: 4px;
+		}
+
+		.group-title-input {
+			all: unset;
+		}
+
+		&:hover .task-count {
+			opacity: 1;
+		}
+
+		.expand-arrow-container {
+			cursor: pointer;
+			border: none;
+			margin-inline: 9px 2px;
+			transform: rotate(-90deg);
+		}
+
+		.task-count {
+			opacity: 0;
+			transition: opacity 0.2s;
+		}
 	}
+
+	border-block-end: 1px solid $border-clr;
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
 	.task-row {
 		& > * {
 			flex: 1;

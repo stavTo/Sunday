@@ -11,6 +11,7 @@
 @import 'basics/links';
 @import 'basics/forms';
 @import 'basics/popper-arrow';
+@import 'basics/tippy';
 
 // Views
 @import 'views/board-details';
@@ -33,6 +34,9 @@
 @import 'cmps/board-loader';
 @import 'cmps/board-filter';
 @import 'cmps/group-list';
+@import 'cmps/task-selection';
+@import 'cmps/task-list';
+@import 'cmps/board-toolbar';
 
 // Dynamic Task Components
 @import 'cmps/dynamic-task-cmps/label-picker';
