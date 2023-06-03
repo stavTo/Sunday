@@ -1,4 +1,8 @@
 .board-header {
+	position: sticky;
+	top: 0;
+	background-color: $clr0;
+	z-index: 1;
 	color: $clr1;
 	padding: 16px 30px 0px 38px;
 	.board-header-top {
@@ -11,7 +15,7 @@
 			.board-name {
 				font-size: em(32px);
 				font-weight: 500;
-				padding-inline: em(4px);
+				margin-inline-end: 8px;
 			}
 
 			.header-icon {

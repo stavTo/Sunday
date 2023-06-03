@@ -88,11 +88,11 @@ function getLoggedInUser() {
 
 function getDemoUsers(filter = '') {
 	const users = [
-		getEmptyUser('U301', 'Roni Yerushalmi'),
-		getEmptyUser('u302', 'Stav Tohami'),
-		getEmptyUser('u303', 'Ido Kadosh'),
-		getEmptyUser('u304', 'Eyal Golan'),
-		getEmptyUser('u305', 'Steve Jobs'),
+		getEmptyUser('u101', 'Ido Kadosh'),
+		getEmptyUser('u102', 'Roni Yerushalmi'),
+		getEmptyUser('u103', 'Stav Tohami'),
+		getEmptyUser('u104', 'Eyal Golan'),
+		getEmptyUser('u105', 'Steve Jobs'),
 	]
 
 	const regex = new RegExp(filter, 'i')

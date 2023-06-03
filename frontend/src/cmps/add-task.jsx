@@ -37,8 +37,6 @@ export function AddTask({ group }) {
 		setTaskToAdd(prev => ({ ...prev, title: target.value }))
 	}
 
-	console.log(utilService.hexToRgba(group.style.color, 0.6))
-
 	return (
 		<ul
 			style={{

@@ -8,10 +8,11 @@ html {
 	line-height: 1.15;
 }
 
-body {
+body,
+#root,
+.app {
 	margin: 0;
 	height: 100%;
-	// overflow: hidden;
 }
 
 h1,
@@ -45,16 +46,6 @@ video,
 object {
 	max-width: 100%;
 }
-
-// .modal-up-arrow {
-// 	position: absolute;
-// 	width: 16px;
-// 	height: 16px;
-// 	background-color: $clr0;
-// 	// top: $task-row-height;
-// 	z-index: 999999;
-// 	transform: rotate(45deg);
-// }
 
 img,
 embed,

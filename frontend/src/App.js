@@ -9,7 +9,6 @@ import { TaskDetails } from './cmps/task-details'
 import { UserMsg } from './cmps/user-msg'
 
 function App() {
-
 	return (
 		<div className="App">
 			<Provider store={store}>
