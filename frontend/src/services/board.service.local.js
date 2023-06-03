@@ -26,7 +26,8 @@ export const boardService = {
 	getTaskById,
 	getGroupByTask,
 	getEmptyComment,
-	saveComment
+	saveComment,
+	updateGroup,
 }
 
 async function query(filter = {}) {
@@ -144,7 +145,7 @@ function getEmptyGroup() {
 		id: '',
 		title: 'New Group',
 		tasks: [],
-		style: { backgroundColor: utilService.getRandomColor() },
+		style: { color: utilService.getRandomColor() },
 	}
 }
 
@@ -232,6 +233,13 @@ async function removeTask(boardId, groupId, taskId, activity = '') {
 	return board
 }
 
+async function updateGroup(boardId, group) {
+	const board = await getById(boardId)
+	board.groups = board.groups.map(g => (g.id === group.id ? group : g))
+	await save(board)
+	return board
+}
+
 async function saveComment(board, groupId, taskId, commentToEdit) {
 	const group = board.groups.find(g => g.id === groupId)
 	const task = group.tasks.find(t => t.id === taskId)
@@ -306,13 +314,27 @@ function _getDummyBoard(boardNum) {
 					{
 						id: 'c101',
 						title: 'Replace logo',
+						status: 'not-started',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
+						dueDate: '2023-05-15',
+						description: 'Conduct market research for popular toy categories and trends',
+						priority: 'high',
+						category: 'research',
 					},
 					{
 						id: 'c102',
 						title: 'Add Samples',
+						status: 'not-started',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
+						dueDate: '2023-05-15',
+						description: 'Conduct market research for popular toy categories and trends',
+						priority: 'high',
+						category: 'research',
 					},
 				],
-				style: {},
+				style: { color: utilService.getRandomColor() },
 			},
 			{
 				id: 'g102',
@@ -391,7 +413,7 @@ function _getDummyBoard(boardNum) {
 						comments: []
 					},
 				],
-				style: {},
+				style: { color: utilService.getRandomColor() },
 			},
 		],
 		activities: [

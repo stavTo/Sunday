@@ -1,15 +1,18 @@
 .task-title {
 	display: flex;
 	align-items: center;
-
+	overflow: hidden;
 	span {
+		margin: 6px 10px 6px 26px;
+		padding: 2px 0px 3px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
 		&:hover {
 			outline: 1px solid $input-hover-border-clr;
 			border-radius: 4px;
 			cursor: text;
 		}
-		margin: 6px 10px 6px 26px;
-		padding: 2px 0px 3px;
 	}
 	input {
 		all: unset;
@@ -22,8 +25,4 @@
 			border-radius: 4px;
 		}
 	}
-
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
 }

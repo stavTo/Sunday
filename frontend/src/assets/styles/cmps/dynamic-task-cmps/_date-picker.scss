@@ -1,12 +1,24 @@
+.rdp {
+    margin: 0;
+}
+
 .rdp-months {
-    position: relative;
-    margin-block-start: 2em;
-    left: 100%;
+    margin-block-start: 23em;
     border: 1px solid $clr2;
     -webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
     -moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
     box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
     background-color: $clr0;
+}
+
+// Buttons
+
+.reset-date-btn {
+    cursor: pointer;
+}
+
+.add-date-btn {
+    gap: .2em;
 }
 
 .date-picker-container {
@@ -43,11 +55,7 @@ li.date-picker:hover {
     }
 
     &:hover {
-        width: 80%;
-        height: 80%;
         border: 1px solid $clr4;
-        // top: 10%;
-        // position: relative;
     }
 
     .reset-btn {

@@ -3,6 +3,8 @@ import { boardService } from '../services/board.service.local'
 import { addTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
+import { TaskSelection } from './task-selection'
+import { ICON_CHECKBOX } from '../assets/icons/icons'
 
 export function AddTask({ groupId }) {
 	const [taskToAdd, setTaskToAdd] = useState(boardService.getEmptyTask())
@@ -40,6 +42,7 @@ export function AddTask({ groupId }) {
 			onClick={() => {
 				elInput.current.focus()
 			}}>
+			<li className="task-selection">{ICON_CHECKBOX}</li>
 			<li>
 				<input
 					className="add-task-input"

@@ -4,6 +4,7 @@ import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { setTippy } from '../services/tippy.service'
 
 export function BoardHeader({ board }) {
 	function onAddGroup() {
@@ -13,6 +14,10 @@ export function BoardHeader({ board }) {
 	function onAddTask() {
 		addTaskToFirstGroup(board._id)
 	}
+
+	setTippy('.board-name', 'Click to Edit')
+	setTippy('.info-icon', 'Show board description')
+	setTippy('.star-icon', 'Add to favorites')
 
 	return (
 		<section className="board-header">

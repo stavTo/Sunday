@@ -37,7 +37,7 @@ export async function updateLabels(board, labelsName, labels) {
 }
 
 export async function saveTask(boardId, groupId, task, activity = '') {
-	console.log("boardId, groupId, task", boardId, groupId, task)
+	console.log('boardId, groupId, task', boardId, groupId, task)
 	try {
 		const board = await boardService.saveTask(boardId, groupId, task, activity)
 		store.dispatch({ type: SET_BOARD, board })
@@ -83,6 +83,16 @@ export async function updateLabelInTask(boardId, groupId, taskId, labelTaskName,
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant remove task')
+		throw err
+	}
+}
+
+export async function updateGroup(boardId, group, activity = '') {
+	try {
+		const board = await boardService.updateGroup(boardId, group)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant update group')
 		throw err
 	}
 }

@@ -1,21 +1,27 @@
 import { useEffect, useState } from 'react'
-import { boardService } from '../../services/board.service.local'
 import { useSelector } from 'react-redux'
 import { showErrorMsg } from '../../services/event-bus.service'
 import { saveTask } from '../../store/selected-board.actions'
 import { Link } from 'react-router-dom'
+import { setTippy } from '../../services/tippy.service'
 
 export function TaskTitle({ task, groupId }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(task.title)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
+	// setTippy(`#${task.id}`, task.title)
+
 	useEffect(() => {
-		document.addEventListener('click', () => setIsInputVisible(false))
+		document.addEventListener('click', setInputInvisible)
 		return () => {
-			document.removeEventListener('click', () => setIsInputVisible(false))
+			document.removeEventListener('click', setInputInvisible)
 		}
 	}, [])
+
+	function setInputInvisible() {
+		setIsInputVisible(false)
+	}
 
 	function handleClick(ev) {
 		ev.stopPropagation()

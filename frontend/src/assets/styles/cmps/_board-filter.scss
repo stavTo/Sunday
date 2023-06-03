@@ -47,13 +47,6 @@
 		justify-content: center;
 	}
 
-	.filter-container {
-		.extra-filter {
-			&:hover {
-				background-color: $input-hover-border-clr;
-			}
-		}
-	}
 	svg {
 		font-weight: lighter;
 	}

@@ -5,15 +5,26 @@ import { userService } from '../../services/user.service'
 import { useSelector } from 'react-redux'
 import { UPDATE_BOARD } from '../../store/board.reducer'
 import { saveTask } from '../../store/selected-board.actions'
+import { usePopper } from 'react-popper'
 
 export function MemberPicker({ groupId, type, task }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
 	const [userToSearch, setUserToSearch] = useState('')
-	const elSearchInput = useRef()
+	const elSearchInputRef = useRef()
 	const fullUserList = useRef(userService.getDemoUsers()) // so we don't call userService twice
 	const [userList, setUserList] = useState(fullUserList.current)
 	const [assignedUsers, setAssignedUsers] = useState([])
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
+
+	const [referenceElement, setReferenceElement] = useState(null)
+	const [popperElement, setPopperElement] = useState(null)
+	const [arrowElement, setArrowElement] = useState(null)
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+		modifiers: [
+			{ name: 'arrow', options: { element: arrowElement } },
+			{ name: 'offset', options: { offset: [0, 8] } },
+		],
+	})
 
 	useEffect(() => {
 		document.addEventListener('mousedown', onClosePicker)
@@ -25,9 +36,6 @@ export function MemberPicker({ groupId, type, task }) {
 	useEffect(() => {
 		setUserList(userService.getDemoUsers(userToSearch))
 	}, [userToSearch])
-
-	useEffect(() => {
-	}, [userList])
 
 	//this happens BEFORE dom renders, so that modal changes before it displays. (no jumps in display)
 	useLayoutEffect(() => {
@@ -52,7 +60,6 @@ export function MemberPicker({ groupId, type, task }) {
 			)
 			setAssignedUsers(task.collaborators)
 		}
-		console.log('filteredUsers:', filteredUsers)
 		setUserList(filteredUsers)
 	}
 
@@ -89,8 +96,9 @@ export function MemberPicker({ groupId, type, task }) {
 	function handleSearch({ target }) {
 		setUserToSearch(target.value)
 	}
+	
 	return (
-		<li className="member-picker" onClick={ev => onToggleModal(ev)}>
+		<li className="member-picker" ref={setReferenceElement} onClick={ev => onToggleModal(ev)}>
 			{type === 'ownerPicker' && task?.owner?._id && <img src={task.owner.imgUrl} alt="person" />}
 			{type === 'collaboratorPicker' && !!task.collaborators?.length && (
 				<div className="collaborator-img-container">
@@ -105,53 +113,52 @@ export function MemberPicker({ groupId, type, task }) {
 				<img src={EMPTY_PERSON} alt="person" />
 			)}
 			{isPickerOpen && (
-				<>
-					<div className="modal-up-arrow"></div>
-					<div className="member-picker-modal">
-						<div className="assigned-members">
-							{assignedUsers?.map(user => {
-								console.log(user)
-								return (
-									<div key={user._id} className="member">
-										<img src={user.imgUrl} className="img-container"></img>
-										<div className="fullname-container">{user.fullname}</div>
-										<div className="icon-container" onClick={() => onRemoveAssignedUser(user)}>
-											{ICON_CLOSE}
-										</div>
-									</div>
-								)
-							})}
-						</div>
-						<div className="input-container " onClick={() => elSearchInput.current.focus()}>
-							<input
-								autoFocus
-								type="text"
-								placeholder="Search names"
-								ref={elSearchInput}
-								value={userToSearch}
-								onChange={handleSearch}
-							/>
-							<span
-								className={`svg-container btn-primary ${userToSearch ? 'active-search' : ''}`}
-								onClick={() => setUserToSearch('')}>
-								{userToSearch ? <span>{ICON_CLOSE}</span> : <span>{ICON_SEARCH}</span>}
-							</span>
-						</div>
-						<div className="scroll-container">
-							<div className="suggested-people">
-								<span>Suggested people </span>
+				<div
+					className="member-picker-modal"
+					ref={setPopperElement}
+					style={styles.popper}
+					{...attributes.popper}>
+					<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
+					<div className="assigned-members">
+						{assignedUsers?.map(user => (
+							<div key={user._id} className="member">
+								<img src={user.imgUrl} className="img-container"></img>
+								<div className="fullname-container">{user.fullname}</div>
+								<div className="icon-container" onClick={() => onRemoveAssignedUser(user)}>
+									{ICON_CLOSE}
+								</div>
 							</div>
-							<ul className="members-list clean-list">
-								{userList.map(user => (
-									<li key={user._id} className="btn-primary" onClick={() => onSetUser(user)}>
-										<img src={user.imgUrl} alt="user img" />
-										<span>{user.fullname}</span>
-									</li>
-								))}
-							</ul>
-						</div>
+						))}
 					</div>
-				</>
+					<div className="input-container " onClick={() => elSearchInputRef.current.focus()}>
+						<input
+							autoFocus
+							type="text"
+							placeholder="Search names"
+							ref={elSearchInputRef}
+							value={userToSearch}
+							onChange={handleSearch}
+						/>
+						<span
+							className={`svg-container btn-primary ${userToSearch ? 'active-search' : ''}`}
+							onClick={() => setUserToSearch('')}>
+							{userToSearch ? <span>{ICON_CLOSE}</span> : <span>{ICON_SEARCH}</span>}
+						</span>
+					</div>
+					<div className="scroll-container">
+						<div className="suggested-people">
+							<span>Suggested people </span>
+						</div>
+						<ul className="members-list clean-list">
+							{userList.map(user => (
+								<li key={user._id} className="btn-primary" onClick={() => onSetUser(user)}>
+									<img src={user.imgUrl} alt="user img" />
+									<span>{user.fullname}</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
 			)}
 		</li>
 	)
