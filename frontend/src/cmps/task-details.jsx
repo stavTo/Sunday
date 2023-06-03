@@ -3,8 +3,6 @@ import { useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router"
 import { boardService } from "../services/board.service.local"
 import { ReactQuillWrapper } from "./dynamic-task-cmps/react-quill-wrapper"
-import { useEffectUpdate } from "../customHooks/useEffectUpdate"
-
 
 export function TaskDetails() {
     const { taskId } = useParams()
@@ -18,6 +16,7 @@ export function TaskDetails() {
 
     useEffect(() => {
         if (taskId && group?.id) {
+            loadGroup()
             loadTask()
             loadComments()
         }
@@ -26,6 +25,11 @@ export function TaskDetails() {
     function loadTask() {
         const task = boardService.getTaskById(board, group.id, taskId)
         setTask(task)
+    }
+
+    function loadGroup() {
+       const newGroup = boardService.getGroupByTask(board, taskId)
+        setGroup(newGroup)
     }
 
     function onCloseModal() {

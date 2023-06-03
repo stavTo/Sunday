@@ -243,6 +243,7 @@ async function updateGroup(boardId, group) {
 async function saveComment(board, groupId, taskId, commentToEdit) {
 	const group = board.groups.find(g => g.id === groupId)
 	const task = group.tasks.find(t => t.id === taskId)
+	commentToEdit.id = utilService.makeId()
 	task.comments.unshift(commentToEdit)
 	await save(board)
 	return commentToEdit
@@ -252,7 +253,7 @@ async function saveComment(board, groupId, taskId, commentToEdit) {
 function getEmptyComment() {
 	return {
 		txt: '',
-		id: utilService.makeId()
+		id: ''
 	}
 }
 
