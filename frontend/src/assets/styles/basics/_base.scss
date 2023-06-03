@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	user-select: none;
 }
 
 html {
@@ -10,6 +11,7 @@ html {
 body {
 	margin: 0;
 	height: 100%;
+	overflow-wrap: hidden;
 }
 
 h1,

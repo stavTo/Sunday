@@ -464,6 +464,7 @@ export const ICON_MENU_DOTS = (
 )
 
 export const EMPTY_PERSON = 'https://res.cloudinary.com/diyikz4gq/image/upload/v1685618587/person-empty_zckbtr.svg'
+export const DEFAULT_USER = 'https://res.cloudinary.com/diyikz4gq/image/upload/v1685731091/default-user_p7r1gy.png'
 
 export const ICON_CLOSE = (
 	<svg

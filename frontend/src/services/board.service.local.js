@@ -1,6 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+import { DEFAULT_USER } from '../assets/icons/icons.js'
 
 const STORAGE_KEY = 'board'
 
@@ -121,9 +122,9 @@ function getEmptyTask() {
 		status: '',
 		priority: '',
 		comments: [],
-		memberIds: [],
+		collaborators: [],
 		dueDate: null,
-		byMember: {
+		owner: {
 			_id: '',
 			username: '',
 			fullname: '',
@@ -287,7 +288,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c101',
 						title: 'Product Research',
 						status: 'not-started',
-						assignee: 'John Smith',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-15',
 						description: 'Conduct market research for popular toy categories and trends',
 						priority: 'high',
@@ -297,7 +299,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c102',
 						title: 'Define Target Audience',
 						status: 'not-started',
-						assignee: 'Mary Johnson',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-17',
 						description: 'Identify the target audience for the online toy store',
 						priority: 'medium',
@@ -307,7 +310,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c103',
 						title: 'Create Product Catalog',
 						status: 'in-progress',
-						assignee: 'Sarah Davis',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-20',
 						description: 'Compile a comprehensive catalog of toys available for sale',
 						priority: 'high',
@@ -317,7 +321,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c104',
 						title: 'Website Development',
 						status: 'not-started',
-						assignee: 'David Wilson',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-22',
 						description: 'Develop an engaging and user-friendly website for the online store',
 						priority: 'high',
@@ -327,7 +332,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c105',
 						title: 'Inventory Management System',
 						status: 'not-started',
-						assignee: 'Mark Thompson',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-25',
 						description: 'Implement a system to manage toy inventory and stock levels',
 						priority: 'medium',
@@ -337,7 +343,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c106',
 						title: 'Marketing Strategy',
 						status: '',
-						assignee: 'Emily Brown',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-30',
 						description: 'Develop a marketing strategy to promote the online toy store',
 						priority: 'high',
@@ -368,6 +375,7 @@ function _getDummyBoard(boardNum) {
 			{ id: utilService.makeId(), cmpName: 'priorityPicker' },
 			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'datePicker' },
+			{ id: utilService.makeId(), cmpName: 'collaboratorPicker' },
 		],
 		statusLabels: [
 			{ id: 'sl100', title: 'Done', color: '#00C875' },
