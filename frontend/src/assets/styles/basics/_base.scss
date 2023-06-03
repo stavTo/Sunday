@@ -11,7 +11,7 @@ html {
 body {
 	margin: 0;
 	height: 100%;
-	overflow-wrap: hidden;
+	overflow: hidden;
 }
 
 h1,
@@ -37,6 +37,13 @@ a {
 
 ul {
 	margin: 0;
+}
+
+img,
+embed,
+video,
+object {
+	max-width: 100%;
 }
 
 // .modal-up-arrow {

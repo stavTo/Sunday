@@ -53,7 +53,6 @@ export function DatePicker({ task, groupId }) {
 		}
 	}, [selected])
 
-
 	async function onChangeDueDate() {
 		const taskToEdit = { ...task, dueDate: selected }
 		await saveTask(board._id, groupId, taskToEdit, '')
@@ -72,42 +71,41 @@ export function DatePicker({ task, groupId }) {
 
 	return (
 		<>
-			<li className="date-picker flex align-center" ref={setReferenceElement}
+			<li
+				className="date-picker flex align-center"
+				ref={setReferenceElement}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}>
-				<div className="date-preview-container flex align-center justify-center"
+				<div
+					className="date-preview-container flex align-center justify-center"
 					onClick={ev => onToggleModal(ev)}>
-					{isHovered && !hasDate &&
+					{isHovered && !hasDate && (
 						<div className="add-date-btn pointer flex align-center justify-center">
-							<FontAwesomeIcon icon={faCirclePlus} style={{ color: "#0073ea", }} />
+							<FontAwesomeIcon icon={faCirclePlus} style={{ color: '#0073ea' }} />
 							{ICON_ADD_DATE}
 						</div>
-					}
-					{task.dueDate &&
+					)}
+					{task.dueDate && (
 						<div className="span-container flex align-center justify-center">
-							<span className="date-preview">{new Date(task.dueDate).toLocaleDateString('en-US', {
-								month: 'short',
-								day: 'numeric'
-							})}</span>
+							<span className="date-preview">
+								{new Date(task.dueDate).toLocaleDateString('en-US', {
+									month: 'short',
+									day: 'numeric',
+								})}
+							</span>
 						</div>
-					}
+					)}
 				</div>
-				{isHovered && hasDate &&
-					<div className="reset-date-btn pointer flex align-center"
-						onClick={() => clearTaskDueDate()}>
+				{isHovered && hasDate && (
+					<div className="reset-date-btn pointer flex align-center" onClick={() => clearTaskDueDate()}>
 						{ICON_CLOSE}
 					</div>
-				}
-				{toggle &&
+				)}
+				{toggle && (
 					<div className="date-picker-container" ref={setPopperElement}>
-						<DayPicker
-							mode="single"
-							selected={selected}
-							onSelect={setSelected}
-							footer={footer}
-						/>
+						<DayPicker mode="single" selected={selected} onSelect={setSelected} footer={footer} />
 					</div>
-				}
+				)}
 			</li>
 		</>
 	)

@@ -1,15 +1,20 @@
 .workspace-container {
-	height: auto;
+	position: relative;
 	background-color: $bg-clr3;
 	border-inline-end: 1px solid $clr2;
 
-	&:not(.expand-btn):hover {
-		box-shadow: 23px 10px 32px -3px rgba(0, 0, 0, 0.1);
-	}
-
 	.expandable-sidebar-container {
+		padding-block-start: 12px;
+		padding-inline-start: 15px;
 		height: 100%;
-		position: relative;
+
+		&.expanded {
+			.expandable-sidebar {
+				width: 254px;
+				height: 100%;
+				left: 66px;
+			}
+		}
 
 		.expandable-sidebar {
 			height: 100%;
@@ -20,12 +25,6 @@
 			ul {
 				padding: 1em;
 			}
-
-			&:hover {
-				width: 254px;
-				height: 100%;
-				left: 66px;
-			}
 		}
 
 		.open {
@@ -35,11 +34,8 @@
 		}
 	}
 
-	.open {
-		box-shadow: 23px 10px 32px -3px rgba(0, 0, 0, 0.1);
-	}
-
 	.expand-btn {
+		cursor: pointer;
 		// left: 308px;
 		border: 1px solid #d1d5e5;
 		border-radius: 50%;
@@ -50,7 +46,9 @@
 		transition: width 0.3s;
 		z-index: 1;
 		left: calc(100% - 14px);
-		position: relative;
+		// position: relative;
+		position: absolute;
+		top: 20px;
 
 		svg {
 			color: $clr3;

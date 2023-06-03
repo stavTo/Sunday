@@ -17,12 +17,12 @@ export function BoardList() {
 			<div className="board-list-header flex column">
 				<div className="workspace-title flex row align-center space-between">
 					<h4>Main workspace</h4>
-					{ICON_OPTIONS}
+					{/* {ICON_OPTIONS} */}
 				</div>
 				<div className="searchbox-container flex space-between stretch">
 					<div className="searchbox-wrapper flex align-center">
 						{ICON_SEARCH_WORKSPACE}
-						<input className="board-searchbox" placeholder="Search" type="text"></input>
+						<input autoFocus className="board-searchbox" placeholder="Search" type="text"></input>
 						{ICON_FILTER_SEARCHBAR}
 					</div>
 					<div className="add-btn">{ICON_PLUS}</div>
@@ -31,9 +31,11 @@ export function BoardList() {
 			<ul className="board-list clean-list flex column">
 				{boards.map(board => (
 					<li className="board-title-preview flex" key={board._id}>
-						{ICON_BOARD_LIST}
-						{board.title}
-						{ICON_OPTIONS}
+						<span>
+							{ICON_BOARD_LIST}
+							{board.title}
+						</span>
+						<span>{ICON_OPTIONS}</span>
 					</li>
 				))}
 			</ul>

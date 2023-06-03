@@ -5,15 +5,15 @@ import { TaskPreview } from './task-preview.jsx'
 
 export function TaskList({ tasks, group }) {
 	return (
-		<ul className="task-list clean-list" style={{ borderInlineStart: `6px solid ${group.style.color}` }}>
-			<TaskListHeader groupId={group.id} tasks={tasks} />
+		<ul className="task-list clean-list">
+			<TaskListHeader group={group} tasks={tasks} />
 			{tasks.map(task => (
 				<li key={task.id}>
-					<TaskPreview groupId={group.id} task={task} />
+					<TaskPreview group={group} task={task} />
 				</li>
 			))}
 			<li>
-				<AddTask groupId={group.id} />
+				<AddTask group={group} />
 			</li>
 		</ul>
 	)
