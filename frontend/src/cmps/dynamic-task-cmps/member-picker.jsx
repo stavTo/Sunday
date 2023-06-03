@@ -27,7 +27,6 @@ export function MemberPicker({ groupId, type, task }) {
 	}, [userToSearch])
 
 	useEffect(() => {
-		console.log(userList)
 	}, [userList])
 
 	//this happens BEFORE dom renders, so that modal changes before it displays. (no jumps in display)

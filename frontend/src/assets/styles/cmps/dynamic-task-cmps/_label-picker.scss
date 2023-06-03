@@ -30,7 +30,7 @@
 
 	.label-picker-popup {
 		position: absolute;
-		top: em(46px);
+		top: calc($task-row-height + 5px);
 		z-index: 10;
 		width: em(200px);
 		min-height: em(280px);

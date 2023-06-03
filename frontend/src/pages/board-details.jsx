@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Outlet, useParams } from 'react-router-dom'
 // import { BoardList } from '../cmps/board-list'
 import { BoardHeader } from '../cmps/board-header'
 import { GroupList } from '../cmps/group-list'
@@ -29,8 +29,7 @@ export function BoardDetails() {
 			showErrorMsg(`Board ${boardId} does not exists. `)
 		}
 	}
-	console.log(board)
-	
+
 	if (isLoading) return <BoardLoader />
 	return (
 		<section className="board-details">
@@ -40,6 +39,7 @@ export function BoardDetails() {
 				<BoardHeader board={board} />
 				<GroupList groups={board.groups} />
 			</section>
+			<Outlet />
 		</section>
 	)
 }

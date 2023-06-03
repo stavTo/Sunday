@@ -2,6 +2,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { DEFAULT_USER } from '../assets/icons/icons.js'
+import { async } from 'q'
 
 const STORAGE_KEY = 'board'
 
@@ -20,9 +21,12 @@ export const boardService = {
 	removeTask,
 	addTaskToFirstGroup,
 	getDefaultFilter,
-	updateDueDateInTask,
 	getEmptyLabel,
-	updateLabels
+	updateLabels,
+	getTaskById,
+	getGroupByTask,
+	getEmptyComment,
+	saveComment
 }
 
 async function query(filter = {}) {
@@ -168,6 +172,16 @@ async function updateLabels(board, labelsName, labels) {
 	return boardToSave
 }
 
+function getTaskById(board, groupId, taskId) {
+	const group = board.groups.find(g => g.id === groupId)
+	const task = group.tasks.find(t => t.id === taskId)
+	return task
+}
+
+function getGroupByTask(board, taskId) {
+	const group = board.groups.find(g => g.tasks.some(t => t.id === taskId))
+	return group
+}
 
 async function saveTask(boardId, groupId, task, activity = '') {
 	const board = await getById(boardId)
@@ -216,6 +230,22 @@ async function removeTask(boardId, groupId, taskId, activity = '') {
 	// board.board.activities.unshift(activity)
 	await save(board)
 	return board
+}
+
+async function saveComment(board, groupId, taskId, commentToEdit) {
+	const group = board.groups.find(g => g.id === groupId)
+	const task = group.tasks.find(t => t.id === taskId)
+	task.comments.unshift(commentToEdit)
+	await save(board)
+	return commentToEdit
+}
+
+
+function getEmptyComment() {
+	return {
+		txt: '',
+		id: utilService.makeId()
+	}
 }
 
 // async function updateLabelInTask(boardId, groupId, taskId, labelTaskName, label) {
@@ -289,7 +319,7 @@ function _getDummyBoard(boardNum) {
 				title: 'Group 2',
 				tasks: [
 					{
-						id: 'c101',
+						id: 'c103',
 						title: 'Product Research',
 						status: 'not-started',
 						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
@@ -298,9 +328,10 @@ function _getDummyBoard(boardNum) {
 						description: 'Conduct market research for popular toy categories and trends',
 						priority: 'high',
 						category: 'research',
+						comments: []
 					},
 					{
-						id: 'c102',
+						id: 'c104',
 						title: 'Define Target Audience',
 						status: 'not-started',
 						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
@@ -309,9 +340,10 @@ function _getDummyBoard(boardNum) {
 						description: 'Identify the target audience for the online toy store',
 						priority: 'medium',
 						category: 'strategy',
+						comments: []
 					},
 					{
-						id: 'c103',
+						id: 'c105',
 						title: 'Create Product Catalog',
 						status: 'in-progress',
 						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
@@ -320,9 +352,10 @@ function _getDummyBoard(boardNum) {
 						description: 'Compile a comprehensive catalog of toys available for sale',
 						priority: 'high',
 						category: 'catalog',
+						comments: []
 					},
 					{
-						id: 'c104',
+						id: 'c106',
 						title: 'Website Development',
 						status: 'not-started',
 						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
@@ -331,9 +364,10 @@ function _getDummyBoard(boardNum) {
 						description: 'Develop an engaging and user-friendly website for the online store',
 						priority: 'high',
 						category: 'development',
+						comments: []
 					},
 					{
-						id: 'c105',
+						id: 'c107',
 						title: 'Inventory Management System',
 						status: 'not-started',
 						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
@@ -342,9 +376,10 @@ function _getDummyBoard(boardNum) {
 						description: 'Implement a system to manage toy inventory and stock levels',
 						priority: 'medium',
 						category: 'operations',
+						comments: []
 					},
 					{
-						id: 'c106',
+						id: 'c108',
 						title: 'Marketing Strategy',
 						status: '',
 						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
@@ -353,6 +388,7 @@ function _getDummyBoard(boardNum) {
 						description: 'Develop a marketing strategy to promote the online toy store',
 						priority: 'high',
 						category: 'marketing',
+						comments: []
 					},
 				],
 				style: {},

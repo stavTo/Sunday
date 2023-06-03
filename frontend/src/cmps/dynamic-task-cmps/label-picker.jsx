@@ -52,6 +52,7 @@ export function LabelPicker({ type, task, groupId }) {
 	function onPickerClose(ev) {
 		if (!ev.target.closest('.label-picker-popup')) {
 			setIsPickerOpen(false)
+			setIsEditor(false)
 		}
 	}
 
@@ -98,23 +99,26 @@ function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
 	}
 
 	return (
-		<div className="label-picker-popup">
-			<ul className="labels-list clean-list">
-				{board[labelsName].map(label => (
-					<li
-						key={label.id}
-						style={{ backgroundColor: label.color }}
-						onClick={ev => onChangeLabel(ev, label)}>
-						{label.title}
-					</li>
-				))}
-			</ul>
-			<div className="sperator"></div>
-			<button className="edit-labels" onClick={onSetIsEditor}>
-				<span>{EDIT_LABEL}</span>
-				<span>Edit Labels</span>
-			</button>
-		</div>
+		<>
+			<div className="modal-up-arrow"></div>
+			<div className="label-picker-popup">
+				<ul className="labels-list clean-list">
+					{board[labelsName].map(label => (
+						<li
+							key={label.id}
+							style={{ backgroundColor: label.color }}
+							onClick={ev => onChangeLabel(ev, label)}>
+							{label.title}
+						</li>
+					))}
+				</ul>
+				<div className="sperator"></div>
+				<button className="edit-labels" onClick={onSetIsEditor}>
+					<span>{EDIT_LABEL}</span>
+					<span>Edit Labels</span>
+				</button>
+			</div>
+		</>
 	)
 }
 
@@ -150,29 +154,32 @@ function LabelPickerPopUpEditor({ board, labelsName }) {
 
 	console.log(boardLabels)
 	return (
-		<div className="label-picker-popup">
-			<ul className="labels-input-list clean-list">
-				{board[labelsName].map(label =>
-					<li key={label.id}>
-						<div className="input-container">
-							<span
-								className="remove-label-btn"
-								onClick={() => removeLabel(label.id)}
-							>X</span>
-							<input type="text"
-								value={label.title}
-								name={label.id}
-								onChange={handleChange} />
-						</div>
-					</li>
-				)}
-			</ul>
-			<button onClick={addNewLabel}>+ New label</button>
-			<div className="sperator"></div>
-			<button className="edit-labels">
-				<span>{EDIT_LABEL}</span>
-				<span>Apply</span>
-			</button>
-		</div>
+		<>
+			<div className="modal-up-arrow"></div>
+			<div className="label-picker-popup">
+				<ul className="labels-input-list clean-list">
+					{board[labelsName].map(label =>
+						<li key={label.id}>
+							<div className="input-container">
+								<span
+									className="remove-label-btn"
+									onClick={() => removeLabel(label.id)}
+								>X</span>
+								<input type="text"
+									value={label.title}
+									name={label.id}
+									onChange={handleChange} />
+							</div>
+						</li>
+					)}
+				</ul>
+				<button onClick={addNewLabel}>+ New label</button>
+				<div className="sperator"></div>
+				<button className="edit-labels">
+					<span>{EDIT_LABEL}</span>
+					<span>Apply</span>
+				</button>
+			</div>
+		</>
 	)
 }
