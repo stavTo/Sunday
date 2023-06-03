@@ -1,5 +1,4 @@
 .task-details {
-<<<<<<< HEAD
 	width: em(570px);
 	height: 100vh;
 	background-color: #ffffff;
@@ -8,6 +7,7 @@
 	top: 0;
 	z-index: 1;
 	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+
 	.close-modal-btn {
 		svg {
 			margin-inline-start: 6px;
@@ -16,25 +16,6 @@
 			height: 30px;
 		}
 	}
-=======
-    width: em(570px);
-    height: 100vh;
-    background-color: #FFFFFF;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
-    
-    .close-modal-btn {
-        svg {
-            margin-inline-start: 6px;
-            margin-block-start: 6px;
-            width: 30px;
-            height: 30px;
-        }
-    }
->>>>>>> c3c278a8ec7302be9ce5cea92b5135ba43d968e7
 
 	.editor-container {
 		display: flex;

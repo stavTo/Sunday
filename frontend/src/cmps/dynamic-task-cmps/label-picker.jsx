@@ -5,6 +5,7 @@ import { EDIT_LABEL } from '../../assets/icons/icons'
 import { addEmptyLabel, saveTask, updateLabels } from '../../store/selected-board.actions'
 import { SET_IS_MODAL_OPEN } from '../../store/selected-board.reducer'
 import { boardService } from '../../services/board.service.local'
+import { usePopper } from 'react-popper'
 
 const DEFAULT_STATUS_LABELS = [
 	{ id: 'sl100', title: 'Done', color: '#00C875' },
@@ -28,6 +29,16 @@ export function LabelPicker({ type, task, groupId }) {
 	const labelPickerRef = useRef()
 	const [isEditor, setIsEditor] = useState(false)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
+
+	const [referenceElement, setReferenceElement] = useState(null)
+	const [popperElement, setPopperElement] = useState(null)
+	const [arrowElement, setArrowElement] = useState(null)
+	const { styles, attributes } = usePopper(referenceElement, popperElement, {
+		modifiers: [
+			{ name: 'arrow', options: { element: arrowElement } },
+			{ name: 'offset', options: { offset: [0, 8] } },
+		],
+	})
 
 	useEffect(() => {
 		if (type === 'statusPicker') {
@@ -71,59 +82,78 @@ export function LabelPicker({ type, task, groupId }) {
 	}
 
 	return (
-		<li className="label-picker" onClick={handleClick} style={{ backgroundColor: label?.color || '#C4C4C4' }}>
+		<li
+			className="label-picker"
+			ref={setReferenceElement}
+			onClick={handleClick}
+			style={{ backgroundColor: label?.color || '#C4C4C4' }}>
 			<span>{label?.title || ''}</span>
 			<div className="corner-fold"></div>
 
 			{isPickerOpen &&
 				(isEditor ? (
 					<LabelPickerPopUpEditor
+						popperRef={setPopperElement}
 						board={board}
-						labelsName={labelsName} />
+						labelsName={labelsName}
+						styles={styles}
+						setArrowElement={setArrowElement}
+						attributes={attributes}
+					/>
 				) : (
 					<LabelPickerPopUp
+						popperRef={setPopperElement}
 						board={board}
 						labelsName={labelsName}
 						onChangeLabel={onChangeLabel}
 						setIsEditor={setIsEditor}
 						label={label}
+						styles={styles}
+						setArrowElement={setArrowElement}
+						attributes={attributes}
 					/>
 				))}
 		</li>
 	)
 }
 
-function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
+function LabelPickerPopUp({
+	board,
+	labelsName,
+	onChangeLabel,
+	setIsEditor,
+	styles,
+	popperRef,
+	setArrowElement,
+	attributes,
+}) {
 	function onSetIsEditor() {
 		setIsEditor(true)
 	}
 
 	return (
-		<>
-			<div className="modal-up-arrow"></div>
-			<div className="label-picker-popup">
-				<ul className="labels-list clean-list">
-					{board[labelsName].map(label => (
-						<li
-							key={label.id}
-							style={{ backgroundColor: label.color }}
-							onClick={ev => onChangeLabel(ev, label)}>
-							{label.title}
-						</li>
-					))}
-				</ul>
-				<div className="sperator"></div>
-				<button className="edit-labels" onClick={onSetIsEditor}>
-					<span>{EDIT_LABEL}</span>
-					<span>Edit Labels</span>
-				</button>
-			</div>
-		</>
+		<div className="label-picker-popup" ref={popperRef} style={styles.popper} {...attributes.popper}>
+			<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
+			<ul className="labels-list clean-list">
+				{board[labelsName].map(label => (
+					<li
+						key={label.id}
+						style={{ backgroundColor: label.color }}
+						onClick={ev => onChangeLabel(ev, label)}>
+						{label.title}
+					</li>
+				))}
+			</ul>
+			<div className="sperator"></div>
+			<button className="edit-labels" onClick={onSetIsEditor}>
+				<span>{EDIT_LABEL}</span>
+				<span>Edit Labels</span>
+			</button>
+		</div>
 	)
 }
 
-function LabelPickerPopUpEditor({ board, labelsName }) {
-
+function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrowElement, attributes }) {
 	const [boardLabels, setBoardLabels] = useState(board[labelsName])
 	// const [labelToEdit, setLabelToEdit] = useState(label)
 
@@ -134,7 +164,7 @@ function LabelPickerPopUpEditor({ board, labelsName }) {
 	function handleChange({ target }) {
 		const field = target.name
 		const value = target.value
-		const x = boardLabels.map(l => l.id !== field ? l : { ...l, title: value })
+		const x = boardLabels.map(l => (l.id !== field ? l : { ...l, title: value }))
 		console.log(x)
 
 		setBoardLabels(x)
@@ -150,36 +180,27 @@ function LabelPickerPopUpEditor({ board, labelsName }) {
 		const newLabels = board[labelsName].filter(l => l.id !== labelId)
 		updateLabels(board, labelsName, newLabels)
 	}
-
-
-	console.log(boardLabels)
 	return (
-		<>
-			<div className="modal-up-arrow"></div>
-			<div className="label-picker-popup">
-				<ul className="labels-input-list clean-list">
-					{board[labelsName].map(label =>
-						<li key={label.id}>
-							<div className="input-container">
-								<span
-									className="remove-label-btn"
-									onClick={() => removeLabel(label.id)}
-								>X</span>
-								<input type="text"
-									value={label.title}
-									name={label.id}
-									onChange={handleChange} />
-							</div>
-						</li>
-					)}
-				</ul>
-				<button onClick={addNewLabel}>+ New label</button>
-				<div className="sperator"></div>
-				<button className="edit-labels">
-					<span>{EDIT_LABEL}</span>
-					<span>Apply</span>
-				</button>
-			</div>
-		</>
+		<div className="label-picker-popup" style={styles.popper} {...attributes.popper} ref={popperRef}>
+			<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
+			<ul className="labels-input-list clean-list">
+				{board[labelsName].map(label => (
+					<li key={label.id}>
+						<div className="input-container">
+							<span className="remove-label-btn" onClick={() => removeLabel(label.id)}>
+								X
+							</span>
+							<input type="text" value={label.title} name={label.id} onChange={handleChange} />
+						</div>
+					</li>
+				))}
+			</ul>
+			<button onClick={addNewLabel}>+ New label</button>
+			<div className="sperator"></div>
+			<button className="edit-labels">
+				<span>{EDIT_LABEL}</span>
+				<span>Apply</span>
+			</button>
+		</div>
 	)
 }

@@ -3,7 +3,6 @@ import { TaskSelection } from './task-selection'
 
 export function TaskListHeader({ task, group }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
-	console.log(board.cmpsOrder)
 	return (
 		<ul
 			className="task-list-header task-row clean-list"
