@@ -20,10 +20,10 @@ export function TaskListHeader({ task, group }) {
 						cmpTitle = 'Priority'
 						break
 					case 'ownerPicker':
-						cmpTitle = 'owner'
+						cmpTitle = 'Owner'
 						break
 					case 'collaboratorPicker':
-						cmpTitle = 'collaborators'
+						cmpTitle = 'Collaborators'
 						break
 					case 'datePicker':
 						cmpTitle = 'Date'

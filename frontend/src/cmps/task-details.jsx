@@ -13,7 +13,7 @@ export function TaskDetails() {
     const [isEditorOpen, setIsEditorOpen] = useState(false)
     const [commentToEdit, setCommentToEdit] = useState(boardService.getEmptyComment())
     const [comments, setComments] = useState([])
-    const naviagte = useNavigate()
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (taskId && group?.id) {
@@ -34,7 +34,7 @@ export function TaskDetails() {
     }
 
     function onCloseModal() {
-        naviagte(`/boards/${board._id}`)
+        navigate(`/boards/${board._id}`)
     }
 
     async function onSaveComment() {

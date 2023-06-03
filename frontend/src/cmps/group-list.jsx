@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import { addEmptyGroup } from '../store/selected-board.actions'
 import { GroupPreview } from './group-preview'
+import { ICON_ADD_GROUP } from '../assets/icons/icons'
 
 export function GroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
@@ -18,7 +19,12 @@ export function GroupList({ groups }) {
 				))}
 			</ul>
 
-			<button onClick={onAddGroup}>Add new group</button>
+			<div
+				className="add-group-btn flex"
+				onClick={onAddGroup}>
+				<span className="icon">{ICON_ADD_GROUP}</span>
+				<span className="txt">Add new group</span>
+			</div>
 		</section>
 	)
 }
