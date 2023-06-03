@@ -25,7 +25,7 @@ import { BTN_ARROW } from '../assets/icons/icons'
 import { loadBoards } from '../store/board.actions'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
-
+import logo from "../assets/img/logo.png"
 
 export function HomePage() {
 	const navigate = useNavigate()
@@ -49,7 +49,7 @@ export function HomePage() {
 		<header className={`home-header main-layout full ${`${scrolled ? 'scrolled' : ''}`}`}>
 			<nav className="main-nav flex">
 				<div className="logo">
-					LOGO!
+					<img src={logo} />
 				</div>
 				<ul className="clean-list flex">
 					<li> <a href="">About</a> </li>
