@@ -1,6 +1,5 @@
 .member-picker {
 	cursor: pointer;
-	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -12,8 +11,6 @@
 	.member-picker-modal {
 		cursor: default;
 		font-size: em(14px);
-		position: absolute;
-		top: calc($task-row-height + 5px);
 		z-index: 99999;
 		background-color: #ffffff;
 		border-radius: 8px;

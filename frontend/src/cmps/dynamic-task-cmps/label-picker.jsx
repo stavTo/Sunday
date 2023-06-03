@@ -52,6 +52,7 @@ export function LabelPicker({ type, task, groupId }) {
 	function onPickerClose(ev) {
 		if (!ev.target.closest('.label-picker-popup')) {
 			setIsPickerOpen(false)
+			setIsEditor(false)
 		}
 	}
 
