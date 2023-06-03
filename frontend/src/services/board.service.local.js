@@ -496,8 +496,9 @@ function _getDummyBoard(boardNum) {
 			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'statusPicker' },
 			{ id: utilService.makeId(), cmpName: 'priorityPicker' },
-			{ id: utilService.makeId(), cmpName: 'collaboratorPicker' },
+			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'timelinePicker' },
+			{ id: utilService.makeId(), cmpName: 'collaboratorPicker' },
 			{ id: utilService.makeId(), cmpName: 'datePicker' },
 		],
 		statusLabels: [
