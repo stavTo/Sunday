@@ -5,8 +5,9 @@ import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { TaskSelection } from './task-selection'
 import { ICON_CHECKBOX } from '../assets/icons/icons'
+import { utilService } from '../services/util.service'
 
-export function AddTask({ groupId }) {
+export function AddTask({ group }) {
 	const [taskToAdd, setTaskToAdd] = useState(boardService.getEmptyTask())
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 	const elInput = useRef()
@@ -20,7 +21,7 @@ export function AddTask({ groupId }) {
 		if (taskToAdd.title.replace(/\s/g, '') === '') return
 		elInput.current.blur()
 		try {
-			await addTask(board._id, groupId, taskToAdd, 'Added Task')
+			await addTask(board._id, group.id, taskToAdd, 'Added Task')
 		} catch (err) {
 			console.log(err)
 			showErrorMsg("Can't add task")
@@ -36,8 +37,13 @@ export function AddTask({ groupId }) {
 		setTaskToAdd(prev => ({ ...prev, title: target.value }))
 	}
 
+	console.log(utilService.hexToRgba(group.style.color, 0.6))
+
 	return (
 		<ul
+			style={{
+				borderInlineStart: `6px solid ${utilService.hexToRgba(group.style.color, 0.6)} `,
+			}}
 			className="add-task clean-list  task-row"
 			onClick={() => {
 				elInput.current.focus()
