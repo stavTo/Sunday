@@ -6,12 +6,14 @@ import { DateRange, DayPicker } from 'react-day-picker'
 import { addDays, format } from 'date-fns'
 import 'react-day-picker/dist/style.css'
 import { ICON_CLOSE } from '../../assets/icons/icons'
+import { utilService } from '../../services/util.service'
 
 export function TimelinePicker({ task, groupId }) {
 	const [toggle, setToggle] = useState(false)
 	const [isHovered, setIsHovered] = useState(false)
 	const [hasTimeline, setHasTimeline] = useState(task.timeline)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
+
 	const [referenceElement, setReferenceElement] = useState(null)
 	const [popperElement, setPopperElement] = useState(null)
 	const [arrowElement, setArrowElement] = useState(null)
@@ -49,17 +51,7 @@ export function TimelinePicker({ task, groupId }) {
 	async function onChangeTimelineRange() {
 		// setToggle(!toggle)
 		const { timeline } = task
-		const timelineToSave = {
-			startDate: range.from.toLocaleDateString('en-US', {
-				month: 'short',
-				day: 'numeric',
-			}),
-			endDate: range.to.toLocaleDateString('en-US', {
-				month: 'short',
-				day: 'numeric',
-			}),
-		}
-		const taskToEdit = { ...task, timeline: timelineToSave }
+		const taskToEdit = { ...task, timeline }
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 
@@ -76,11 +68,8 @@ export function TimelinePicker({ task, groupId }) {
 
 	function getEstTime() {
 		const { timeline } = task
-		console.log(timeline.startDate)
-		const start = +('' + timeline.startDate).slice(3)
-		const end = +('' + timeline.endDate).slice(3)
-		const estTime = end - start
-		return estTime
+		const estTime = timeline.endDate - timeline.startDate
+		return utilService.millisecondsToDays(estTime)
 	}
 
 	let footer = <p>Please pick the first day.</p>
@@ -98,8 +87,7 @@ export function TimelinePicker({ task, groupId }) {
 
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
-		setHasTimeline(taskToEdit.timeline)
-		console.log('taskToEdit:', taskToEdit)
+		setHasTimeline(null)
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 
@@ -115,13 +103,15 @@ export function TimelinePicker({ task, groupId }) {
 				{task.timeline && (
 					<div className="span-container flex align-center justify-center">
 						<span className="range-preview flex row justify-center">
-							{isHovered ? (
-								<span>{getEstTime()}d</span>
-							) : (
-								<span>
-									{timeline.startDate} - {timeline.endDate}
-								</span>
-							)}
+							{hasTimeline &&
+								(isHovered ? (
+									<span>{getEstTime()}d</span>
+								) : (
+									<span>
+										{utilService.timeStampToDate(timeline.startDate)} -
+										{utilService.timeStampToDate(timeline.endDate)}
+									</span>
+								))}
 						</span>
 						{isHovered && hasTimeline && (
 							<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>

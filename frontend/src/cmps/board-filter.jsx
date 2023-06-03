@@ -43,7 +43,6 @@ export function BoardFilter({ board }) {
 	}
 
 	function onSetActive(ev, state) {
-		console.log(state, active)
 		ev.stopPropagation()
 		if (state === active) return setActive('')
 		setActive(state)

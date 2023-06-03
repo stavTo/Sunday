@@ -36,7 +36,7 @@ export function TaskPreview({ task, group }) {
 					case COLLABORATOR_PICKER:
 						return <MemberPicker key={cmp.id} type={cmp.cmpName} groupId={group.id} task={task} />
 					case TIMELINE_PICKER:
-						return <TimelinePicker key={cmp.id} type={cmp.cmpName} groupId={group.d} task={task} />
+						return <TimelinePicker key={cmp.id} type={cmp.cmpName} groupId={group.id} task={task} />
 					default:
 						return null
 				}

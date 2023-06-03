@@ -8,6 +8,8 @@ export const utilService = {
 	loadFromStorage,
 	getRandomColor,
 	hexToRgba,
+	timeStampToDate,
+	millisecondsToDays,
 }
 
 function makeId(length = 6) {
@@ -118,5 +120,16 @@ function hexToRgba(hex, alpha = 1) {
 
 	// Return the RGB values as an object
 	return `rgba(${r},${g},${b},${alpha})`
-	return { r, g, b }
+}
+
+function timeStampToDate(timeStamp) {
+	const timelineToSave = new Date(timeStamp).toLocaleDateString('en-US', {
+		month: 'short',
+		day: 'numeric',
+	})
+	return timelineToSave
+}
+
+function millisecondsToDays(ms) {
+	return ms / 86400000
 }

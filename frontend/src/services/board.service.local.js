@@ -252,7 +252,7 @@ async function saveComment(board, groupId, taskId, commentToEdit) {
 function getEmptyComment() {
 	return {
 		txt: '',
-		id: ''
+		id: '',
 	}
 }
 
@@ -303,7 +303,7 @@ function _getDummyBoard(boardNum) {
 						title: 'Advertising on billboards',
 						status: 'Working on it',
 						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
-						collaborators: [{ _id: 'U103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
+						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
 						timeline: { startDate: 1686258000000, endDate: 1686862800000 },
 						dueDate: 1686258000000,
 						comments: [{ _id: '', content: '' }],
