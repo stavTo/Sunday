@@ -20,6 +20,7 @@ export const boardService = {
 	removeTask,
 	addTaskToFirstGroup,
 	getDefaultFilter,
+	updateGroup,
 }
 
 async function query(filter = {}) {
@@ -137,7 +138,7 @@ function getEmptyGroup() {
 		id: '',
 		title: 'New Group',
 		tasks: [],
-		style: { backgroundColor: utilService.getRandomColor() },
+		style: { color: utilService.getRandomColor() },
 	}
 }
 
@@ -195,6 +196,13 @@ async function removeTask(boardId, groupId, taskId, activity = '') {
 		group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
 	)
 	// board.board.activities.unshift(activity)
+	await save(board)
+	return board
+}
+
+async function updateGroup(boardId, group) {
+	const board = await getById(boardId)
+	board.groups = board.groups.map(g => (g.id === group.id ? group : g))
 	await save(board)
 	return board
 }
@@ -277,7 +285,7 @@ function _getDummyBoard(boardNum) {
 						category: 'research',
 					},
 				],
-				style: {},
+				style: { color: utilService.getRandomColor() },
 			},
 			{
 				id: 'g102',
@@ -350,7 +358,7 @@ function _getDummyBoard(boardNum) {
 						category: 'marketing',
 					},
 				],
-				style: {},
+				style: { color: utilService.getRandomColor() },
 			},
 		],
 		activities: [

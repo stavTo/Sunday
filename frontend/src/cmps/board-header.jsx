@@ -4,8 +4,7 @@ import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import tippy from 'tippy.js'
-import 'tippy.js/dist/tippy.css'
+import { setTippy } from '../services/tippy.service'
 
 export function BoardHeader({ board }) {
 	function onAddGroup() {
@@ -16,11 +15,9 @@ export function BoardHeader({ board }) {
 		addTaskToFirstGroup(board._id)
 	}
 
-	tippy('.board-name', {
-		content: 'Click to Edit',
-		animation: 'fade',
-		'transition-timing-function': 'scale-subtle',
-	})
+	setTippy('.board-name', 'Click to Edit')
+	setTippy('.info-icon', 'Show board description')
+	setTippy('.star-icon', 'Add to favorites')
 
 	return (
 		<section className="board-header">

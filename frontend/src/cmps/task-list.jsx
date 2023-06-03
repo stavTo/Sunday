@@ -1,18 +1,19 @@
+import { useState } from 'react'
 import { AddTask } from './add-task.jsx'
 import { TaskListHeader } from './task-list-header.jsx'
 import { TaskPreview } from './task-preview.jsx'
 
-export function TaskList({ tasks, groupId }) {
+export function TaskList({ tasks, group }) {
 	return (
-		<ul className="task-list clean-list">
-			<TaskListHeader groupId={groupId} tasks={tasks} />
+		<ul className="task-list clean-list" style={{ borderInlineStart: `6px solid ${group.style.color}` }}>
+			<TaskListHeader groupId={group.id} tasks={tasks} />
 			{tasks.map(task => (
 				<li key={task.id}>
-					<TaskPreview groupId={groupId} task={task} />
+					<TaskPreview groupId={group.id} task={task} />
 				</li>
 			))}
 			<li>
-				<AddTask groupId={groupId} />
+				<AddTask groupId={group.id} />
 			</li>
 		</ul>
 	)

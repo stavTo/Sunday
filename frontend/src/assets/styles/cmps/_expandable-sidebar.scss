@@ -13,10 +13,9 @@
 
 		.expandable-sidebar {
 			height: 100%;
-			transition: width .2s;
+			transition: width 0.2s;
 			background-color: $bg-clr3;
 			width: 33px;
-
 
 			ul {
 				padding: 1em;
@@ -62,7 +61,6 @@
 
 				&:focus {
 					outline: none;
-
 				}
 			}
 		}
