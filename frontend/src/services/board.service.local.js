@@ -2,6 +2,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { DEFAULT_USER } from '../assets/icons/icons.js'
+import { async } from 'q'
 
 const STORAGE_KEY = 'board'
 
@@ -20,6 +21,12 @@ export const boardService = {
 	removeTask,
 	addTaskToFirstGroup,
 	getDefaultFilter,
+	getEmptyLabel,
+	updateLabels,
+	getTaskById,
+	getGroupByTask,
+	getEmptyComment,
+	saveComment,
 	updateGroup,
 }
 
@@ -142,6 +149,14 @@ function getEmptyGroup() {
 	}
 }
 
+function getEmptyLabel() {
+	return {
+		id: utilService.makeId(),
+		title: '',
+		color: '#c4c4c4',
+	}
+}
+
 async function addEmptyGroup(boardId, pushToTop, activity = '') {
 	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
@@ -149,6 +164,24 @@ async function addEmptyGroup(boardId, pushToTop, activity = '') {
 	pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
 	await save(board)
 	return board
+}
+
+async function updateLabels(board, labelsName, labels) {
+	const boardToSave = { ...board }
+	boardToSave[labelsName] = labels
+	await save(boardToSave)
+	return boardToSave
+}
+
+function getTaskById(board, groupId, taskId) {
+	const group = board.groups.find(g => g.id === groupId)
+	const task = group.tasks.find(t => t.id === taskId)
+	return task
+}
+
+function getGroupByTask(board, taskId) {
+	const group = board.groups.find(g => g.tasks.some(t => t.id === taskId))
+	return group
 }
 
 async function saveTask(boardId, groupId, task, activity = '') {
@@ -205,6 +238,21 @@ async function updateGroup(boardId, group) {
 	board.groups = board.groups.map(g => (g.id === group.id ? group : g))
 	await save(board)
 	return board
+}
+
+async function saveComment(board, groupId, taskId, commentToEdit) {
+	const group = board.groups.find(g => g.id === groupId)
+	const task = group.tasks.find(t => t.id === taskId)
+	task.comments.unshift(commentToEdit)
+	await save(board)
+	return commentToEdit
+}
+
+function getEmptyComment() {
+	return {
+		txt: '',
+		id: utilService.makeId(),
+	}
 }
 
 // async function updateLabelInTask(boardId, groupId, taskId, labelTaskName, label) {

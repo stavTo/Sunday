@@ -96,6 +96,7 @@ export function MemberPicker({ groupId, type, task }) {
 	function handleSearch({ target }) {
 		setUserToSearch(target.value)
 	}
+	
 	return (
 		<li className="member-picker" ref={setReferenceElement} onClick={ev => onToggleModal(ev)}>
 			{type === 'ownerPicker' && task?.owner?._id && <img src={task.owner.imgUrl} alt="person" />}

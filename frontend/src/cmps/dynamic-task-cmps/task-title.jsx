@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg } from '../../services/event-bus.service'
 import { saveTask } from '../../store/selected-board.actions'
+import { Link } from 'react-router-dom'
 import { setTippy } from '../../services/tippy.service'
 
 export function TaskTitle({ task, groupId }) {
@@ -41,8 +42,13 @@ export function TaskTitle({ task, groupId }) {
 		}
 	}
 
+	function openTaskDetials() {
+
+	}
+
 	return (
-		<li className="task-title">
+		 <li className="task-title" >
+			<Link to={`/boards/${board._id}/tasks/${task.id}`}>Details</Link>
 			{!isInputVisible && <span onClick={handleClick}>{task.title}</span>}
 			{isInputVisible && (
 				<input
