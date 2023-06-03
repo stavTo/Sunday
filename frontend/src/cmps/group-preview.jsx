@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ICON_EXPAND_ARROW } from '../assets/icons/icons'
+import { ICON_EXPAND_ARROW, ICON_OPTIONS } from '../assets/icons/icons'
 import { setTippy } from '../services/tippy.service'
 import { TaskList } from './task-list'
 import { updateGroup } from '../store/selected-board.actions'

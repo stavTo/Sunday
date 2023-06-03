@@ -1,9 +1,24 @@
 .task-preview {
 	display: flex;
+	position: relative;
+
+	&:hover .task-option {
+		opacity: 1;
+	}
+
+	.task-option {
+		position: absolute;
+		left: -31px;
+		bottom: 4px;
+		border: none;
+		background-color: inherit;
+		opacity: 0;
+	}
 
 	.label-picker {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
+
 }

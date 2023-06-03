@@ -22,6 +22,7 @@ export function AddTask({ group }) {
 		elInput.current.blur()
 		try {
 			await addTask(board._id, group.id, taskToAdd, 'Added Task')
+			setTaskToAdd(prevTask => ({...prevTask , title : ''}))
 		} catch (err) {
 			console.log(err)
 			showErrorMsg("Can't add task")
