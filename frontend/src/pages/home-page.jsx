@@ -25,12 +25,14 @@ import { BTN_ARROW } from '../assets/icons/icons'
 import { loadBoards } from '../store/board.actions'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
-import logo from "../assets/img/logo.png"
+import logo from '../assets/img/logo.png'
 
 export function HomePage() {
 	const navigate = useNavigate()
 	const boards = useSelector(({ boardModule }) => boardModule.boards)
 	const [scrolled, setScrolled] = useState(false)
+
+	console.log(boards)
 
 	useEffect(() => {
 		loadBoards()
@@ -42,117 +44,138 @@ export function HomePage() {
 	}
 
 	function onNavigate() {
-		navigate(`/boards/${boards[0]._id}`)
+		if (boards[0]) navigate(`/boards/${boards[0]._id}`)
+		else navigate(`/boards/${boards._id}`)
 	}
 
-	return <section className="home-page main-layout scrolled">
-		<header className={`home-header main-layout full ${`${scrolled ? 'scrolled' : ''}`}`}>
-			<nav className="main-nav flex">
-				<div className="logo">
-					<img src={logo} />
-				</div>
-				<ul className="clean-list flex">
-					<li> <a href="">About</a> </li>
-					<li><a href="">Log in</a> </li>
-					<li><button className='btn-get-started btn-arrow'
-						onClick={onNavigate}>
-						<span className='btn-title'>Get Started</span>
-						<span className='btn-arrow'>{BTN_ARROW}</span>
-					</button></li>
-				</ul>
-			</nav>
-		</header>
-		<main className='home-main'>
-			<div className="titles-container">
-				<span className='main-title'>
-					A platform built for a
-					new way of working
-				</span>
-				<span className='secondary-title'>
-					What would you like to manage with sunday.com Work OS?
-				</span>
-			</div>
-			<section className="card-container">
-				<div className="card">
-					<div className="icon-container"><img src={designIcon} alt="" />
+	return (
+		<section className="home-page main-layout scrolled">
+			<header className={`home-header main-layout full ${`${scrolled ? 'scrolled' : ''}`}`}>
+				<nav className="main-nav flex">
+					<div className="logo">
+						<img src={logo} />
 					</div>
-					<span>Creative & design</span>
+					<ul className="clean-list flex">
+						<li>
+							<a href="">About</a>
+						</li>
+						<li>
+							<a href="">Log in</a>
+						</li>
+						<li>
+							<button className="btn-get-started btn-arrow" onClick={onNavigate}>
+								<span className="btn-title">Get Started</span>
+								<span className="btn-arrow">{BTN_ARROW}</span>
+							</button>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<main className="home-main">
+				<div className="titles-container">
+					<span className="main-title">A platform built for a new way of working</span>
+					<span className="secondary-title">What would you like to manage with sunday.com Work OS?</span>
 				</div>
-				<div className="card">
-					<div className="icon-container">
-						<img src={devIcon} alt="" />
+				<section className="card-container">
+					<div className="card">
+						<div className="icon-container">
+							<img src={designIcon} alt="" />
+						</div>
+						<span>Creative & design</span>
 					</div>
-					<span>Software development</span>
-				</div>
-				<div className="card">
-					<div className="icon-container">
-						<img src={marketingIcon} alt="" />
+					<div className="card">
+						<div className="icon-container">
+							<img src={devIcon} alt="" />
+						</div>
+						<span>Software development</span>
 					</div>
-					<span>Marketing</span>
-				</div>
-				<div className="card">
-					<div className="icon-container">
-						<img src={pmoIcon} alt="" />
+					<div className="card">
+						<div className="icon-container">
+							<img src={marketingIcon} alt="" />
+						</div>
+						<span>Marketing</span>
 					</div>
-					<span>Project management</span>
-				</div>
-				<div className="card">
-					<div className="icon-container">
-						<img src={crmIcon} alt="" />
+					<div className="card">
+						<div className="icon-container">
+							<img src={pmoIcon} alt="" />
+						</div>
+						<span>Project management</span>
 					</div>
-					<span>Sales & CRM</span>
-				</div>
-				<div className="card">
-					<div className="icon-container">
-						<img src={taskIcon} alt="" />
+					<div className="card">
+						<div className="icon-container">
+							<img src={crmIcon} alt="" />
+						</div>
+						<span>Sales & CRM</span>
 					</div>
-					<span>Task management</span>
-				</div>
-				<div className="card">
-					<div className="icon-container">
-						<img src={hrIcon} alt="" />
+					<div className="card">
+						<div className="icon-container">
+							<img src={taskIcon} alt="" />
+						</div>
+						<span>Task management</span>
 					</div>
-					<span>HR</span>
-				</div>
-				<div className="card">
-					<div className="icon-container">
-						<img src={operationIcon} alt="" />
+					<div className="card">
+						<div className="icon-container">
+							<img src={hrIcon} alt="" />
+						</div>
+						<span>HR</span>
 					</div>
-					<span>Operations</span>
-				</div>
-				<div className="card">
-					<div className="icon-container">
-						<img src={workflowsIcon} alt="" />
+					<div className="card">
+						<div className="icon-container">
+							<img src={operationIcon} alt="" />
+						</div>
+						<span>Operations</span>
 					</div>
-					<span>More workflows</span>
-				</div>
-			</section>
-			<section className='btn-container'>
-				<button className='btn-get-started btn-arrow'
-					onClick={onNavigate}>
-					<span className='btn-title'>Get Started</span>
-					<span className='btn-arrow'>{BTN_ARROW}</span>
-				</button>
-				<span>No credit card needed   ✦   Unlimited time on Free plan</span>
-			</section>
-		</main>
+					<div className="card">
+						<div className="icon-container">
+							<img src={workflowsIcon} alt="" />
+						</div>
+						<span>More workflows</span>
+					</div>
+				</section>
+				<section className="btn-container">
+					<button className="btn-get-started btn-arrow" onClick={onNavigate}>
+						<span className="btn-title">Get Started</span>
+						<span className="btn-arrow">{BTN_ARROW}</span>
+					</button>
+					<span>No credit card needed ✦ Unlimited time on Free plan</span>
+				</section>
+			</main>
 
-		<section className="img-container">
-			<img src={HP_asset_white_bg} alt="" />
+			<section className="img-container">
+				<img src={HP_asset_white_bg} alt="" />
+			</section>
+			<section className="sponsers">
+				<h2>Trusted by 180,000+ customers worldwide</h2>
+				<ul className="sponsers-list clean-list">
+					<li>
+						<img src={bdSponser} alt="" />
+					</li>
+					<li>
+						<img src={canvaSponser} alt="" />
+					</li>
+					<li>
+						<img src={cocaColaSponser} alt="" />
+					</li>
+					<li>
+						<img src={glossierSponser} alt="" />
+					</li>
+					<li>
+						<img src={holtCatSponser} alt="" />
+					</li>
+					<li>
+						<img src={huluSponser} alt="" />
+					</li>
+					<li>
+						<img src={lionsgateSponser} alt="" />
+					</li>
+					<li>
+						<img src={oxySponser} alt="" />
+					</li>
+					<li>
+						<img src={universalSponser} alt="" />
+					</li>
+				</ul>
+			</section>
 		</section>
-		<section className='sponsers'>
-			<h2>Trusted by 180,000+ customers worldwide</h2>
-			<ul className='sponsers-list clean-list'>
-				<li><img src={bdSponser} alt="" /></li>
-				<li><img src={canvaSponser} alt="" /></li>
-				<li><img src={cocaColaSponser} alt="" /></li>
-				<li><img src={glossierSponser} alt="" /></li>
-				<li><img src={holtCatSponser} alt="" /></li>
-				<li><img src={huluSponser} alt="" /></li>
-				<li><img src={lionsgateSponser} alt="" /></li>
-				<li><img src={oxySponser} alt="" /></li>
-				<li><img src={universalSponser} alt="" /></li>
-			</ul>
-		</section>
-	</section>
+	)
 }

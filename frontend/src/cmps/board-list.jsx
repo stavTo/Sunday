@@ -8,8 +8,6 @@ import {
 	ICON_PLUS,
 } from '../assets/icons/icons'
 
-loadBoards()
-
 export function BoardList() {
 	const { boards } = useSelector(storeState => storeState.boardModule)
 	return (
