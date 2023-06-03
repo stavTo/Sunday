@@ -49,38 +49,6 @@ ul {
 // 	transform: rotate(45deg);
 // }
 
-// li[data-title]:hover::after {
-// 	background: #000;
-// 	padding: 1em;
-// }
-
-// [data-title]:hover:after {
-// 	opacity: 1;
-// 	transition: all 0.1s ease 0.5s;
-// 	visibility: visible;
-// }
-
-// [data-title]:after {
-// 	content: attr(data-title);
-// 	// background-color: #00FF00;
-// 	color: $clr0;
-// 	font-size: 150%;
-// 	position: absolute;
-// 	padding: 1px 5px 2px 5px;
-// 	bottom: -1.6em;
-// 	left: 150%;
-// 	white-space: nowrap;
-// 	box-shadow: 0px 0px 10px #222222;
-// 	opacity: 0;
-// 	border: 1px solid #111111;
-// 	z-index: 99999;
-// 	visibility: hidden;
-// }
-
-// [data-title] {
-// 	position: relative;
-// }
-
 img,
 embed,
 video,

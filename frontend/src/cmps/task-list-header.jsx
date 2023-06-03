@@ -25,8 +25,9 @@ export function TaskListHeader({ task, groupId }) {
 						break
 					case 'datePicker':
 						cmpTitle = 'Date'
-					// case 'timelinePicker':
-					// 	cmpTitle = 'Timeline'
+						break
+					case 'timelinePicker':
+						cmpTitle = 'Timeline'
 						break
 				}
 				return <li key={cmp.id}>{cmpTitle}</li>
