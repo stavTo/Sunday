@@ -7,6 +7,7 @@ export const utilService = {
 	saveToStorage,
 	loadFromStorage,
 	getRandomColor,
+	hexToRgba,
 }
 
 function makeId(length = 6) {
@@ -104,4 +105,18 @@ function getRandomColor() {
 		color += letters[Math.floor(Math.random() * 16)]
 	}
 	return color
+}
+
+function hexToRgba(hex, alpha = 1) {
+	// Remove the '#' character from the beginning of the hex code
+	hex = hex.replace('#', '')
+
+	// Extract the individual color components from the hex code
+	const r = parseInt(hex.substr(0, 2), 16)
+	const g = parseInt(hex.substr(2, 2), 16)
+	const b = parseInt(hex.substr(4, 2), 16)
+
+	// Return the RGB values as an object
+	return `rgba(${r},${g},${b},${alpha})`
+	return { r, g, b }
 }

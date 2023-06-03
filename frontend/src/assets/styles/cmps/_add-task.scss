@@ -1,5 +1,6 @@
 .add-task {
 	cursor: text;
+	font-size: rem(14px);
 	display: flex;
 	&:hover .add-task-input {
 		outline: 1px solid $input-hover-border-clr;

@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux'
 import { TaskSelection } from './task-selection'
 
-export function TaskListHeader({ task, groupId }) {
+export function TaskListHeader({ task, group }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
-
+	console.log(board.cmpsOrder)
 	return (
-		<ul className="task-list-header task-row clean-list">
+		<ul
+			className="task-list-header task-row clean-list"
+			style={{ borderInlineStart: `6px solid ${group.style.color}` }}>
 			<TaskSelection />
 			<li>Task</li>
 			{board.cmpsOrder.map(cmp => {
@@ -27,7 +29,7 @@ export function TaskListHeader({ task, groupId }) {
 						cmpTitle = 'Timeline'
 						break
 				}
-				return <li key={cmp.id}>{cmpTitle}</li>
+				return cmpTitle && <li key={cmp.id}>{cmpTitle}</li> //if not in switch case dont render
 			})}
 		</ul>
 	)

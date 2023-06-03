@@ -1,20 +1,19 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 import { format, parseJSON } from 'date-fns'
 import { DayPicker } from 'react-day-picker'
-import { useSelector } from "react-redux"
+import { useSelector } from 'react-redux'
 import 'react-day-picker/dist/style.css'
 import { saveTask } from '../../store/selected-board.actions'
 
-import { ICON_CLOSE } from "../../assets/icons/icons"
-
+import { ICON_CLOSE } from '../../assets/icons/icons'
 
 // ** Positioning calendar patch edit imports-related stuff
 
-import React, { ChangeEventHandler, useRef } from 'react';
+import React, { ChangeEventHandler, useRef } from 'react'
 
-import { isValid, parse } from 'date-fns';
-import FocusTrap from 'focus-trap-react';
-import { usePopper } from 'react-popper';
+import { isValid, parse } from 'date-fns'
+import FocusTrap from 'focus-trap-react'
+import { usePopper } from 'react-popper'
 
 export function DatePicker({ task, groupId }) {
 	const [selected, setSelected] = useState(null)
@@ -22,10 +21,9 @@ export function DatePicker({ task, groupId }) {
 	const [toggle, setToggle] = useState(false)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
-
 	const boxRef = useRef()
 	const tooltipRef = useRef()
-	const {styles, attributes} = usePopper(boxRef.current, tooltipRef.current)
+	const { styles, attributes } = usePopper(boxRef.current, tooltipRef.current)
 
 	// **POPPER SECTION START
 	// const [inputValue, setInputValue] = useState('');
@@ -68,7 +66,6 @@ export function DatePicker({ task, groupId }) {
 	// 	}
 	// };
 
-
 	// **POPPER SECTION END
 
 	useEffect(() => {
@@ -77,7 +74,6 @@ export function DatePicker({ task, groupId }) {
 			setToggle(!toggle)
 		}
 	}, [selected])
-
 
 	async function onChangeDueDate() {
 		const taskToEdit = { ...task, dueDate: selected }
@@ -96,37 +92,37 @@ export function DatePicker({ task, groupId }) {
 
 	return (
 		<>
-			<li className="date-picker flex align-center" ref={boxRef}
-			// <li className="date-picker flex align-center" onClick={() => setToggle(!toggle)}
+			<li
+				className="date-picker flex align-center"
+				ref={boxRef}
+				// <li className="date-picker flex align-center" onClick={() => setToggle(!toggle)}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}>
 				<div className="date-preview-container flex align-center justify-center">
-					{task.dueDate &&
+					{task.dueDate && (
 						<div className="span-container flex align-center justify-center">
-							<span className="date-preview">{new Date(task.dueDate).toLocaleDateString('en-US', {
-								month: 'short',
-								day: 'numeric'
-							})}</span>
-							{isHovered &&
-								<div className="reset-date-btn flex align-center justify-end"
+							<span className="date-preview">
+								{new Date(task.dueDate).toLocaleDateString('en-US', {
+									month: 'short',
+									day: 'numeric',
+								})}
+							</span>
+							{isHovered && (
+								<div
+									className="reset-date-btn flex align-center justify-end"
 									onClick={() => clearTaskDueDate()}>
 									{ICON_CLOSE}
 								</div>
-							}
+							)}
 						</div>
-					}
+					)}
 				</div>
 			</li>
-			{toggle &&
-				<div className="date-picker-container" classNames={classNames('tooltip',{'tooltip-hidden' : !toggle})} ref={tooltipRef} style={styles.popper} {...attributes.popper}>
-					<DayPicker
-						mode="single"
-						selected={selected}
-						onSelect={setSelected}
-						footer={footer}
-					/>
+			{toggle && (
+				<div className="date-picker-container" ref={tooltipRef} style={styles.popper} {...attributes.popper}>
+					<DayPicker mode="single" selected={selected} onSelect={setSelected} footer={footer} />
 				</div>
-			}
+			)}
 		</>
 	)
 }

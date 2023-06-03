@@ -14,7 +14,7 @@
 	.searchbox-wrapper {
 		background: $clr0;
 		border: 1px solid $clr4;
-		border-radius: .4em;
+		border-radius: 0.4em;
 		height: rem(32px);
 		width: rem(180px);
 		position: relative;
@@ -24,18 +24,18 @@
 			flex: none;
 
 			&:nth-of-type(1) {
-				margin-left: .4em;
+				margin-left: 0.4em;
 			}
 
 			&:nth-of-type(2) {
 				position: absolute;
 				right: 0;
-				margin-inline: .4em;
+				margin-inline: 0.4em;
 			}
 		}
 
 		input::placeholder {
-			padding-inline-start: .5em;
+			padding-inline-start: 0.5em;
 			margin: 0 auto;
 			font-size: rem(14px);
 		}
@@ -44,7 +44,7 @@
 			border: 1px solid $clr1;
 		}
 
-		input[type=text] {
+		input[type='text'] {
 			all: unset;
 			border: none;
 		}
@@ -66,7 +66,7 @@
 		color: $clr0;
 		background-color: $bg-clr1;
 		width: rem(32px);
-		border-radius: .3em;
+		border-radius: 0.3em;
 		justify-content: center;
 		align-items: center;
 		padding: 0px;
