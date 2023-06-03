@@ -26,6 +26,7 @@ export async function addEmptyGroup(boardId, pushToTop = false, activity = '') {
 }
 
 export async function saveTask(boardId, groupId, task, activity = '') {
+	console.log("boardId, groupId, task", boardId, groupId, task)
 	try {
 		const board = await boardService.saveTask(boardId, groupId, task, activity)
 		store.dispatch({ type: SET_BOARD, board })
@@ -71,17 +72,6 @@ export async function updateLabelInTask(boardId, groupId, taskId, labelTaskName,
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant remove task')
-		throw err
-	}
-}
-
-export async function updateDueDateInTask(boardId, groupId, taskId, dueDate) {
-	console.log('reached here', dueDate)
-	try {
-		const board = await boardService.updateDueDateInTask(boardId, groupId, taskId, dueDate)
-		store.dispatch({ type: SET_BOARD, board })
-	} catch (err) {
-		console.log('Cannot set date')
 		throw err
 	}
 }
