@@ -5,6 +5,15 @@
 	position: absolute;
 	right: 0;
 	top: 0;
+	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+	.close-modal-btn {
+		svg {
+			margin-inline-start: 6px;
+			margin-block-start: 6px;
+			width: 30px;
+			height: 30px;
+		}
+	}
 
 	.editor-container {
 		display: flex;

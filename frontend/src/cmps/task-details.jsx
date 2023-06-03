@@ -3,8 +3,7 @@ import { useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router"
 import { boardService } from "../services/board.service.local"
 import { ReactQuillWrapper } from "./dynamic-task-cmps/react-quill-wrapper"
-import { useEffectUpdate } from "../customHooks/useEffectUpdate"
-
+import { ICON_CLOSE } from "../assets/icons/icons"
 
 export function TaskDetails() {
     const { taskId } = useParams()
@@ -18,6 +17,7 @@ export function TaskDetails() {
 
     useEffect(() => {
         if (taskId && group?.id) {
+            loadGroup()
             loadTask()
             loadComments()
         }
@@ -26,6 +26,11 @@ export function TaskDetails() {
     function loadTask() {
         const task = boardService.getTaskById(board, group.id, taskId)
         setTask(task)
+    }
+
+    function loadGroup() {
+        const newGroup = boardService.getGroupByTask(board, taskId)
+        setGroup(newGroup)
     }
 
     function onCloseModal() {
@@ -49,12 +54,14 @@ export function TaskDetails() {
     if (!task) return
     return (
         <section className="task-details">
-            <button onClick={onCloseModal}>X</button>
+            <div className="close-modal-btn"
+             onClick={onCloseModal}>
+                {ICON_CLOSE}</div>
             <h1>{task.title}</h1>
             <div>
                 <ul className="clean-list flex">
-                    <li><a href="">Updates</a></li>
-                    <li><a href="">Files</a></li>
+                    <li><a href="">Updates |</a></li>
+                    <li><a href="">Files |</a></li>
                     <li><a href="">Activity Log</a></li>
                 </ul>
             </div>
@@ -87,9 +94,9 @@ export function TaskDetails() {
                     <ul className="clean-list">
                         {
                             comments.map(comment =>
-                                <li 
-                                className="comment"
-                                key={comment.id}>
+                                <li
+                                    className="comment"
+                                    key={comment.id}>
                                     <div
                                         dangerouslySetInnerHTML={{ __html: comment.txt }} >
                                     </div>
@@ -98,7 +105,7 @@ export function TaskDetails() {
                         }
                     </ul>
                 </section>
-            
+
             </section>
 
 
