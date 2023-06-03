@@ -1,17 +1,14 @@
-import { useState, useEffect } from 'react'
-import { format, parseJSON } from 'date-fns'
+import { useState, useEffect } from "react"
+import { format } from 'date-fns'
 import { DayPicker } from 'react-day-picker'
-import { useSelector } from 'react-redux'
-import 'react-day-picker/dist/style.css'
+import { useSelector } from "react-redux"
 import { saveTask } from '../../store/selected-board.actions'
 
-import { ICON_CLOSE, ICON_ADD_DATE } from '../../assets/icons/icons'
-
-// ** Positioning calendar patch edit imports-related stuff
-
-import { usePopper } from 'react-popper'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
+import { usePopper } from 'react-popper';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons"
+import { ICON_CLOSE, ICON_ADD_DATE } from "../../assets/icons/icons"
+import 'react-day-picker/dist/style.css'
 
 export function DatePicker({ task, groupId }) {
 	const [selected, setSelected] = useState()

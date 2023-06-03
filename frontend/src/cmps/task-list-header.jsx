@@ -20,16 +20,17 @@ export function TaskListHeader({ task, group }) {
 						cmpTitle = 'Priority'
 						break
 					case 'ownerPicker':
-						cmpTitle = 'owner'
+						cmpTitle = 'Owner'
 						break
 					case 'collaboratorPicker':
-						cmpTitle = 'collaborators'
+						cmpTitle = 'Collaborators'
 						break
 					case 'datePicker':
 						cmpTitle = 'Date'
-					// case 'timelinePicker':
-					// 	cmpTitle = 'Timeline'
-					// 	break
+						break
+					case 'timelinePicker':
+						cmpTitle = 'Timeline'
+						break
 				}
 				return cmpTitle && <li key={cmp.id}>{cmpTitle}</li> //if not in switch case don't render
 			})}

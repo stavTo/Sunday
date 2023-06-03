@@ -1,0 +1,30 @@
+.rdp-multiple_months {
+    position: absolute;
+    z-index: 1;
+}
+
+.rdp-months {
+    margin-block-start: 0;
+    border: 1px solid $clr2;
+    -webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+    background-color: $clr0;
+}
+
+.range-preview {
+    font-size: rem(12px);
+    background-color: $bg-clr6;
+    border-radius: 5em;
+    padding-inline: 1em;
+    color: $clr0;
+    width: rem(107px);
+    text-align: center;
+}
+
+.span-container {
+    .reset-date-btn {
+        background-color: $clr0;
+        width: 15px;
+    }
+}
