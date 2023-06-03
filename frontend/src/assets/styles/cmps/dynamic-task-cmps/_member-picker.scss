@@ -1,6 +1,7 @@
 .member-picker {
-	display: flex;
 	cursor: pointer;
+	position: relative;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	img {
@@ -9,49 +10,177 @@
 	}
 
 	.member-picker-modal {
+		cursor: default;
+		font-size: em(14px);
 		position: absolute;
+		top: calc($task-row-height + 5px);
 		z-index: 99999;
 		background-color: #ffffff;
 		border-radius: 8px;
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.32);
-		padding: 16px 16px 0px 16px;
+		box-shadow: $default-box-shadow;
+		padding: 0px 20px 8px 20px;
 
-		input {
-			all: unset;
+		.assigned-members {
+			display: flex;
+			height: 40px;
+			font-size: rem(12px);
+			padding-block-start: 8px;
+
+			.member {
+				background-color: #e5f4ff;
+				border-radius: 24px;
+				display: flex;
+				gap: 1px;
+				align-items: center;
+				margin: 4px;
+				height: 22px;
+				img {
+					width: 22px;
+					height: 22px;
+					margin-inline-end: 4px;
+				}
+
+				.fullname-container {
+					cursor: text;
+					user-select: text;
+				}
+
+				.icon-container {
+					cursor: pointer;
+					&:hover {
+						background-color: white;
+						border-radius: 50%;
+					}
+					color: $icon-color;
+					display: flex;
+					align-items: center;
+				}
+			}
+		}
+
+		.scroll-container {
+			margin-block: 8px;
+			max-height: 220px;
+			overscroll-behavior: none;
+			overflow-x: visible;
+			overflow-y: auto;
+
+			&::-webkit-scrollbar {
+				width: 4px;
+			}
+
+			/* Track */
+			&::-webkit-scrollbar-track {
+				background: inherit;
+			}
+
+			/* Handle */
+			&::-webkit-scrollbar-thumb {
+				background: $input-hover-border-clr;
+				border-radius: 4px;
+			}
+
+			/* Handle on hover */
+			&::-webkit-scrollbar-thumb:hover {
+				background: #555;
+			}
+		}
+
+		.input-container {
+			margin-block-start: 16px;
+			cursor: text;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 			width: 320px;
 			height: 32px;
-			border-radius: 4px;
 			outline: 1px solid $input-hover-border-clr;
-			&:hover {
+			border-radius: 4px;
+
+			&:has(input:focus) {
+				outline: 1px solid $bg-clr1;
+			}
+
+			&:hover:not(:focus) {
 				outline: 1px solid $clr1;
+			}
+			.svg-container {
+				width: 24px;
+				height: 24px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				.active-search {
+					transform: translate(45deg);
+				}
+
+				color: $icon-color;
+				margin-inline-end: 4px;
+				display: flex;
+				align-items: center;
+
+				span {
+					display: flex;
+					align-items: center;
+				}
+				svg {
+					width: 16px;
+					height: 16px;
+				}
+				&.clear-icon {
+					transform: rotate(45deg);
+				}
+			}
+		}
+		input {
+			all: unset;
+			height: 32px;
+			padding: 8px 24px 8px 16px;
+		}
+
+		.suggested-people {
+			display: flex;
+			align-items: center;
+			color: $icon-color;
+			line-height: 24px;
+			height: calc($task-row-height + 8px);
+			// padding-block-start: 8px;
+			position: sticky;
+			top: 0;
+			span {
+				height: 100%;
+				width: 100%;
+				background-color: $clr0;
+				padding-block-start: 8px;
+				margin-block-end: 4px;
 			}
 		}
 
 		.members-list {
+			overflow-x: hidden;
 			display: flex;
 			flex-direction: column;
 
-			span {
-				color: $icon-color;
-			}
-
 			li {
+				height: 40px;
+				min-height: 40px;
 				display: flex;
 				align-items: center;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
 				width: 316px;
-				height: 40px;
+				padding: 8px;
+				span {
+					padding-inline: 8px;
+				}
+
+				img {
+					height: 26px;
+					width: 26px;
+				}
 			}
-		}
-
-		.seperator {
-			height: 4px;
-			width: em(168px);
-			color: rgb(50, 51, 56);
-		}
-
-		button.edit-labels {
-			background-color: inherit;
-			border: none;
 		}
 	}
 }

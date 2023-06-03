@@ -44,11 +44,6 @@ export function LabelPicker({ type, task, groupId }) {
 		}
 	}, [])
 
-	function onPickerClose() {
-		setIsEditor(false)
-		setIsPickerOpen(false)
-	}
-
 	useEffectUpdate(() => {
 		const labelTxt = type === 'statusPicker' ? task.status : task.priority
 		setLabel(board[labelsName].find(l => l.title === labelTxt))
@@ -106,7 +101,10 @@ function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
 		<div className="label-picker-popup">
 			<ul className="labels-list clean-list">
 				{board[labelsName].map(label => (
-					<li key={label.id} style={{ backgroundColor: label.color }} onClick={(ev) => onChangeLabel(ev, label)}>
+					<li
+						key={label.id}
+						style={{ backgroundColor: label.color }}
+						onClick={ev => onChangeLabel(ev, label)}>
 						{label.title}
 					</li>
 				))}

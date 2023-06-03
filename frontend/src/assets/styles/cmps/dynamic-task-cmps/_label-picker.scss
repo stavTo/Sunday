@@ -5,12 +5,13 @@
 	position: relative;
 	text-align: center;
 
+
 	span {
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		font-size: rem(14px);
-		line-height: rem(36px);
+		line-height: rem($task-row-height);
 	}
 
 	&:hover .corner-fold {

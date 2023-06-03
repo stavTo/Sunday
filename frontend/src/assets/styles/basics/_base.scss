@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	user-select: none;
 }
 
 html {
@@ -10,8 +11,8 @@ html {
 body {
 	margin: 0;
 	height: 100%;
+	overflow-wrap: hidden;
 }
-
 
 h1,
 h2,
@@ -19,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: .5em 0 .5em;
+	margin: 0.5em 0 0.5em;
 }
 
 img {
@@ -36,6 +37,17 @@ a {
 
 ul {
 	margin: 0;
+}
+
+.modal-up-arrow {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	background-color: $clr0;
+	top: $task-row-height;
+	z-index: 999999;
+	transform: rotate(45deg);
+	// box-shadow: $default-box-shadow;
 }
 
 // li[data-title]:hover::after {
@@ -74,5 +86,5 @@ img,
 embed,
 video,
 object {
-  max-width: 100%
+	max-width: 100%;
 }

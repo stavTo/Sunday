@@ -1,7 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
-import { async } from 'q'
+import { DEFAULT_USER } from '../assets/icons/icons.js'
 
 const STORAGE_KEY = 'board'
 
@@ -25,20 +25,36 @@ export const boardService = {
 	updateLabels
 }
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filter = {}) {
 	var boards = await storageService.query(STORAGE_KEY)
-	if (filterBy.txt) {
-		const regex = new RegExp(filterBy.txt, 'i')
-		boards = boards.filter(board => regex.test(board.vendor) || regex.test(board.description))
-	}
-	if (filterBy.price) {
-		boards = boards.filter(board => board.price <= filterBy.price)
+	//TODO MOVE FILTER TO BACKEND
+	if (filter.txt) {
+		const regex = new RegExp(filter.txt, 'i')
+		boards = boards.filter(board => regex.test(board.title))
 	}
 	return boards
 }
 
-function getById(boardId) {
-	return storageService.get(STORAGE_KEY, boardId)
+async function getById(boardId, filter = {}) {
+	let board
+	try {
+		board = await storageService.get(STORAGE_KEY, boardId)
+	} catch (err) {
+		console.log(err)
+	}
+	//TODO MOVE FILTER TO BACKEND
+	if (filter.txt) {
+		const regex = new RegExp(filter.txt, 'i')
+
+		// filter groups with title, if group title doesn't match, filter its tasks.
+		board.groups = board.groups.map(group =>
+			regex.test(group.title) ? group : { ...group, tasks: group.tasks.filter(task => regex.test(task.title)) }
+		)
+
+		// after filtering tasks, remove groups where no task matches.
+		board.groups = board.groups.filter(group => group.tasks.length)
+	}
+	return board
 }
 
 async function remove(boardId) {
@@ -108,9 +124,9 @@ function getEmptyTask() {
 		status: '',
 		priority: '',
 		comments: [],
-		memberIds: [],
+		collaborators: [],
 		dueDate: null,
-		byMember: {
+		owner: {
 			_id: '',
 			username: '',
 			fullname: '',
@@ -232,20 +248,6 @@ function getDefaultFilter() {
 	}
 }
 
-async function updateDueDateInTask(boardId, groupId, taskId, dueDate) {
-	const board = await getById(boardId)
-	// console.log(groupId)
-	// console.log(board.groups[groupId])
-	const group = board.groups.find(group => group.id === groupId)
-	const task = group.tasks.find(task => task.id === taskId)
-	console.log(task)
-	console.log('task before assignment', task)
-	task.dueDate = dueDate
-	console.log('task after assignment', task)
-	await save(board)
-	return board
-}
-
 function _getDummyBoard(boardNum) {
 	return {
 		title: `Fake Board`,
@@ -290,7 +292,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c101',
 						title: 'Product Research',
 						status: 'not-started',
-						assignee: 'John Smith',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-15',
 						description: 'Conduct market research for popular toy categories and trends',
 						priority: 'high',
@@ -300,7 +303,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c102',
 						title: 'Define Target Audience',
 						status: 'not-started',
-						assignee: 'Mary Johnson',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-17',
 						description: 'Identify the target audience for the online toy store',
 						priority: 'medium',
@@ -310,7 +314,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c103',
 						title: 'Create Product Catalog',
 						status: 'in-progress',
-						assignee: 'Sarah Davis',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-20',
 						description: 'Compile a comprehensive catalog of toys available for sale',
 						priority: 'high',
@@ -320,7 +325,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c104',
 						title: 'Website Development',
 						status: 'not-started',
-						assignee: 'David Wilson',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-22',
 						description: 'Develop an engaging and user-friendly website for the online store',
 						priority: 'high',
@@ -330,7 +336,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c105',
 						title: 'Inventory Management System',
 						status: 'not-started',
-						assignee: 'Mark Thompson',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-25',
 						description: 'Implement a system to manage toy inventory and stock levels',
 						priority: 'medium',
@@ -340,7 +347,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c106',
 						title: 'Marketing Strategy',
 						status: '',
-						assignee: 'Emily Brown',
+						owner: { _id: 'U301', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						collaborators: [],
 						dueDate: '2023-05-30',
 						description: 'Develop a marketing strategy to promote the online toy store',
 						priority: 'high',
@@ -371,6 +379,7 @@ function _getDummyBoard(boardNum) {
 			{ id: utilService.makeId(), cmpName: 'priorityPicker' },
 			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'datePicker' },
+			{ id: utilService.makeId(), cmpName: 'collaboratorPicker' },
 		],
 		statusLabels: [
 			{ id: 'sl100', title: 'Done', color: '#00C875' },

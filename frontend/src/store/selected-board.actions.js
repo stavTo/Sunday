@@ -3,10 +3,10 @@ import { boardService } from '../services/board.service.local'
 import { SET_BOARD, SET_IS_LOADING_BOARD } from './selected-board.reducer'
 import { store } from './store'
 
-export async function loadBoard(boardId) {
-	store.dispatch({ type: SET_IS_LOADING_BOARD, isLoading: true })
+export async function loadBoard(boardId, filter = {}) {
+	!filter && store.dispatch({ type: SET_IS_LOADING_BOARD, isLoading: true })
 	try {
-		const board = await boardService.getById(boardId)
+		const board = await boardService.getById(boardId, filter)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log(err)
@@ -37,6 +37,7 @@ export async function updateLabels(board, labelsName, labels) {
 }
 
 export async function saveTask(boardId, groupId, task, activity = '') {
+	console.log("boardId, groupId, task", boardId, groupId, task)
 	try {
 		const board = await boardService.saveTask(boardId, groupId, task, activity)
 		store.dispatch({ type: SET_BOARD, board })
@@ -85,25 +86,3 @@ export async function updateLabelInTask(boardId, groupId, taskId, labelTaskName,
 		throw err
 	}
 }
-
-export async function updateDueDateInTask(boardId, groupId, taskId, dueDate) {
-	console.log('reached here', dueDate)
-	try {
-		const board = await boardService.updateDueDateInTask(boardId, groupId, taskId, dueDate)
-		store.dispatch({ type: SET_BOARD, board })
-	} catch (err) {
-		console.log('Cannot set date')
-		throw err
-	}
-}
-
-// export async function editBoardLabels(boardId, labelName, label) {
-// 	try {
-// 		const board = await boardService.getById(boardId)
-// 		board[labelName]
-// 		store.dispatch({ type: SET_BOARD, board })
-// 	} catch (err) {
-// 		console.log(err)
-// 		throw err
-// 	}
-// }

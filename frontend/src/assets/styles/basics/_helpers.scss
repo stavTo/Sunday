@@ -34,9 +34,11 @@
 .btn-primary {
 	border-radius: 4px;
 	cursor: pointer;
+
 	&:hover {
 		background-color: $button-hover-bgc;
 	}
+
 	&.active {
 		background-color: $button-clicked-bgc;
 	}
@@ -52,7 +54,7 @@
 .flex {
 	display: flex;
 
-	> *.full {
+	>*.full {
 		flex: 1;
 	}
 
@@ -64,15 +66,22 @@
 		justify-content: center;
 	}
 
-	&.align-center {
-		align-items: center;
+	&.justify-end {
+		justify-content: flex-end
 	}
+
 	&.space-between {
 		justify-content: space-between;
 	}
+
 	&.space-evenly {
 		justify-content: space-evenly;
 	}
+
+	&.align-center {
+		align-items: center;
+	}
+
 	&.stretch {
 		align-items: stretch;
 	}

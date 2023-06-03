@@ -1,4 +1,53 @@
 .home-page {
+	.img-container {
+		grid-column: 1 /-1;
+		padding-block-start: em(20px);
+		min-height: em(411px);
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.sponsers {
+		max-width: 770px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-inline: auto;
+		padding-block-start: em(70px);
+
+		h2 {
+			text-align: center;
+			font-size: em(22px);
+			padding-block-end: 2em;
+
+			font-weight: 400;
+			font-family: $title-font;
+			color: rgb(51, 51, 51);
+		}
+
+		.sponsers-list {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+
+			li {
+				width: em(150px);
+				padding-block: 1.5em;
+
+				img {
+					width: 110px;
+				}
+
+				&:nth-child(8) img {
+					width: em(70px);
+				}
+			}
+		}
+	}
+
 	.home-header {
 		position: sticky;
 		top: 0;
@@ -74,16 +123,16 @@
 .home-main {
 	min-height: calc(100vh - em(72px));
 
-    .titles-container {
-        display: flex;
-        width: em(754px);
-        flex-direction: column;
-        align-items: center;
-        margin-inline: auto;
-        text-align: center;
-        font-family: $title-font;
-        padding-block-start: 4em;
-        color: rgb(51, 51, 51);
+	.titles-container {
+		display: flex;
+		width: em(754px);
+		flex-direction: column;
+		align-items: center;
+		margin-inline: auto;
+		text-align: center;
+		font-family: $title-font;
+		padding-block-start: 4em;
+		color: rgb(51, 51, 51);
 
 		span.main-title {
 			font-size: 4.4em;
@@ -177,55 +226,6 @@
 			font-family: $title-font;
 			color: #676879;
 			margin-block-start: 16px;
-		}
-	}
-}
-
-.img-container {
-	grid-column: 1 /-1;
-	padding-block-start: em(20px);
-	min-height: em(411px);
-
-	img {
-		width: 100%;
-	}
-}
-
-.sponsers {
-	max-width: 770px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-inline: auto;
-	padding-block-start: em(70px);
-
-	h2 {
-		text-align: center;
-		font-size: em(22px);
-		padding-block-end: 2em;
-
-		font-weight: 400;
-		font-family: $title-font;
-		color: rgb(51, 51, 51);
-	}
-
-	.sponsers-list {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-wrap: wrap;
-
-		li {
-			width: em(150px);
-			padding-block: 1.5em;
-
-			img {
-				width: 110px;
-			}
-
-			&:nth-child(8) img {
-				width: em(70px);
-			}
 		}
 	}
 }
