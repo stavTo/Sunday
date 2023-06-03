@@ -27,8 +27,8 @@ export function TaskListHeader({ task, group }) {
 						break
 					case 'datePicker':
 						cmpTitle = 'Date'
-					// case 'timelinePicker':
-					// 	cmpTitle = 'Timeline'
+					case 'timelinePicker':
+						cmpTitle = 'Timeline'
 						break
 				}
 				return cmpTitle && <li key={cmp.id}>{cmpTitle}</li> //if not in switch case dont render
