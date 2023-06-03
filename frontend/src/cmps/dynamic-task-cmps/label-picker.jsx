@@ -44,11 +44,6 @@ export function LabelPicker({ type, task, groupId }) {
 		}
 	}, [])
 
-	function onPickerClose() {
-		setIsEditor(false)
-		setIsPickerOpen(false)
-	}
-
 	useEffectUpdate(() => {
 		const labelTxt = type === 'statusPicker' ? task.status : task.priority
 		setLabel(board[labelsName].find(l => l.title === labelTxt))
@@ -57,6 +52,7 @@ export function LabelPicker({ type, task, groupId }) {
 	function onPickerClose(ev) {
 		if (!ev.target.closest('.label-picker-popup')) {
 			setIsPickerOpen(false)
+			setIsEditor(false)
 		}
 	}
 

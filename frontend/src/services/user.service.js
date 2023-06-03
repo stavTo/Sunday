@@ -1,6 +1,7 @@
 import { storageService } from './async-storage.service'
 import { httpService } from './http.service'
-
+import { DEFAULT_USER } from '../assets/icons/icons'
+import { utilService } from './util.service'
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedInUser'
 
 export const userService = {
@@ -14,6 +15,8 @@ export const userService = {
 	remove,
 	update,
 	changeScore,
+	getDemoUsers,
+	getEmptyUser,
 }
 
 window.userService = userService
@@ -81,6 +84,27 @@ function saveLocalUser(user) {
 
 function getLoggedInUser() {
 	return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
+}
+
+function getDemoUsers(filter = '') {
+	const users = [
+		getEmptyUser('U301', 'Roni Yerushalmi'),
+		getEmptyUser('u302', 'Stav Tohami'),
+		getEmptyUser('u303', 'Ido Kadosh'),
+		getEmptyUser('u304', 'Eyal Golan'),
+		getEmptyUser('u305', 'Steve Jobs'),
+	]
+
+	const regex = new RegExp(filter, 'i')
+	return users.filter(user => regex.test(user.fullname))
+}
+
+function getEmptyUser(_id = '', fullname = '', imgUrl = DEFAULT_USER) {
+	return {
+		_id,
+		fullname,
+		imgUrl,
+	}
 }
 
 // ;(async ()=>{

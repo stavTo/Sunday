@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	user-select: none;
 }
 
 html {
@@ -10,6 +11,7 @@ html {
 body {
 	margin: 0;
 	height: 100%;
+	overflow-wrap: hidden;
 }
 
 h1,
@@ -37,16 +39,15 @@ ul {
 	margin: 0;
 }
 
-.modal-up-arrow {
-	position: absolute;
-	width: 16px;
-	height: 16px;
-	background-color: $clr0;
-	top: $task-row-height;
-	z-index: 999999;
-	transform: rotate(45deg);
-	// box-shadow: $default-box-shadow;
-}
+// .modal-up-arrow {
+// 	position: absolute;
+// 	width: 16px;
+// 	height: 16px;
+// 	background-color: $clr0;
+// 	// top: $task-row-height;
+// 	z-index: 999999;
+// 	transform: rotate(45deg);
+// }
 
 // li[data-title]:hover::after {
 // 	background: #000;
