@@ -6,6 +6,8 @@ import { TimelinePicker } from './dynamic-task-cmps/timeline-picker'
 import { MemberPicker } from './dynamic-task-cmps/member-picker'
 import { useState } from 'react'
 import { TaskSelection } from './task-selection'
+import { ICON_OPTIONS } from '../assets/icons/icons'
+import { removeTask } from '../store/selected-board.actions'
 
 export function TaskPreview({ task, group }) {
 	const STATUS_PICKER = 'statusPicker'
@@ -17,12 +19,20 @@ export function TaskPreview({ task, group }) {
 
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
-	function handleSelect() {}
+	function handleSelect() { }
 
+	async function onRemoveTask() {
+		await removeTask(board._id, group.id, task.id)
+	}
 	return (
+
 		<ul
 			className="task-preview task-row clean-list"
 			style={{ borderInlineStart: `6px solid ${group.style.color}` }}>
+			<li
+				onClick={onRemoveTask}
+				className="task-option btn-primary">
+				{ICON_OPTIONS}</li>
 			<TaskSelection onSelect={handleSelect} isSelected={false} />
 			<TaskTitle groupId={group.id} task={task} />
 			{board.cmpsOrder.map(cmp => {
