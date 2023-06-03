@@ -4,7 +4,7 @@
 	width: 130px;
 	position: relative;
 	text-align: center;
-	
+
 	span {
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -32,10 +32,10 @@
 		top: em(46px);
 		z-index: 10;
 		width: em(200px);
-		height: em(280px);
+		min-height: em(280px);
 		background-color: #ffffff;
 		border-radius: 8px;
-		box-shadow: 0 8px 16px 0 rgba(0,0,0,.32);
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .32);
 
 		ul {
 			display: flex;
@@ -66,4 +66,14 @@
 			border: none;
 		}
 	}
+
+	.input-container {
+		position: relative;
+
+		.remove-label-btn {
+			position: absolute;
+			color: black;
+		}
+	}
 }
+

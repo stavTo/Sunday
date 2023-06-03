@@ -1,6 +1,7 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
+import { async } from 'q'
 
 const STORAGE_KEY = 'board'
 
@@ -20,6 +21,8 @@ export const boardService = {
 	addTaskToFirstGroup,
 	getDefaultFilter,
 	updateDueDateInTask,
+	getEmptyLabel,
+	updateLabels
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -125,6 +128,14 @@ function getEmptyGroup() {
 	}
 }
 
+function getEmptyLabel() {
+	return {
+		id: utilService.makeId(),
+		title: '',
+		color: '#c4c4c4'
+	}
+}
+
 async function addEmptyGroup(boardId, pushToTop, activity = '') {
 	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
@@ -133,6 +144,14 @@ async function addEmptyGroup(boardId, pushToTop, activity = '') {
 	await save(board)
 	return board
 }
+
+async function updateLabels(board, labelsName, labels) {
+	const boardToSave = { ...board }
+	boardToSave[labelsName] = labels
+	await save(boardToSave)
+	return boardToSave
+}
+
 
 async function saveTask(boardId, groupId, task, activity = '') {
 	const board = await getById(boardId)
@@ -376,4 +395,4 @@ function _getDummyBoard(boardNum) {
 // Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
 
-storageService.post(STORAGE_KEY, _getDummyBoard(1))
+// storageService.post(STORAGE_KEY, _getDummyBoard(1))

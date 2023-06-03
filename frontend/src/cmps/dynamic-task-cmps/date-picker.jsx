@@ -17,7 +17,7 @@ export function DatePicker({ task, groupId }) {
 	}
 
 	useEffect(() => {
-		console.log("selected:", selected)
+		// console.log("selected:", selected)
 		if (selected) {
 			onChangeDueDate()
 			setToggle(!toggle)

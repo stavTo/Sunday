@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 import { EDIT_LABEL } from '../../assets/icons/icons'
-import { saveTask } from '../../store/selected-board.actions'
+import { addEmptyLabel, saveTask, updateLabels } from '../../store/selected-board.actions'
 import { SET_IS_MODAL_OPEN } from '../../store/selected-board.reducer'
+import { boardService } from '../../services/board.service.local'
 
 const DEFAULT_STATUS_LABELS = [
 	{ id: 'sl100', title: 'Done', color: '#00C875' },
@@ -26,8 +27,6 @@ export function LabelPicker({ type, task, groupId }) {
 	const [labelsName, setLabelsName] = useState('')
 	const labelPickerRef = useRef()
 	const [isEditor, setIsEditor] = useState(false)
-
-	console.log(isEditor)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
 	useEffect(() => {
@@ -61,7 +60,7 @@ export function LabelPicker({ type, task, groupId }) {
 		}
 	}
 
-	function handleClick(ev) {
+	function handleClick() {
 		setIsPickerOpen(true)
 	}
 
@@ -82,13 +81,16 @@ export function LabelPicker({ type, task, groupId }) {
 
 			{isPickerOpen &&
 				(isEditor ? (
-					<LabelPickerPopUpEditor board={board} labelsName={labelsName} onChangeLabel={onChangeLabel} />
+					<LabelPickerPopUpEditor
+						board={board}
+						labelsName={labelsName} />
 				) : (
 					<LabelPickerPopUp
 						board={board}
 						labelsName={labelsName}
 						onChangeLabel={onChangeLabel}
 						setIsEditor={setIsEditor}
+						label={label}
 					/>
 				))}
 		</li>
@@ -104,7 +106,7 @@ function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
 		<div className="label-picker-popup">
 			<ul className="labels-list clean-list">
 				{board[labelsName].map(label => (
-					<li key={label.id} style={{ backgroundColor: label.color }} onClick={() => onChangeLabel(label)}>
+					<li key={label.id} style={{ backgroundColor: label.color }} onClick={(ev) => onChangeLabel(ev, label)}>
 						{label.title}
 					</li>
 				))}
@@ -118,16 +120,56 @@ function LabelPickerPopUp({ board, labelsName, onChangeLabel, setIsEditor }) {
 	)
 }
 
-function LabelPickerPopUpEditor({ board, labelsName, onChangeLabel }) {
+function LabelPickerPopUpEditor({ board, labelsName }) {
+
+	const [boardLabels, setBoardLabels] = useState(board[labelsName])
+	// const [labelToEdit, setLabelToEdit] = useState(label)
+
+	// useEffect(() => {
+	// 	setBoardLabels()
+	// }, [])
+
+	function handleChange({ target }) {
+		const field = target.name
+		const value = target.value
+		const x = boardLabels.map(l => l.id !== field ? l : { ...l, title: value })
+		console.log(x)
+
+		setBoardLabels(x)
+	}
+
+	function addNewLabel() {
+		const newLabel = boardService.getEmptyLabel()
+		const newLabels = [...board[labelsName], newLabel]
+		updateLabels(board, labelsName, newLabels)
+	}
+
+	function removeLabel(labelId) {
+		const newLabels = board[labelsName].filter(l => l.id !== labelId)
+		updateLabels(board, labelsName, newLabels)
+	}
+
+
+	console.log(boardLabels)
 	return (
 		<div className="label-picker-popup">
-			<ul className="labels-list clean-list">
-				{board[labelsName].map(label => (
-					<li key={label.id} style={{ backgroundColor: label.color }} onClick={() => onChangeLabel(label)}>
-						{label.title}
+			<ul className="labels-input-list clean-list">
+				{board[labelsName].map(label =>
+					<li key={label.id}>
+						<div className="input-container">
+							<span
+								className="remove-label-btn"
+								onClick={() => removeLabel(label.id)}
+							>X</span>
+							<input type="text"
+								value={label.title}
+								name={label.id}
+								onChange={handleChange} />
+						</div>
 					</li>
-				))}
+				)}
 			</ul>
+			<button onClick={addNewLabel}>+ New label</button>
 			<div className="sperator"></div>
 			<button className="edit-labels">
 				<span>{EDIT_LABEL}</span>

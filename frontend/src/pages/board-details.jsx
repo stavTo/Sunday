@@ -29,7 +29,8 @@ export function BoardDetails() {
 			showErrorMsg(`Board ${boardId} does not exists. `)
 		}
 	}
-
+	console.log(board)
+	
 	if (isLoading) return <BoardLoader />
 	return (
 		<section className="board-details">
