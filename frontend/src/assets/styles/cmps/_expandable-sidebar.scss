@@ -1,12 +1,14 @@
 .workspace-container {
+	z-index: 2;
 	position: relative;
+	height: 100vh;
 	background-color: $bg-clr3;
 	border-inline-end: 1px solid $clr2;
 
 	.expandable-sidebar-container {
+		// height: 100%;
 		padding-block-start: 12px;
 		padding-inline-start: 15px;
-		height: 100%;
 
 		&.expanded {
 			.expandable-sidebar {

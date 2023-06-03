@@ -1,6 +1,7 @@
 .task-list-header {
 	font-size: em(14px);
 	display: flex;
+	border-top-left-radius: 4px;
 	& > * {
 		line-height: rem(23px);
 		display: flex;
