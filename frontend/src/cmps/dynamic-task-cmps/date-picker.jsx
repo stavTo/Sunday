@@ -7,11 +7,69 @@ import { saveTask } from '../../store/selected-board.actions'
 
 import { ICON_CLOSE } from "../../assets/icons/icons"
 
+
+// ** Positioning calendar patch edit imports-related stuff
+
+import React, { ChangeEventHandler, useRef } from 'react';
+
+import { isValid, parse } from 'date-fns';
+import FocusTrap from 'focus-trap-react';
+import { usePopper } from 'react-popper';
+
 export function DatePicker({ task, groupId }) {
 	const [selected, setSelected] = useState(null)
 	const [isHovered, setIsHovered] = useState(false)
 	const [toggle, setToggle] = useState(false)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
+
+
+	const boxRef = useRef()
+	const tooltipRef = useRef()
+	const {styles, attributes} = usePopper(boxRef.current, tooltipRef.current)
+
+	// **POPPER SECTION START
+	// const [inputValue, setInputValue] = useState('');
+	// const [isPopperOpen, setIsPopperOpen] = useState(false);
+
+	// const popperRef = useRef(null);
+	// const buttonRef = useRef(null);
+	// const [popperElement, setPopperElement] = useState(null);
+
+	// const popper = usePopper(popperRef.current, popperElement, {
+	// 	placement: 'bottom'
+	// });
+
+	// const closePopper = () => {
+	// 	setIsPopperOpen(false);
+	// 	buttonRef?.current?.focus();
+	// };
+
+	// const handleInputChange = (e) => {
+	// 	setInputValue(e.currentTarget.value);
+	// 	const date = parse(e.currentTarget.value, 'y-MM-dd', new Date());
+	// 	if (isValid(date)) {
+	// 		setSelected(date);
+	// 	} else {
+	// 		setSelected(undefined);
+	// 	}
+	// };
+
+	// const handleButtonClick = () => {
+	// 	setIsPopperOpen(true);
+	// };
+
+	// const handleDaySelect = (date) => {
+	// 	setSelected(date);
+	// 	if (date) {
+	// 		setInputValue(format(date, 'y-MM-dd'));
+	// 		closePopper();
+	// 	} else {
+	// 		setInputValue('');
+	// 	}
+	// };
+
+
+	// **POPPER SECTION END
 
 	useEffect(() => {
 		if (selected) {
@@ -22,12 +80,12 @@ export function DatePicker({ task, groupId }) {
 
 
 	async function onChangeDueDate() {
-		const taskToEdit = {...task, dueDate: selected}
+		const taskToEdit = { ...task, dueDate: selected }
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 
 	async function clearTaskDueDate() {
-		const taskToEdit = {...task, dueDate: null}
+		const taskToEdit = { ...task, dueDate: null }
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 
@@ -38,7 +96,8 @@ export function DatePicker({ task, groupId }) {
 
 	return (
 		<>
-			<li className="date-picker flex align-center" onClick={() => setToggle(!toggle)}
+			<li className="date-picker flex align-center" ref={boxRef}
+			// <li className="date-picker flex align-center" onClick={() => setToggle(!toggle)}
 				onMouseEnter={() => setIsHovered(true)}
 				onMouseLeave={() => setIsHovered(false)}>
 				<div className="date-preview-container flex align-center justify-center">
@@ -59,7 +118,7 @@ export function DatePicker({ task, groupId }) {
 				</div>
 			</li>
 			{toggle &&
-				<div className="date-picker-container">
+				<div className="date-picker-container" classNames={classNames('tooltip',{'tooltip-hidden' : !toggle})} ref={tooltipRef} style={styles.popper} {...attributes.popper}>
 					<DayPicker
 						mode="single"
 						selected={selected}
