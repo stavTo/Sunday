@@ -32,15 +32,14 @@ export function BoardDetails() {
 	}
 	if (isLoading) return <BoardLoader />
 	return (
-		<UserCardLoader />
-		// <section className="board-details">
-		// 	<SideBar />
-		// 	{/* <BoardList /> */}
-		// 	<section className="board-container">
-		// 		<BoardHeader board={board} />
-		// 		<GroupList groups={board.groups} />
-		// 	</section>
-		// 	<Outlet />
-		// </section>
+		<section className="board-details">
+			<SideBar />
+			{/* <BoardList /> */}
+			<section className="board-container">
+				<BoardHeader board={board} />
+				<GroupList groups={board.groups} />
+			</section>
+			<Outlet />
+		</section>
 	)
 }
