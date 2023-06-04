@@ -15,6 +15,9 @@ export function TaskList({ tasks, group }) {
 			<li>
 				<AddTask group={group} />
 			</li>
+			<li>
+				{/* <h1>Summary</h1> */}
+			</li>
 		</ul>
 	)
 }

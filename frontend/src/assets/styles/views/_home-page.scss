@@ -19,12 +19,11 @@
 
 		h2 {
 			text-align: center;
-			font-size: em(22px);
+			font-size: rem(22px);
 			padding-block-end: 2em;
-
 			font-weight: 400;
 			font-family: $title-font;
-			color: rgb(51, 51, 51);
+			color: $bg-clr6;
 		}
 
 		.sponsers-list {
@@ -38,7 +37,7 @@
 				padding-block: 1.5em;
 
 				img {
-					width: 110px;
+					width: em(110px);
 				}
 
 				&:nth-child(8) img {
@@ -52,13 +51,13 @@
 		position: sticky;
 		top: 0;
 		z-index: 10;
-		background-color: #ffffff;
+		background-color: $clr0;
 		width: 100%;
 		box-shadow: 0 0 0 transparent;
 		transition: box-shadow 0.3s ease;
 
 		&.scrolled {
-			box-shadow: 0px 4px 4px rgba(29, 140, 242, 0.08);
+			box-shadow: 0px 4px 4px rgba(29, 140, 242, 0.078);
 		}
 	}
 
@@ -76,13 +75,12 @@
 			height: em(72px);
 
 			li:not(:last-child) {
-				// margin-inline-end: 1.2em;
 				width: auto;
 				padding: 0.6em;
 			}
 
 			button {
-				height: 40px;
+				height: em(40px);
 				display: flex;
 				align-items: center;
 				padding: 8px 14px 8px 16px;
@@ -93,8 +91,8 @@
 
 				.btn-title,
 				.btn-arrow {
-					font-size: em(13px);
-					color: #ffffff;
+					font-size: rem(13px);
+					color: $clr0;
 					font-family: $title-font;
 					font-weight: 300;
 					transition: padding 0.4s;
@@ -112,12 +110,12 @@
 				font-size: rem(14px);
 				font-family: $title-font;
 				font-weight: 300;
-				color: #535768;
+				color: $clr7;
 				cursor: pointer;
 
 				&:hover {
 					color: #5034ff;
-					background-color: #f0f3ff;
+					background-color: $clr8;
 					border-radius: 8px;
 				}
 			}
@@ -137,16 +135,16 @@
 		text-align: center;
 		font-family: $title-font;
 		padding-block-start: 4em;
-		color: rgb(51, 51, 51);
+		color: $bg-clr6;
 
 		span.main-title {
-			font-size: 4.4em;
+			font-size: 4.4rem;
 			font-weight: 600;
 			padding-block-end: em(12px);
 		}
 
 		span.secondary-title {
-			font-size: em(22px);
+			font-size: rem(22px);
 			font-weight: 300;
 		}
 	}
@@ -174,7 +172,7 @@
 			padding: em(8px);
 			padding-block-start: em(7px);
 			border-radius: em(8px);
-			border: 1px solid #c3c6d4;
+			border: 1px solid $input-hover-border-clr;
 
 			.icon-container {
 				flex-grow: 1;
@@ -187,10 +185,10 @@
 				flex-grow: 1;
 				display: flex;
 				align-items: flex-start;
-				font-size: em(14px);
+				font-size: rem(14px);
 				font-weight: 300;
 				font-family: $title-font;
-				color: rgb(51, 51, 51);
+				color: $bg-clr6;
 				opacity: 0.85;
 				padding-inline: 8px;
 				padding-block-start: 4px;
@@ -212,8 +210,8 @@
 
 			.btn-title,
 			.btn-arrow {
-				font-size: em(16px);
-				color: #ffffff;
+				font-size: rem(16px);
+				color: $clr0;
 				font-family: $title-font;
 				font-weight: 300;
 				transition: padding 0.4s;
@@ -225,11 +223,11 @@
 		}
 
 		span {
-			font-size: em(13px);
+			font-size: rem(13px);
 			font-style: normal;
 			font-weight: 300;
 			font-family: $title-font;
-			color: #676879;
+			color: $icon-color;
 			margin-block-start: 16px;
 		}
 	}
