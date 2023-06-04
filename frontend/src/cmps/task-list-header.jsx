@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux'
 import { TaskSelection } from './task-selection'
-
 export function TaskListHeader({ task, group }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	return (

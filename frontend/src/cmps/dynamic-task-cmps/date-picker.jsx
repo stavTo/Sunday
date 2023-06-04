@@ -55,6 +55,7 @@ export function DatePicker({ task, groupId }) {
 
 	async function onChangeDueDate() {
 		const taskToEdit = { ...task, dueDate: selected }
+
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 

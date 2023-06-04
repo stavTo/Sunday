@@ -168,26 +168,26 @@ async function addEmptyGroup(boardId, pushToTop, activity = '') {
 }
 
 async function updateLabels(board, labelsName, labels) {
-	const boardToSave = { ...board }
+	const boardToSave = structuredClone(board)
 	boardToSave[labelsName] = labels
 	await save(boardToSave)
 	return boardToSave
 }
 
 function getTaskById(board, groupId, taskId) {
-	const newBoard = { ...board }
+	const newBoard = structuredClone(board)
 	const group = newBoard.groups.find(g => g.id === groupId)
 	const task = group.tasks.find(t => t.id === taskId)
 	return task
 }
 
 function getGroupByTask(board, taskId) {
-	const newBoard = { ...board }
+	const newBoard = structuredClone(board)
 	return newBoard.groups.find(g => g.tasks.some(t => t.id === taskId))
 }
 
 function getGroupById(board, groupId) {
-	const newBoard = { ...board }
+	const newBoard = structuredClone(board)
 	return newBoard.groups.find(group => group.id === groupId)
 }
 

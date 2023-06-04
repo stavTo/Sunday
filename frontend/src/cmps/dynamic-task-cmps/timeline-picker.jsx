@@ -7,6 +7,7 @@ import { addDays, format } from 'date-fns'
 import { ICON_CLOSE } from '../../assets/icons/icons'
 import { utilService } from '../../services/util.service'
 import 'react-day-picker/dist/style.css'
+import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 
 const pastMonth = new Date() // Define your past month date here
 
@@ -33,7 +34,7 @@ export function TimelinePicker({ task, groupId }) {
 		],
 	})
 
-	useEffect(() => {
+	useEffectUpdate(() => {
 		if (range) {
 			onChangeTimelineRange()
 			onSetFooter()
