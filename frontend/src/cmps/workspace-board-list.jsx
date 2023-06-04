@@ -1,0 +1,40 @@
+import { useSelector } from 'react-redux'
+import {
+	ICON_BOARD_LIST,
+	ICON_OPTIONS,
+	ICON_SEARCH_WORKSPACE,
+	ICON_FILTER_SEARCHBAR,
+	ICON_PLUS,
+} from '../assets/icons/icons'
+
+export function WorkspaceBoardList() {
+	const { boards } = useSelector(storeState => storeState.boardModule)
+	return (
+		<section className="board-list">
+			<div className="board-list-header flex column">
+				<div className="workspace-title flex row align-center space-between">
+					<h4>Main workspace</h4>
+				</div>
+				<div className="searchbox-container flex space-between stretch">
+					<div className="searchbox-wrapper flex align-center">
+						{ICON_SEARCH_WORKSPACE}
+						<input autoFocus className="board-searchbox" placeholder="Search" type="text"></input>
+						{ICON_FILTER_SEARCHBAR}
+					</div>
+					<div className="add-btn">{ICON_PLUS}</div>
+				</div>
+			</div>
+			<ul className="board-list clean-list flex column">
+				{boards.map(board => (
+					<li className="board-title-preview flex" key={board._id}>
+						<span>
+							{ICON_BOARD_LIST}
+							{board.title}
+						</span>
+						<span>{ICON_OPTIONS}</span>
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}
