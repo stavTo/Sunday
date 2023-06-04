@@ -1,69 +1,69 @@
-.rdp {
-    margin: 0;
-}
+.date-picker {
+	cursor: text;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-.rdp-months {
-    margin-block-start: 23em;
-    border: 1px solid $clr2;
-    -webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-    -moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-    box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-    background-color: $clr0;
-}
+	.reset-date-btn {
+		position: absolute;
+		right: 25px;
+		top: 12px;
+		background-color: $button-hover-bgc;
+		border-radius: 4px;
+		color: #000000;
+		width: 15px;
+	}
 
-// Buttons
+	.rdp {
+		margin: 0;
+	}
 
-.reset-date-btn {
-    cursor: pointer;
-}
+	.rdp-months {
+		border: 1px solid $clr2;
+		-webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+		-moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+		box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+		background-color: $clr0;
+	}
 
-.add-date-btn {
-    gap: .2em;
-}
+	// Buttons
 
-.date-picker-container {
-    position: absolute;
-    z-index: 1;
-}
+	.add-date-btn {
+		gap: 0.2em;
+	}
 
-li.date-picker:hover {
-    cursor: text;
-}
+	.date-picker-container {
+		// position: absolute;
+		z-index: 1;
+	}
 
-.date-preview-container {
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
+	li.date-picker:hover {
+		cursor: text;
+	}
 
-    .date-preview {
-        width: 80%;
-        height: 80%;
-    }
+	&:hover .date-preview-container {
+		border: 1px solid $clr4;
+	}
 
-    span.date-preview {
-        display: block;
-        width: fit-content;
-    }
+	.date-preview-container {
+		position: relative;
 
-    span:hover {
-        color: $clr5;
-    }
+		// margin: 0 auto;
+		width: 90%;
+		height: 80%;
 
-    .span-container {
-        width: 80%;
-        height: 80%;
-    }
+		.date-preview {
+			font-size: 13px;
+			color: $clr6;
+		}
 
-    &:hover {
-        border: 1px solid $clr4;
-    }
+		span.date-preview {
+			// display: block;
+			width: fit-content;
+		}
 
-    .reset-btn {
-        background-color: $bg-clr1;
-    }
-}
-
-.date-preview {
-    width: 80%;
-    height: 80%;
+		span:hover {
+			color: $link-color;
+		}
+	}
 }

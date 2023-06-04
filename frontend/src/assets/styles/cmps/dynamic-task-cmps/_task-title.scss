@@ -1,10 +1,14 @@
 .task-title {
 	display: flex;
+	position: relative;
 	align-items: center;
 	overflow: hidden;
 	font-size: rem(14px);
 
 	.open-task-details {
+		position: absolute;
+		background-color: #fff;
+		right: 0px;
 		display: none;
 		// flex-direction: row-reverse;
 
