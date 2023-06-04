@@ -45,7 +45,7 @@ export function TaskTitle({ task, groupId }) {
 	}
 
 	return (
-		<li className="task-title" >
+		<li className="task-title">
 			{!isInputVisible && <span onClick={handleClick}>{task.title}</span>}
 			{isInputVisible && (
 				<input
@@ -58,9 +58,11 @@ export function TaskTitle({ task, groupId }) {
 					value={titleToChange}
 					onChange={handleChange}></input>
 			)}
-			<Link className='open-task-details' to={`/boards/${board._id}/tasks/${task.id}`}>
-				<div className='open'>Open</div>
-				<div className='icon'><FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} style={{ color: "#5e6b83", }} /></div>
+			<Link className="open-task-details" to={`/boards/${board._id}/tasks/${task.id}`}>
+				<div className="icon">
+					<FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} style={{ color: '#5e6b83' }} />
+				</div>
+				<div className="open">Open</div>
 			</Link>
 		</li>
 	)

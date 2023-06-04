@@ -21,6 +21,7 @@ export function TaskDetails() {
 			loadTask()
 			loadComments()
 		}
+		// eslint-disable-next-line
 	}, [taskId, group, comments])
 
 	function loadTask() {
@@ -58,13 +59,19 @@ export function TaskDetails() {
 			<div>
 				<ul className="clean-list flex nav-bar">
 					<li>
-						<a className="btn-primary" href="">Updates |</a>
+						<a className="btn-primary" href="#">
+							Updates |
+						</a>
 					</li>
 					<li>
-						<a className="btn-primary" href="">Files |</a>
+						<a className="btn-primary" href="#">
+							Files |
+						</a>
 					</li>
 					<li>
-						<a className="btn-primary" href="">Activity Log</a>
+						<a className="btn-primary" href="#">
+							Activity Log
+						</a>
 					</li>
 				</ul>
 			</div>
