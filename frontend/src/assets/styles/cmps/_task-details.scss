@@ -1,106 +1,128 @@
 .task-details {
-    width: em(570px);
-    min-height: 100vh;
-    background-color: #FFFFFF;
-    position: absolute;
-    right: 0;
-    top: 0;
+	width: em(570px);
+	min-height: 100vh;
+	background-color: $clr0;
+	position: absolute;
+	right: 0;
+	top: 0;
 	z-index: 10;
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
 
-    .task-details-title {
-        font-family: $title-font;
-        font-weight: 500;
-        font-size: rem(18px);
-        color: rgb(50, 51, 56);
-        margin-inline-start: 10px;
-    }
+	.task-details-title {
+		font-family: $title-font;
+		font-weight: 500;
+		font-size: rem(18px);
+		color: $clr1;
+		margin-inline-start: 1em;
+	}
 
-    .separator {
-        height: 1px;
-        width: 100%;
-        background-color: #c4c4c4;
-    }
+	.separator {
+		height: 1.5px;
+		width: 100%;
+		background-color: $border-clr;
+	}
 
-    .nav-bar {
-    margin-block-end: 5px;
-        a {
-            text-decoration: none;
-            color: #323338;
-            margin-inline-start: 10px;
-            font-size: rem(14px);
-            padding: 4px;
-        }
-    }
+	.nav-bar {
+		margin-block-end: 5px;
 
-    .close-modal-btn {
-        svg {
-            margin-inline-start: 6px;
-            margin-block-start: 6px;
-            width: 30px;
-            height: 30px;
-            color: rgb(119, 119, 119);
-        }
-    }
+		a {
+			text-decoration: none;
+			color: $clr1;
+			margin-inline-start: 1.5em;
+			font-size: rem(14px);
+			padding: 4px;
+		}
+	}
+
+	.close-modal-btn {
+		svg {
+			margin-inline-start: 6px;
+			margin-block-start: 6px;
+			width: 30px;
+			height: 30px;
+			color: $clr10;
+		}
+	}
 
 	.editor-container {
 		display: flex;
 		flex-direction: column;
-		// justify-content: center;
 		align-items: center;
 		margin-block-start: 30px;
 
 		.update-btn {
-			background-color: rgb(0, 115, 234);
-			color: #ffffff;
+			background-color: $bg-clr1;
+			color: $clr0;
+			border-radius: 4px;
 			padding: 4px 8px;
 			height: em(32px);
+			align-self: flex-end;
+			margin-inline-end: em(27px);
+			margin-block-start: em(10px);
+			font-size: rem(14px);
 		}
 
 		.new-post {
 			width: em(520px);
 			font-size: rem(16px);
-			border: 1px solid rgb(0, 115, 234);
+			border: 1px solid $bg-clr1;
 			padding: 10px 8px;
 			border-radius: 8px;
 
 			&.editor {
 				min-height: em(144px);
 
-				// .quill-wrapper {
-				//     border: none;
-				// }
-
 				.ql-toolbar.ql-snow {
 					border: none;
-					// border-inline-start: #c4c4c4;
 				}
 
 				.ql-container.ql-snow {
 					border: none;
 				}
 			}
-
-			.separator {
-				height: 1px;
-				width: 100%;
-				background-color: #c4c4c4;
-			}
-		}
-
-		textarea {
-			all: unset;
-			width: 100%;
 		}
 	}
 
 	.comments-conatiner {
-		margin-block-start: em(100px);
+		margin-block-start: em(70px);
 
+
+		.no-comments {
+			padding: em(40px);
+
+			.img-container {
+				display: flex;
+				justify-content: center;
+
+				img {
+					height: 150px;
+					width: 290px;
+				}
+			}
+
+			.titles-container {
+				text-align: center;
+				color: $clr1;
+				padding: 15px;
+
+				h2 {
+					font-family: $title-font;
+					font-size: rem(24px);
+					font-weight: 500;
+				}
+
+				p {
+					font-weight: 400;
+					font-size: rem(16px);
+					margin-top: 16px;
+				}
+			}
+		}
+		
 		.comment {
 			width: em(520px);
 			font-size: rem(16px);
-			border: 1px solid #c4c4c4;
+			border: 1px solid $border-clr;
 			padding: 10px 8px;
 			border-radius: 8px;
 			margin-block-end: 1em;

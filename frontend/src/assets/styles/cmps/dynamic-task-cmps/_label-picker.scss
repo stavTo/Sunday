@@ -5,7 +5,6 @@
 	position: relative;
 	text-align: center;
 
-
 	span {
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -20,7 +19,7 @@
 
 	.corner-fold {
 		border-style: solid;
-		border-color: rgba(0, 0, 0, 0.2) #ffffff;
+		border-color: rgba(0, 0, 0, 0.2) $clr0;
 		border-width: 0;
 		transition: border-width 0.3s 0.2s ease;
 		position: absolute;
@@ -34,9 +33,9 @@
 		z-index: 10;
 		width: em(200px);
 		min-height: em(280px);
-		background-color: #ffffff;
+		background-color: $clr0;
 		border-radius: 8px;
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .32);
+		box-shadow: $default-box-shadow;
 
 		ul {
 			display: flex;
@@ -59,7 +58,7 @@
 		.seperator {
 			height: 4px;
 			width: em(168px);
-			color: rgb(50, 51, 56);
+			color: $clr1;
 		}
 
 		button.edit-labels {

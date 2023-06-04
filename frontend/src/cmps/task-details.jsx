@@ -5,6 +5,8 @@ import { boardService } from '../services/board.service.local'
 import { ReactQuillWrapper } from './dynamic-task-cmps/react-quill-wrapper'
 import { ICON_CLOSE } from '../assets/icons/icons'
 
+import imgEmptyPage from '../assets/img/img/pulse-page-empty-state.svg'
+
 export function TaskDetails() {
 	const { taskId } = useParams()
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
@@ -21,8 +23,20 @@ export function TaskDetails() {
 			loadTask()
 			loadComments()
 		}
-		// eslint-disable-next-line
-	}, [taskId, group, comments])
+	}, [taskId, comments])
+
+	useEffect(() => {
+		document.addEventListener('mousedown', onCloseEditor)
+
+		return () => {
+			document.removeEventListener('mousedown', onCloseEditor)
+		}
+	})
+
+	function onCloseEditor(ev) {
+		if (ev.target.closest('.editor , .update-btn')) return
+		setIsEditorOpen(false)
+	}
 
 	function loadTask() {
 		const task = boardService.getTaskById(board, group.id, taskId)
@@ -82,11 +96,6 @@ export function TaskDetails() {
 					<>
 						<div className="new-post editor">
 							<ReactQuillWrapper setCommentToEdit={setCommentToEdit} />
-							{/* <div className="editor-toolbar">
-                            Editing tool
-                            </div>
-                            <div className="separator"></div>
-                        <textarea name="" id="" cols="30" rows="10"></textarea> */}
 						</div>
 						<div className="update-btn" onClick={onSaveComment}>
 							Update
@@ -100,11 +109,23 @@ export function TaskDetails() {
 
 				<section className="comments-conatiner">
 					<ul className="clean-list">
-						{comments.map(comment => (
+						{!!comments.length ? comments.map(comment => (
 							<li className="comment" key={comment.id}>
 								<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>
 							</li>
-						))}
+						)) :
+							<div className="no-comments">
+								<div className="img-container">
+									<img src={imgEmptyPage} alt="" />
+								</div>
+								<div className="titles-container">
+									<h2>No updates yet for this item</h2>
+									<p>Be the first one to update about progress, mention someone
+										or upload files to share with your team members</p>
+								</div>
+
+							</div>
+						}
 					</ul>
 				</section>
 			</section>
