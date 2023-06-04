@@ -11,19 +11,9 @@ import {
 } from '../assets/icons/icons'
 
 import { ExpandableSidebar } from '../cmps/expandable-sidebar.jsx'
-import { setTippy } from '../services/tippy.service'
+import { TippyContainer } from './tippy-container'
 
 export function SideBar() {
-	setTippy('.work-management', 'work management', 'right', [0, 20])
-	setTippy('.notifications', 'notifications', 'right', [0, 20])
-	setTippy('.inbox', 'inbox', 'right', [0, 20])
-	setTippy('.my-work', 'my work', 'right', [0, 20])
-	setTippy('.favorites', 'favorites', 'right', [0, 20])
-	setTippy('.invite-members', 'invite members', 'right', [0, 20])
-	setTippy('.search-everything', 'search everything', 'right', [0, 20])
-	setTippy('.help', 'help', 'right', [0, 20])
-	setTippy('.apps', 'apps', 'right', [0, 20])
-	setTippy('.profile', 'profile', 'right', [0, 20])
 	return (
 		<>
 			<section className="side-bar">
@@ -33,25 +23,47 @@ export function SideBar() {
 							<li className="flex" data-tippy-content="home page">
 								<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="" />
 							</li>
-							{/* <hr></hr> */}
-							<li className="flex work-management">{ICON_WORK_MANAGEMENT}</li>
-							<li className="flex notifications">{ICON_NOTIFICATIONS}</li>
-							<li className="flex inbox">{ICON_INBOX}</li>
-							<li className="flex my-work">{ICON_MY_WORK}</li>
-							<li className="flex favorites">{ICON_FAVORITES}</li>
+							<TippyContainer txt={'Work management'} placement="right" offset={[0, 20]}>
+								<li className="flex work-management">{ICON_WORK_MANAGEMENT}</li>
+							</TippyContainer>
+							<TippyContainer txt={'Notifications'} placement="right" offset={[0, 20]}>
+								<li className="flex notifications">{ICON_NOTIFICATIONS}</li>
+							</TippyContainer>
+							<TippyContainer txt={'Inbox'} placement="right" offset={[0, 20]}>
+								<li className="flex inbox">{ICON_INBOX}</li>
+							</TippyContainer>
+							<TippyContainer txt={'My Work'} placement="right" offset={[0, 20]}>
+								<li className="flex my-work">{ICON_MY_WORK}</li>
+							</TippyContainer>
+							<TippyContainer txt={'Favorites'} placement="right" offset={[0, 20]}>
+								<li className="flex favorites">{ICON_FAVORITES}</li>
+							</TippyContainer>
 						</ul>
 					</li>
 					{/* Section 1 ends here */}
 					<li className="bottom-navigation-area">
 						<ul className="clean-list flex column align-center">
-							<li className="flex invite-members">{ICON_INVITE_MEMBERS}</li>
-							<li className="flex search-everything">{ICON_SEARCH}</li>
-							<li className="flex help">{ICON_HELP}</li>
+							<TippyContainer txt={'Invite Members'} placement="right" offset={[0, 20]}>
+								<li className="flex invite-members">{ICON_INVITE_MEMBERS}</li>
+							</TippyContainer>
+							<TippyContainer txt={'Search Everything'} placement="right" offset={[0, 20]}>
+								<li className="flex search-everything">{ICON_SEARCH}</li>
+							</TippyContainer>
+							<TippyContainer txt={'Help'} placement="right" offset={[0, 20]}>
+								<li className="flex help">{ICON_HELP}</li>
+							</TippyContainer>
 							<hr></hr>
-							<li className="flex apps">{ICON_MENU}</li>
-							<li className="flex profile ">
-								<img src="https://yomrishon.onrender.com/imgs/user.png" data-tippy-content="guest" />
-							</li>
+							<TippyContainer txt={'Apps'} placement="right" offset={[0, 20]}>
+								<li className="flex apps">{ICON_MENU}</li>
+							</TippyContainer>
+							<TippyContainer txt={'Profile'} placement="right" offset={[0, 20]}>
+								<li className="flex profile ">
+									<img
+										src="https://yomrishon.onrender.com/imgs/user.png"
+										data-tippy-content="guest"
+									/>
+								</li>
+							</TippyContainer>
 						</ul>
 					</li>
 				</ul>

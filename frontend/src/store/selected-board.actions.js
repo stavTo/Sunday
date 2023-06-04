@@ -48,7 +48,6 @@ export async function updateLabels(board, labelsName, labels) {
 }
 
 export async function saveTask(boardId, groupId, task, activity = '') {
-	console.log('hh')
 	try {
 		const board = await boardService.saveTask(boardId, groupId, task, activity)
 		store.dispatch({ type: SET_BOARD, board })

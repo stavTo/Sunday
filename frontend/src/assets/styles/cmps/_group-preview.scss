@@ -39,7 +39,7 @@
 	flex-direction: column;
 
 	.task-row {
-		& > *:not(.task-option) {
+		& > *:not(.task-option, .task-title-header, .task-title) {
 			flex: 1;
 			user-select: none;
 			height: $task-row-height;

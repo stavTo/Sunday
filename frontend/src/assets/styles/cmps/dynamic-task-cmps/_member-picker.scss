@@ -83,11 +83,6 @@
 				background: $input-hover-border-clr;
 				border-radius: 4px;
 			}
-
-			/* Handle on hover */
-			&::-webkit-scrollbar-thumb:hover {
-				background: #555;
-			}
 		}
 
 		.input-container {
