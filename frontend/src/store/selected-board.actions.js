@@ -1,6 +1,6 @@
 import { async } from 'q'
 import { boardService } from '../services/board.service.local'
-import { SET_BOARD, SET_IS_LOADING_BOARD } from './selected-board.reducer'
+import { SET_BOARD, SET_IS_LOADING_BOARD, UNDO_SET_BOARD } from './selected-board.reducer'
 import { store } from './store'
 
 export async function loadBoard(boardId, filter = {}) {
@@ -13,6 +13,17 @@ export async function loadBoard(boardId, filter = {}) {
 		throw err
 	} finally {
 		store.dispatch({ type: SET_IS_LOADING_BOARD, isLoading: false })
+	}
+}
+
+export async function saveBoard(board) {
+	store.dispatch({ type: SET_BOARD, board })
+	try {
+		await boardService.save(board)
+	} catch (err) {
+		console.log('cant save task')
+		store.dispatch({ type: UNDO_SET_BOARD })
+		throw err
 	}
 }
 
@@ -92,6 +103,16 @@ export async function updateGroup(boardId, group, activity = '') {
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant update group')
+		throw err
+	}
+}
+
+export async function removeGroup(boardId, groupId, activity = '') {
+	try {
+		const board = await boardService.removeGroup(boardId, groupId, activity)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant remove group')
 		throw err
 	}
 }

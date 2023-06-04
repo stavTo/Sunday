@@ -20,13 +20,14 @@ export function TaskList({ tasks, group }) {
 							)}
 						</Draggable>
 					))}
+					{provided.placeholder}
 					<li>
 						<AddTask group={group} />
 					</li>
+
 					<li>
 						<GroupSummary group={group} />
 					</li>
-					{provided.placeholder}
 				</ul>
 			)}
 		</Droppable>

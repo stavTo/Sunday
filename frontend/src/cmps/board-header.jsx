@@ -4,7 +4,7 @@ import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import { setTippy } from '../services/tippy.service'
+import { TippyContainer } from './tippy-container'
 
 export function BoardHeader({ board }) {
 	function onAddGroup() {
@@ -15,17 +15,19 @@ export function BoardHeader({ board }) {
 		addTaskToFirstGroup(board._id)
 	}
 
-	setTippy('.board-name', 'Click to Edit')
-	setTippy('.info-icon', 'Show board description')
-	setTippy('.star-icon', 'Add to favorites')
-
 	return (
 		<section className="board-header">
 			<div className="board-header-top">
 				<div className="board-header-top-left">
-					<h1 className="board-name title-font">{board.title}</h1>
-					<span className="info-icon header-icon btn-primary">{ICON_INFO}</span>
-					<span className="star-icon header-icon btn-primary">{ICON_STAR}</span>
+					<TippyContainer txt="Click to Edit">
+						<h1 className="board-name title-font">{board.title}</h1>
+					</TippyContainer>
+					<TippyContainer txt="Show board description">
+						<span className="info-icon header-icon btn-primary">{ICON_INFO}</span>
+					</TippyContainer>
+					<TippyContainer txt="Add to favorites">
+						<span className="star-icon header-icon btn-primary">{ICON_STAR}</span>
+					</TippyContainer>
 				</div>
 				<div className="board-header-top-right">
 					<div className="activity-container btn-primary">

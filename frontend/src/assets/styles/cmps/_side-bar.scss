@@ -70,6 +70,11 @@
 		}
 
 		.bottom-navigation-area {
+			.profile {
+				width: 44px;
+				height: 44px;
+			}
+
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -80,7 +85,10 @@
 
 			li {
 				&.apps {
-					color: #6c6cff;
+					color: $clr11;
+					width: 42px;
+					padding: 6px;
+					margin-block-end: 8px;
 				}
 				cursor: pointer;
 				width: 2em;
@@ -95,7 +103,7 @@
 				}
 
 				&:last-child img {
-					border: 2px solid #fff;
+					border: 2px solid $clr0;
 					border-radius: 50%;
 				}
 
@@ -110,7 +118,7 @@
 		}
 
 		hr {
-			width: 80%;
+			width: rem(40px);
 			border-color: #595c6f;
 			border-block-start: none;
 		}

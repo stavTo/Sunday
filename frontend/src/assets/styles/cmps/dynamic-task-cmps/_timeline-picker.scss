@@ -13,6 +13,39 @@
 		z-index: 1;
 	}
 
+.span-container {
+	height: 20px;
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+
+	.progress {
+		position: absolute;
+		// TODO: make this dynamic from react cmp
+		background: linear-gradient(to right, #00c875 70%, $bg-clr6 20%);
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.range-preview {
+	font-size: rem(12px);
+	// background-color: $bg-clr6;
+	color: $clr0;
+	width: rem(107px);
+	text-align: center;
+	position: relative;
+}
+
+.reset-date-btn {
+	position: absolute;
+	right: 0px;
+	top: 4px;
+	background-color: $button-hover-bgc;
+	border-radius: 4px;
+	color: #000000;
+	width: 15px;
+}
 	.rdp-multiple_months {
 		margin: 0;
 	}

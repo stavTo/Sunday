@@ -55,6 +55,7 @@ export function DatePicker({ task, groupId }) {
 
 	async function onChangeDueDate() {
 		const taskToEdit = { ...task, dueDate: selected }
+
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 
@@ -74,7 +75,8 @@ export function DatePicker({ task, groupId }) {
 			className="date-picker flex align-center"
 			ref={setReferenceElement}
 			onMouseEnter={() => setIsHovered(true)}
-			onMouseLeave={() => setIsHovered(false)}>
+			onMouseLeave={() => setIsHovered(false)}
+		>
 			<div className="date-preview-container flex align-center justify-center" onClick={ev => onToggleModal(ev)}>
 				{isHovered && !hasDate && (
 					<div className="add-date-btn pointer flex align-center justify-center">
@@ -103,7 +105,8 @@ export function DatePicker({ task, groupId }) {
 					className="date-picker-container"
 					ref={setPopperElement}
 					style={styles.popper}
-					{...attributes.popper}>
+					{...attributes.popper}
+				>
 					<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 					<DayPicker mode="single" selected={selected} onSelect={setSelected} footer={footer} />
 				</div>

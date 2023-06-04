@@ -35,23 +35,27 @@
 		min-height: em(280px);
 		background-color: $clr0;
 		border-radius: 8px;
-		box-shadow: $default-box-shadow;
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.32);
 
 		ul {
 			display: flex;
+			align-items: center;
 			flex-direction: column;
 			padding: em(16px) em(24px) em(8px) em(24px);
 
 			li {
+				border-radius: 2px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				height: em(32px);
-				width: em(144px);
-				padding-inline: 4px;
-				margin-inline: auto;
+				height: rem(32px);
+				width: rem(152px);
 				font-size: rem(14px);
 				margin-block-end: 8px;
+
+				&:active {
+					scale: 0.95;
+				}
 			}
 		}
 
@@ -76,4 +80,3 @@
 		}
 	}
 }
-
