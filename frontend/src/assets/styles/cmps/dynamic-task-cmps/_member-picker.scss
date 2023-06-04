@@ -8,8 +8,14 @@
 		height: 30px;
 	}
 
+	.collaborator-img-container {
+		display: flex;
+		align-items: center;
+	}
+
 	.member-picker-modal {
 		cursor: default;
+		max-width: 360px;
 		font-size: em(14px);
 		z-index: 99999;
 		background-color: #ffffff;
@@ -19,7 +25,8 @@
 
 		.assigned-members {
 			display: flex;
-			height: 40px;
+			flex-wrap: wrap;
+			min-height: min-content;
 			font-size: rem(12px);
 			padding-block-start: 8px;
 

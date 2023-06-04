@@ -2,15 +2,16 @@
 	display: flex;
 	position: relative;
 	align-items: center;
+	justify-content: space-between;
 	overflow: hidden;
 	font-size: rem(14px);
 
 	.open-task-details {
-		position: absolute;
-		background-color: #fff;
+		align-items: center;
+		background-color: $task-hover-bgc;
+		height: 100%;
 		right: 0px;
 		display: none;
-		// flex-direction: row-reverse;
 
 		.open {
 			color: rgb(50, 51, 56);
@@ -26,10 +27,7 @@
 		.open-task-details {
 			margin-inline-end: 10px;
 			display: flex;
-			flex-direction: row-reverse;
 			gap: 4px;
-			// flex-wrap: nowrap;
-			// justify-content: center;
 		}
 	}
 

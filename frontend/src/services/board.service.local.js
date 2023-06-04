@@ -25,6 +25,7 @@ export const boardService = {
 	updateLabels,
 	getTaskById,
 	getGroupByTask,
+	getGroupById,
 	getEmptyComment,
 	saveComment,
 	updateGroup,
@@ -174,14 +175,20 @@ async function updateLabels(board, labelsName, labels) {
 }
 
 function getTaskById(board, groupId, taskId) {
-	const group = board.groups.find(g => g.id === groupId)
+	const newBoard = { ...board }
+	const group = newBoard.groups.find(g => g.id === groupId)
 	const task = group.tasks.find(t => t.id === taskId)
 	return task
 }
 
 function getGroupByTask(board, taskId) {
-	const group = board.groups.find(g => g.tasks.some(t => t.id === taskId))
-	return group
+	const newBoard = { ...board }
+	return newBoard.groups.find(g => g.tasks.some(t => t.id === taskId))
+}
+
+function getGroupById(board, groupId) {
+	const newBoard = { ...board }
+	return newBoard.groups.find(group => group.id === groupId)
 }
 
 async function saveTask(boardId, groupId, task, activity = '') {
