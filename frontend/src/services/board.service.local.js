@@ -25,6 +25,7 @@ export const boardService = {
 	updateLabels,
 	getTaskById,
 	getGroupByTask,
+	getGroupById,
 	getEmptyComment,
 	saveComment,
 	updateGroup,
@@ -168,21 +169,27 @@ async function addEmptyGroup(boardId, pushToTop, activity = '') {
 }
 
 async function updateLabels(board, labelsName, labels) {
-	const boardToSave = { ...board }
+	const boardToSave = structuredClone(board)
 	boardToSave[labelsName] = labels
 	await save(boardToSave)
 	return boardToSave
 }
 
 function getTaskById(board, groupId, taskId) {
-	const group = board.groups.find(g => g.id === groupId)
+	const newBoard = structuredClone(board)
+	const group = newBoard.groups.find(g => g.id === groupId)
 	const task = group.tasks.find(t => t.id === taskId)
 	return task
 }
 
 function getGroupByTask(board, taskId) {
-	const group = board.groups.find(g => g.tasks.some(t => t.id === taskId))
-	return group
+	const newBoard = structuredClone(board)
+	return newBoard.groups.find(g => g.tasks.some(t => t.id === taskId))
+}
+
+function getGroupById(board, groupId) {
+	const newBoard = structuredClone(board)
+	return newBoard.groups.find(group => group.id === groupId)
 }
 
 async function saveTask(boardId, groupId, task, activity = '') {
@@ -225,7 +232,6 @@ async function addTaskToFirstGroup(boardId, activity = '') {
 async function removeTask(boardId, groupId, taskId, activity = '') {
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
-	console.log(board)
 	board.groups = board.groups.map(group =>
 		group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
 	)

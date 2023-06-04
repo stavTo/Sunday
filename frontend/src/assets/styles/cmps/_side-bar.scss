@@ -70,6 +70,11 @@
 		}
 
 		.bottom-navigation-area {
+			.profile {
+				width: 44px;
+				height: 44px;
+			}
+
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -80,7 +85,10 @@
 
 			li {
 				&.apps {
-					color: $clr6;
+					color: $clr11;
+					width: 42px;
+					padding: 6px;
+					margin-block-end: 8px;
 				}
 				cursor: pointer;
 				width: 2em;

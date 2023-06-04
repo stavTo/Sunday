@@ -1,16 +1,17 @@
-.rdp-multiple_months {
-	position: absolute;
-	z-index: 1;
-}
+.timeline-picker {
+	.reset-date-btn {
+		position: absolute;
+		right: 0px;
+		top: 4px;
+		background-color: $button-hover-bgc;
+		border-radius: 4px;
+		color: #000000;
+		width: 15px;
+	}
 
-.rdp-months {
-	margin-block-start: 0;
-	border: 1px solid $clr2;
-	-webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-	-moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-	box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
-	background-color: $clr0;
-}
+	.timeline-popup-container {
+		z-index: 1;
+	}
 
 .span-container {
 	height: 20px;
@@ -44,4 +45,26 @@
 	border-radius: 4px;
 	color: #000000;
 	width: 15px;
+}
+	.rdp-multiple_months {
+		margin: 0;
+	}
+	.rdp-months {
+		border: 1px solid $clr2;
+		-webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+		-moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+		box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
+		background-color: $clr0;
+	}
+
+	.range-preview {
+		font-size: rem(12px);
+		background-color: $bg-clr6;
+		border-radius: 5em;
+		padding-inline: 1em;
+		color: $clr0;
+		width: rem(107px);
+		text-align: center;
+		position: relative;
+	}
 }

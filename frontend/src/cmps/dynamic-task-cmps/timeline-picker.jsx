@@ -2,12 +2,14 @@ import { saveTask } from '../../store/selected-board.actions'
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { usePopper } from 'react-popper'
-import { DateRange, DayPicker } from 'react-day-picker'
+import { DayPicker } from 'react-day-picker'
 import { addDays, format } from 'date-fns'
 import { ICON_CLOSE } from '../../assets/icons/icons'
 import { utilService } from '../../services/util.service'
 import { boardService } from '../../services/board.service.local'
 import 'react-day-picker/dist/style.css'
+import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
+
 const pastMonth = new Date() // Define your past month date here
 
 const defaultSelected = {
@@ -34,11 +36,12 @@ export function TimelinePicker({ task, groupId }) {
 		],
 	})
 
-	useEffect(() => {
+	useEffectUpdate(() => {
 		if (range) {
 			onChangeTimelineRange()
 			onSetFooter()
 		}
+		// eslint-disable-next-line
 	}, [range])
 
 	useEffect(() => {
@@ -164,7 +167,7 @@ export function TimelinePicker({ task, groupId }) {
 			onClick={ev => onToggleModal(ev)}
 			onMouseEnter={() => setIsHovered(true)}
 			onMouseLeave={() => setIsHovered(false)}>
-			<div className="timeline-container" ref={setPopperElement}>
+			<div className="timeline-container">
 				{task.timeline && (
 					<div className="span-container flex align-center justify-center">
 						<div className="progress">
@@ -189,14 +192,21 @@ export function TimelinePicker({ task, groupId }) {
 					</div>
 				)}
 				{toggle && (
-					<DayPicker
-						numberOfMonths={2}
-						mode="range"
-						defaultMonth={pastMonth}
-						selected={range}
-						footer={modalFooter}
-						onSelect={setRange}
-					/>
+					<div
+						className="timeline-popup-container"
+						ref={setPopperElement}
+						style={styles.popper}
+						{...attributes.popper}>
+						<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
+						<DayPicker
+							numberOfMonths={2}
+							mode="range"
+							defaultMonth={pastMonth}
+							selected={range}
+							footer={modalFooter}
+							onSelect={setRange}
+						/>
+					</div>
 				)}
 			</div>
 		</li>

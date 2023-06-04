@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ICON_CLOSE, ICON_SEARCH } from '../../assets/icons/icons'
-import { EMPTY_PERSON } from '../../assets/icons/icons'
+import { EMPTY_MEMBER } from '../../assets/icons/icons'
 import { userService } from '../../services/user.service'
 import { useSelector } from 'react-redux'
 import { UPDATE_BOARD } from '../../store/board.reducer'
@@ -9,11 +9,11 @@ import { usePopper } from 'react-popper'
 
 export function MemberPicker({ groupId, type, task }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
-	const [userToSearch, setUserToSearch] = useState('')
+	const [memberToSearch, setMemberToSearch] = useState('')
 	const elSearchInputRef = useRef()
-	const fullUserList = useRef(userService.getDemoUsers()) // so we don't call userService twice
-	const [userList, setUserList] = useState(fullUserList.current)
-	const [assignedUsers, setAssignedUsers] = useState([])
+	const fullMemberList = useRef(userService.getDemoUsers()) // so we don't call userService twice
+	const [memberList, setMemberList] = useState(fullMemberList.current)
+	const [assignedMembers, setAssignedMembers] = useState([])
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	const [referenceElement, setReferenceElement] = useState(null)
@@ -34,12 +34,12 @@ export function MemberPicker({ groupId, type, task }) {
 	}, [])
 
 	useEffect(() => {
-		setUserList(userService.getDemoUsers(userToSearch))
-	}, [userToSearch])
+		setMemberList(userService.getDemoUsers(memberToSearch))
+	}, [memberToSearch])
 
 	//this happens BEFORE dom renders, so that modal changes before it displays. (no jumps in display)
 	useLayoutEffect(() => {
-		isPickerOpen && onSetAssignedUsers()
+		isPickerOpen && onSetAssignedMembers()
 	}, [isPickerOpen])
 
 	function onToggleModal(ev) {
@@ -49,40 +49,40 @@ export function MemberPicker({ groupId, type, task }) {
 	}
 
 	// new users are only shown once component is closed and re-opened.
-	function onSetAssignedUsers() {
-		let filteredUsers
+	function onSetAssignedMembers() {
+		let filteredMembers
 		if (type === 'ownerPicker' && task.owner) {
-			filteredUsers = fullUserList.current.filter(user => user._id !== task.owner._id)
-			task.owner?._id && setAssignedUsers([task.owner]) //only set if owner exists, and not an empty obj
+			filteredMembers = fullMemberList.current.filter(member => member._id !== task.owner._id)
+			task.owner?._id && setAssignedMembers([task.owner]) //only set if owner exists, and not an empty obj
 		} else if (type === 'collaboratorPicker' && task.collaborators) {
-			filteredUsers = userList.filter(
-				user => !task.collaborators.some(collaborator => user._id === collaborator._id)
+			filteredMembers = memberList.filter(
+				member => !task.collaborators.some(collaborator => member._id === collaborator._id)
 			)
-			setAssignedUsers(task.collaborators)
+			setAssignedMembers(task.collaborators)
 		}
-		setUserList(filteredUsers)
+		setMemberList(filteredMembers)
 	}
 
-	function onRemoveAssignedUser(user) {
-		const filteredUsers = assignedUsers.filter(u => u._id !== user._id)
+	function onRemoveAssignedMember(member) {
+		const filteredMembers = assignedMembers.filter(m => m._id !== member._id)
 		let newTask
 		if (type === 'ownerPicker') {
 			newTask = { ...task, owner: {} }
 		} else if (type === 'collaboratorPicker') {
-			newTask = { ...task, collaborators: filteredUsers }
+			newTask = { ...task, collaborators: filteredMembers }
 		}
 		saveTask(board._id, groupId, newTask, 'removed member ')
-		setAssignedUsers(filteredUsers)
-		setUserList(prev => [...prev, user])
+		setAssignedMembers(filteredMembers)
+		setMemberList(prev => [...prev, member])
 	}
 
-	function onSetUser(user) {
+	function onSetMember(member) {
 		setIsPickerOpen(false)
 		let newTask
 		if (type === 'ownerPicker') {
-			newTask = { ...task, owner: user }
+			newTask = { ...task, owner: member }
 		} else if (type === 'collaboratorPicker') {
-			newTask = { ...task, collaborators: [...task.collaborators, user] }
+			newTask = { ...task, collaborators: [...task.collaborators, member] }
 		}
 		saveTask(board._id, groupId, newTask, 'Set new member ')
 	}
@@ -90,27 +90,27 @@ export function MemberPicker({ groupId, type, task }) {
 	function onClosePicker(ev) {
 		if (ev.target.closest('.member-picker-modal')) return
 		setIsPickerOpen(false)
-		setUserToSearch('')
+		setMemberToSearch('')
 	}
 
 	function handleSearch({ target }) {
-		setUserToSearch(target.value)
+		setMemberToSearch(target.value)
 	}
-	
+
 	return (
 		<li className="member-picker" ref={setReferenceElement} onClick={ev => onToggleModal(ev)}>
-			{type === 'ownerPicker' && task?.owner?._id && <img src={task.owner.imgUrl} alt="person" />}
+			{type === 'ownerPicker' && task?.owner?._id && <img src={task.owner.imgUrl} alt="member img" />}
 			{type === 'collaboratorPicker' && !!task.collaborators?.length && (
 				<div className="collaborator-img-container">
 					{task.collaborators.map(collaborator => (
-						<img key={collaborator._id} src={collaborator.imgUrl} alt="person" />
+						<img key={collaborator._id} src={collaborator.imgUrl} alt="member img" />
 					))}
 				</div>
 			)}
 			{/* if not any of the above, show default image. */}
 			{((type === 'ownerPicker' && !task?.owner?._id) ||
 				(type === 'collaboratorPicker' && !task.collaborators?.length)) && (
-				<img src={EMPTY_PERSON} alt="person" />
+				<img src={EMPTY_MEMBER} alt="member img" />
 			)}
 			{isPickerOpen && (
 				<div
@@ -120,11 +120,11 @@ export function MemberPicker({ groupId, type, task }) {
 					{...attributes.popper}>
 					<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 					<div className="assigned-members">
-						{assignedUsers?.map(user => (
-							<div key={user._id} className="member">
-								<img src={user.imgUrl} className="img-container"></img>
-								<div className="fullname-container">{user.fullname}</div>
-								<div className="icon-container" onClick={() => onRemoveAssignedUser(user)}>
+						{assignedMembers?.map(member => (
+							<div key={member._id} className="member">
+								<img src={member.imgUrl} className="img-container"></img>
+								<div className="fullname-container">{member.fullname}</div>
+								<div className="icon-container" onClick={() => onRemoveAssignedMember(member)}>
 									{ICON_CLOSE}
 								</div>
 							</div>
@@ -136,13 +136,13 @@ export function MemberPicker({ groupId, type, task }) {
 							type="text"
 							placeholder="Search names"
 							ref={elSearchInputRef}
-							value={userToSearch}
+							value={memberToSearch}
 							onChange={handleSearch}
 						/>
 						<span
-							className={`svg-container btn-primary ${userToSearch ? 'active-search' : ''}`}
-							onClick={() => setUserToSearch('')}>
-							{userToSearch ? <span>{ICON_CLOSE}</span> : <span>{ICON_SEARCH}</span>}
+							className={`svg-container btn-primary ${memberToSearch ? 'active-search' : ''}`}
+							onClick={() => setMemberToSearch('')}>
+							{memberToSearch ? <span>{ICON_CLOSE}</span> : <span>{ICON_SEARCH}</span>}
 						</span>
 					</div>
 					<div className="scroll-container">
@@ -150,10 +150,10 @@ export function MemberPicker({ groupId, type, task }) {
 							<span>Suggested people </span>
 						</div>
 						<ul className="members-list clean-list">
-							{userList.map(user => (
-								<li key={user._id} className="btn-primary" onClick={() => onSetUser(user)}>
-									<img src={user.imgUrl} alt="user img" />
-									<span>{user.fullname}</span>
+							{memberList.map(member => (
+								<li key={member._id} className="btn-primary" onClick={() => onSetMember(member)}>
+									<img src={member.imgUrl} alt="member img" />
+									<span>{member.fullname}</span>
 								</li>
 							))}
 						</ul>

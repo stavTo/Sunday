@@ -5,7 +5,6 @@
 	position: relative;
 	text-align: center;
 
-
 	span {
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -32,34 +31,38 @@
 		position: absolute;
 		top: calc($task-row-height + 5px);
 		z-index: 10;
-		width: em(200px);
-		min-height: em(280px);
+		width: rem(200px);
+		min-height: rem(280px);
 		background-color: #ffffff;
 		border-radius: 8px;
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .32);
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.32);
 
 		ul {
 			display: flex;
+			align-items: center;
 			flex-direction: column;
 			padding: em(16px) em(24px) em(8px) em(24px);
 
 			li {
+				border-radius: 2px;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				height: em(32px);
-				width: em(144px);
-				padding-inline: 4px;
-				margin-inline: auto;
+				height: rem(32px);
+				width: rem(152px);
 				font-size: rem(14px);
 				margin-block-end: 8px;
+
+				&:active {
+					scale: 0.95;
+				}
 			}
 		}
 
 		.seperator {
 			height: 4px;
 			width: em(168px);
-			color: rgb(50, 51, 56);
+			color: #323338;
 		}
 
 		button.edit-labels {
@@ -77,4 +80,3 @@
 		}
 	}
 }
-

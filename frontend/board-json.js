@@ -32,10 +32,10 @@ const activity = {
 }
 
 // Store - saveTask
-function storeSaveTask(boardId, groupId, task, activity) {
-	board = boardService.saveTask(boardId, groupId, task, activity)
-	// commit(ACTION) // dispatch(ACTION)
-}
+// function storeSaveTask(boardId, groupId, task, activity) {
+// 	board = boardService.saveTask(boardId, groupId, task, activity)
+// 	// commit(ACTION) // dispatch(ACTION)
+// }
 
 // boardService
 function saveTask(boardId, groupId, task, activity) {

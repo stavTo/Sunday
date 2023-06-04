@@ -1,32 +1,30 @@
-import { useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 import { EDIT_LABEL } from '../../assets/icons/icons'
-import { addEmptyLabel, saveTask, updateLabels } from '../../store/selected-board.actions'
-import { SET_IS_MODAL_OPEN } from '../../store/selected-board.reducer'
+import { saveTask, updateLabels } from '../../store/selected-board.actions'
 import { boardService } from '../../services/board.service.local'
 import { usePopper } from 'react-popper'
 
-const DEFAULT_STATUS_LABELS = [
-	{ id: 'sl100', title: 'Done', color: '#00C875' },
-	{ id: 'sl101', title: 'Working on it', color: '#fdab3d' },
-	{ id: 'sl102', title: 'Stuck', color: '#e2445c' },
-	{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' },
-]
+// const DEFAULT_STATUS_LABELS = [
+// 	{ id: 'sl100', title: 'Done', color: '#00C875' },
+// 	{ id: 'sl101', title: 'Working on it', color: '#fdab3d' },
+// 	{ id: 'sl102', title: 'Stuck', color: '#e2445c' },
+// 	{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' },
+// ]
 
-const DEFAULT_PRIORITY_LABELS = [
-	{ id: 'pl100', title: 'Critical', color: '#333333' },
-	{ id: 'pl101', title: 'High', color: '#401694' },
-	{ id: 'pl102', title: 'Medium', color: '#5559df' },
-	{ id: 'pl103', title: 'Low', color: '#579bfc' },
-	{ id: 'pl104', title: '', color: '#c4c4c4' },
-]
+// const DEFAULT_PRIORITY_LABELS = [
+// 	{ id: 'pl100', title: 'Critical', color: '#333333' },
+// 	{ id: 'pl101', title: 'High', color: '#401694' },
+// 	{ id: 'pl102', title: 'Medium', color: '#5559df' },
+// 	{ id: 'pl103', title: 'Low', color: '#579bfc' },
+// 	{ id: 'pl104', title: '', color: '#c4c4c4' },
+// ]
 
 export function LabelPicker({ type, task, groupId }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
 	const [label, setLabel] = useState({})
 	const [labelsName, setLabelsName] = useState('')
-	const labelPickerRef = useRef()
 	const [isEditor, setIsEditor] = useState(false)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
@@ -127,10 +125,6 @@ function LabelPickerPopUp({
 	setArrowElement,
 	attributes,
 }) {
-	function onSetIsEditor() {
-		setIsEditor(true)
-	}
-
 	return (
 		<div className="label-picker-popup" ref={popperRef} style={styles.popper} {...attributes.popper}>
 			<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
@@ -145,10 +139,10 @@ function LabelPickerPopUp({
 				))}
 			</ul>
 			<div className="sperator"></div>
-			<button className="edit-labels" onClick={onSetIsEditor}>
+			{/* <button className="edit-labels" onClick={() => setIsEditor(true)}>
 				<span>{EDIT_LABEL}</span>
 				<span>Edit Labels</span>
-			</button>
+			</button> */}
 		</div>
 	)
 }

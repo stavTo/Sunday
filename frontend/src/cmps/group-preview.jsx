@@ -1,16 +1,15 @@
 import { useState } from 'react'
 import { ICON_EXPAND_ARROW, ICON_OPTIONS } from '../assets/icons/icons'
-import { setTippy } from '../services/tippy.service'
 import { TaskList } from './task-list'
 import { updateGroup, removeGroup } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
+import { TippyContainer } from './tippy-container'
 
 export function GroupPreview({ group }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(group.title)
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
-	setTippy('.group-title', 'Click to Edit', 'top', [0, 20])
 
 	function handleTitleClick() {
 		setIsInputVisible(true)
@@ -46,7 +45,11 @@ export function GroupPreview({ group }) {
 				</div>
 				<div className="expand-arrow-container">{ICON_EXPAND_ARROW}</div>
 				<div className="group-title-container" onClick={handleTitleClick}>
-					{!isInputVisible && <h4 className="group-title">{group.title}</h4>}
+					{!isInputVisible && (
+						<TippyContainer txt="Click to Edit" offset={[0, 5]}>
+							<h4 className="group-title">{group.title}</h4>
+						</TippyContainer>
+					)}
 					{isInputVisible && (
 						<input
 							className="group-title-input"
@@ -54,7 +57,8 @@ export function GroupPreview({ group }) {
 							type="text"
 							value={titleToChange}
 							onChange={handleChange}
-							onBlur={setGroupTitle}></input>
+							onBlur={setGroupTitle}
+						></input>
 					)}
 				</div>
 				<div className="task-count">{group.tasks?.length} Tasks</div>
