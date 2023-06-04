@@ -14,6 +14,7 @@ export function GroupSummary({ group }) {
 
     return (
         <div className="group-summary flex task-row">
+            {/* <div style={{ width: 400 + 'px' }}></div> */}
             {board.cmpsOrder.map(cmp => {
                 switch (cmp.cmpName) {
                     case STATUS_PICKER:

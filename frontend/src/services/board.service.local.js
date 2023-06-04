@@ -545,4 +545,4 @@ function _getDummyBoard(boardNum) {
 // Website Development	Not Started	David Wilson	2023-05-22	Develop an engaging and user-friendly website for the online store	High	Development
 // Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
-if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify([_getDummyBoard(1)]))
+// if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify([_getDummyBoard(1)]))
