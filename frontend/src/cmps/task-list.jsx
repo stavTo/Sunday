@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AddTask } from './add-task.jsx'
 import { TaskListHeader } from './task-list-header.jsx'
 import { TaskPreview } from './task-preview.jsx'
@@ -6,6 +6,20 @@ import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { GroupSummary } from './group-summary.jsx'
 
 export function TaskList({ tasks, group }) {
+	const [activeTask, setActiveTask] = useState('')
+
+	useEffect(() => {
+		document.addEventListener('mousedown', unsetActiveTask)
+
+		return () => {
+			document.removeEventListener('mousedown', unsetActiveTask)
+		}
+	}, [])
+
+	function unsetActiveTask() {
+		setActiveTask('')
+	}
+
 	return (
 		<Droppable droppableId={group.id}>
 			{provided => (
@@ -14,7 +28,13 @@ export function TaskList({ tasks, group }) {
 					{tasks.map((task, idx) => (
 						<Draggable key={task.id} draggableId={task.id} index={idx}>
 							{provided => (
-								<li {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+								<li
+									className={`${activeTask === task.id && 'active'}`}
+									onClick={() => setActiveTask(task.id)}
+									{...provided.draggableProps}
+									{...provided.dragHandleProps}
+									ref={provided.innerRef}
+								>
 									<TaskPreview group={group} task={task} />
 								</li>
 							)}

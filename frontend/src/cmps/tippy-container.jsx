@@ -2,12 +2,11 @@ import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/animations/scale-subtle.css'
 export function TippyContainer({ children, txt, placement = 'top', offset = [0, 10] }) {
-	console.log(txt)
 	return (
 		<Tippy
 			content={txt}
 			placement={placement}
-			delay={[400.0]}
+			delay={[300.0]}
 			duration={[100, 0]}
 			theme={'default'}
 			offset={offset}

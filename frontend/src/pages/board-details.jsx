@@ -7,7 +7,8 @@ import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { loadBoard } from '../store/selected-board.actions'
 import { SideBar } from '../cmps/side-bar'
-import { BoardLoader } from '../cmps/BoardLoader'
+import { BoardLoader } from '../cmps/board-loader'
+import { UserCardLoader } from '../cmps/user-card-loader'
 
 export function BoardDetails() {
 	const { boardId } = useParams()
@@ -29,17 +30,17 @@ export function BoardDetails() {
 			showErrorMsg(`Board ${boardId} does not exists. `)
 		}
 	}
-
 	if (isLoading) return <BoardLoader />
 	return (
-		<section className="board-details">
-			<SideBar />
-			{/* <BoardList /> */}
-			<section className="board-container">
-				<BoardHeader board={board} />
-				<GroupList groups={board.groups} />
-			</section>
-			<Outlet />
-		</section>
+		<UserCardLoader />
+		// <section className="board-details">
+		// 	<SideBar />
+		// 	{/* <BoardList /> */}
+		// 	<section className="board-container">
+		// 		<BoardHeader board={board} />
+		// 		<GroupList groups={board.groups} />
+		// 	</section>
+		// 	<Outlet />
+		// </section>
 	)
 }

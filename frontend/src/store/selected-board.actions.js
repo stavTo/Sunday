@@ -1,10 +1,10 @@
 import { async } from 'q'
 import { boardService } from '../services/board.service.local'
-import { SET_BOARD, SET_IS_LOADING_BOARD, UNDO_SET_BOARD } from './selected-board.reducer'
+import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.reducer'
 import { store } from './store'
 
 export async function loadBoard(boardId, filter = {}) {
-	!filter && store.dispatch({ type: SET_IS_LOADING_BOARD, isLoading: true })
+	!filter && store.dispatch({ type: SET_IS_LOADING, isLoading: true })
 	try {
 		const board = await boardService.getById(boardId, filter)
 		store.dispatch({ type: SET_BOARD, board })
@@ -12,7 +12,7 @@ export async function loadBoard(boardId, filter = {}) {
 		console.log(err)
 		throw err
 	} finally {
-		store.dispatch({ type: SET_IS_LOADING_BOARD, isLoading: false })
+		store.dispatch({ type: SET_IS_LOADING, isLoading: false })
 	}
 }
 

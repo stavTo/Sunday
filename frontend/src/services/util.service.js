@@ -10,6 +10,7 @@ export const utilService = {
 	hexToRgba,
 	timeStampToDate,
 	millisecondsToDays,
+	fractionToPercent,
 }
 
 function makeId(length = 6) {
@@ -132,4 +133,9 @@ function timeStampToDate(timeStamp) {
 
 function millisecondsToDays(ms) {
 	return Math.floor(ms / 86400000) //num of ms in day
+}
+
+function fractionToPercent(fractionString) {
+	const fractionNumbers = fractionString.split('/')
+	return (fractionNumbers[0] / fractionNumbers[1]) * 100
 }

@@ -11,9 +11,10 @@
 
 	.add-task-input {
 		all: unset;
+		margin: 8px;
+		padding-inline-start: 18px;
+		line-height: 21px;
 
-		margin: 6px 10px;
-		padding: 1px 0px 1px 16px;
 		max-width: 177px;
 	}
 }
