@@ -16,11 +16,12 @@
 // Views
 @import 'views/board-details';
 @import 'views/home-page';
+@import 'views/board-index';
 // @import "views/ReviewIndex";
 // @import "views/UserDetails";
 
 // Components
-@import 'cmps/board-list';
+@import 'cmps/workspace-board-list';
 @import 'cmps/group-preview';
 @import 'cmps/user-card-loader';
 // Sidebar cmps
@@ -40,6 +41,11 @@
 @import 'cmps/task-list';
 @import 'cmps/board-toolbar';
 @import 'cmps/group-summary';
+
+// Board index cmps
+@import 'cmps/board-index-header';
+@import 'cmps/boards-list';
+@import 'cmps/board-preview';
 
 // Dynamic Task Components
 @import 'cmps/dynamic-task-cmps/label-picker';

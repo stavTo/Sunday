@@ -1,5 +1,5 @@
 import { Outlet, useParams } from 'react-router-dom'
-// import { BoardList } from '../cmps/board-list'
+// import { WorkspaceBoardList } from '../cmps/board-list'
 import { BoardHeader } from '../cmps/board-header'
 import { GroupList } from '../cmps/group-list'
 import { useEffect } from 'react'
@@ -34,7 +34,7 @@ export function BoardDetails() {
 	return (
 		<section className="board-details">
 			<SideBar />
-			{/* <BoardList /> */}
+			{/* <WorkspaceBoardList /> */}
 			<section className="board-container">
 				<BoardHeader board={board} />
 				<GroupList groups={board.groups} />

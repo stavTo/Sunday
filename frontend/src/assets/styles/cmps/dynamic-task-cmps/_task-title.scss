@@ -102,7 +102,7 @@
 		margin: 6px 10px 6px 26px;
 
 		&:focus {
-			background-color: unset;
+			background-color: $clr0;
 			outline: 1px solid $bg-clr1;
 			border-radius: 4px;
 		}

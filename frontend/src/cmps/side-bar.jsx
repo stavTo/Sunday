@@ -17,7 +17,7 @@ import guest from "../assets/img/guest.png"
 import { ExpandableSidebar } from '../cmps/expandable-sidebar.jsx'
 import { TippyContainer } from './tippy-container'
 
-export function SideBar() {
+export function SideBar({ isExpandable = true }) {
 	return (
 		<>
 			<section className="side-bar">
@@ -71,7 +71,7 @@ export function SideBar() {
 					</li>
 				</ul>
 			</section>
-			<ExpandableSidebar />
+			{isExpandable ? <ExpandableSidebar /> : ''}
 		</>
 	)
 }

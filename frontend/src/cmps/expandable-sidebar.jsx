@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BoardList } from '../cmps/board-list'
+import { WorkspaceBoardList } from './workspace-board-list'
 import { ICON_EXPAND_ARROW } from '../assets/icons/icons'
 import { utilService } from '../services/util.service'
 
@@ -15,14 +15,14 @@ export function ExpandableSidebar() {
 			onMouseEnter={() => debouncedSetIsHovered(true)}
 			onMouseLeave={() => debouncedSetIsHovered(false)}>
 			<div
-				className={`expand-btn flex align-center justify-center ${isFixed ? 'rotate-arrow-left' : 'rotate-arrow-right'
+				className={`expand-btn flex align-center justify-center pointer ${isFixed ? 'rotate-arrow-left' : 'rotate-arrow-right'
 					}`}
 				onClick={() => setIsFixed(!isFixed)}>
 				{ICON_EXPAND_ARROW}
 			</div>
 			<div className={`expandable-sidebar-container ${isHovered ? 'expanded' : ''}`}>
 				<section className={`${isFixed ? 'open expandable-sidebar' : 'expandable-sidebar'}`}>
-					{(isFixed || isHovered) && <BoardList fixed={isFixed} />}
+					{(isFixed || isHovered) && <WorkspaceBoardList fixed={isFixed} />}
 				</section>
 			</div>
 		</div>
