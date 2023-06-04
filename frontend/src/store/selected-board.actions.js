@@ -95,3 +95,13 @@ export async function updateGroup(boardId, group, activity = '') {
 		throw err
 	}
 }
+
+export async function removeGroup(boardId, groupId, activity = '') {
+	try {
+		const board = await boardService.removeGroup(boardId, groupId, activity)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant remove group')
+		throw err
+	}
+}

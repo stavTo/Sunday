@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import {
 	ICON_NOTIFICATIONS,
 	ICON_INBOX,
@@ -9,6 +11,8 @@ import {
 	ICON_HELP,
 	ICON_MENU,
 } from '../assets/icons/icons'
+
+import guest from "../assets/img/guest.png"
 
 import { ExpandableSidebar } from '../cmps/expandable-sidebar.jsx'
 import { setTippy } from '../services/tippy.service'
@@ -31,7 +35,9 @@ export function SideBar() {
 					<li className="top-navigation-area">
 						<ul className="clean-list flex column align-center">
 							<li className="flex" data-tippy-content="home page">
-								<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="" />
+								<Link to="/index">
+									<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="" />
+								</Link>
 							</li>
 							{/* <hr></hr> */}
 							<li className="flex work-management">{ICON_WORK_MANAGEMENT}</li>
@@ -50,7 +56,7 @@ export function SideBar() {
 							<hr></hr>
 							<li className="flex apps">{ICON_MENU}</li>
 							<li className="flex profile ">
-								<img src="https://yomrishon.onrender.com/imgs/user.png" data-tippy-content="guest" />
+								<img src={guest} data-tippy-content="guest" />
 							</li>
 						</ul>
 					</li>

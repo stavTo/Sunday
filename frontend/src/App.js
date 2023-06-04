@@ -7,6 +7,7 @@ import { BoardDetails } from './pages/board-details'
 import { UserDetails } from './pages/user-details'
 import { TaskDetails } from './cmps/task-details'
 import { UserMsg } from './cmps/user-msg'
+import { BoardIndex } from './pages/board-index'
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 								<Route path="tasks/:taskId" element={<TaskDetails />} />
 							</Route>
 							<Route path="/users/:userId" element={<UserDetails />}></Route>
+							<Route path="/index" element={<BoardIndex />}></Route>
 						</Routes>
 					</main>
 					<UserMsg />

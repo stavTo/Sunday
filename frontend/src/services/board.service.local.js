@@ -28,6 +28,7 @@ export const boardService = {
 	getEmptyComment,
 	saveComment,
 	updateGroup,
+	removeGroup,
 }
 
 async function query(filter = {}) {
@@ -236,6 +237,20 @@ async function removeTask(boardId, groupId, taskId, activity = '') {
 async function updateGroup(boardId, group) {
 	const board = await getById(boardId)
 	board.groups = board.groups.map(g => (g.id === group.id ? group : g))
+	await save(board)
+	return board
+}
+
+async function removeGroup(boardId, groupId, taskId, activity = '') {
+	const board = await getById(boardId)
+	// PUT /api/board/b123/task/t678
+	console.log(board)
+	// board.groups = board.groups.map(group =>
+	// 	group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
+	// )
+	// board.groups = board.groups.map(g => (g.id === group.id ? group : g))
+	board.groups = board.groups.filter(g => (g.id !== groupId))
+	// board.board.activities.unshift(activity)
 	await save(board)
 	return board
 }

@@ -11,13 +11,12 @@ export function ExpandableSidebar() {
 
 	return (
 		<div
-			className="workspace-container"
+			className={`${isHovered && !isFixed ? 'workspace-container shadow' : 'workspace-container'}`}
 			onMouseEnter={() => debouncedSetIsHovered(true)}
 			onMouseLeave={() => debouncedSetIsHovered(false)}>
 			<div
-				className={`expand-btn flex align-center justify-center ${
-					isFixed ? 'rotate-arrow-left' : 'rotate-arrow-right'
-				}`}
+				className={`expand-btn flex align-center justify-center ${isFixed ? 'rotate-arrow-left' : 'rotate-arrow-right'
+					}`}
 				onClick={() => setIsFixed(!isFixed)}>
 				{ICON_EXPAND_ARROW}
 			</div>

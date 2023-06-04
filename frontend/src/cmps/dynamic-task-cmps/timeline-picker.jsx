@@ -6,8 +6,8 @@ import { DateRange, DayPicker } from 'react-day-picker'
 import { addDays, format } from 'date-fns'
 import { ICON_CLOSE } from '../../assets/icons/icons'
 import { utilService } from '../../services/util.service'
+import { boardService } from '../../services/board.service.local'
 import 'react-day-picker/dist/style.css'
-
 const pastMonth = new Date() // Define your past month date here
 
 const defaultSelected = {
@@ -22,6 +22,7 @@ export function TimelinePicker({ task, groupId }) {
 	const [range, setRange] = useState(defaultSelected)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [modalFooter, setModalFooter] = useState(<p>Please pick the first day.</p>)
+	const { timeline } = task
 
 	const [referenceElement, setReferenceElement] = useState(null)
 	const [popperElement, setPopperElement] = useState(null)
@@ -68,8 +69,70 @@ export function TimelinePicker({ task, groupId }) {
 		setToggle(prev => !prev)
 	}
 
+	calculateTimelineProgress()
+
+	function calculateTimelineProgress() {
+		// Get the current date
+		const currentDate = Date.now()
+
+		// Convert the start and end dates to timestamps
+		const startTimestamp = timeline.startDate
+		const endTimestamp = timeline.endDate
+		// 1685884857617 - current day (4 june) (timeline.startDate first task)
+
+		// Check if the current date is after the end date
+		if (currentDate >= endTimestamp) {
+			// If so, the progress is 100%
+			return 100
+		}
+		// Calculate the total duration of the timeline
+		const totalDuration = endTimestamp - startTimestamp
+		// console.log("totalDuration, task:", totalDuration, task)
+
+		// Calculate the elapsed time from the start date to the current date
+		const timePassedSinceStart = currentDate - startTimestamp
+		// console.log("elapsedTime:", elapsedTime)
+
+		// TOTAL DURATION - ELAPSED TIME = how much progress made
+		const progressMade = (totalDuration - timePassedSinceStart)
+		// 				 NUMERATOR   /   DENOMINATOR
+		const result = Math.round(((totalDuration / progressMade) * 100).toFixed(2)) / 2
+
+		// Round the progress percentage to the nearest whole number
+		// 113942383 - 29094
+		// totalDuration - 
+
+		return Math.round(progressMade).toFixed(2);
+	}
+
+
+	// function calculateTimelineProgress() {
+	// 	// if (!timeline || !timeline.startDate || !timeline.endDate || currentDate >= timeline.endDate) {
+	// 	// 	return 0
+	// 	// }
+
+	// 	const currentDate = Date.now()
+
+	// 	// if (currentDate >= timeline.endDate) {
+	// 	// 	return 100
+	// 	// }
+
+	// 	const totalDuration = timeline.endDate - timeline.startDate
+	// 	// console.log("totalDuration:", totalDuration)
+	// 	// 259200000 - 3 days, 345600000 - 4 days
+	// 	const elapsedTime = currentDate - timeline.startDate
+	// 	console.log("elapsedTime:", elapsedTime, task.title)
+	// 	// const progressPercentage = (totalDuration / elapsedTime) * 100
+
+	// 	// console.log("totalDuration/ elapsedTime:", totalDuration / elapsedTime)
+
+	// 	const taskToDisplay = boardService.getGroupByTask(board, task.id)
+	// 	// taskToDisplay.style.color
+	// 	// return Math.round(progressPercentage)
+	// }
+
+
 	function getEstTime() {
-		const { timeline } = task
 		const estTime = timeline.endDate - timeline.startDate
 		return utilService.millisecondsToDays(estTime)
 	}
@@ -94,7 +157,6 @@ export function TimelinePicker({ task, groupId }) {
 		await saveTask(board._id, groupId, taskToEdit, '')
 	}
 
-	const { timeline } = task
 	return (
 		<li
 			className="timeline-picker flex align-center justify-center pointer"
@@ -105,6 +167,9 @@ export function TimelinePicker({ task, groupId }) {
 			<div className="timeline-container" ref={setPopperElement}>
 				{task.timeline && (
 					<div className="span-container flex align-center justify-center">
+						<div className="progress">
+							<span style={{ 'width': '50%' }}></span>
+						</div>
 						<span className="range-preview flex row justify-center">
 							{hasTimeline &&
 								(isHovered ? (

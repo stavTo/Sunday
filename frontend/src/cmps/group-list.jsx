@@ -20,7 +20,7 @@ export function GroupList({ groups }) {
 			</ul>
 
 			<div
-				className="add-group-btn flex"
+				className="add-group-btn flex btn-primary"
 				onClick={onAddGroup}>
 				<span className="icon">{ICON_ADD_GROUP}</span>
 				<span className="txt">Add new group</span>

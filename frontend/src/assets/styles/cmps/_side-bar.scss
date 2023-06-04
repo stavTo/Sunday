@@ -80,7 +80,7 @@
 
 			li {
 				&.apps {
-					color: #6c6cff;
+					color: $clr6;
 				}
 				cursor: pointer;
 				width: 2em;
@@ -95,7 +95,7 @@
 				}
 
 				&:last-child img {
-					border: 2px solid #fff;
+					border: 2px solid $clr0;
 					border-radius: 50%;
 				}
 
@@ -110,7 +110,7 @@
 		}
 
 		hr {
-			width: 80%;
+			width: rem(40px);
 			border-color: #595c6f;
 			border-block-start: none;
 		}

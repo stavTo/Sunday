@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ICON_EXPAND_ARROW, ICON_OPTIONS } from '../assets/icons/icons'
 import { setTippy } from '../services/tippy.service'
 import { TaskList } from './task-list'
-import { updateGroup } from '../store/selected-board.actions'
+import { updateGroup, removeGroup } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 
@@ -30,9 +30,20 @@ export function GroupPreview({ group }) {
 		}
 	}
 
+	async function onRemoveGroup() {
+		await removeGroup(board._id, group.id)
+	}
+
 	return (
 		<section className="group-preview">
 			<div className="group-header" style={{ color: group.style.color }}>
+				<div
+					onClick={onRemoveGroup}
+					className="group-option-container btn-primary flex align-center">
+					<div className="group-option flex align-center">
+						{ICON_OPTIONS}
+					</div>
+				</div>
 				<div className="expand-arrow-container">{ICON_EXPAND_ARROW}</div>
 				<div className="group-title-container" onClick={handleTitleClick}>
 					{!isInputVisible && <h4 className="group-title">{group.title}</h4>}

@@ -12,11 +12,24 @@
 	background-color: $clr0;
 }
 
+.span-container {
+	height: 20px;
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+
+	.progress {
+		position: absolute;
+		// TODO: make this dynamic from react cmp
+		background: linear-gradient(to right, #00c875 70%, $bg-clr6 20%);
+		height: 100%;
+		width: 100%;
+	}
+}
+
 .range-preview {
 	font-size: rem(12px);
-	background-color: $bg-clr6;
-	border-radius: 5em;
-	padding-inline: 1em;
+	// background-color: $bg-clr6;
 	color: $clr0;
 	width: rem(107px);
 	text-align: center;
