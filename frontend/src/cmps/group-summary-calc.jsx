@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
-import { utilService } from "../services/util.service"
-import { object } from "prop-types";
+import { TippyContainer } from "./tippy-container";
 
 export function LabelsProgressBar({ board, group, type }) {
 
     const [labelsName, setLabelsName] = useState('')
     const [labelsNameInBoard, setLabelsNameInBoard] = useState('')
 
-    
+
 
     useEffect(() => {
         if (type === 'statusPicker') {
@@ -25,7 +24,6 @@ export function LabelsProgressBar({ board, group, type }) {
         return label.color
     }
 
-    precentOfLabels()
     function precentOfLabels() {
         const mapCount = calcLabels()
         const labelNames = Object.keys(mapCount)
@@ -58,15 +56,16 @@ export function LabelsProgressBar({ board, group, type }) {
                 {precentOfLabels().map((val, idx) => {
                     const label = Object.keys(val)[0]
                     const width = val[label]
-                    return <li
-                        key={idx}
-                        className={`progress-bar-item item-${idx}`}
-                        style={{
-                            backgroundColor: getColor(label),
-                            width: width + "%",
-                            height: 100 + "%"
-                        }}>
-                    </li>
+                    return <TippyContainer key={idx} txt={`${label + ' ' + width.toFixed(1) + '%'}`}>
+                        <li
+                            className={`progress-bar-item item-${idx}`}
+                            style={{
+                                backgroundColor: getColor(label),
+                                width: width + "%",
+                                height: 100 + "%"
+                            }}>
+                        </li>
+                    </TippyContainer>
                 })}
             </ul>
         </div>
