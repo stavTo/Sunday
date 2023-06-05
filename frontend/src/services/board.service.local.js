@@ -28,6 +28,7 @@ export const boardService = {
 	getGroupById,
 	updateGroup,
 	removeGroup,
+	getBoardUsers,
 }
 
 async function query(filter = {}) {
@@ -140,7 +141,7 @@ function getEmptyTask() {
 	}
 }
 
-function getEmptyGroup( title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() } , id = '') {
+function getEmptyGroup(title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() }, id = '') {
 	return {
 		id,
 		title,
@@ -157,9 +158,20 @@ function getEmptyLabel() {
 	}
 }
 
+async function getBoardUsers(boardId, filter = '') {
+	try {
+		const board = await getById(boardId)
+		const members = board.members
+		const regex = new RegExp(filter, 'i')
+		return members.filter(member => regex.test(member.fullname))
+	} catch (err) {
+		throw err
+	}
+}
+
 // group ? getEmptyGroup(group.title, group.tasks, group.style) :
 async function addGroup(boardId, pushToTop, activity = '') {
-	const newGroup =  getEmptyGroup()
+	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	const board = await getById(boardId)
 	pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
@@ -200,7 +212,6 @@ async function saveTask(boardId, groupId, task, activity = '') {
 	)
 	// board.board.activities.unshift(activity)
 	await save(board)
-	console.log(board)
 	return board
 }
 
