@@ -22,7 +22,16 @@ export function TaskTitle({ task, groupId }) {
 		}
 	}, [])
 
+	function handleKeyPressed(key) {
+		if (key.key === 'Enter') setNewTitle()
+		if (key.key === 'Escape') onEmptyInput()
+	}
+
 	function setInputInvisible() {
+		setIsInputVisible(false)
+	}
+	function onEmptyInput() {
+		setTitleToChange(task.title)
 		setIsInputVisible(false)
 	}
 
@@ -35,8 +44,7 @@ export function TaskTitle({ task, groupId }) {
 		setTitleToChange(target.value)
 	}
 
-	async function setNewTitle(ev) {
-		ev.preventDefault()
+	async function setNewTitle() {
 		const newTask = { ...task, title: titleToChange }
 		setIsInputFocused(false)
 		try {
@@ -54,6 +62,7 @@ export function TaskTitle({ task, groupId }) {
 					<input
 						autoFocus={true}
 						onBlur={setNewTitle}
+						onKeyDown={handleKeyPressed}
 						onFocus={() => setIsInputFocused(true)}
 						onClick={ev => ev.stopPropagation()}
 						className="title-input"

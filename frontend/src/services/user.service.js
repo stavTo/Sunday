@@ -92,11 +92,8 @@ function getDemoUsers(filter = '') {
 		getEmptyUser('u102', 'Roni Yerushalmi'),
 		getEmptyUser('u103', 'Stav Tohami'),
 		getEmptyUser('u104', 'Eyal Golan'),
-		getEmptyUser('u105', 'Steve Jobs'),
+		getEmptyUser('u105', 'Steve Jobs', '../assets/img/guest.png'),
 	]
-
-	const regex = new RegExp(filter, 'i')
-	return users.filter(user => regex.test(user.fullname))
 }
 
 function getEmptyUser(_id = '', fullname = '', imgUrl = DEFAULT_USER) {

@@ -25,22 +25,18 @@
 		padding: 7px 7px;
 		width: 80%;
 
-		span {
-			width: 100%;
-
+		div {
 			&:hover {
 				outline: 1px solid $input-hover-border-clr;
-				width: 300px;
 				border-radius: 4px;
 				cursor: text;
 			}
 		}
 
-		input {
+		.title-input {
 			all: unset;
 			margin: 0;
-			width: 300px;
-
+			width: 100%;
 			&:focus {
 				background-color: unset;
 				outline: 1px solid $bg-clr1;
@@ -95,7 +91,7 @@
 					justify-content: center;
 					border-block-end: 1px $border-clr solid;
 				}
-				
+
 				.ql-container.ql-snow {
 					border: none;
 				}

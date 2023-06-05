@@ -61,7 +61,6 @@ export function TaskList({ tasks, group }) {
 					))}
 					{provided.placeholder}
 					{/* {console.log(provided.placeholder)} */}
-
 					<li>
 						<AddTask group={group} />
 					</li>

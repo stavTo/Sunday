@@ -72,6 +72,11 @@
 
 		.group-title-container {
 			padding-inline: 4px;
+
+			.group-title {
+				font-weight: 500;
+				font-family: $title-font;
+			}
 		}
 
 		.group-title-input {
@@ -80,6 +85,8 @@
 
 		&:hover .task-count {
 			opacity: 1;
+			margin-block-start: 3px;
+			margin-inline-start: 8px;
 		}
 
 		.expand-arrow-container {
@@ -91,6 +98,9 @@
 
 		.task-count {
 			opacity: 0;
+			font-size: rem(14px);
+			font-weight: 400;
+			color: $icon-color;
 			transition: opacity 0.2s;
 		}
 

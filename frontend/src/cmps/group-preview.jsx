@@ -76,10 +76,16 @@ export function GroupPreview({ group }) {
 					</div>
 				</div>
 				{isOptionOpen && (
-					<OptionsMenu onRemoveGroup={onRemoveGroup} openColorPicker={openColorPicker} group={group} />
+					<OptionsMenu
+						group={group}
+						onRemoveGroup={onRemoveGroup}
+						openColorPicker={openColorPicker}
+						setIsOptionOpen={setIsOptionOpen} />
 				)}
 				{isColorPickerOpen && (
-					<ColorPicker onSetColorPickerClose={onSetColorPickerClose} setGroupStyle={setGroupStyle} />
+					<ColorPicker
+						onSetColorPickerClose={onSetColorPickerClose}
+						setGroupStyle={setGroupStyle} />
 				)}
 				<div className="expand-arrow-container">{ICON_EXPAND_ARROW}</div>
 				<div className="group-title-container" onClick={handleTitleClick}>

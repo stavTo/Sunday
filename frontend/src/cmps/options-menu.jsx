@@ -1,11 +1,15 @@
 import { faCirclePlus, faCopy, faDownLeftAndUpRightToCenter, faSquareCheck, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { addGroup } from "../store/selected-board.actions";
+import { duplicateGroup } from "../store/selected-board.actions";
 import { useParams } from "react-router";
 
-export function OptionsMenu({ onRemoveGroup, openColorPicker, group }) {
-
+export function OptionsMenu({ onRemoveGroup, openColorPicker, group, setIsOptionOpen }) {
     const { boardId } = useParams()
+
+    async function onDuplicateGroup() {
+        setIsOptionOpen(false)
+        duplicateGroup(boardId, group)
+    }
 
     return (
         <section className="options-menu">
@@ -21,7 +25,7 @@ export function OptionsMenu({ onRemoveGroup, openColorPicker, group }) {
                 <span><FontAwesomeIcon icon={faCirclePlus} style={{ color: "#676879" }} /></span>
                 <span className="title"> Add group</span>
             </div>
-            <div className="btn-primary" onClick={() => addGroup(boardId, false)} >
+            <div className="btn-primary" onClick={onDuplicateGroup} >
                 <span><FontAwesomeIcon icon={faCopy} style={{ color: "#676879" }} /> </span>
                 <span className="title"> Duplicate this group</span>
             </div>

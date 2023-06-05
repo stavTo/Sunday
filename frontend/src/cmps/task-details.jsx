@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { boardService } from '../services/board.service.local'
 import { ReactQuillWrapper } from './dynamic-task-cmps/react-quill-wrapper'
@@ -9,6 +9,7 @@ import { UserCardLoader } from './user-card-loader'
 import { useSelector } from 'react-redux'
 import { utilService } from '../services/util.service'
 import imgEmptyPage from '../assets/img/img/pulse-page-empty-state.svg'
+import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 
 export function TaskDetails() {
 	const { taskId, boardId } = useParams()
@@ -28,12 +29,22 @@ export function TaskDetails() {
 	}, [taskId])
 
 	useEffect(() => {
-		document.addEventListener('mousedown', onCloseEditor)
+		document.addEventListener('click', onCloseEditor)
 
 		return () => {
-			document.removeEventListener('mousedown', onCloseEditor)
+			document.removeEventListener('click', onCloseEditor)
 		}
 	}, [])
+
+	function handleKeyPressed(key) {
+		if (key.key === 'Enter') setNewTitle()
+		if (key.key === 'Escape') onEmptyInput()
+	}
+
+	function onEmptyInput() {
+		setTitleToChange(task.title)
+		setIsInputVisible(false)
+	}
 
 	async function loadGroup() {
 		try {
@@ -61,7 +72,6 @@ export function TaskDetails() {
 	async function onSaveComment() {
 		const newComment = { txt: commentToEdit, id: utilService.makeId() }
 		const newTask = { ...task, comments: [newComment, ...task.comments] }
-		console.log(newTask)
 		try {
 			const group = boardService.getGroupByTask(board, taskId)
 			await saveTask(boardId, group.id, newTask, 'saved new comment')
@@ -83,19 +93,17 @@ export function TaskDetails() {
 		setTitleToChange(target.value)
 	}
 
-	async function setNewTitle(ev) {
-		ev.preventDefault()
+	async function setNewTitle() {
+		setIsInputVisible(false)
 		try {
-			const boardee = await boardService.getById(boardId)
-			const newGroup = boardService.getGroupByTask(boardee, taskId)
+			const newGroup = boardService.getGroupByTask(board, taskId)
 			const newTask = { ...task, title: titleToChange }
-			setTask(prev => ({ ...prev, title: newTask.title }))
+			setTask(prev => ({ ...prev, title: titleToChange }))
 			await saveTask(boardId, newGroup.id, newTask, 'changed task title')
 		} catch {
 			showErrorMsg('Cant save task')
 		}
 	}
-
 	if (!task || !comments) return
 	return (
 		<>
@@ -105,12 +113,13 @@ export function TaskDetails() {
 					{ICON_CLOSE}
 				</span>
 				<div className="task-details-title">
-					{!isInputVisible && <span onClick={handleClick}>{task.title}</span>}
+					{!isInputVisible && <div onClick={handleClick}>{task.title}</div>}
 					{isInputVisible && (
 						<input
 							autoFocus={true}
 							onBlur={setNewTitle}
 							onClick={ev => ev.stopPropagation()}
+							onKeyDown={handleKeyPressed}
 							className="title-input"
 							id="title"
 							name="title"
