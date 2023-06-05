@@ -60,7 +60,6 @@ export function TaskList({ tasks, group }) {
 						</Draggable>
 					))}
 					{provided.placeholder}
-					{console.log(provided.placeholder)}
 
 					<li>
 						<AddTask group={group} />

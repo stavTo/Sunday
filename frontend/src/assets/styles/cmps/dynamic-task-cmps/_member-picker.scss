@@ -3,14 +3,24 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
 	img {
-		width: 26.8px;
-		height: 26.8px;
+		min-width: 30px;
+		min-height: 30px;
+		width: 30px;
+		height: 30px;
 	}
 
 	.collaborator-img-container {
+		max-width: 50px;
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		img {
+			&:not(:last-child) {
+				margin-inline-end: -6px;
+			}
+		}
 	}
 
 	.member-picker-modal {

@@ -3,16 +3,17 @@ import { ICON_CLOSE, ICON_SEARCH } from '../../assets/icons/icons'
 import { EMPTY_MEMBER } from '../../assets/icons/icons'
 import { userService } from '../../services/user.service'
 import { useSelector } from 'react-redux'
-import { UPDATE_BOARD } from '../../store/board.reducer'
 import { saveTask } from '../../store/selected-board.actions'
 import { usePopper } from 'react-popper'
+import { boardService } from '../../services/board.service.local'
+import { showErrorMsg } from '../../services/event-bus.service'
 
 export function MemberPicker({ groupId, type, task }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
 	const [memberToSearch, setMemberToSearch] = useState('')
 	const elSearchInputRef = useRef()
-	const fullMemberList = useRef(userService.getDemoUsers()) // so we don't call userService twice
-	const [memberList, setMemberList] = useState(fullMemberList.current)
+	const fullMemberList = useRef()
+	const [memberList, setMemberList] = useState()
 	const [assignedMembers, setAssignedMembers] = useState([])
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
@@ -27,15 +28,35 @@ export function MemberPicker({ groupId, type, task }) {
 	})
 
 	useEffect(() => {
+		board._id && loadUsers()
 		document.addEventListener('mousedown', onClosePicker)
 		return () => {
 			document.removeEventListener('mousedown', onClosePicker)
 		}
 	}, [])
 
+	async function loadUsers() {
+		try {
+			const boardUsers = await boardService.getBoardUsers(board._id)
+			setMemberList(boardUsers)
+			fullMemberList.current = boardUsers
+		} catch {
+			console.log('err')
+		}
+	}
+
 	useEffect(() => {
-		setMemberList(userService.getDemoUsers(memberToSearch))
+		onSearchMember()
 	}, [memberToSearch])
+
+	async function onSearchMember() {
+		try {
+			const filteredMembers = await boardService.getBoardUsers(board._id, memberToSearch)
+			setMemberList(filteredMembers)
+		} catch {
+			showErrorMsg('cant load users')
+		}
+	}
 
 	//this happens BEFORE dom renders, so that modal changes before it displays. (no jumps in display)
 	useLayoutEffect(() => {
@@ -117,7 +138,8 @@ export function MemberPicker({ groupId, type, task }) {
 					className="member-picker-modal"
 					ref={setPopperElement}
 					style={styles.popper}
-					{...attributes.popper}>
+					{...attributes.popper}
+				>
 					<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 					<div className="assigned-members">
 						{assignedMembers?.map(member => (
@@ -141,7 +163,8 @@ export function MemberPicker({ groupId, type, task }) {
 						/>
 						<span
 							className={`svg-container btn-primary ${memberToSearch ? 'active-search' : ''}`}
-							onClick={() => setMemberToSearch('')}>
+							onClick={() => setMemberToSearch('')}
+						>
 							{memberToSearch ? <span>{ICON_CLOSE}</span> : <span>{ICON_SEARCH}</span>}
 						</span>
 					</div>

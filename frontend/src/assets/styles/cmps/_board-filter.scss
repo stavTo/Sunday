@@ -7,6 +7,10 @@
 		transition: outline 0.1s;
 		transition: width 0.1s;
 
+		input {
+			width: 100%;
+		}
+
 		&.focused {
 			&:hover {
 				background-color: inherit;
