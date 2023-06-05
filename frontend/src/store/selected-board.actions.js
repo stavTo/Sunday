@@ -1,4 +1,3 @@
-import { async } from 'q'
 import { boardService } from '../services/board.service.local'
 import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.reducer'
 import { store } from './store'
@@ -27,9 +26,9 @@ export async function saveBoard(board) {
 	}
 }
 
-export async function addEmptyGroup(boardId, pushToTop = false, activity = '') {
+export async function addGroup(boardId, pushToTop = false, activity = '') {
 	try {
-		const board = await boardService.addEmptyGroup(boardId, pushToTop)
+		const board = await boardService.addGroup(boardId, pushToTop)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant save task')

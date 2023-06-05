@@ -16,7 +16,7 @@ export const boardService = {
 	saveTask,
 	addTask,
 	getEmptyTask,
-	addEmptyGroup,
+	addGroup,
 	getEmptyGroup,
 	removeTask,
 	addTaskToFirstGroup,
@@ -140,12 +140,12 @@ function getEmptyTask() {
 	}
 }
 
-function getEmptyGroup() {
+function getEmptyGroup( title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() } , id = '') {
 	return {
-		id: '',
-		title: 'New Group',
-		tasks: [],
-		style: { color: utilService.getRandomColor() },
+		id,
+		title,
+		tasks,
+		style,
 	}
 }
 
@@ -157,8 +157,9 @@ function getEmptyLabel() {
 	}
 }
 
-async function addEmptyGroup(boardId, pushToTop, activity = '') {
-	const newGroup = getEmptyGroup()
+// group ? getEmptyGroup(group.title, group.tasks, group.style) :
+async function addGroup(boardId, pushToTop, activity = '') {
+	const newGroup =  getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	const board = await getById(boardId)
 	pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
