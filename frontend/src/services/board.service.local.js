@@ -258,7 +258,7 @@ async function removeGroup(boardId, groupId, taskId, activity = '') {
 	// 	group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
 	// )
 	// board.groups = board.groups.map(g => (g.id === group.id ? group : g))
-	board.groups = board.groups.filter(g => (g.id !== groupId))
+	board.groups = board.groups.filter(g => g.id !== groupId)
 	// board.board.activities.unshift(activity)
 	await save(board)
 	return board
@@ -521,7 +521,6 @@ function _getDummyBoard(boardNum) {
 			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'statusPicker' },
 			{ id: utilService.makeId(), cmpName: 'priorityPicker' },
-			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'timelinePicker' },
 			{ id: utilService.makeId(), cmpName: 'collaboratorPicker' },
 			{ id: utilService.makeId(), cmpName: 'datePicker' },
@@ -542,6 +541,7 @@ function _getDummyBoard(boardNum) {
 		],
 	}
 }
+
 // Product Research	Not Started	John Smith	2023-05-15	Conduct market research for popular toy categories and trends	High	Research
 // Define Target Audience	Not Started	Mary Johnson	2023-05-17	Identify the target audience for the online toy store	Medium	Strategy
 // Create Product Catalog	In Progress	Sarah Davis	2023-05-20	Compile a comprehensive catalog of toys available for sale	High	Catalog
@@ -550,3 +550,168 @@ function _getDummyBoard(boardNum) {
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
 
 // if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify([_getDummyBoard(1)]))
+
+// const boardsToSave = [_getDummyBoard(1), _getDummyBoard(1), _getDummyBoard(1), _getDummyBoard(1)]
+// console.log("getDummyBoards()", getDummyBoards())
+
+const dummyBoard1 = getEmptyBoard()
+const dummyBoard2 = {
+	_id: 'board1',
+	title: 'Online Restaurant Application',
+	lists: [
+		{
+			_id: 'list1',
+			title: 'To Do',
+			cards: [
+				{
+					_id: 'card1',
+					title: 'Design wireframes',
+					description: 'Create wireframes for the application',
+					assignedTo: 'John Smith',
+					dueDate: '2023-06-01',
+					priority: 'High',
+				},
+				{
+					_id: 'card2',
+					title: 'Gather requirements',
+					description: 'Meet with stakeholders to gather application requirements',
+					assignedTo: 'Emily Johnson',
+					dueDate: '2023-05-20',
+					priority: 'Medium',
+				},
+			],
+		},
+		{
+			_id: 'list2',
+			title: 'In Progress',
+			cards: [
+				{
+					_id: 'card3',
+					title: 'Develop user registration module',
+					description: 'Implement user registration functionality',
+					assignedTo: 'Mike Thompson',
+					dueDate: '2023-06-10',
+					priority: 'High',
+				},
+				{
+					_id: 'card4',
+					title: 'Create database schema',
+					description: 'Design the database schema for the application',
+					assignedTo: 'David Wilson',
+					dueDate: '2023-05-25',
+					priority: 'Medium',
+				},
+			],
+		},
+		{
+			_id: 'list3',
+			title: 'Completed',
+			cards: [
+				{
+					_id: 'card5',
+					title: 'Implement payment gateway',
+					description: 'Integrate payment gateway for online payments',
+					assignedTo: 'Sophia Davis',
+					dueDate: '2023-05-15',
+					priority: 'High',
+				},
+			],
+		},
+	],
+}
+
+const dummyBoard3 = {
+	_id: utilService.makeId(),
+	title: 'Shelter Builders',
+	description: 'Building shelters for the poor at low costs',
+	isStarred: false,
+	archivedAt: null,
+	createdBy: {
+		_id: 'u201',
+		fullname: 'John Doe',
+		imgUrl: DEFAULT_USER,
+	},
+	members: [
+		{ _id: 'u201', fullname: 'John Doe', imgUrl: DEFAULT_USER },
+		{ _id: 'u202', fullname: 'Jane Smith', imgUrl: DEFAULT_USER },
+		{ _id: 'u203', fullname: 'David Johnson', imgUrl: DEFAULT_USER },
+		{ _id: 'u204', fullname: 'Sarah Williams', imgUrl: DEFAULT_USER },
+		{ _id: 'u205', fullname: 'Michael Brown', imgUrl: DEFAULT_USER },
+	],
+	groups: [
+		{
+			id: 'g201',
+			title: 'Marketing',
+			archivedAt: null,
+			tasks: [
+				{
+					id: 'c201',
+					title: 'Create promotional materials',
+					status: 'Working on it',
+					owner: { _id: 'u203', fullname: 'David Johnson', imgUrl: DEFAULT_USER },
+					collaborators: [{ _id: 'u203', fullname: 'David Johnson', imgUrl: DEFAULT_USER }],
+					timeline: { startDate: 1686258000000, endDate: 1686862800000 },
+					dueDate: 1686258000000,
+					comments: [{ id: '', content: '' }],
+					priority: 'Medium',
+				},
+				{
+					id: 'c202',
+					title: 'Digital marketing campaign',
+					status: 'Done',
+					owner: { _id: 'u202', fullname: 'Jane Smith', imgUrl: DEFAULT_USER },
+					collaborators: [],
+					timeline: { startDate: 1688331600000, endDate: 1688850000000 },
+					dueDate: null,
+					comments: [],
+					priority: 'Critical',
+				},
+				{
+					id: 'c203',
+					title: 'Collaboration with social influencers',
+					status: 'Stuck',
+					owner: { _id: 'u201', fullname: 'John Doe', imgUrl: DEFAULT_USER },
+					collaborators: [],
+					timeline: { startDate: 1688936400000, endDate: 1690146000000 },
+					dueDate: null,
+					comments: [],
+					priority: 'High',
+				},
+			],
+			style: { color: '#579BFC' },
+		},
+		{
+			id: 'g202',
+			title: 'Construction',
+			archivedAt: null,
+			tasks: [
+				{
+					id: 'c204',
+					title: 'Site selection and survey',
+					status: 'Stuck',
+					owner: { _id: 'u201', fullname: 'John Doe', imgUrl: DEFAULT_USER },
+					collaborators: [],
+					timeline: { startDate: 1688331600000, endDate: 1688850000000 },
+					dueDate: 1686258000000,
+					comments: [],
+					priority: 'High',
+				},
+				{
+					id: 'c205',
+					title: 'Architectural design',
+					status: 'Working on it',
+					owner: {},
+					collaborators: [],
+					timeline: { startDate: 1688331600000, endDate: 1688850000000 },
+					dueDate: 1686258000000,
+					comments: [],
+					priority: 'High',
+				},
+			],
+		},
+	],
+}
+
+const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
+// storageService.post(STORAGE_KEY, boardsToSave)
+localStorage.setItem(STORAGE_KEY, JSON.stringify(boardsToSave))

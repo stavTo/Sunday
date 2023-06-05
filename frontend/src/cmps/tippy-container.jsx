@@ -6,7 +6,7 @@ export function TippyContainer({ children, txt, placement = 'top', offset = [0, 
 		<Tippy
 			content={txt}
 			placement={placement}
-			delay={[400.0]}
+			delay={[300.0]}
 			duration={[100, 0]}
 			theme={'default'}
 			offset={offset}

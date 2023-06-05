@@ -1,0 +1,42 @@
+.header {
+    height: rem(75px);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+    background-color: $clr0;
+    width: 100%;
+    padding-inline: rem(75px);
+
+    .titles-container {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 12px;
+
+        .welcome-message {
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .header-title {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            letter-spacing: 0;
+            padding: 0;
+            white-space: unset;
+            border: 0;
+        }
+    }
+
+    button[type=submit] {
+        background-color: $bg-clr1;
+        color: $clr0;
+        height: rem(40px);
+        border: none;
+        font-family: Figtree;
+        width: rem(127px);
+
+        &:hover {
+            background-color: $bg-clr1-darker;
+        }
+    }
+}

@@ -1,12 +1,37 @@
+.group-summary {
+	.empty-margin-footer {
+		flex: 2 0 50px;
+		height: 100%;
+	}
 
-.labels-progress-bar {
-    width: 123px;
-    height: 36px;
-    padding: 6px 8px;
+	.empty-owner-container {
+		border-bottom-left-radius: 8px;
+	}
 
-    .list-labels-progress-bar {
-        list-style: none;
-        height: 100%;
+	.group-summary-data {
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		width: 90%;
+		border-inline-start: 1px solid $border-clr;
+		border-block-end: 1px solid $border-clr;
+	}
+	.labels-progress-bar {
+		// flex: 1
+		width: 80%;
+		height: 36px;
+		padding-block: 6px;
 
-    }
+		.list-labels-progress-bar {
+			list-style: none;
+			height: 100%;
+			padding-inline: 0;
+
+			.progress-bar-item {
+				&:hover {
+					transform: scaleY(1.2);
+				}
+			}
+		}
+	}
 }

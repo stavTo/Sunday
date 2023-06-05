@@ -10,7 +10,7 @@
 	flex: 2;
 	user-select: none;
 	height: $task-row-height;
-	border-block-start: 1px solid $border-clr;
+	// border-block-start: 1px solid $border-clr;
 	border-inline-end: 1px solid $border-clr;
 
 	.title-icon-container {
@@ -29,6 +29,10 @@
 		border-inline-start: 1px solid $border-clr;
 		color: $clr9;
 
+		&.comments-available {
+			color: $bg-clr1;
+		}
+
 		&:hover {
 			color: $bg-clr1;
 		}
@@ -38,8 +42,18 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-
 			padding-inline: 16px;
+
+			.updates-count {
+				position: absolute;
+				top: 12px;
+				background-color: $bg-clr1;
+				border-radius: 250px;
+				color: $clr0;
+				font-size: rem(10px);
+				padding: 2px 4px;
+				line-height: 9px;
+			}
 		}
 	}
 
@@ -88,7 +102,7 @@
 		margin: 6px 10px 6px 26px;
 
 		&:focus {
-			background-color: unset;
+			background-color: $clr0;
 			outline: 1px solid $bg-clr1;
 			border-radius: 4px;
 		}

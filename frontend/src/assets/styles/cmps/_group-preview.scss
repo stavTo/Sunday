@@ -2,6 +2,9 @@
 	font-size: em(18px);
 	line-height: 24px;
 	margin-block-end: 55px;
+	border-radius: 4px;
+	// display: flex;
+	// flex-direction: column;
 
 	.group-header {
 		display: flex;
@@ -47,11 +50,6 @@
 			}
 		}
 	}
-
-	border-block-end: 1px solid $border-clr;
-	border-radius: 4px;
-	display: flex;
-	flex-direction: column;
 
 	.task-row {
 		& > *:not(.task-option, .task-title-header, .task-title) {

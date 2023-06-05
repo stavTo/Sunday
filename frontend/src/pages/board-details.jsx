@@ -1,5 +1,5 @@
 import { Outlet, useParams } from 'react-router-dom'
-// import { BoardList } from '../cmps/board-list'
+// import { WorkspaceBoardList } from '../cmps/board-list'
 import { BoardHeader } from '../cmps/board-header'
 import { GroupList } from '../cmps/group-list'
 import { useEffect } from 'react'
@@ -7,7 +7,8 @@ import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { loadBoard } from '../store/selected-board.actions'
 import { SideBar } from '../cmps/side-bar'
-import { BoardLoader } from '../cmps/BoardLoader'
+import { BoardLoader } from '../cmps/board-loader'
+import { UserCardLoader } from '../cmps/user-card-loader'
 
 export function BoardDetails() {
 	const { boardId } = useParams()
@@ -29,12 +30,11 @@ export function BoardDetails() {
 			showErrorMsg(`Board ${boardId} does not exists. `)
 		}
 	}
-
 	if (isLoading) return <BoardLoader />
 	return (
 		<section className="board-details">
 			<SideBar />
-			{/* <BoardList /> */}
+			{/* <WorkspaceBoardList /> */}
 			<section className="board-container">
 				<BoardHeader board={board} />
 				<GroupList groups={board.groups} />
