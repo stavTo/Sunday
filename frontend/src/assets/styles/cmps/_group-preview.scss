@@ -2,6 +2,68 @@
 	font-size: em(18px);
 	line-height: 24px;
 	margin-block-end: 55px;
+	border-radius: 4px;
+	position: relative;
+
+	.options-menu {
+		width: 264px;
+		height: auto;
+		padding: 8px;
+		border-radius: 6px;
+		position: absolute;
+		background-color: $clr0;
+		z-index: 20;
+		top: 40px;
+		left: -10px;
+		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 17px 6px;
+
+
+
+		&>* {
+			padding: 8px 4px;
+			cursor: pointer;
+			font-size: rem(14px);
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: start;
+
+			span.title {
+				color: $clr1;
+				margin-inline-start: 4px;
+				font-weight: 400;
+			}
+
+			.color-icon {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+			}
+		}
+	}
+
+	.color-picker {
+		position: absolute;
+		bottom: em(80px);
+		left: em(0px);
+		width: em(135px);
+		height: em(115px);
+		background-color: $clr0;
+		border: 1px $input-hover-border-clr solid;
+		border-radius: 4px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: start;
+		z-index: 5;
+
+		.color {
+			cursor: pointer;
+			height: em(20px);
+			width: em(20px);
+			border-radius: 50%;
+			margin: 3px;
+		}
+	}
 
 	.group-header {
 		display: flex;
@@ -48,18 +110,11 @@
 		}
 	}
 
-	border-block-end: 1px solid $border-clr;
-	border-radius: 4px;
-	display: flex;
-	flex-direction: column;
-
 	.task-row {
-		& > *:not(.task-option, .task-title-header, .task-title) {
+		&>*:not(.task-option, .task-title-header, .task-title) {
 			flex: 1;
 			user-select: none;
 			height: $task-row-height;
-			border-block-start: 1px solid $border-clr;
-			border-inline-end: 1px solid $border-clr;
 		}
 	}
 }

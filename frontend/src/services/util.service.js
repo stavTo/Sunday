@@ -11,6 +11,7 @@ export const utilService = {
 	timeStampToDate,
 	millisecondsToDays,
 	getBlessingByTime,
+	fractionToPercent,
 }
 
 function makeId(length = 6) {
@@ -146,4 +147,9 @@ export function getBlessingByTime() {
 	} else {
 		return 'Good night';
 	}
+}
+
+function fractionToPercent(fractionString) {
+	const fractionNumbers = fractionString.split('/')
+	return (fractionNumbers[0] / fractionNumbers[1]) * 100
 }

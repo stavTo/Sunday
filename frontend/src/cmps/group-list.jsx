@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { addEmptyGroup, saveBoard } from '../store/selected-board.actions'
+import { addGroup, saveBoard } from '../store/selected-board.actions'
 import { GroupPreview } from './group-preview'
 import { ICON_ADD_GROUP } from '../assets/icons/icons'
 import { boardService } from '../services/board.service.local'
@@ -10,7 +10,7 @@ export function GroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [isDragDisabled, setIsDragDisabled] = useState(false)
 	function onAddGroup() {
-		addEmptyGroup(board._id, true)
+		addGroup(board._id, true)
 	}
 
 	async function handleDrag(result) {

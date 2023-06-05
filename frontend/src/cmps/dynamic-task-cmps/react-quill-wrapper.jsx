@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
 export function ReactQuillWrapper({ setCommentToEdit }) {
 	const [text, setText] = useState('')
 
-	useEffect(() => {
-		setCommentToEdit(prev => ({ ...prev, txt: text }))
-	}, [text])
-
 	function handleChange(value) {
 		setText(value)
+		setCommentToEdit(value)
 	}
 
 	const modules = {

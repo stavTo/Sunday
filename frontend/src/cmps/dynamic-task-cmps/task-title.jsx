@@ -11,6 +11,7 @@ import { TippyContainer } from '../tippy-container'
 
 export function TaskTitle({ task, groupId }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
+	const [isInputFocused, setIsInputFocused] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(task.title)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
@@ -37,6 +38,7 @@ export function TaskTitle({ task, groupId }) {
 	async function setNewTitle(ev) {
 		ev.preventDefault()
 		const newTask = { ...task, title: titleToChange }
+		setIsInputFocused(false)
 		try {
 			await saveTask(board._id, groupId, newTask, 'changed task title')
 		} catch {
@@ -52,6 +54,7 @@ export function TaskTitle({ task, groupId }) {
 					<input
 						autoFocus={true}
 						onBlur={setNewTitle}
+						onFocus={() => setIsInputFocused(true)}
 						onClick={ev => ev.stopPropagation()}
 						className="title-input"
 						id="title"
@@ -60,17 +63,31 @@ export function TaskTitle({ task, groupId }) {
 						onChange={handleChange}
 					></input>
 				)}
-				<Link className="open-task-details" to={`/boards/${board._id}/tasks/${task.id}`}>
-					<div className="icon">
-						<FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} style={{ color: '#5e6b83' }} />
-					</div>
-					<div className="open">Open</div>
-				</Link>
+				{!isInputFocused && (
+					<Link className="open-task-details" to={`/boards/${board._id}/tasks/${task.id}`}>
+						<div className="icon">
+							<FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} style={{ color: '#5e6b83' }} />
+						</div>
+						<div className="open">Open</div>
+					</Link>
+				)}
 			</div>
-			<Link className="conversation-icon-container" to={`/boards/${board._id}/tasks/${task.id}`}>
-				<TippyContainer txt="Start conversation">
-					<div>{ICON_CONVERSATION_EMPTY}</div>
-				</TippyContainer>
+			<Link
+				className={`conversation-icon-container ${task.comments.length ? 'comments-available' : ''}`}
+				to={`/boards/${board._id}/tasks/${task.id}`}
+			>
+				{!task.comments.length && (
+					<TippyContainer txt="Start conversation">
+						<div>{ICON_CONVERSATION_EMPTY}</div>
+					</TippyContainer>
+				)}
+				{!!task.comments.length && (
+					<TippyContainer txt="Add to conversation">
+						<div>
+							{ICON_CONVERSATION} <span className="updates-count">{task.comments.length}</span>
+						</div>
+					</TippyContainer>
+				)}
 			</Link>
 		</li>
 	)

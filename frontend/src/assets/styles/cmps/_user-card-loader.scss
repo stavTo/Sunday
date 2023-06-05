@@ -1,0 +1,67 @@
+.user-card-loader {
+	position: relative;
+	border: 1px solid #efefef;
+	border-radius: 8px;
+	margin-block-end: 15px;
+	width: 521px;
+	height: 184px;
+	background: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+	& *:not(.card-body) {
+		position: relative;
+		vertical-align: top;
+		margin-block-start: 15px;
+		height: 8px;
+
+		border-radius: 10px;
+		background: linear-gradient(135deg, #f1f1f1 0%, #e3e3e3 50%, #f1f1f1 100%);
+
+		&:not(.card-avatar) {
+			animation: 10s shine linear infinite;
+		}
+	}
+
+	.card-avatar {
+		position: absolute;
+		width: 46px;
+		height: 46px;
+		border-radius: 50%;
+		top: 2px;
+		left: 15px;
+	}
+
+	.card-title {
+		width: 25%;
+		margin-block-start: 25px;
+		margin-inline-start: 80px;
+	}
+
+	.card-subtitle {
+		width: 60%;
+		margin-inline-start: 80px;
+		margin-block-end: 45px;
+	}
+
+	.card-text {
+		width: 85%;
+		margin-inline-start: 20px;
+
+		&:first-child {
+			width: 60%;
+		}
+
+		&:last-child {
+			width: 40%;
+		}
+	}
+}
+
+@keyframes shine {
+	0% {
+		background-position-x: 0px;
+	}
+	to {
+		background-position-x: 1000px;
+	}
+}

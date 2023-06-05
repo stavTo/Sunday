@@ -1,0 +1,44 @@
+.board-nav-bar {
+	display: flex;
+	padding-inline-start: 20px;
+	margin-block-end: 5px;
+	border-block-end: 1px solid $border-clr;
+
+	li {
+		position: relative;
+		display: flex;
+		height: 100%;
+		padding-block-end: 3px;
+
+		&.active {
+			border-block-end: 2px solid $bg-clr1;
+		}
+
+		&:hover:after {
+			visibility: hidden;
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			top: 8px;
+			right: -1px;
+			height: 16px;
+			align-self: center;
+			border-inline-end: 1px solid $border-clr;
+		}
+
+		div {
+			padding: 5px 10px;
+			span {
+				svg {
+					margin-inline-end: 5px;
+				}
+				display: flex;
+				align-items: center;
+				line-height: 24px;
+				font-size: rem(14px);
+				font-weight: 500;
+			}
+		}
+	}
+}

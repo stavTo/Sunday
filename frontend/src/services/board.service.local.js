@@ -16,7 +16,7 @@ export const boardService = {
 	saveTask,
 	addTask,
 	getEmptyTask,
-	addEmptyGroup,
+	addGroup,
 	getEmptyGroup,
 	removeTask,
 	addTaskToFirstGroup,
@@ -26,8 +26,6 @@ export const boardService = {
 	getTaskById,
 	getGroupByTask,
 	getGroupById,
-	getEmptyComment,
-	saveComment,
 	updateGroup,
 	removeGroup,
 }
@@ -47,7 +45,7 @@ async function getById(boardId, filter = {}) {
 	try {
 		board = await storageService.get(STORAGE_KEY, boardId)
 	} catch (err) {
-		console.log(err)
+		throw err
 	}
 	//TODO MOVE FILTER TO BACKEND
 	if (filter.txt) {
@@ -142,12 +140,12 @@ function getEmptyTask() {
 	}
 }
 
-function getEmptyGroup() {
+function getEmptyGroup( title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() } , id = '') {
 	return {
-		id: '',
-		title: 'New Group',
-		tasks: [],
-		style: { color: utilService.getRandomColor() },
+		id,
+		title,
+		tasks,
+		style,
 	}
 }
 
@@ -159,8 +157,9 @@ function getEmptyLabel() {
 	}
 }
 
-async function addEmptyGroup(boardId, pushToTop, activity = '') {
-	const newGroup = getEmptyGroup()
+// group ? getEmptyGroup(group.title, group.tasks, group.style) :
+async function addGroup(boardId, pushToTop, activity = '') {
+	const newGroup =  getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	const board = await getById(boardId)
 	pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
@@ -201,6 +200,7 @@ async function saveTask(boardId, groupId, task, activity = '') {
 	)
 	// board.board.activities.unshift(activity)
 	await save(board)
+	console.log(board)
 	return board
 }
 
@@ -247,34 +247,13 @@ async function updateGroup(boardId, group) {
 	return board
 }
 
-async function removeGroup(boardId, groupId, taskId, activity = '') {
+async function removeGroup(boardId, groupId, activity = '') {
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
-	console.log(board)
-	// board.groups = board.groups.map(group =>
-	// 	group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
-	// )
-	// board.groups = board.groups.map(g => (g.id === group.id ? group : g))
-	board.groups = board.groups.filter(g => (g.id !== groupId))
+	board.groups = board.groups.filter(g => g.id !== groupId)
 	// board.board.activities.unshift(activity)
 	await save(board)
 	return board
-}
-
-async function saveComment(board, groupId, taskId, commentToEdit) {
-	const group = board.groups.find(g => g.id === groupId)
-	const task = group.tasks.find(t => t.id === taskId)
-	commentToEdit.id = utilService.makeId()
-	task.comments.unshift(commentToEdit)
-	await save(board)
-	return commentToEdit
-}
-
-function getEmptyComment() {
-	return {
-		txt: '',
-		id: '',
-	}
 }
 
 function getDefaultFilter() {
@@ -328,7 +307,7 @@ function _getDummyBoard(boardNum) {
 						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
 						timeline: { startDate: 1686258000000, endDate: 1686862800000 },
 						dueDate: 1686258000000,
-						comments: [{ id: '', content: '' }],
+						comments: [],
 						priority: 'Medium',
 					},
 					{
@@ -518,7 +497,6 @@ function _getDummyBoard(boardNum) {
 			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'statusPicker' },
 			{ id: utilService.makeId(), cmpName: 'priorityPicker' },
-			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
 			{ id: utilService.makeId(), cmpName: 'timelinePicker' },
 			{ id: utilService.makeId(), cmpName: 'collaboratorPicker' },
 			{ id: utilService.makeId(), cmpName: 'datePicker' },
@@ -546,6 +524,7 @@ function _getDummyBoard(boardNum) {
 // Website Development	Not Started	David Wilson	2023-05-22	Develop an engaging and user-friendly website for the online store	High	Development
 // Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
+
 // if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify([_getDummyBoard(1)]))
 
 // const boardsToSave = [_getDummyBoard(1), _getDummyBoard(1), _getDummyBoard(1), _getDummyBoard(1)]
@@ -649,7 +628,7 @@ const dummyBoard3 = {
 					collaborators: [{ _id: 'u203', fullname: 'David Johnson', imgUrl: DEFAULT_USER }],
 					timeline: { startDate: 1686258000000, endDate: 1686862800000 },
 					dueDate: 1686258000000,
-					comments: [{ id: '', content: '' }],
+					comments: [],
 					priority: 'Medium',
 				},
 				{
@@ -705,11 +684,10 @@ const dummyBoard3 = {
 					priority: 'High',
 				},
 			],
-		}
-	]
+		},
+	],
 }
 
-
-const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
+// const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
 // storageService.post(STORAGE_KEY, boardsToSave)
 // localStorage.setItem(STORAGE_KEY, JSON.stringify(boardsToSave))

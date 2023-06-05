@@ -12,6 +12,7 @@
 @import 'basics/forms';
 @import 'basics/popper-arrow';
 @import 'basics/tippy';
+@import 'basics/board-navbar';
 
 // Views
 @import 'views/board-details';
@@ -23,6 +24,8 @@
 // Components
 @import 'cmps/workspace-board-list';
 @import 'cmps/group-preview';
+@import 'cmps/user-card-loader';
+@import 'cmps/user-msg';
 // Sidebar cmps
 @import 'cmps/side-bar';
 @import 'cmps/expandable-sidebar';
@@ -40,6 +43,7 @@
 @import 'cmps/task-list';
 @import 'cmps/board-toolbar';
 @import 'cmps/group-summary';
+@import 'cmps/checked-tasks-menu';
 
 // Board index cmps
 @import 'cmps/board-index-header';

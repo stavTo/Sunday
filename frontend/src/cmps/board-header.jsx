@@ -1,4 +1,4 @@
-import { addEmptyGroup, addTaskToFirstGroup } from '../store/selected-board.actions'
+import { addGroup, addTaskToFirstGroup } from '../store/selected-board.actions'
 import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_MENU_DOTS } from '../assets/icons/icons'
 import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
@@ -8,11 +8,17 @@ import { TippyContainer } from './tippy-container'
 
 export function BoardHeader({ board }) {
 	function onAddGroup() {
-		addEmptyGroup(board._id, false)
+		addGroup(board._id, false)
 	}
 
 	function onAddTask() {
 		addTaskToFirstGroup(board._id)
+	}
+
+	function onToggleStarState() {
+		const isStarred = board.isStarred
+		const newBoard = { ...board, isStarred: !isStarred }
+		saveBoard(newBoard)
 	}
 
 	return (
@@ -25,9 +31,20 @@ export function BoardHeader({ board }) {
 					<TippyContainer txt="Show board description">
 						<span className="info-icon header-icon btn-primary">{ICON_INFO}</span>
 					</TippyContainer>
-					<TippyContainer txt="Add to favorites">
-						<span className="star-icon header-icon btn-primary">{ICON_STAR}</span>
-					</TippyContainer>
+					{!board.isStarred && (
+						<TippyContainer txt="Add to favorites">
+							<span onClick={onToggleStarState} className="star-icon header-icon btn-primary">
+								{ICON_STAR}
+							</span>
+						</TippyContainer>
+					)}
+					{board.isStarred && (
+						<TippyContainer txt="Add to favorites">
+							<span onClick={onToggleStarState} className="star-icon header-icon btn-primary starred">
+								{ICON_STAR_STARRED}
+							</span>
+						</TippyContainer>
+					)}
 				</div>
 				<div className="board-header-top-right">
 					<div className="activity-container btn-primary">

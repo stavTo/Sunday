@@ -10,21 +10,22 @@ import { BoardIndexAside } from '../cmps/BoardIndexAside'
 import { ICON_EXPAND_ARROW } from '../assets/icons/icons'
 
 export function BoardIndex() {
-    const boards = useSelector(({ boardModule }) => boardModule.boards)
-    document.title = 'My Boards'
+	const boards = useSelector(({ boardModule }) => boardModule.boards)
+	document.title = 'My Boards'
 
     useEffect(() => {
         onLoadBoards()
     }, [])
 
-    async function onLoadBoards() {
-        try {
-            await loadBoards()
-        } catch {
-            showErrorMsg(`Board could not be loaded`)
-        }
-    }
+	async function onLoadBoards() {
+		try {
+			await loadBoards()
+		} catch {
+			showErrorMsg(`Board could not be loaded`)
+		}
+	}
 
+	if (!boards) return <BoardLoader />
 
     if (!boards) return <BoardLoader />
 

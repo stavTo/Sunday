@@ -1,6 +1,7 @@
 .task-preview {
 	display: flex;
 	position: relative;
+	border-block-end: 1px solid $border-clr;
 
 	&:hover {
 		background-color: $task-hover-bgc;
@@ -8,6 +9,10 @@
 		.task-option {
 			opacity: 1;
 		}
+	}
+
+	& > * {
+		border-inline-end: 1px solid $border-clr;
 	}
 
 	.task-option {

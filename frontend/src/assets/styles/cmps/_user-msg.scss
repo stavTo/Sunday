@@ -1,0 +1,44 @@
+.user-msg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	background-color: black;
+	padding: 10px;
+	min-width: 200px;
+	margin-block-start: 25px;
+	max-width: max-content;
+	border-radius: 4px;
+	height: 50px;
+	font-size: rem(14px);
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	margin-inline: auto;
+	display: flex;
+	z-index: 99999;
+	background-color: grey;
+
+	&.success {
+		background-color: rgb(41, 189, 73);
+	}
+	&.error {
+		background-color: #e44258;
+	}
+
+	button {
+		// font-size: rem(16px);
+		color: inherit;
+		background-color: inherit;
+		margin-inline-start: 25px;
+		float: right;
+		border: 0;
+		border-radius: 50%;
+		display: flex;
+		svg {
+			height: 20px;
+			width: 20px;
+		}
+	}
+}
