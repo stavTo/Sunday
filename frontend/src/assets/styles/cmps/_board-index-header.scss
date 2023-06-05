@@ -1,6 +1,6 @@
 .header {
     height: rem(75px);
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+    box-shadow: $index-layout-shadow;
     background-color: $clr0;
     width: 100%;
     padding-inline: rem(75px);
@@ -34,6 +34,7 @@
         border: none;
         font-family: Figtree;
         width: rem(127px);
+        font-size: 16px;
 
         &:hover {
             background-color: $bg-clr1-darker;

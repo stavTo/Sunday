@@ -1,7 +1,42 @@
-.list-wrapper {
+.boards-list {
     background-color: $clr0;
     margin-block-start: 1em;
-    padding: 1em;
-    width: 100%;
+    margin-inline-end: 1em;
     color: $clr1;
+    border-radius: 8px;
+    box-shadow: $index-layout-shadow;
+
+    .expand-arrow-container {
+        transform: rotate(-90deg);
+        width: min-content;
+    }
+}
+
+.list-wrapper {
+    padding: 1em;
+    // background-color: $clr0;
+    // margin-block-start: 1em;
+    // padding: 1em;
+    // width: 100%;
+    // color: $clr1;
+    // border-radius: 8px;
+    // box-shadow: $index-layout-shadow;
+
+    a {
+        color: inherit;
+    }
+}
+
+.inbox {
+    .inbox-indication {
+        background-color: $bg-clr1;
+        color: $clr0;
+        border-radius: 50%;
+        width: rem(24px);
+        height: rem(24px);
+
+        span {
+            font-weight: 400;
+        }
+    }
 }

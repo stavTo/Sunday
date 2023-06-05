@@ -4,8 +4,10 @@ import { loadBoards } from '../store/board.actions'
 import { useSelector } from 'react-redux'
 import { showErrorMsg } from '../services/event-bus.service'
 import { BoardLoader } from '../cmps/BoardLoader'
-import { BoardIndexHeader } from '../cmps/boards-index-header.jsx'
-import { BoardList } from '../cmps/board-list.jsx'
+import { BoardIndexHeader } from '../cmps/boards-index-header'
+import { BoardList } from '../cmps/board-list'
+import { BoardIndexAside } from '../cmps/BoardIndexAside'
+import { ICON_EXPAND_ARROW } from '../assets/icons/icons'
 
 export function BoardIndex() {
     const boards = useSelector(({ boardModule }) => boardModule.boards)
@@ -13,7 +15,6 @@ export function BoardIndex() {
 
     useEffect(() => {
         onLoadBoards()
-        // loadBoards()
     }, [])
 
     async function onLoadBoards() {
@@ -37,7 +38,18 @@ export function BoardIndex() {
                     </div>
                     <section className="boards-list">
                         <BoardList boards={boards} />
+                        <section className="inbox p-1em">
+                            <h1 className="fs18 flex row gap-half">
+                                <div className="expand-arrow-container">
+                                    {ICON_EXPAND_ARROW}
+                                </div>Inbox
+                                <div className="inbox-indication flex align-center justify-center">
+                                    <span>0</span>
+                                </div>
+                            </h1>
+                        </section>
                     </section>
+                    <BoardIndexAside />
                 </section>
             </section>
         </section>
