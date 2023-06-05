@@ -10,21 +10,23 @@ export function ExpandableSidebar() {
 	const debouncedSetIsHovered = utilService.debounce(setIsHovered, 200)
 
 	return (
-		<div
-			className={`${isHovered && !isFixed ? 'workspace-container shadow' : 'workspace-container'}`}
-			onMouseEnter={() => debouncedSetIsHovered(true)}
-			onMouseLeave={() => debouncedSetIsHovered(false)}>
+		<section className='container'>
 			<div
 				className={`expand-btn flex align-center justify-center pointer ${isFixed ? 'rotate-arrow-left' : 'rotate-arrow-right'
 					}`}
-				onClick={() => setIsFixed(!isFixed)}>
+				onClick={() => setIsFixed(prev => !prev)}>
 				{ICON_EXPAND_ARROW}
 			</div>
-			<div className={`expandable-sidebar-container ${isHovered ? 'expanded' : ''}`}>
-				<section className={`${isFixed ? 'open expandable-sidebar' : 'expandable-sidebar'}`}>
-					{(isFixed || isHovered) && <WorkspaceBoardList fixed={isFixed} />}
-				</section>
+			<div
+				className={`${isHovered && !isFixed ? 'workspace-container shadow' : 'workspace-container'}`}
+				onMouseEnter={() => debouncedSetIsHovered(true)}
+				onMouseLeave={() => debouncedSetIsHovered(false)}>
+				<div className={`expandable-sidebar-container ${isHovered ? 'expanded' : ''}`}>
+					<section className={`${isFixed ? 'open expandable-sidebar' : 'expandable-sidebar'}`}>
+						{(isFixed || isHovered) && <WorkspaceBoardList fixed={isFixed} />}
+					</section>
+				</div>
 			</div>
-		</div>
+		</section>
 	)
 }

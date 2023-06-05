@@ -85,7 +85,7 @@
 	&.space-evenly {
 		justify-content: space-evenly;
 	}
-	
+
 	&.space-around {
 		justify-content: space-around;
 	}
@@ -110,10 +110,6 @@
 // Sidebar helpers
 .rotate-arrow-right {
 	transform: rotate(180deg);
-}
-
-.rotate-arrow-left {
-	transform: rotate(0deg);
 }
 
 // Button helpers 
