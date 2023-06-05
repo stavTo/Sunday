@@ -193,13 +193,16 @@ function getGroupById(board, groupId) {
 }
 
 async function saveTask(boardId, groupId, task, activity = '') {
+	console.log(boardId)
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
+	console.log(board)
 
 	board.groups = board.groups.map(group =>
 		group.id !== groupId ? group : { ...group, tasks: group.tasks.map(t => (t.id === task.id ? task : t)) }
 	)
 	// board.board.activities.unshift(activity)
+	console.log(board)
 	await save(board)
 	return board
 }
@@ -328,7 +331,7 @@ function _getDummyBoard(boardNum) {
 						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
 						timeline: { startDate: 1686258000000, endDate: 1686862800000 },
 						dueDate: 1686258000000,
-						comments: [{ id: '', content: '' }],
+						comments: [],
 						priority: 'Medium',
 					},
 					{
@@ -545,4 +548,5 @@ function _getDummyBoard(boardNum) {
 // Website Development	Not Started	David Wilson	2023-05-22	Develop an engaging and user-friendly website for the online store	High	Development
 // Inventory Management System	Not Started	Mark Thompson	2023-05-25	Implement a system to manage toy inventory and stock levels	Medium	Operations
 // Marketing Strategy	Not Started	Emily Brown	2023-05-30	Develop a marketing strategy to promote the online toy store	High	Marketing
+
 // if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify([_getDummyBoard(1)]))
