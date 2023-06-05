@@ -41,24 +41,6 @@
 		}
 	}
 
-	.separator {
-		height: 1.5px;
-		width: 100%;
-		background-color: $border-clr;
-	}
-
-	.nav-bar {
-		margin-block-end: 5px;
-
-		a {
-			text-decoration: none;
-			color: $clr1;
-			margin-inline-start: 1.5em;
-			font-size: rem(14px);
-			padding: 4px;
-		}
-	}
-
 	.close-modal-btn {
 		cursor: pointer;
 		svg {
@@ -157,4 +139,18 @@
 			}
 		}
 	}
+}
+
+.details-back-panel:has(+ .task-details:hover) {
+	visibility: visible;
+}
+.details-back-panel {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: $transparent-overlay-clr;
+	z-index: 5;
+	visibility: hidden;
 }
