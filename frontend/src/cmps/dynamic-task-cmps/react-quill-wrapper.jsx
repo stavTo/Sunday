@@ -7,7 +7,7 @@ export function ReactQuillWrapper({ setCommentToEdit }) {
 
 	function handleChange(value) {
 		setText(value)
-		setCommentToEdit(prev => ({ ...prev, txt: value }))
+		setCommentToEdit(value)
 	}
 
 	const modules = {
