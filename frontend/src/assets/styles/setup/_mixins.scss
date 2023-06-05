@@ -28,6 +28,13 @@
 	}
 }
 
+@mixin for-extra2-wide-layout {
+	@media (min-width: calc($extra2-wide-breakpoint + 40px)) {
+		@content;
+	}
+}
+
+
 @mixin btn-get-started() {
 	display: inline-block;
 	border-radius: em(40px);
@@ -74,6 +81,7 @@
 	cursor: pointer;
 	border: none;
 	padding: $padding;
+
 	&:hover {
 		background-color: $bg-clr1-darker;
 	}

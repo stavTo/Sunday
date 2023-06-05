@@ -533,7 +533,7 @@ function _getDummyBoard(boardNum) {
 const dummyBoard1 = getEmptyBoard()
 const dummyBoard2 = {
 	_id: 'board1',
-	title: 'Online Restaurant Application',
+	title: 'Restaurant Application',
 	lists: [
 		{
 			_id: 'list1',
@@ -689,5 +689,4 @@ const dummyBoard3 = {
 }
 
 // const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
-// storageService.post(STORAGE_KEY, boardsToSave)
 // localStorage.setItem(STORAGE_KEY, JSON.stringify(boardsToSave))

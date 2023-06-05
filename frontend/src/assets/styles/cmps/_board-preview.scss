@@ -1,14 +1,52 @@
 .board-preview {
-    padding: 1em;
     border: 1px solid $border-clr;
+    border-radius: 5px;
+    padding: .5em;
+
     width: fit-content;
-    margin-inline: 1em;
+
+    &:hover {
+        border: 1px solid $clr0;
+        box-shadow: $card-hover-shadow;
+    }
+
     img {
         border-radius: 4px;
     }
 
-    &:hover {
-        border: none;
-        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.28);
+    .preview-header {
+        .btn-primary {
+            padding: .2em;
+        }
+
+        span {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        svg {
+            color: $icon-color;
+        }
+    }
+
+    .title {
+        gap: .3em;
+    }
+
+    .preview-footer {
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        gap: .5em;
+
+        span {
+            color: $icon-color;
+            font-size: 14px;
+        }
+
+        svg {
+            width: 17.5px;
+            height: 17.5px;
+        }
     }
 }

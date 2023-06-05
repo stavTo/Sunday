@@ -10,6 +10,7 @@ export const utilService = {
 	hexToRgba,
 	timeStampToDate,
 	millisecondsToDays,
+	getBlessingByTime,
 	fractionToPercent,
 }
 
@@ -133,6 +134,19 @@ function timeStampToDate(timeStamp) {
 
 function millisecondsToDays(ms) {
 	return Math.floor(ms / 86400000) //num of ms in day
+}
+
+export function getBlessingByTime() {
+	const date = new Date
+	const currentHour = date.getHours();
+
+	if (currentHour >= 5 && currentHour < 12) {
+		return 'Good morning';
+	} else if (currentHour >= 12 && currentHour < 18) {
+		return 'Good afternoon';
+	} else {
+		return 'Good night';
+	}
 }
 
 function fractionToPercent(fractionString) {

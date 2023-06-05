@@ -31,6 +31,14 @@
 	font-family: $title-font;
 }
 
+.wght-700 {
+	font-weight: 400;
+}
+
+.wght-400 {
+	font-weight: 400;
+}
+
 .btn-primary {
 	border-radius: 4px;
 	cursor: pointer;
@@ -77,6 +85,10 @@
 	&.space-evenly {
 		justify-content: space-evenly;
 	}
+	
+	&.space-around {
+		justify-content: space-around;
+	}
 
 	&.align-center {
 		align-items: center;
@@ -84,6 +96,14 @@
 
 	&.stretch {
 		align-items: stretch;
+	}
+
+	&.gap-half {
+		gap: .5em;
+	}
+
+	&.gap-1 {
+		gap: 1em;
 	}
 }
 
@@ -99,4 +119,25 @@
 // Button helpers 
 .pointer {
 	cursor: pointer;
+}
+
+.text-cursor {
+	cursor: text;
+}
+
+// Div helpers
+.w-100 {
+	width: 100%;
+}
+
+.p-half-em {
+	padding: .5em;
+}
+
+.p-1em {
+	padding: 1em;
+}
+
+.p-16 {
+	padding: rem(16px);
 }
