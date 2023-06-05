@@ -31,6 +31,7 @@
 			align-items: center;
 			justify-content: center;
 			flex-wrap: wrap;
+			margin-block-end: 5em;
 
 			li {
 				width: em(150px);
@@ -134,7 +135,7 @@
 		margin-inline: auto;
 		text-align: center;
 		font-family: $title-font;
-		padding-block-start: 4em;
+		padding-block-start: 2em;
 		color: $bg-clr6;
 
 		span.main-title {

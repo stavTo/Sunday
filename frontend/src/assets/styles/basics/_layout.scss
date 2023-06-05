@@ -30,6 +30,16 @@
 		grid-template-columns:
 			minmax(20px, 1fr) minmax(auto, $extra-wide-breakpoint) minmax(20px, 1fr);
 	}
+
+	@include for-extra2-wide-layout {
+		grid-template-columns:
+			minmax(20px, 1fr) minmax(auto, $extra2-wide-breakpoint) minmax(20px, 1fr);
+	}
+
+	@include for-extra3-wide-layout {
+		grid-template-columns:
+			minmax(20px, 1fr) minmax(auto, $extra3-wide-breakpoint) minmax(20px, 1fr);
+	}
 }
 
 .card-grid {

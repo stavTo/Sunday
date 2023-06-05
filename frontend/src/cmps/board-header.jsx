@@ -1,5 +1,5 @@
-import { addGroup, addTaskToFirstGroup } from '../store/selected-board.actions'
-import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_MENU_DOTS } from '../assets/icons/icons'
+import { addGroup, addTaskToFirstGroup, saveBoard } from '../store/selected-board.actions'
+import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_MENU_DOTS, ICON_STAR_STARRED } from '../assets/icons/icons'
 import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
