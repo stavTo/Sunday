@@ -139,13 +139,13 @@ export function TaskDetails() {
 					</ul>
 				</div>
 
-				<section className="editor-container">
+				<section className="editor-container text-cursor">
 					{isEditorOpen ? (
 						<>
 							<div className="new-post editor">
 								<ReactQuillWrapper setCommentToEdit={setCommentToEdit} />
 							</div>
-							<div className="update-btn" onClick={onSaveComment}>
+							<div className="update-btn pointer" onClick={onSaveComment}>
 								Update
 							</div>
 						</>

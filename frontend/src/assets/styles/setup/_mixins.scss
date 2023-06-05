@@ -34,11 +34,6 @@
 	}
 }
 
-@mixin for-extra3-wide-layout {
-	@media (min-width: calc($extra3-wide-breakpoint + 40px)) {
-		@content;
-	}
-}
 
 @mixin btn-get-started() {
 	display: inline-block;

@@ -76,60 +76,62 @@ export function HomePage() {
 					<span className="main-title">A platform built for a new way of working</span>
 					<span className="secondary-title">What would you like to manage with sunday.com Work OS?</span>
 				</div>
-				<section className="card-container">
-					<div className="card">
-						<div className="icon-container">
-							<img src={designIcon} alt="" />
+				<section className="card-container full">
+					<div className="cards-section flex justify-center">
+						<div className="card">
+							<div className="icon-container">
+								<img src={designIcon} alt="" />
+							</div>
+							<span>Creative & design</span>
 						</div>
-						<span>Creative & design</span>
-					</div>
-					<div className="card">
-						<div className="icon-container">
-							<img src={devIcon} alt="" />
+						<div className="card">
+							<div className="icon-container">
+								<img src={devIcon} alt="" />
+							</div>
+							<span>Software development</span>
 						</div>
-						<span>Software development</span>
-					</div>
-					<div className="card">
-						<div className="icon-container">
-							<img src={marketingIcon} alt="" />
+						<div className="card">
+							<div className="icon-container">
+								<img src={marketingIcon} alt="" />
+							</div>
+							<span>Marketing</span>
 						</div>
-						<span>Marketing</span>
-					</div>
-					<div className="card">
-						<div className="icon-container">
-							<img src={pmoIcon} alt="" />
+						<div className="card">
+							<div className="icon-container">
+								<img src={pmoIcon} alt="" />
+							</div>
+							<span>Project management</span>
 						</div>
-						<span>Project management</span>
-					</div>
-					<div className="card">
-						<div className="icon-container">
-							<img src={crmIcon} alt="" />
+						<div className="card">
+							<div className="icon-container">
+								<img src={crmIcon} alt="" />
+							</div>
+							<span>Sales & CRM</span>
 						</div>
-						<span>Sales & CRM</span>
-					</div>
-					<div className="card">
-						<div className="icon-container">
-							<img src={taskIcon} alt="" />
+						<div className="card">
+							<div className="icon-container">
+								<img src={taskIcon} alt="" />
+							</div>
+							<span>Task management</span>
 						</div>
-						<span>Task management</span>
-					</div>
-					<div className="card">
-						<div className="icon-container">
-							<img src={hrIcon} alt="" />
+						<div className="card">
+							<div className="icon-container">
+								<img src={hrIcon} alt="" />
+							</div>
+							<span>HR</span>
 						</div>
-						<span>HR</span>
-					</div>
-					<div className="card">
-						<div className="icon-container">
-							<img src={operationIcon} alt="" />
+						<div className="card">
+							<div className="icon-container">
+								<img src={operationIcon} alt="" />
+							</div>
+							<span>Operations</span>
 						</div>
-						<span>Operations</span>
-					</div>
-					<div className="card">
-						<div className="icon-container">
-							<img src={workflowsIcon} alt="" />
+						<div className="card">
+							<div className="icon-container">
+								<img src={workflowsIcon} alt="" />
+							</div>
+							<span>More workflows</span>
 						</div>
-						<span>More workflows</span>
 					</div>
 				</section>
 				<section className="btn-container">

@@ -125,7 +125,7 @@
 }
 
 .home-main {
-	min-height: calc(100vh - em(72px));
+	// min-height: calc(100vh - em(72px));
 
 	.titles-container {
 		display: flex;
@@ -135,13 +135,13 @@
 		margin-inline: auto;
 		text-align: center;
 		font-family: $title-font;
-		padding-block-start: 2em;
+		padding-block-start: 4em;
 		color: $bg-clr6;
 
 		span.main-title {
 			font-size: 4.4rem;
 			font-weight: 600;
-			padding-block-end: em(12px);
+			padding-block-end: 0.55em;
 		}
 
 		span.secondary-title {
@@ -151,10 +151,8 @@
 	}
 
 	.card-container {
-		margin-block: em(56px) em(48px);
-		display: flex;
-		align-items: center;
-		// flex-wrap: wrap;
+		margin-block: em(56px);
+		width: 100%;
 
 		img {
 			height: em(40px);
@@ -166,9 +164,8 @@
 			flex-direction: column;
 			align-items: center;
 			text-align: center;
-			// justify-content: space-between;
-			min-width: em(120px);
-			min-height: em(120px);
+			width: em(120px);
+			height: em(120px);
 			margin: em(8px);
 			padding: em(8px);
 			padding-block-start: em(7px);
