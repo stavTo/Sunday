@@ -4,7 +4,7 @@
 	grid-template-rows: 40px 60px 40px 1fr;
 	width: em(570px);
 	height: 100vh;
-	overflow-y: scroll;
+	overflow-y: auto;
 	overflow-x: hidden;
 	background-color: $clr0;
 	position: absolute;
@@ -12,6 +12,7 @@
 	top: 0;
 	z-index: 10;
 	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
+	resize: initial;
 
 	& > * {
 		grid-column: 2;
@@ -78,7 +79,7 @@
 		}
 
 		.new-post {
-			width: em(520px);
+			width: 100%;
 			font-size: rem(16px);
 			border: 1px solid $bg-clr1;
 			padding: 10px 8px;
@@ -86,11 +87,15 @@
 
 			&.editor {
 				min-height: em(144px);
+				padding: 0;
 
 				.ql-toolbar.ql-snow {
 					border: none;
+					display: flex;
+					justify-content: center;
+					border-block-end: 1px $border-clr solid;
 				}
-
+				
 				.ql-container.ql-snow {
 					border: none;
 				}

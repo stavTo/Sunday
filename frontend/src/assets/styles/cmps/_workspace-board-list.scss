@@ -1,4 +1,4 @@
-.board-list {
+.workspace-board-list {
 	width: 254px;
 	height: 100%;
 	background-color: $bg-clr3;
@@ -6,8 +6,8 @@
 	.workspace-title {
 		height: 34px;
 		margin-block-end: 10px;
-		gap: 2.8em;
 		color: $clr1;
+		padding-inline-start: 16px;
 	}
 
 	.searchbox-wrapper {
@@ -61,15 +61,24 @@
 		gap: 0.5em;
 		color: $clr1;
 		border-radius: 0.4em;
-		text-overflow: ellipsis;
-		overflow: hidden;
-		white-space: nowrap;
-		position: relative;
+		// position: relative;
 
-		span {
+		a {
 			display: flex;
 			align-items: center;
 			gap: rem(5px);
+			overflow: hidden;
+
+			svg {
+				min-width: 20px;
+				min-height: 20px;
+			}
+
+			span {
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
 		}
 
 		.options {
@@ -80,14 +89,8 @@
 			background-color: $bg-clr5;
 
 			.options {
-				display: block;
-				position: absolute;
+				display: flex;
 				align-self: flex-end;
-				right: 5px;
-
-				svg {
-					display: flex;
-				}
 			}
 		}
 	}
@@ -96,17 +99,12 @@
 		cursor: pointer;
 		color: $clr0;
 		background-color: $bg-clr1;
-		width: rem(32px);
-		border-radius: 0.3em;
-		justify-content: center;
-		align-items: center;
-		padding: 0px;
+		border-radius: 4px;
 		width: 32px;
 		height: 32px;
-
-		svg {
-			position: relative;
-		}
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
 		&:hover {
 			background-color: $bg-clr1-darker;

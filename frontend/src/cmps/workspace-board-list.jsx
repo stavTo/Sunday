@@ -29,9 +29,9 @@ export function WorkspaceBoardList() {
 	}
 
 	return (
-		<section className="board-list">
+		<section className="workspace-board-list">
 			<div className="board-list-header flex column">
-				<div className="workspace-title flex row align-center justify-center">
+				<div className="workspace-title flex align-center">
 					<h4>Main workspace</h4>
 				</div>
 				<div className="searchbox-container flex space-between stretch p-1em">
@@ -49,8 +49,8 @@ export function WorkspaceBoardList() {
 						{/* onMouseEnter={() => setToggleOptions(true)}
 						onMouseLeave={() => setToggleOptions(false)} */}
 						<Link to={`/boards/${board._id}`}>
+							{ICON_BOARD_LIST}
 							<span>
-								{ICON_BOARD_LIST}
 								{board.title}
 							</span>
 						</Link>
