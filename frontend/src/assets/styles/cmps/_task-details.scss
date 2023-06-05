@@ -1,6 +1,11 @@
 .task-details {
+	display: grid;
+	grid-template-columns: 20px 1fr 20px;
+	grid-template-rows: 40px 60px 40px 1fr;
 	width: em(570px);
-	min-height: 100vh;
+	height: 100vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	background-color: $clr0;
 	position: absolute;
 	right: 0;
@@ -8,12 +13,15 @@
 	z-index: 10;
 	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
 
+	& > * {
+		grid-column: 2;
+	}
+
 	.task-details-title {
 		font-family: $title-font;
 		font-weight: 500;
 		font-size: rem(18px);
-		margin-inline-start: 1em;
-		padding: 4px 4px;
+		padding: 7px 7px;
 		width: 80%;
 
 		span {
@@ -41,10 +49,10 @@
 	}
 
 	.close-modal-btn {
+		height: 10px;
 		cursor: pointer;
 		svg {
-			margin-inline-start: 6px;
-			margin-block-start: 6px;
+			margin-block-start: 10px;
 			width: 30px;
 			height: 30px;
 			color: $clr10;
@@ -56,6 +64,7 @@
 		flex-direction: column;
 		align-items: center;
 		margin-block-start: 30px;
+		// max-height: 70vh;
 
 		.update-btn {
 			background-color: $bg-clr1;
@@ -94,7 +103,7 @@
 		margin-block-start: em(70px);
 
 		.no-comments {
-			padding: em(40px);
+			padding-inline: 1em;
 
 			.img-container {
 				display: flex;
