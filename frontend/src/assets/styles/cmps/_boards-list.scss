@@ -10,17 +10,14 @@
         transform: rotate(-90deg);
         width: min-content;
     }
+
+    .close-arrow-container {
+        transform: rotate(180deg);
+    }
 }
 
 .list-wrapper {
     padding: 1em;
-    // background-color: $clr0;
-    // margin-block-start: 1em;
-    // padding: 1em;
-    // width: 100%;
-    // color: $clr1;
-    // border-radius: 8px;
-    // box-shadow: $index-layout-shadow;
 
     a {
         color: inherit;

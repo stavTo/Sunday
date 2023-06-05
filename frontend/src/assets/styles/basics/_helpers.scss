@@ -32,7 +32,11 @@
 }
 
 .wght-700 {
-	font-weight: 700;
+	font-weight: 400;
+}
+
+.wght-400 {
+	font-weight: 400;
 }
 
 .btn-primary {
@@ -115,6 +119,10 @@
 // Button helpers 
 .pointer {
 	cursor: pointer;
+}
+
+.text-cursor {
+	cursor: text;
 }
 
 // Div helpers

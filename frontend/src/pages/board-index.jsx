@@ -1,31 +1,30 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { SideBar } from '../cmps/side-bar'
 import { loadBoards } from '../store/board.actions'
 import { useSelector } from 'react-redux'
 import { showErrorMsg } from '../services/event-bus.service'
-import { BoardLoader } from '../cmps/BoardLoader'
+import { BoardLoader } from '../cmps/board-loader'
 import { BoardIndexHeader } from '../cmps/boards-index-header'
 import { BoardList } from '../cmps/board-list'
 import { BoardIndexAside } from '../cmps/BoardIndexAside'
-import { ICON_EXPAND_ARROW } from '../assets/icons/icons'
+import {IndexInbox} from '../cmps/IndexInbox.jsx'
 
 export function BoardIndex() {
-	const boards = useSelector(({ boardModule }) => boardModule.boards)
-	document.title = 'My Boards'
+    const boards = useSelector(({ boardModule }) => boardModule.boards)
+    document.title = 'My Boards'
 
     useEffect(() => {
         onLoadBoards()
     }, [])
 
-	async function onLoadBoards() {
-		try {
-			await loadBoards()
-		} catch {
-			showErrorMsg(`Board could not be loaded`)
-		}
-	}
+    async function onLoadBoards() {
+        try {
+            await loadBoards()
+        } catch {
+            showErrorMsg(`Board could not be loaded`)
+        }
+    }
 
-	if (!boards) return <BoardLoader />
 
     if (!boards) return <BoardLoader />
 
@@ -39,16 +38,7 @@ export function BoardIndex() {
                     </div>
                     <section className="boards-list">
                         <BoardList boards={boards} />
-                        <section className="inbox p-1em">
-                            <h1 className="fs18 flex row gap-half">
-                                <div className="expand-arrow-container">
-                                    {ICON_EXPAND_ARROW}
-                                </div>Inbox
-                                <div className="inbox-indication flex align-center justify-center">
-                                    <span>0</span>
-                                </div>
-                            </h1>
-                        </section>
+                        <IndexInbox />
                     </section>
                     <BoardIndexAside />
                 </section>
