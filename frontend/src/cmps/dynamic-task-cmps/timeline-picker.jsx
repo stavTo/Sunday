@@ -6,7 +6,6 @@ import { DayPicker } from 'react-day-picker'
 import { addDays, format } from 'date-fns'
 import { ICON_CLOSE } from '../../assets/icons/icons'
 import { utilService } from '../../services/util.service'
-import { boardService } from '../../services/board.service.local'
 import 'react-day-picker/dist/style.css'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 
@@ -72,7 +71,7 @@ export function TimelinePicker({ task, groupId }) {
 		setToggle(prev => !prev)
 	}
 
-	calculateTimelineProgress()
+	// calculateTimelineProgress()
 
 	function calculateTimelineProgress() {
 		// Get the current date
@@ -154,6 +153,20 @@ export function TimelinePicker({ task, groupId }) {
 		}
 	}
 
+	function getTimelineRange() {
+		const startMonth = utilService.timeStampToDate(timeline.startDate).slice(0, 3)
+		const endMonth = utilService.timeStampToDate(timeline.endDate).slice(0, 3)
+
+		const startDay = utilService.timeStampToDate(timeline.startDate).slice(4)
+		const endDay = utilService.timeStampToDate(timeline.endDate).slice(4)
+		
+		if(startMonth === endMonth) {
+			return ` ${startMonth} ${startDay}-${endDay}`
+		} else {
+			return `${startMonth} ${startDay} - ${endDay}  ${endMonth}`
+		}
+	}
+	
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
 		setHasTimeline(false)
@@ -179,8 +192,9 @@ export function TimelinePicker({ task, groupId }) {
 									<span>{getEstTime()}d</span>
 								) : (
 									<span>
-										{utilService.timeStampToDate(timeline.startDate)} -
-										{utilService.timeStampToDate(timeline.endDate)}
+										{getTimelineRange(timeline)}
+										{/* {utilService.timeStampToDate(timeline.startDate)} - */}
+										{/* {utilService.timeStampToDate(timeline.endDate)} */}
 									</span>
 								))}
 							{isHovered && hasTimeline && (

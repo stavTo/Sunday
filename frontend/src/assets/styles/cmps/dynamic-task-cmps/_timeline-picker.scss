@@ -68,3 +68,13 @@
 		position: relative;
 	}
 }
+
+.rdp-day_selected {
+	background-color: #cce5ff;
+	color: $clr1;
+
+	&:hover {
+		background-color: #dcdfec;
+		color: #323338;
+	}
+}
