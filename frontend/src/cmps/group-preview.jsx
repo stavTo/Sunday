@@ -1,15 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ICON_EXPAND_ARROW, ICON_OPTIONS } from '../assets/icons/icons'
 import { TaskList } from './task-list'
 import { updateGroup, removeGroup } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { TippyContainer } from './tippy-container'
+import { OptionsMenu } from './options-menu'
+import { ColorPicker } from './color-picker'
 
 export function GroupPreview({ group }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
+	const [isOptionOpen, setIsOptionOpen] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(group.title)
+	const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
+
+	useEffect(() => {
+		document.addEventListener('click', onSetOptionClose)
+		return () => {
+			document.removeEventListener('click', onSetOptionClose)
+		}
+	}, [])
 
 	function handleTitleClick() {
 		setIsInputVisible(true)
@@ -29,20 +40,48 @@ export function GroupPreview({ group }) {
 		}
 	}
 
+	function setGroupStyle(newStyle) {
+		const newGroup = { ...group, style: newStyle }
+		try {
+			updateGroup(board._id, newGroup)
+		} catch {
+			showErrorMsg('Cant update style')
+		}
+	}
+
+	function onSetOptionClose(ev) {
+		if (ev.target.closest('.group-option , .options-menu')) return
+		setIsOptionOpen(false)
+	}
+
+	function onSetColorPickerClose(ev) {
+		if (ev.target.closest('.color-picker , .options-menu')) return
+		setIsColorPickerOpen(false)
+	}
+
 	async function onRemoveGroup() {
 		await removeGroup(board._id, group.id)
 	}
 
+
+	function openColorPicker() {
+		setIsOptionOpen(false)
+		setIsColorPickerOpen(true)
+	}
+
+	console.log(group)
 	return (
 		<section className="group-preview">
 			<div className="group-header" style={{ color: group.style.color }}>
 				<div
-					onClick={onRemoveGroup}
 					className="group-option-container btn-primary flex align-center">
-					<div className="group-option flex align-center">
+					<div className="group-option flex align-center"
+						onClick={() => setIsOptionOpen(true)}>
 						{ICON_OPTIONS}
 					</div>
 				</div>
+				{isOptionOpen && <OptionsMenu onRemoveGroup={onRemoveGroup} openColorPicker={openColorPicker} group={group} />}
+				{isColorPickerOpen && <ColorPicker onSetColorPickerClose={onSetColorPickerClose} setGroupStyle={setGroupStyle} />}
 				<div className="expand-arrow-container">{ICON_EXPAND_ARROW}</div>
 				<div className="group-title-container" onClick={handleTitleClick}>
 					{!isInputVisible && (

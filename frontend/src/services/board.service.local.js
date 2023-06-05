@@ -16,7 +16,7 @@ export const boardService = {
 	saveTask,
 	addTask,
 	getEmptyTask,
-	addEmptyGroup,
+	addGroup,
 	getEmptyGroup,
 	removeTask,
 	addTaskToFirstGroup,
@@ -142,12 +142,12 @@ function getEmptyTask() {
 	}
 }
 
-function getEmptyGroup() {
+function getEmptyGroup( title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() } , id = '') {
 	return {
-		id: '',
-		title: 'New Group',
-		tasks: [],
-		style: { color: utilService.getRandomColor() },
+		id,
+		title,
+		tasks,
+		style,
 	}
 }
 
@@ -159,8 +159,9 @@ function getEmptyLabel() {
 	}
 }
 
-async function addEmptyGroup(boardId, pushToTop, activity = '') {
-	const newGroup = getEmptyGroup()
+// group ? getEmptyGroup(group.title, group.tasks, group.style) :
+async function addGroup(boardId, pushToTop, activity = '') {
+	const newGroup =  getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	const board = await getById(boardId)
 	pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
@@ -714,4 +715,4 @@ const dummyBoard3 = {
 
 const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
 // storageService.post(STORAGE_KEY, boardsToSave)
-localStorage.setItem(STORAGE_KEY, JSON.stringify(boardsToSave))
+// localStorage.setItem(STORAGE_KEY, JSON.stringify(boardsToSave))

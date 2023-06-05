@@ -1,4 +1,4 @@
-import { addEmptyGroup, addTaskToFirstGroup } from '../store/selected-board.actions'
+import { addGroup, addTaskToFirstGroup } from '../store/selected-board.actions'
 import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_MENU_DOTS } from '../assets/icons/icons'
 import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
@@ -8,7 +8,7 @@ import { TippyContainer } from './tippy-container'
 
 export function BoardHeader({ board }) {
 	function onAddGroup() {
-		addEmptyGroup(board._id, false)
+		addGroup(board._id, false)
 	}
 
 	function onAddTask() {
