@@ -28,6 +28,7 @@ export const boardService = {
 	getGroupById,
 	updateGroup,
 	removeGroup,
+	duplicateGroup
 }
 
 async function query(filter = {}) {
@@ -140,7 +141,7 @@ function getEmptyTask() {
 	}
 }
 
-function getEmptyGroup( title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() } , id = '') {
+function getEmptyGroup(title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() }, id = '') {
 	return {
 		id,
 		title,
@@ -158,11 +159,20 @@ function getEmptyLabel() {
 }
 
 // group ? getEmptyGroup(group.title, group.tasks, group.style) :
-async function addGroup(boardId, pushToTop, activity = '') {
-	const newGroup =  getEmptyGroup()
+async function addGroup(boardId, pushToTop, group = '', activity = '') {
+	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	const board = await getById(boardId)
 	pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
+	await save(board)
+	return board
+}
+
+async function duplicateGroup(boardId, group, activity = '') {
+	const newGroup = { ...group, id: utilService.makeId() }
+	const board = await getById(boardId)
+	const idx = board.groups.findIndex(g => g.id === group.id)
+	board.groups.splice(idx, 0, newGroup)
 	await save(board)
 	return board
 }

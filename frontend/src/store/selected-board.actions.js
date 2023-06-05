@@ -36,6 +36,16 @@ export async function addGroup(boardId, pushToTop = false, activity = '') {
 	}
 }
 
+export async function duplicateGroup(boardId, group, activity = '') {
+	try {
+		const board = await boardService.duplicateGroup(boardId , group)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant save task')
+		throw err
+	}
+}
+
 export async function updateLabels(board, labelsName, labels) {
 	try {
 		const currBoard = await boardService.updateLabels(board, labelsName, labels)
