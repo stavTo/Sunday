@@ -22,7 +22,7 @@ export function AddTask({ group }) {
 		elInput.current.blur()
 		try {
 			await addTask(board._id, group.id, taskToAdd, 'Added Task')
-			setTaskToAdd(prevTask => ({...prevTask , title : ''}))
+			setTaskToAdd(prevTask => ({ ...prevTask, title: '' }))
 		} catch (err) {
 			console.log(err)
 			showErrorMsg("Can't add task")
@@ -46,8 +46,9 @@ export function AddTask({ group }) {
 			className="add-task clean-list  task-row"
 			onClick={() => {
 				elInput.current.focus()
-			}}>
-			<li className="task-selection">{ICON_CHECKBOX}</li>
+			}}
+		>
+			<TaskSelection isDisabled={true} />
 			<li>
 				<input
 					className="add-task-input"
@@ -56,7 +57,8 @@ export function AddTask({ group }) {
 					placeholder="+ Add item"
 					value={taskToAdd.title}
 					onBlur={onAddTask}
-					onChange={handleChange}></input>
+					onChange={handleChange}
+				></input>
 			</li>
 		</ul>
 	)

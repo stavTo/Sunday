@@ -2,7 +2,6 @@
 	width: 100%;
 	font-size: rem(14px);
 	display: flex;
-	color: $clr1;
 	border-top-left-radius: 4px;
 
 	& > * {
@@ -18,8 +17,6 @@
 		user-select: none;
 		height: $task-row-height;
 
-		// border-block-start: 1px solid $border-clr;
-		// border-inline-end: 1px solid $border-clr;
 		flex: 2;
 	}
 }

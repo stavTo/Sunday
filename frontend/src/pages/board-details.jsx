@@ -9,11 +9,13 @@ import { loadBoard } from '../store/selected-board.actions'
 import { SideBar } from '../cmps/side-bar'
 import { BoardLoader } from '../cmps/board-loader'
 import { UserCardLoader } from '../cmps/user-card-loader'
+import { CheckedTasksMenu } from '../cmps/checked-tasks-menu'
 
 export function BoardDetails() {
 	const { boardId } = useParams()
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoading)
+	const checkedTaskIds = useSelector(({ selectedTaskModule }) => selectedTaskModule.checkedTaskIds)
 	const navigate = useNavigate()
 	useEffect(() => {
 		if (boardId) onLoadBoard(boardId)
@@ -40,6 +42,7 @@ export function BoardDetails() {
 				<BoardHeader board={board} />
 				<GroupList groups={board.groups} />
 			</section>
+			{!!checkedTaskIds.length && <CheckedTasksMenu checkedTaskIds={checkedTaskIds} />}
 			<Outlet />
 		</section>
 	)

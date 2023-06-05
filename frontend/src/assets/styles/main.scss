@@ -12,7 +12,7 @@
 @import 'basics/forms';
 @import 'basics/popper-arrow';
 @import 'basics/tippy';
-@import 'basics/board-sidebar';
+@import 'basics/board-navbar';
 
 // Views
 @import 'views/board-details';
@@ -43,6 +43,7 @@
 @import 'cmps/task-list';
 @import 'cmps/board-toolbar';
 @import 'cmps/group-summary';
+@import 'cmps/checked-tasks-menu';
 
 // Board index cmps
 @import 'cmps/board-index-header';
