@@ -5,11 +5,13 @@ import { TaskPreview } from './task-preview.jsx'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { GroupSummary } from './group-summary.jsx'
 import { useSelector } from 'react-redux'
+import { useEffectUpdate } from '../customHooks/useEffectUpdate.js'
 
 export function TaskList({ tasks, group }) {
 	const [activeTask, setActiveTask] = useState('')
 	const checkedTaskIds = useSelector(({ selectedTaskModule }) => selectedTaskModule.checkedTaskIds)
 	const [isGroupSelected, setIsGroupSelected] = useState(false)
+
 	useEffect(() => {
 		document.addEventListener('mousedown', unsetActiveTask)
 
@@ -18,13 +20,18 @@ export function TaskList({ tasks, group }) {
 		}
 	}, [])
 
+	//TODO make this code better
+	useEffectUpdate(() => {
+		if (!checkedTaskIds.length) setIsGroupSelected(false)
+	}, [checkedTaskIds])
+
 	function unsetActiveTask() {
 		setActiveTask('')
 	}
 
 	return (
 		<Droppable droppableId={group.id}>
-			{provided => (
+			{(provided, snapshot) => (
 				<ul className="task-list clean-list task-row" {...provided.droppableProps} ref={provided.innerRef}>
 					<TaskListHeader
 						group={group}
@@ -34,7 +41,7 @@ export function TaskList({ tasks, group }) {
 					/>
 					{tasks.map((task, idx) => (
 						<Draggable key={task.id} draggableId={task.id} index={idx}>
-							{provided => (
+							{(provided, snapshot) => (
 								<li
 									className={`${activeTask === task.id && 'active'}`}
 									onClick={() => setActiveTask(task.id)}
@@ -53,6 +60,8 @@ export function TaskList({ tasks, group }) {
 						</Draggable>
 					))}
 					{provided.placeholder}
+					{console.log(provided.placeholder)}
+
 					<li>
 						<AddTask group={group} />
 					</li>

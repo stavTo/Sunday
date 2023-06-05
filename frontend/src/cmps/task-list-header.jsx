@@ -5,7 +5,6 @@ import { REMOVE_CHECKED_TASKS, ADD_CHECKED_TASKS } from '../store/selected-task.
 
 export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelected }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
-
 	const dispatch = useDispatch()
 
 	function toggleGroupChecked() {
@@ -18,7 +17,6 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 			dispatch({ type: ADD_CHECKED_TASKS, taskIds })
 		}
 	}
-
 	return (
 		<ul
 			className="task-list-header task-row clean-list"

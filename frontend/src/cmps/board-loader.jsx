@@ -4,7 +4,12 @@ export function BoardLoader() {
 	return (
 		//TODO ADD LOADING SIDEBAR
 		<section className="board-loader">
-			<img src={loader} alt="loading animation" />
+			<div className="sidebar-loader"></div>
+			<div className="main-loader-container">
+				<div className="img-container">
+					<img src={loader} alt="loading animation" />
+				</div>
+			</div>
 		</section>
 	)
 }

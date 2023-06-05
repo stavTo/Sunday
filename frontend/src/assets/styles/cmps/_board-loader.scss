@@ -1,9 +1,23 @@
 .board-loader {
 	width: 100%;
 	height: 100%;
-	margin: auto;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: relative;
+
+	.sidebar-loader {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		height: 100vh;
+		color: #ffffff;
+		background-color: $bg-clr2;
+		width: 66px;
+		min-width: 66px;
+	}
+
+	.main-loader-container {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 }

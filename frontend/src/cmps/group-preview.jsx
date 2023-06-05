@@ -63,25 +63,24 @@ export function GroupPreview({ group }) {
 		await removeGroup(board._id, group.id)
 	}
 
-
 	function openColorPicker() {
 		setIsOptionOpen(false)
 		setIsColorPickerOpen(true)
 	}
-
-	console.log(group)
 	return (
 		<section className="group-preview">
 			<div className="group-header" style={{ color: group.style.color }}>
-				<div
-					className="group-option-container btn-primary flex align-center">
-					<div className="group-option flex align-center"
-						onClick={() => setIsOptionOpen(true)}>
+				<div className="group-option-container btn-primary flex align-center">
+					<div className="group-option flex align-center" onClick={() => setIsOptionOpen(true)}>
 						{ICON_OPTIONS}
 					</div>
 				</div>
-				{isOptionOpen && <OptionsMenu onRemoveGroup={onRemoveGroup} openColorPicker={openColorPicker} group={group} />}
-				{isColorPickerOpen && <ColorPicker onSetColorPickerClose={onSetColorPickerClose} setGroupStyle={setGroupStyle} />}
+				{isOptionOpen && (
+					<OptionsMenu onRemoveGroup={onRemoveGroup} openColorPicker={openColorPicker} group={group} />
+				)}
+				{isColorPickerOpen && (
+					<ColorPicker onSetColorPickerClose={onSetColorPickerClose} setGroupStyle={setGroupStyle} />
+				)}
 				<div className="expand-arrow-container">{ICON_EXPAND_ARROW}</div>
 				<div className="group-title-container" onClick={handleTitleClick}>
 					{!isInputVisible && (

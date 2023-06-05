@@ -1,5 +1,5 @@
 import { addGroup, addTaskToFirstGroup, saveBoard } from '../store/selected-board.actions'
-import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_MENU_DOTS, ICON_STAR_STARRED } from '../assets/icons/icons'
+import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_STAR_STARRED } from '../assets/icons/icons'
 import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -55,7 +55,6 @@ export function BoardHeader({ board }) {
 						{ICON_INVITE_MEMBERS}
 						Invite / 3
 					</div>
-					<div className="menu-container btn-primary">{ICON_MENU_DOTS}</div>
 				</div>
 			</div>
 			<BoardToolbar />
