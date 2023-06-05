@@ -15,33 +15,32 @@ export function GroupSummary({ group }) {
 	return (
 		<div className="group-summary flex">
 			<div className="empty-margin-footer"></div>
-			{/* <div style={{ width: 400 + 'px' }}></div> */}
 			<div className="empty-owner-container group-summary-data"></div>
 			{board.cmpsOrder.map(cmp => {
 				switch (cmp.cmpName) {
 					case STATUS_PICKER:
 					case PRIORITY_PICKER:
 						return (
-							<div className="group-summary-data">
-								<LabelsProgressBar key={cmp.id} group={group} type={cmp.cmpName} board={board} />
+							<div key={cmp.id} className="group-summary-data">
+								<LabelsProgressBar group={group} type={cmp.cmpName} board={board} />
 							</div>
 						)
 					case DATE_PICKER:
 						return (
-							<div className="group-summary-data">
-								<div key={cmp.id}>{cmp.cmpName}</div>
+							<div key={cmp.id} className="group-summary-data">
+								<div>{cmp.cmpName}</div>
 							</div>
 						)
 					case COLLABORATOR_PICKER:
 						return (
-							<div className="group-summary-data">
-								<div key={cmp.id}>{cmp.cmpName}</div>
+							<div key={cmp.id} className="group-summary-data">
+								<div>{cmp.cmpName}</div>
 							</div>
 						)
 					case TIMELINE_PICKER:
 						return (
-							<div className="group-summary-data">
-								<div key={cmp.id}>{cmp.cmpName}</div>
+							<div key={cmp.id} className="group-summary-data">
+								<div>{cmp.cmpName}</div>
 							</div>
 						)
 					default:
