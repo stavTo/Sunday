@@ -47,7 +47,7 @@ async function getById(boardId, filter = {}) {
 	try {
 		board = await storageService.get(STORAGE_KEY, boardId)
 	} catch (err) {
-		console.log(err)
+		throw err
 	}
 	//TODO MOVE FILTER TO BACKEND
 	if (filter.txt) {
@@ -708,6 +708,6 @@ const dummyBoard3 = {
 	],
 }
 
-const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
+// const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
 // storageService.post(STORAGE_KEY, boardsToSave)
-localStorage.setItem(STORAGE_KEY, JSON.stringify(boardsToSave))
+// localStorage.setItem(STORAGE_KEY, JSON.stringify(boardsToSave))

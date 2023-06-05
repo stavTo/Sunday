@@ -4,7 +4,7 @@ import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.redu
 import { store } from './store'
 
 export async function loadBoard(boardId, filter = {}) {
-	!filter && store.dispatch({ type: SET_IS_LOADING, isLoading: true })
+	!Object.keys(filter).length && store.dispatch({ type: SET_IS_LOADING, isLoading: true })
 	try {
 		const board = await boardService.getById(boardId, filter)
 		store.dispatch({ type: SET_BOARD, board })
