@@ -1,12 +1,21 @@
 .task-selection {
-	max-width: 44px;
+	max-width: 36px;
 	display: flex;
 	flex: 1;
 	justify-content: center;
 	align-items: center;
-	input {
+
+	.checkbox {
 		width: 16px;
 		height: 16px;
-		cursor: pointer;
+		border: 1px solid $input-hover-border-clr;
+		border-radius: 2px;
+	}
+
+	input {
+		display: none;
+		// width: 16px;
+		// height: 16px;
+		// cursor: pointer;
 	}
 }

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router'
 import { boardService } from '../services/board.service.local'
 import { ReactQuillWrapper } from './dynamic-task-cmps/react-quill-wrapper'
 import { ICON_CLOSE, ICON_HOUSE } from '../assets/icons/icons'
-import { saveTask } from '../store/selected-board.actions'
+import { loadBoard, saveTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { UserCardLoader } from './user-card-loader'
 import { useSelector } from 'react-redux'
@@ -86,7 +86,8 @@ export function TaskDetails() {
 	async function setNewTitle(ev) {
 		ev.preventDefault()
 		try {
-			const newGroup = boardService.getGroupByTask(board, taskId)
+			const boardee = await boardService.getById(boardId)
+			const newGroup = boardService.getGroupByTask(boardee, taskId)
 			const newTask = { ...task, title: titleToChange }
 			setTask(prev => ({ ...prev, title: newTask.title }))
 			await saveTask(boardId, newGroup.id, newTask, 'changed task title')
@@ -155,33 +156,30 @@ export function TaskDetails() {
 						</div>
 					)}
 
-					{isLoading && <UserCardLoader />}
-					{!isLoading && (
-						<section className="comments-container">
-							<ul className="clean-list">
-								{!!comments.length ? (
-									comments.map(comment => (
-										<li className="comment" key={comment.id}>
-											<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>
-										</li>
-									))
-								) : (
-									<div className="no-comments">
-										<div className="img-container">
-											<img src={imgEmptyPage} alt="" />
-										</div>
-										<div className="titles-container">
-											<h2>No updates yet for this item</h2>
-											<p>
-												Be the first one to update about progress, mention someone or upload
-												files to share with your team members
-											</p>
-										</div>
+					<section className="comments-container">
+						<ul className="clean-list">
+							{!!comments.length ? (
+								comments.map(comment => (
+									<li className="comment" key={comment.id}>
+										<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>
+									</li>
+								))
+							) : (
+								<div className="no-comments">
+									<div className="img-container">
+										<img src={imgEmptyPage} alt="" />
 									</div>
-								)}
-							</ul>
-						</section>
-					)}
+									<div className="titles-container">
+										<h2>No updates yet for this item</h2>
+										<p>
+											Be the first one to update about progress, mention someone or upload files
+											to share with your team members
+										</p>
+									</div>
+								</div>
+							)}
+						</ul>
+					</section>
 				</section>
 			</section>
 		</>

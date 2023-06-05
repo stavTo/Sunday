@@ -29,10 +29,13 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 	async function onRemoveTask() {
 		await removeTask(board._id, group.id, task.id)
 	}
+
 	return (
 		<ul
 			className="task-preview task-row clean-list"
-			style={{ borderInlineStart: `6px solid ${group.style.color}` }}
+			style={{
+				borderInlineStart: `6px solid ${group.style.color}`,
+			}}
 		>
 			<li onClick={onRemoveTask} className="task-option btn-primary">
 				{ICON_OPTIONS}

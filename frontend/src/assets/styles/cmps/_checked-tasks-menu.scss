@@ -4,7 +4,7 @@
 	bottom: 25px;
 	left: 50%;
 	transform: translateX(-50%);
-	z-index: 9999999;
+	z-index: 99999;
 	background-color: $clr0;
 	height: 63px;
 	box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
@@ -46,6 +46,7 @@
 			justify-content: center;
 
 			.title {
+				min-width: max-content;
 				font-size: 24px;
 				font-weight: 100;
 				line-height: 1.5;
@@ -59,6 +60,7 @@
 			margin-inline: 80px 20px;
 
 			.action-item {
+				min-width: max-content;
 				height: 100%;
 				display: flex;
 				justify-content: center;
