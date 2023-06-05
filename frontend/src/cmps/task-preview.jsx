@@ -26,7 +26,8 @@ export function TaskPreview({ task, group }) {
 	return (
 		<ul
 			className="task-preview task-row clean-list"
-			style={{ borderInlineStart: `6px solid ${group.style.color}` }}>
+			style={{ borderInlineStart: `6px solid ${group.style.color}` }}
+		>
 			<li onClick={onRemoveTask} className="task-option btn-primary">
 				{ICON_OPTIONS}
 			</li>

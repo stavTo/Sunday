@@ -6,6 +6,7 @@ import { boardService } from '../services/board.service.local'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 import { loadBoard } from '../store/selected-board.actions'
 import { TippyContainer } from './tippy-container'
+import { showErrorMsg } from '../services/event-bus.service'
 
 export function BoardFilter({ board }) {
 	const [filter, setFilter] = useState(boardService.getDefaultFilter())
@@ -21,7 +22,7 @@ export function BoardFilter({ board }) {
 	}, [])
 
 	useEffectUpdate(() => {
-		loadBoard(board._id, filter)
+		onLoadBoard()
 	}, [filter])
 
 	function handleSearch({ target }) {
@@ -31,6 +32,14 @@ export function BoardFilter({ board }) {
 	function onSetInputFocus(isFocus) {
 		setInputFocused(isFocus)
 		isFocus ? elSearchInput.current.focus() : elSearchInput.current.blur()
+	}
+
+	async function onLoadBoard() {
+		try {
+			loadBoard(board._id, filter)
+		} catch {
+			console.log('cant load board')
+		}
 	}
 
 	function unsetActive() {

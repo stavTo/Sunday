@@ -12,6 +12,7 @@
 @import 'basics/forms';
 @import 'basics/popper-arrow';
 @import 'basics/tippy';
+@import 'basics/board-sidebar';
 
 // Views
 @import 'views/board-details';
@@ -24,6 +25,7 @@
 @import 'cmps/workspace-board-list';
 @import 'cmps/group-preview';
 @import 'cmps/user-card-loader';
+@import 'cmps/user-msg';
 // Sidebar cmps
 @import 'cmps/side-bar';
 @import 'cmps/expandable-sidebar';

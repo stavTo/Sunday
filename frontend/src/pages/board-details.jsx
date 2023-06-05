@@ -1,4 +1,4 @@
-import { Outlet, useParams } from 'react-router-dom'
+import { Outlet, useNavigate, useParams } from 'react-router-dom'
 // import { WorkspaceBoardList } from '../cmps/board-list'
 import { BoardHeader } from '../cmps/board-header'
 import { GroupList } from '../cmps/group-list'
@@ -13,8 +13,8 @@ import { UserCardLoader } from '../cmps/user-card-loader'
 export function BoardDetails() {
 	const { boardId } = useParams()
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
-	const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoadingBoard)
-
+	const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoading)
+	const navigate = useNavigate()
 	useEffect(() => {
 		if (boardId) onLoadBoard(boardId)
 	}, [boardId])
@@ -27,7 +27,8 @@ export function BoardDetails() {
 		try {
 			await loadBoard(boardId)
 		} catch {
-			showErrorMsg(`Board ${boardId} does not exists. `)
+			showErrorMsg(`Board ${boardId} does not exist. `)
+			navigate('/')
 		}
 	}
 	if (isLoading) return <BoardLoader />

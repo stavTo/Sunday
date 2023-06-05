@@ -15,6 +15,12 @@ export function BoardHeader({ board }) {
 		addTaskToFirstGroup(board._id)
 	}
 
+	function onToggleStarState() {
+		const isStarred = board.isStarred
+		const newBoard = { ...board, isStarred: !isStarred }
+		saveBoard(newBoard)
+	}
+
 	return (
 		<section className="board-header">
 			<div className="board-header-top">
@@ -25,9 +31,20 @@ export function BoardHeader({ board }) {
 					<TippyContainer txt="Show board description">
 						<span className="info-icon header-icon btn-primary">{ICON_INFO}</span>
 					</TippyContainer>
-					<TippyContainer txt="Add to favorites">
-						<span className="star-icon header-icon btn-primary">{ICON_STAR}</span>
-					</TippyContainer>
+					{!board.isStarred && (
+						<TippyContainer txt="Add to favorites">
+							<span onClick={onToggleStarState} className="star-icon header-icon btn-primary">
+								{ICON_STAR}
+							</span>
+						</TippyContainer>
+					)}
+					{board.isStarred && (
+						<TippyContainer txt="Add to favorites">
+							<span onClick={onToggleStarState} className="star-icon header-icon btn-primary starred">
+								{ICON_STAR_STARRED}
+							</span>
+						</TippyContainer>
+					)}
 				</div>
 				<div className="board-header-top-right">
 					<div className="activity-container btn-primary">

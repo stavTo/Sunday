@@ -26,8 +26,6 @@ export const boardService = {
 	getTaskById,
 	getGroupByTask,
 	getGroupById,
-	getEmptyComment,
-	saveComment,
 	updateGroup,
 	removeGroup,
 }
@@ -47,7 +45,7 @@ async function getById(boardId, filter = {}) {
 	try {
 		board = await storageService.get(STORAGE_KEY, boardId)
 	} catch (err) {
-		console.log(err)
+		throw err
 	}
 	//TODO MOVE FILTER TO BACKEND
 	if (filter.txt) {
@@ -194,17 +192,15 @@ function getGroupById(board, groupId) {
 }
 
 async function saveTask(boardId, groupId, task, activity = '') {
-	console.log(boardId)
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
-	console.log(board)
 
 	board.groups = board.groups.map(group =>
 		group.id !== groupId ? group : { ...group, tasks: group.tasks.map(t => (t.id === task.id ? task : t)) }
 	)
 	// board.board.activities.unshift(activity)
-	console.log(board)
 	await save(board)
+	console.log(board)
 	return board
 }
 
@@ -251,34 +247,13 @@ async function updateGroup(boardId, group) {
 	return board
 }
 
-async function removeGroup(boardId, groupId, taskId, activity = '') {
+async function removeGroup(boardId, groupId, activity = '') {
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
-	console.log(board)
-	// board.groups = board.groups.map(group =>
-	// 	group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
-	// )
-	// board.groups = board.groups.map(g => (g.id === group.id ? group : g))
 	board.groups = board.groups.filter(g => g.id !== groupId)
 	// board.board.activities.unshift(activity)
 	await save(board)
 	return board
-}
-
-async function saveComment(board, groupId, taskId, commentToEdit) {
-	const group = board.groups.find(g => g.id === groupId)
-	const task = group.tasks.find(t => t.id === taskId)
-	commentToEdit.id = utilService.makeId()
-	task.comments.unshift(commentToEdit)
-	await save(board)
-	return commentToEdit
-}
-
-function getEmptyComment() {
-	return {
-		txt: '',
-		id: '',
-	}
 }
 
 function getDefaultFilter() {
@@ -653,7 +628,7 @@ const dummyBoard3 = {
 					collaborators: [{ _id: 'u203', fullname: 'David Johnson', imgUrl: DEFAULT_USER }],
 					timeline: { startDate: 1686258000000, endDate: 1686862800000 },
 					dueDate: 1686258000000,
-					comments: [{ id: '', content: '' }],
+					comments: [],
 					priority: 'Medium',
 				},
 				{
@@ -713,6 +688,6 @@ const dummyBoard3 = {
 	],
 }
 
-const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
+// const boardsToSave = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
 // storageService.post(STORAGE_KEY, boardsToSave)
 // localStorage.setItem(STORAGE_KEY, JSON.stringify(boardsToSave))

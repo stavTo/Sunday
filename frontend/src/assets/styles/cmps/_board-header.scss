@@ -21,6 +21,12 @@
 			.header-icon {
 				display: flex;
 				cursor: pointer;
+
+				&.starred {
+					svg {
+						fill: gold;
+					}
+				}
 			}
 		}
 
