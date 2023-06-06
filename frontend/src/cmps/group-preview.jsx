@@ -8,7 +8,7 @@ import { TippyContainer } from './tippy-container'
 import { GroupOptionsMenu } from './group-options-menu'
 import { ColorPicker } from './color-picker'
 
-export function GroupPreview({ group }) {
+export function GroupPreview({ group, provided }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [isOptionOpen, setIsOptionOpen] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(group.title)
@@ -113,6 +113,7 @@ export function GroupPreview({ group }) {
 					)}
 				</div>
 				<div className="task-count">{group.tasks?.length} Tasks</div>
+				<div className="drag-handle" {...provided.dragHandleProps}></div>
 			</div>
 			<TaskList group={group} tasks={group.tasks} />
 		</section>

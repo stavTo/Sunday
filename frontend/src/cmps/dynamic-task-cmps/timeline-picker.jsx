@@ -186,61 +186,59 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 			onMouseLeave={() => setIsHovered(false)}
 			style={{ width: defaultWidth }}
 		>
-			<div className="timeline-container">
-				{task.timeline && (
-					<div className="span-container flex align-center justify-center">
-						<div
-							className="progress"
-							style={{
-								background: `linear-gradient(to right, ${
-									isHovered ? darkenHexColor(groupColor) : groupColor
-								} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
-							}}
-						>
-							<span style={{ width: '50%' }}></span>
-						</div>
-						<span className="range-preview flex row justify-center">
-							{hasTimeline &&
-								(isHovered ? (
-									<span>{getTimestampInDays()}d</span>
-								) : (
-									<span>{getTimelineRange(timeline)}</span>
-								))}
-							{isHovered && hasTimeline && (
-								<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
-									{ICON_CLOSE}
-								</div>
-							)}
-						</span>
-					</div>
-				)}
-				{toggle && (
+			{task.timeline && (
+				<div className="span-container flex align-center justify-center">
 					<div
-						className="timeline-popup-container"
-						ref={setPopperElement}
-						style={styles.popper}
-						{...attributes.popper}
+						className="progress"
+						style={{
+							background: `linear-gradient(to right, ${
+								isHovered ? darkenHexColor(groupColor) : groupColor
+							} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
+						}}
 					>
-						<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
-						<DayPicker
-							numberOfMonths={2}
-							mode="range"
-							defaultMonth={pastMonth}
-							selected={range}
-							// footer={modalFooter}
-							onSelect={setRange}
-							showOutsideDays
-							fixedWeeks
-							modifiersClassNames={{
-								today: 'my-today',
-							}}
-							components={{
-								Caption: NavButtons,
-							}}
-						/>
+						<span style={{ width: '50%' }}></span>
 					</div>
-				)}
-			</div>
+					<span className="range-preview flex row justify-center">
+						{hasTimeline &&
+							(isHovered ? (
+								<span>{getTimestampInDays()}d</span>
+							) : (
+								<span>{getTimelineRange(timeline)}</span>
+							))}
+						{isHovered && hasTimeline && (
+							<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
+								{ICON_CLOSE}
+							</div>
+						)}
+					</span>
+				</div>
+			)}
+			{toggle && (
+				<div
+					className="timeline-popup-container"
+					ref={setPopperElement}
+					style={styles.popper}
+					{...attributes.popper}
+				>
+					<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
+					<DayPicker
+						numberOfMonths={2}
+						mode="range"
+						defaultMonth={pastMonth}
+						selected={range}
+						// footer={modalFooter}
+						onSelect={setRange}
+						showOutsideDays
+						fixedWeeks
+						modifiersClassNames={{
+							today: 'my-today',
+						}}
+						components={{
+							Caption: NavButtons,
+						}}
+					/>
+				</div>
+			)}
 		</li>
 	)
 }

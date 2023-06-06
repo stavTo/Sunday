@@ -81,12 +81,8 @@ export function GroupList({ groups }) {
 							{groups.map((group, idx) => (
 								<Draggable key={group.id} draggableId={group.id} index={idx}>
 									{provided => (
-										<li
-											{...provided.draggableProps}
-											{...provided.dragHandleProps}
-											ref={provided.innerRef}
-										>
-											<GroupPreview group={group} />
+										<li {...provided.draggableProps} ref={provided.innerRef}>
+											<GroupPreview group={group} provided={provided} />
 										</li>
 									)}
 								</Draggable>
@@ -103,4 +99,8 @@ export function GroupList({ groups }) {
 			</Droppable>
 		</DragDropContext>
 	)
+}
+
+function Handle() {
+	return <div style={{ width: '20px', height: '20px', backgroundColor: 'blue' }}></div>
 }

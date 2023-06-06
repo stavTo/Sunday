@@ -19,7 +19,7 @@ export function selectedBoardReducer(state = initialState, action) {
 			if (state.lastBoardState) {
 				return { ...state, selectedBoard: state.lastBoardState, lastBoardState: null }
 			}
-			break
+			return { ...state }
 		case SET_IS_LOADING:
 			return { ...state, isLoading: action.isLoading }
 
