@@ -13,68 +13,178 @@
 		z-index: 1;
 	}
 
-.span-container {
-	height: 20px;
-	border-radius: 10px;
-	overflow: hidden;
-	position: relative;
+	.span-container {
+		height: 20px;
+		border-radius: 10px;
+		overflow: hidden;
+		position: relative;
 
-	.progress {
-		position: absolute;
-		// TODO: make this dynamic from react cmp
-		background: linear-gradient(to right, #00c875 70%, $bg-clr6 20%);
-		height: 100%;
-		width: 100%;
+		.progress {
+			position: absolute;
+			// TODO: make this dynamic from react cmp
+			// background: linear-gradient(to right, #00c875 70%, $bg-clr6 20%);
+			height: 100%;
+			width: 100%;
+		}
 	}
-}
 
-.range-preview {
-	font-size: rem(12px);
-	// background-color: $bg-clr6;
-	color: $clr0;
-	width: rem(107px);
-	text-align: center;
-	position: relative;
-}
+	.range-preview {
+		font-size: rem(12px);
+		color: $clr0;
+		width: rem(107px);
+		text-align: center;
+		position: relative;
+	}
 
-.reset-date-btn {
-	position: absolute;
-	right: 0px;
-	top: 4px;
-	background-color: $button-hover-bgc;
-	border-radius: 4px;
-	color: #000000;
-	width: 15px;
-}
+	.reset-date-btn {
+		position: absolute;
+		right: 0px;
+		top: 4px;
+		background-color: $button-hover-bgc;
+		border-radius: 4px;
+		color: #000000;
+		width: 15px;
+	}
+
 	.rdp-multiple_months {
 		margin: 0;
 	}
+
 	.rdp-months {
 		border: 1px solid $clr2;
 		-webkit-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
 		-moz-box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
 		box-shadow: 0px 0px 25px -3px rgba(0, 0, 0, 0.31);
 		background-color: $clr0;
+		font-family: Figtree;
+		font-size: 16px;
+		font-weight: 300;
 	}
 
 	.range-preview {
 		font-size: rem(12px);
-		background-color: $bg-clr6;
+		// background-color: $bg-clr6;
 		border-radius: 5em;
 		padding-inline: 1em;
 		color: $clr0;
-		width: rem(107px);
+		min-width: max-content;
 		text-align: center;
-		position: relative;
 	}
 }
 
 .rdp-day_selected {
-	background-color: #cce5ff;
+	background-color: $bg-clr1;
 	color: $clr1;
 
+	&:not(.rdp-day_range_end):hover {
+		background-color: $bg-clr5;
+		color: $clr1;
+	}
+}
+
+Today
+.rdp-day_today {
+	border: 1px solid $bg-clr1;
+	border-radius: 50%;
+	color: $clr0;
+	background-color: $bg-clr1;
+	font-weight: 300;
+
 	&:hover {
-		background-color: #dcdfec;
-		color: #323338;
+		background-color: $bg-clr1;
+		color: $clr0;
+	}
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+	background-color: $clr0;
+	color: $clr1;
+	font-weight: 300;
+}
+
+// Selected end date text-clr
+.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover {
+	color: $clr0;
+}
+
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+	background-color: $bg-clr1;
+}
+
+.rdp-day_selected {
+	.rdp-day_selected:focus-visible {
+		.rdp-day_selected:hover {
+			background-color: $bg-clr1;
+		}
+	}
+}
+
+// Month label (title)
+.rdp-caption_label {
+	font-weight: 400;
+}
+
+// Days label
+.rdp-head_cell {
+	color: $icon-color;
+	font-weight: 300;
+	cursor: default;
+	font-size: 12px;
+}
+
+.previous-month {
+	width: 24px;
+	height: 24px;
+
+	&:hover {
+		background-color: none;
+	}
+}
+
+// Start day
+.rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
+	// border-radius: 50%;
+	color: $clr0;
+	font-weight: 300;
+
+	&:hover {
+		background-color: $bg-clr1;
+	}
+}
+
+// Middle days (range)
+.rdp-day_range_middle {
+	background-color: #CCE5fF;
+	color: $clr1;
+}
+
+// End day
+.rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
+	// border-radius: 50%;
+	color: $clr0;
+	font-weight: 300;
+
+	&:hover {
+		background-color: $bg-clr1;
+	}
+}
+
+.rdp-months:first-child {
+	.rdp-caption_start {
+		.nav-buttons-container {
+			span:nth-child(3) {
+				visibility: hidden;
+			}
+		}
+	}
+
+	.rdp-caption_end {
+		.nav-buttons-container {
+			span:nth-child(1) {
+				visibility: hidden;
+			}
+		}
 	}
 }
