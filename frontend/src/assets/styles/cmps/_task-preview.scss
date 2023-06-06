@@ -1,7 +1,8 @@
 .task-preview {
 	display: flex;
 	position: relative;
-	border-block-end: 1px solid $border-clr;
+	border-block-start: 1px solid $border-clr;
+	height: $task-row-height;
 
 	&:hover {
 		background-color: $task-hover-bgc;

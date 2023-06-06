@@ -3,7 +3,8 @@
 	font-size: rem(14px);
 	display: flex;
 	width: 100%;
-	border-block-end: 1px solid $border-clr;
+	border-block: 1px solid $border-clr;
+	height: $task-row-height;
 
 	& > * {
 		border-inline-end: 1px solid $border-clr;
