@@ -3,7 +3,6 @@ import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_STAR_STARRED } from '..
 import { BoardFilter } from './board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconContext } from 'react-icons/lib'
 import { TfiClose } from 'react-icons/tfi'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { TippyContainer } from './tippy-container'

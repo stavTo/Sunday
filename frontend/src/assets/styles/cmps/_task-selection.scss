@@ -4,22 +4,27 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 	.checkbox {
 		width: 16px;
 		height: 16px;
 		border: 1px solid $input-hover-border-clr;
 		border-radius: 2px;
 		position: relative;
-		cursor: pointer;
 
-		&:hover {
+		&:hover:not(.disabled) {
 			border-color: $icon-color;
+			cursor: pointer;
 		}
 
 		&.checked {
 			border: none;
 			background-color: $bg-clr1;
+		}
+		&.disabled {
+			& > * {
+				cursor: text;
+			}
+			border-color: lighten($input-hover-border-clr, 10);
 		}
 	}
 
