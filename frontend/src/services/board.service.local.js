@@ -29,6 +29,7 @@ export const boardService = {
 	removeGroup,
 	getBoardUsers,
 	duplicateGroup,
+	duplicateTask,
 }
 
 async function query(filter = {}) {
@@ -169,7 +170,6 @@ async function getBoardUsers(boardId, filter = '') {
 	}
 }
 
-// group ? getEmptyGroup(group.title, group.tasks, group.style) :
 async function addGroup(boardId, pushToTop, activity = '') {
 	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
@@ -184,6 +184,16 @@ async function duplicateGroup(boardId, group, activity = '') {
 	const board = await getById(boardId)
 	const idx = board.groups.findIndex(g => g.id === group.id)
 	board.groups.splice(idx, 0, newGroup)
+	await save(board)
+	return board
+}
+
+async function duplicateTask(boardId, group, task, activity = '') {
+	const newTask = { ...task, id: utilService.makeId() }
+	const board = await getById(boardId)
+	const currGroup = board.groups.find(g => g.id === group.id)
+	const idx = currGroup.tasks.findIndex(t => t.id === task.id)
+	currGroup.tasks.splice(idx, 0, newTask)
 	await save(board)
 	return board
 }

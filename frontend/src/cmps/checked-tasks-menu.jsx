@@ -5,6 +5,7 @@ import { HiOutlineArrowRightCircle } from 'react-icons/hi2'
 import { VscTrash } from 'react-icons/vsc'
 import { IoDocumentsOutline } from 'react-icons/io5'
 import { removeTask } from '../store/selected-board.actions'
+import { showErrorMsg } from '../services/event-bus.service'
 export function CheckedTasksMenu({ checkedTaskIds }) {
 	const dispatch = useDispatch()
 
@@ -14,7 +15,11 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 
 	async function onRemove() {
 		for (let taskId of checkedTaskIds) {
-			await removeTask(taskId)
+			try {
+				await removeTask(taskId)
+			} catch {
+				showErrorMsg('Error deleting task')
+			}
 		}
 	}
 
