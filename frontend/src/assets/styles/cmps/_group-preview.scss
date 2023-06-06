@@ -23,7 +23,7 @@
 		display: flex;
 		flex-direction: column;
 
-		&>* {
+		& > * {
 			display: grid;
 			grid-template-columns: 30px 1fr;
 			height: 32px;
@@ -99,12 +99,6 @@
 			all: unset;
 		}
 
-		&:hover .task-count {
-			opacity: 1;
-			margin-block-start: 3px;
-			margin-inline-start: 8px;
-		}
-
 		.expand-arrow-container {
 			cursor: pointer;
 			border: none;
@@ -112,7 +106,13 @@
 			transform: rotate(-90deg);
 		}
 
+		&:hover .task-count {
+			opacity: 1;
+		}
+
 		.task-count {
+			margin-block-start: 3px;
+			margin-inline-start: 8px;
 			opacity: 0;
 			font-size: rem(14px);
 			font-weight: 400;
@@ -131,7 +131,12 @@
 			position: relative;
 
 			.group-option {
+				width: 25px;
+				height: 25px;
 				position: absolute;
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
 				svg {
 					width: 22px;
@@ -142,7 +147,7 @@
 	}
 
 	.task-row {
-		&>*:not(.task-option, .task-title-header, .task-title) {
+		& > *:not(.task-option, .task-title-header, .task-title) {
 			flex-shrink: 0;
 			user-select: none;
 			height: $task-row-height;

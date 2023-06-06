@@ -55,17 +55,29 @@
 
 		.actions-container {
 			display: flex;
-
+			font-size: rem(14px);
 			gap: 20px;
 			margin-inline: 80px 20px;
 
 			.action-item {
+				cursor: pointer;
 				min-width: max-content;
 				height: 100%;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				flex-direction: column;
+				gap: 5px;
+				&:hover {
+					svg {
+						color: $bg-clr1;
+					}
+				}
+
+				svg {
+					width: 26px;
+					height: 26px;
+				}
 			}
 		}
 	}

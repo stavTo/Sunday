@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux'
 import { TOGGLE_CHECKED_TASK } from '../store/selected-task.reducer'
 import { useEffect, useState } from 'react'
 import { TaskOptionsMenu } from './task-options-menu'
+import { showErrorMsg } from '../services/event-bus.service'
 
 const STATUS_PICKER = 'statusPicker'
 const PRIORITY_PICKER = 'priorityPicker'
@@ -38,7 +39,12 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 	}
 
 	async function onRemoveTask() {
-		await removeTask(board._id, group.id, task.id)
+		setIsOptionOpen(false)
+		try {
+			await removeTask(task.id)
+		} catch {
+			showErrorMsg('cant delete task')
+		}
 	}
 
 	function onSetOptionClose(ev) {
@@ -52,15 +58,16 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 					task={task}
 					group={group}
 					onRemoveTask={onRemoveTask}
-					setIsOptionOpen={setIsOptionOpen} />
+					setIsOptionOpen={setIsOptionOpen}
+				/>
 			)}
 			<ul
 				className="task-preview task-row clean-list"
 				style={{
 					borderInlineStart: `6px solid ${group.style.color}`,
-				}}>
-				<li onClick={() => setIsOptionOpen(prev => !prev)}
-					className="task-option btn-primary">
+				}}
+			>
+				<li onClick={() => setIsOptionOpen(prev => !prev)} className="task-option btn-primary">
 					{ICON_OPTIONS}
 				</li>
 				<TaskSelection onCheck={handleCheck} isChecked={checkedTaskIds.includes(task.id)} />
@@ -75,11 +82,17 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 									key={cmp.id}
 									groupId={group.id}
 									type={cmp.cmpName}
-									task={task} />
+									task={task}
+								/>
 							)
 						case DATE_PICKER:
 							return (
-								<DatePicker defaultWidth={cmp.defaultWidth} key={cmp.id} groupId={group.id} task={task} />
+								<DatePicker
+									defaultWidth={cmp.defaultWidth}
+									key={cmp.id}
+									groupId={group.id}
+									task={task}
+								/>
 							)
 						case OWNER_PICKER:
 						case COLLABORATOR_PICKER:
