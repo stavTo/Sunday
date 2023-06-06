@@ -4,7 +4,7 @@ import { GroupPreview } from './group-preview'
 import { ICON_ADD_GROUP } from '../assets/icons/icons'
 import { boardService } from '../services/board.service.local'
 import { showErrorMsg } from '../services/event-bus.service'
-import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useState } from 'react'
 export function GroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
@@ -15,7 +15,21 @@ export function GroupList({ groups }) {
 
 	async function handleDrag(result) {
 		if (!result.destination) return //if moved outside of containers, we exit.
+		if (result.type === 'group') handleGroupDrag(result)
+		else handleTaskDrag(result)
+		setIsDragDisabled(false)
+	}
 
+	async function handleGroupDrag(result) {
+		const newBoard = structuredClone(board)
+		const groupToMove = newBoard.groups.splice(result.source.index, 1)[0]
+		newBoard.groups.splice(result.destination.index, 0, groupToMove)
+		// console.log(result)
+		// console.log(newBoard)
+		saveBoard(newBoard)
+	}
+
+	async function handleTaskDrag(result) {
 		// find groupId and taskIdx in destination and source.
 		const destinationGroupId = result.destination.droppableId
 		const sourceGroupId = result.source.droppableId
@@ -51,8 +65,6 @@ export function GroupList({ groups }) {
 			await saveBoard(boardToSave)
 		} catch {
 			showErrorMsg('failed')
-		} finally {
-			setIsDragDisabled(false)
 		}
 	}
 
@@ -62,20 +74,33 @@ export function GroupList({ groups }) {
 
 	return (
 		<DragDropContext onDragEnd={handleDrag} onDragStart={onDragStart} disableDraggingDuringDrag={isDragDisabled}>
-			<section className="group-list">
-				<ul className="clean-list">
-					{groups.map(group => (
-						<li key={group.id}>
-							<GroupPreview group={group} />
-						</li>
-					))}
-				</ul>
+			<Droppable droppableId={board._id} type="group">
+				{provided => (
+					<section {...provided.droppableProps} ref={provided.innerRef} className="group-list">
+						<ul className="clean-list">
+							{groups.map((group, idx) => (
+								<Draggable key={group.id} draggableId={group.id} index={idx}>
+									{provided => (
+										<li
+											{...provided.draggableProps}
+											{...provided.dragHandleProps}
+											ref={provided.innerRef}
+										>
+											<GroupPreview group={group} />
+										</li>
+									)}
+								</Draggable>
+							))}
+							{provided.placeholder}
+						</ul>
 
-				<div className="add-group-btn flex" onClick={onAddGroup}>
-					<span className="icon">{ICON_ADD_GROUP}</span>
-					<span className="txt">Add new group</span>
-				</div>
-			</section>
+						<div className="add-group-btn flex" onClick={onAddGroup}>
+							<span className="icon">{ICON_ADD_GROUP}</span>
+							<span className="txt">Add new group</span>
+						</div>
+					</section>
+				)}
+			</Droppable>
 		</DragDropContext>
 	)
 }
