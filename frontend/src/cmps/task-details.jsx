@@ -60,7 +60,7 @@ export function TaskDetails() {
 	}
 
 	function onCloseEditor(ev) {
-		if (ev.target.closest('.editor , .update-btn , input')) return
+		if (ev.target.closest('.editor , .update-btn , .new-post, input')) return
 		setIsEditorOpen(false)
 		setIsInputVisible(false)
 	}
@@ -149,10 +149,10 @@ export function TaskDetails() {
 					</ul>
 				</div>
 
-				<section className="editor-container text-cursor">
+				<section className="editor-container ">
 					{isEditorOpen ? (
 						<>
-							<div className="new-post editor">
+							<div className="new-post editor text-cursor">
 								<ReactQuillWrapper setCommentToEdit={setCommentToEdit} />
 							</div>
 							<div className="update-btn pointer" onClick={onSaveComment}>

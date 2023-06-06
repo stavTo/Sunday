@@ -1,7 +1,7 @@
 .task-selection {
 	max-width: 36px;
+	width: 36px;
 	display: flex;
-	flex: 1;
 	justify-content: center;
 	align-items: center;
 
@@ -14,8 +14,5 @@
 
 	input {
 		display: none;
-		// width: 16px;
-		// height: 16px;
-		// cursor: pointer;
 	}
 }

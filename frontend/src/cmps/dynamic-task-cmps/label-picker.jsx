@@ -21,7 +21,7 @@ import { usePopper } from 'react-popper'
 // 	{ id: 'pl104', title: '', color: '#c4c4c4' },
 // ]
 
-export function LabelPicker({ type, task, groupId }) {
+export function LabelPicker({ type, task, groupId, defaultWidth }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
 	const [label, setLabel] = useState({})
 	const [labelsName, setLabelsName] = useState('')
@@ -81,10 +81,11 @@ export function LabelPicker({ type, task, groupId }) {
 
 	return (
 		<li
+			style={{ backgroundColor: label?.color || '#C4C4C4', width: defaultWidth }}
 			className="label-picker"
 			ref={setReferenceElement}
 			onClick={handleClick}
-			style={{ backgroundColor: label?.color || '#C4C4C4' }}>
+		>
 			<span>{label?.title || ''}</span>
 			<div className="corner-fold"></div>
 
@@ -133,7 +134,8 @@ function LabelPickerPopUp({
 					<li
 						key={label.id}
 						style={{ backgroundColor: label.color }}
-						onClick={ev => onChangeLabel(ev, label)}>
+						onClick={ev => onChangeLabel(ev, label)}
+					>
 						{label.title}
 					</li>
 				))}
