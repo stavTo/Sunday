@@ -4,6 +4,12 @@
 	align-items: center;
 	justify-content: center;
 
+	.rdp-day_today:not(.rdp-day_outside) {
+		border: 1px solid $bg-clr1;
+		border-radius: 50%;
+		font-weight: 300;
+	}
+
 	.reset-date-btn {
 		position: absolute;
 		right: 25px;

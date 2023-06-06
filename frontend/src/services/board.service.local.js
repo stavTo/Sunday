@@ -143,7 +143,6 @@ function getEmptyTask() {
 }
 
 function getEmptyGroup(title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() }, id = '') {
-function getEmptyGroup(title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() }, id = '') {
 	return {
 		id,
 		title,

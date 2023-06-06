@@ -79,7 +79,7 @@ export function DatePicker({ task, groupId }) {
 		>
 			<div className="date-preview-container flex align-center justify-center" onClick={ev => onToggleModal(ev)}>
 				{isHovered && !hasDate && (
-					<div className="add-date-btn pointer flex align-center justify-center">
+					<div className="add-date-btn flex align-center justify-center">
 						<FontAwesomeIcon icon={faCirclePlus} style={{ color: '#0073ea' }} />
 						{ICON_ADD_DATE}
 					</div>

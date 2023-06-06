@@ -1,13 +1,16 @@
+import { utilService } from '../../services/util.service'
+import { boardService } from '../../services/board.service.local'
 import { saveTask } from '../../store/selected-board.actions'
 import { useState, useEffect } from 'react'
+import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 import { useSelector } from 'react-redux'
 import { usePopper } from 'react-popper'
-import { DayPicker } from 'react-day-picker'
+import { DayPicker, useNavigation } from "react-day-picker";
 import { addDays, format } from 'date-fns'
 import { ICON_CLOSE } from '../../assets/icons/icons'
-import { utilService } from '../../services/util.service'
 import 'react-day-picker/dist/style.css'
-import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
+import { NEXT_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
+import { PREV_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
 
 const pastMonth = new Date() // Define your past month date here
 
@@ -17,11 +20,12 @@ const defaultSelected = {
 }
 
 export function TimelinePicker({ task, groupId }) {
+	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
+	const [groupColor, setGroupColor] = useState(boardService.getGroupById(board, groupId).style.color)
 	const [toggle, setToggle] = useState(false)
 	const [isHovered, setIsHovered] = useState(false)
 	const [hasTimeline, setHasTimeline] = useState(task.timeline && true)
 	const [range, setRange] = useState(defaultSelected)
-	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [modalFooter, setModalFooter] = useState(<p>Please pick the first day.</p>)
 	const { timeline } = task
 
@@ -71,67 +75,34 @@ export function TimelinePicker({ task, groupId }) {
 		setToggle(prev => !prev)
 	}
 
-	// calculateTimelineProgress()
-
 	function calculateTimelineProgress() {
-		// Get the current date
+		if (!timeline) return 0
+
+		// Get the current date - 1686049374484
 		const currentDate = Date.now()
 
 		// Convert the start and end dates to timestamps
 		const startTimestamp = timeline.startDate
 		const endTimestamp = timeline.endDate
-		// 1685884857617 - current day (4 june) (timeline.startDate first task)
 
 		// Check if the current date is after the end date
 		if (currentDate >= endTimestamp) {
 			// If so, the progress is 100%
-			return 100
+			return `100%`
 		}
-		// Calculate the total duration of the timeline
+
 		const totalDuration = endTimestamp - startTimestamp
-		// console.log("totalDuration, task:", totalDuration, task)
 
 		// Calculate the elapsed time from the start date to the current date
 		const timePassedSinceStart = currentDate - startTimestamp
-		// console.log("elapsedTime:", elapsedTime)
 
-		// TOTAL DURATION - ELAPSED TIME = how much progress made
-		const progressMade = (totalDuration - timePassedSinceStart)
-		// 				 NUMERATOR   /   DENOMINATOR
-		const result = Math.round(((totalDuration / progressMade) * 100).toFixed(2)) / 2
+		// Calculate the progress as a percentage of time passed
+		const progress = (timePassedSinceStart / totalDuration) * 100
 
-		// Round the progress percentage to the nearest whole number
-		// 113942383 - 29094
-		// totalDuration - 
-
-		return Math.round(progressMade).toFixed(2);
+		// Round the progress to two decimal places and return as a whole number
+		const result = Math.round(progress)
+		return `${result}%`
 	}
-
-
-	// function calculateTimelineProgress() {
-	// 	// if (!timeline || !timeline.startDate || !timeline.endDate || currentDate >= timeline.endDate) {
-	// 	// 	return 0
-	// 	// }
-
-	// 	const currentDate = Date.now()
-
-	// 	// if (currentDate >= timeline.endDate) {
-	// 	// 	return 100
-	// 	// }
-
-	// 	const totalDuration = timeline.endDate - timeline.startDate
-	// 	// console.log("totalDuration:", totalDuration)
-	// 	// 259200000 - 3 days, 345600000 - 4 days
-	// 	const elapsedTime = currentDate - timeline.startDate
-	// 	console.log("elapsedTime:", elapsedTime, task.title)
-	// 	// const progressPercentage = (totalDuration / elapsedTime) * 100
-
-	// 	// console.log("totalDuration/ elapsedTime:", totalDuration / elapsedTime)
-
-	// 	const taskToDisplay = boardService.getGroupByTask(board, task.id)
-	// 	// taskToDisplay.style.color
-	// 	// return Math.round(progressPercentage)
-	// }
 
 
 	function getEstTime() {
@@ -159,18 +130,43 @@ export function TimelinePicker({ task, groupId }) {
 
 		const startDay = utilService.timeStampToDate(timeline.startDate).slice(4)
 		const endDay = utilService.timeStampToDate(timeline.endDate).slice(4)
-		
-		if(startMonth === endMonth) {
+
+		if (startMonth === endMonth) {
 			return ` ${startMonth} ${startDay}-${endDay}`
 		} else {
-			return `${startMonth} ${startDay} - ${endDay}  ${endMonth}`
+			return `${startMonth} ${startDay} - ${endMonth} ${endDay}`
 		}
 	}
-	
+
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
 		setHasTimeline(false)
 		await saveTask(board._id, groupId, taskToEdit, '')
+	}
+
+	function NavButtons(props) {
+		const { goToMonth, nextMonth, previousMonth } = useNavigation();
+		return (
+			<div className="nav-buttons-container flex align-center space-evenly">
+				<span
+					className="month-btn-prev"
+					disabled={!previousMonth}
+					onClick={() => previousMonth && goToMonth(previousMonth)}
+				>
+					{PREV_BTN}
+				</span>
+
+				<h2>{format(props.displayMonth, "MMM yyy")}</h2>
+
+				<span
+					className="month-btn-next"
+					disabled={!nextMonth}
+					onClick={() => nextMonth && goToMonth(nextMonth)}
+				>
+					{NEXT_BTN}
+				</span>
+			</div>
+		)
 	}
 
 	return (
@@ -183,7 +179,7 @@ export function TimelinePicker({ task, groupId }) {
 			<div className="timeline-container">
 				{task.timeline && (
 					<div className="span-container flex align-center justify-center">
-						<div className="progress">
+						<div className="progress" style={{ background: `linear-gradient(to right, ${groupColor} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})` }} >
 							<span style={{ 'width': '50%' }}></span>
 						</div>
 						<span className="range-preview flex row justify-center">
@@ -193,8 +189,6 @@ export function TimelinePicker({ task, groupId }) {
 								) : (
 									<span>
 										{getTimelineRange(timeline)}
-										{/* {utilService.timeStampToDate(timeline.startDate)} - */}
-										{/* {utilService.timeStampToDate(timeline.endDate)} */}
 									</span>
 								))}
 							{isHovered && hasTimeline && (
@@ -217,8 +211,16 @@ export function TimelinePicker({ task, groupId }) {
 							mode="range"
 							defaultMonth={pastMonth}
 							selected={range}
-							footer={modalFooter}
+							// footer={modalFooter}
 							onSelect={setRange}
+							showOutsideDays
+							fixedWeeks
+							modifiersClassNames={{
+								today: 'my-today'
+							}}
+							components={{
+								Caption: NavButtons
+							}}
 						/>
 					</div>
 				)}
