@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { SideBar } from '../cmps/side-bar'
 import { loadBoards } from '../store/board.actions'
 import { useSelector } from 'react-redux'
 import { showErrorMsg } from '../services/event-bus.service'
 import { BoardLoader } from '../cmps/board-loader'
-import { BoardIndexHeader } from '../cmps/boards-index-header'
-import { BoardList } from '../cmps/board-list'
-import { BoardIndexAside } from '../cmps/BoardIndexAside'
-import {IndexInbox} from '../cmps/IndexInbox.jsx'
+import { BoardIndexHeader } from '../cmps/index-cmps/board-index-header'
+import { BoardList } from '../cmps/index-cmps/board-list'
+import { BoardIndexAside } from '../cmps/index-cmps/BoardIndexAside'
+import { IndexInbox } from '../cmps/index-cmps/IndexInbox.jsx'
 
 export function BoardIndex() {
     const boards = useSelector(({ boardModule }) => boardModule.boards)

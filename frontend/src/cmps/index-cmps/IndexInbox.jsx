@@ -1,5 +1,5 @@
-import { ICON_EXPAND_ARROW } from '../assets/icons/icons'
-import emptyInbox from '../assets/img/board-index/empty-inbox.svg'
+import { ICON_EXPAND_ARROW } from '../../assets/icons/icons'
+import emptyInbox from '../../assets/img/board-index/empty-inbox.svg'
 
 import { useState } from 'react'
 

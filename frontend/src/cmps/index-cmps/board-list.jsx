@@ -1,5 +1,5 @@
-import { BoardPreview } from '../cmps/board-preview.jsx'
-import { ICON_EXPAND_ARROW } from '../assets/icons/icons'
+import { BoardPreview } from '../index-cmps/board-preview.jsx'
+import { ICON_EXPAND_ARROW } from '../../assets/icons/icons.js'
 import { useState } from 'react'
 
 export function BoardList({ boards }) {

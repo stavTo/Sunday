@@ -21,19 +21,21 @@
 
 		.progress {
 			position: absolute;
-			// TODO: make this dynamic from react cmp
-			// background: linear-gradient(to right, #00c875 70%, $bg-clr6 20%);
 			height: 100%;
 			width: 100%;
 		}
 	}
 
 	.range-preview {
-		font-size: rem(12px);
 		color: $clr0;
 		width: rem(107px);
 		text-align: center;
 		position: relative;
+	
+		span {
+			font-size: 14px;
+			font-weight: 400;
+		}
 	}
 
 	.reset-date-btn {

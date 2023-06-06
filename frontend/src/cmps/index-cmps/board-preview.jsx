@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import img from '../assets/img/quick_search_recent_board.svg'
+import img from '../../assets/img/quick_search_recent_board.svg'
 import {
     ICON_BOARD_LIST,
     ICON_STAR,
     ICON_WORK_MANAGEMENT
-} from '../assets/icons/icons'
+} from '../../assets/icons/icons'
 export function BoardPreview({ board }) {
 
 

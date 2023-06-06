@@ -1,4 +1,4 @@
-import { getBlessingByTime } from '../services/util.service'
+import { getBlessingByTime } from '../../services/util.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt } from '@fortawesome/free-solid-svg-icons'
 

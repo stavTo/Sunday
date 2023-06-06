@@ -1,7 +1,7 @@
-import template from '../assets/img/board-index/templates-banner.png'
-import getStarted from '../assets/img/board-index/get-started.svg'
-import helpCenter from '../assets/img/board-index/help-center.svg'
-import webinar from '../assets/img/board-index/webinars.svg'
+import template from '../../assets/img/board-index/templates-banner.png'
+import getStarted from '../../assets/img/board-index/get-started.svg'
+import helpCenter from '../../assets/img/board-index/help-center.svg'
+import webinar from '../../assets/img/board-index/webinars.svg'
 
 export function BoardIndexAside() {
     return (
