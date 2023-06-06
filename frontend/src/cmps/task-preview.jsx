@@ -49,6 +49,9 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 		<>
 			{isOptionOpen && (
 				<TaskOptionsMenu
+					task={task}
+					group={group}
+					onRemoveTask={onRemoveTask}
 					setIsOptionOpen={setIsOptionOpen} />
 			)}
 			<ul
@@ -56,7 +59,7 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 				style={{
 					borderInlineStart: `6px solid ${group.style.color}`,
 				}}>
-				<li onClick={() => setIsOptionOpen(true)}
+				<li onClick={() => setIsOptionOpen(prev => !prev)}
 					className="task-option btn-primary">
 					{ICON_OPTIONS}
 				</li>
