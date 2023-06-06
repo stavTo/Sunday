@@ -39,9 +39,9 @@ export function SideBar({ isExpandable = true }) {
 					{/* Section 1 ends here */}
 					<li className="bottom-navigation-area">
 						<ul className="clean-list flex column align-center">
-							<TippyContainer txt={'Invite Members'} placement="right" offset={[0, 20]}>
+							{/* <TippyContainer txt={'Invite Members'} placement="right" offset={[0, 20]}>
 								<li className="flex invite-members">{ICON_INVITE_MEMBERS}</li>
-							</TippyContainer>
+							</TippyContainer> */}
 							<TippyContainer txt={'Profile'} placement="right" offset={[0, 20]}>
 								<li className="flex profile ">
 									<img src={guest} data-tippy-content="guest" />

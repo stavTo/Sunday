@@ -88,15 +88,32 @@
 
 		.group-title-container {
 			padding-inline: 4px;
+			margin-block: 9px;
 
 			.group-title {
+				margin: 0;
 				font-weight: 500;
 				font-family: $title-font;
+
+				&:hover {
+					cursor: text;
+					outline: 1px solid $input-hover-border-clr;
+					border-radius: 4px;
+				}
 			}
 		}
 
 		.group-title-input {
 			all: unset;
+			font-weight: 600;
+			font-size: rem(20px);
+			font-family: Figtree, Roboto, Rubik, sans-serif;
+			width: 80vw;
+
+			&:focus {
+				outline: 1px solid $bg-clr1;
+				border-radius: 4px;
+			}
 		}
 
 		.expand-arrow-container {

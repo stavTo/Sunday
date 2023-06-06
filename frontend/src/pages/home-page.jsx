@@ -26,17 +26,24 @@ import { loadBoards } from '../store/board.actions'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 import logo from '../assets/img/logo.png'
+import { showErrorMsg } from '../services/event-bus.service'
 
 export function HomePage() {
 	const navigate = useNavigate()
 	const boards = useSelector(({ boardModule }) => boardModule.boards)
 	const [scrolled, setScrolled] = useState(false)
 
-	console.log(boards)
-
 	useEffect(() => {
-		loadBoards()
+		onLoadBoards()
 	}, [])
+
+	async function onLoadBoards() {
+		try {
+			await loadBoards()
+		} catch {
+			showErrorMsg('Something went wrong')
+		}
+	}
 
 	window.onscroll = function handleScroll() {
 		const isScrolled = window.scrollY > 0

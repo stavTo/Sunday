@@ -6,8 +6,10 @@ import { VscTrash } from 'react-icons/vsc'
 import { IoDocumentsOutline } from 'react-icons/io5'
 import { removeTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
+import { useSelector } from 'react-redux'
 export function CheckedTasksMenu({ checkedTaskIds }) {
 	const dispatch = useDispatch()
+	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	function onCloseModal() {
 		dispatch({ type: SET_CHECKED_TASKS, taskIds: [] })
@@ -16,7 +18,7 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 	async function onRemove() {
 		for (let taskId of checkedTaskIds) {
 			try {
-				await removeTask(taskId)
+				await removeTask(board._id, taskId)
 			} catch {
 				showErrorMsg('Error deleting task')
 			}
@@ -37,7 +39,6 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 					<span className="action-item">
 						<IoDocumentsOutline /> Duplicate
 					</span>
-					{/* <span className="action-item"> Export</span> */}
 					<span className="action-item" onClick={onRemove}>
 						<VscTrash /> Delete
 					</span>
