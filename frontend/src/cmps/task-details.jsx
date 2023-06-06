@@ -30,7 +30,6 @@ export function TaskDetails() {
 
 	useEffect(() => {
 		document.addEventListener('click', onCloseEditor)
-
 		return () => {
 			document.removeEventListener('click', onCloseEditor)
 		}

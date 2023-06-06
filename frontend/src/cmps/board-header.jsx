@@ -7,9 +7,12 @@ import { TfiClose } from 'react-icons/tfi'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { TippyContainer } from './tippy-container'
 import { useState } from 'react'
+import { showErrorMsg } from '../services/event-bus.service'
 
 export function BoardHeader({ board }) {
 	const [isInviteOpen, setIsInviteOpen] = useState(false)
+	const [titleToChange, setTitleToChange] = useState(board.title)
+	const [isInputVisible, setIsInputVisible] = useState(false)
 
 	function onAddGroup() {
 		addGroup(board._id, false)
@@ -25,13 +28,57 @@ export function BoardHeader({ board }) {
 		saveBoard(newBoard)
 	}
 
+	function handleClick(ev) {
+		ev.stopPropagation()
+		setIsInputVisible(prev => !prev)
+	}
+
+	function handleChange({ target }) {
+		setTitleToChange(target.value)
+	}
+
+	function handleKeyPressed(key) {
+		if (key.key === 'Enter') setNewTitle()
+		if (key.key === 'Escape') onEmptyInput()
+	}
+
+	function onEmptyInput() {
+		setTitleToChange(board.title)
+		setIsInputVisible(false)
+	}
+
+	async function setNewTitle() {
+		setIsInputVisible(false)
+		try {
+			const boardToEdit = { ...board, title: titleToChange }
+			await saveBoard(boardToEdit)
+		} catch {
+			showErrorMsg('Cant save task')
+		}
+	}
+
 	return (
 		<>
 			<section className="board-header">
 				<div className="board-header-top">
 					<div className="board-header-top-left">
 						<TippyContainer txt="Click to Edit">
-							<h1 className="board-name title-font">{board.title}</h1>
+							<div className="board-name title-font">
+								{!isInputVisible && <div onClick={handleClick}>{board.title}</div>}
+								{isInputVisible && (
+									<input
+										autoFocus={true}
+										onBlur={setNewTitle}
+										onClick={ev => ev.stopPropagation()}
+										onKeyDown={handleKeyPressed}
+										className="title-input"
+										id="title"
+										name="title"
+										value={titleToChange}
+										onChange={handleChange}
+									></input>
+								)}
+							</div>
 						</TippyContainer>
 						<TippyContainer txt="Show board description">
 							<span className="info-icon header-icon btn-primary">{ICON_INFO}</span>
