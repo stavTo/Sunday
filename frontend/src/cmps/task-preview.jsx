@@ -6,11 +6,12 @@ import { TimelinePicker } from './dynamic-task-cmps/timeline-picker'
 import { MemberPicker } from './dynamic-task-cmps/member-picker'
 import { TaskSelection } from './task-selection'
 import { ICON_OPTIONS } from '../assets/icons/icons'
-import { removeTask } from '../store/selected-board.actions'
 import { useDispatch } from 'react-redux'
 import { TOGGLE_CHECKED_TASK } from '../store/selected-task.reducer'
 import { useEffect, useState } from 'react'
 import { TaskOptionsMenu } from './task-options-menu'
+import { removeTask } from '../store/selected-board.actions'
+import { showErrorMsg } from '../services/event-bus.service'
 
 const STATUS_PICKER = 'statusPicker'
 const PRIORITY_PICKER = 'priorityPicker'
@@ -37,27 +38,27 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 		dispatch({ type: TOGGLE_CHECKED_TASK, taskId: task.id })
 	}
 
-	async function onRemoveTask() {
-		await removeTask(board._id, group.id, task.id)
-	}
-
 	function onSetOptionClose(ev) {
 		if (ev.target.closest('.options-menu')) return
 		setIsOptionOpen(false)
 	}
+
 	return (
 		<>
 			{isOptionOpen && (
 				<TaskOptionsMenu
-					setIsOptionOpen={setIsOptionOpen} />
+					task={task}
+					group={group}
+					setIsOptionOpen={setIsOptionOpen}
+				/>
 			)}
 			<ul
 				className="task-preview task-row clean-list"
 				style={{
 					borderInlineStart: `6px solid ${group.style.color}`,
-				}}>
-				<li onClick={() => setIsOptionOpen(true)}
-					className="task-option btn-primary">
+				}}
+			>
+				<li onClick={() => setIsOptionOpen(prev => !prev)} className="task-option btn-primary">
 					{ICON_OPTIONS}
 				</li>
 				<TaskSelection onCheck={handleCheck} isChecked={checkedTaskIds.includes(task.id)} />
@@ -72,11 +73,17 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 									key={cmp.id}
 									groupId={group.id}
 									type={cmp.cmpName}
-									task={task} />
+									task={task}
+								/>
 							)
 						case DATE_PICKER:
 							return (
-								<DatePicker defaultWidth={cmp.defaultWidth} key={cmp.id} groupId={group.id} task={task} />
+								<DatePicker
+									defaultWidth={cmp.defaultWidth}
+									key={cmp.id}
+									groupId={group.id}
+									task={task}
+								/>
 							)
 						case OWNER_PICKER:
 						case COLLABORATOR_PICKER:

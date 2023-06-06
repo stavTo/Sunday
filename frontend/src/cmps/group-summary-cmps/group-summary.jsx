@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import { LabelsProgressBar } from './labels-progress-bar'
 import { TimelineSummary } from './timeline-summary'
+import { MemberSummary } from './member-summary'
 
 const STATUS_PICKER = 'statusPicker'
 const PRIORITY_PICKER = 'priorityPicker'
@@ -47,7 +48,7 @@ export function GroupSummary({ group }) {
 					case COLLABORATOR_PICKER:
 						return (
 							<div key={cmp.id} className="group-summary-data">
-								<div style={{ width: cmp.defaultWidth }}>{cmp.cmpName}</div>
+								<MemberSummary defaultWidth={cmp.defaultWidth} group={group} />
 							</div>
 						)
 					case TIMELINE_PICKER:

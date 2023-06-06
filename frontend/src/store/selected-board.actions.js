@@ -1,6 +1,9 @@
 import { boardService } from '../services/board.service.local'
 import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.reducer'
+import { REMOVE_CHECKED_TASK } from './selected-task.reducer'
 import { store } from './store'
+
+const selectedBoard = store.getState().selectedBoardModule.selectedBoard
 
 export async function loadBoard(boardId, filter = {}) {
 	!Object.keys(filter).length && store.dispatch({ type: SET_IS_LOADING, isLoading: true })
@@ -38,7 +41,17 @@ export async function addGroup(boardId, pushToTop = false, activity = '') {
 
 export async function duplicateGroup(boardId, group, activity = '') {
 	try {
-		const board = await boardService.duplicateGroup(boardId , group)
+		const board = await boardService.duplicateGroup(boardId, group)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant save task')
+		throw err
+	}
+}
+
+export async function duplicateTask(boardId, group, task, boolean) {
+	try {
+		const board = await boardService.duplicateTask(boardId, group, task, boolean)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant save task')
@@ -86,9 +99,10 @@ export async function addTaskToFirstGroup(boardId, activity = '') {
 	}
 }
 
-export async function removeTask(boardId, groupId, taskId, activity = '') {
+export async function removeTask(boardId, taskId) {
 	try {
-		const board = await boardService.removeTask(boardId, groupId, taskId, activity)
+		const board = await boardService.removeTask(boardId, taskId)
+		store.dispatch({ type: REMOVE_CHECKED_TASK, taskId })
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant remove task')

@@ -29,6 +29,7 @@ export const boardService = {
 	removeGroup,
 	getBoardUsers,
 	duplicateGroup,
+	duplicateTask,
 }
 
 async function query(filter = {}) {
@@ -123,10 +124,10 @@ function getEmptyBoard() {
 	}
 }
 
-function getEmptyTask() {
+function getEmptyTask(title = '') {
 	return {
 		id: '',
-		title: '',
+		title,
 		status: '',
 		priority: '',
 		comments: [],
@@ -169,7 +170,6 @@ async function getBoardUsers(boardId, filter = '') {
 	}
 }
 
-// group ? getEmptyGroup(group.title, group.tasks, group.style) :
 async function addGroup(boardId, pushToTop, activity = '') {
 	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
@@ -184,6 +184,17 @@ async function duplicateGroup(boardId, group, activity = '') {
 	const board = await getById(boardId)
 	const idx = board.groups.findIndex(g => g.id === group.id)
 	board.groups.splice(idx, 0, newGroup)
+	await save(board)
+	return board
+}
+
+async function duplicateTask(boardId, group, task, boolean) {
+	const newTask = boolean ? { ...task } : getEmptyTask('New task')
+	newTask.id = utilService.makeId()
+	const board = await getById(boardId)
+	const currGroup = board.groups.find(g => g.id === group.id)
+	const idx = currGroup.tasks.findIndex(t => t.id === task.id)
+	currGroup.tasks.splice(idx + 1, 0, newTask)
 	await save(board)
 	return board
 }
@@ -249,13 +260,12 @@ async function addTaskToFirstGroup(boardId, activity = '') {
 	return board
 }
 
-async function removeTask(boardId, groupId, taskId, activity = '') {
+async function removeTask(boardId, taskId, activity = '') {
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
-	board.groups = board.groups.map(group =>
-		group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
-	)
+	board.groups = board.groups.map(group => ({ ...group, tasks: group.tasks.filter(t => t.id !== taskId) }))
 	// board.board.activities.unshift(activity)
+	console.log(board)
 	await save(board)
 	return board
 }

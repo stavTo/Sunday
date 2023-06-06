@@ -5,12 +5,13 @@ import { useState, useEffect } from 'react'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 import { useSelector } from 'react-redux'
 import { usePopper } from 'react-popper'
-import { DayPicker, useNavigation } from "react-day-picker";
+import { DayPicker, useNavigation } from 'react-day-picker'
 import { addDays, format } from 'date-fns'
 import { ICON_CLOSE } from '../../assets/icons/icons'
 import 'react-day-picker/dist/style.css'
 import { NEXT_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
 import { PREV_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
+import { showErrorMsg } from '../../services/event-bus.service'
 
 const pastMonth = new Date() // Define your past month date here
 
@@ -60,7 +61,11 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		const endDate = new Date(range.to).getTime()
 		const timeline = { startDate, endDate }
 		const taskToEdit = { ...task, timeline }
-		await saveTask(board._id, groupId, taskToEdit, '')
+		try {
+			await saveTask(board._id, groupId, taskToEdit, '')
+		} catch {
+			showErrorMsg('Something went wrong')
+		}
 		setHasTimeline(true)
 	}
 
@@ -141,11 +146,15 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
 		setHasTimeline(false)
-		await saveTask(board._id, groupId, taskToEdit, '')
+		try {
+			await saveTask(board._id, groupId, taskToEdit, '')
+		} catch {
+			showErrorMsg('Something went wrong')
+		}
 	}
 
 	function NavButtons(props) {
-		const { goToMonth, nextMonth, previousMonth } = useNavigation();
+		const { goToMonth, nextMonth, previousMonth } = useNavigation()
 		return (
 			<div className="nav-buttons-container flex align-center space-evenly">
 				<span
@@ -156,7 +165,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 					{PREV_BTN}
 				</span>
 
-				<h2>{format(props.displayMonth, "MMM yyy")}</h2>
+				<h2>{format(props.displayMonth, 'MMM yyy')}</h2>
 
 				<span
 					className="month-btn-next"

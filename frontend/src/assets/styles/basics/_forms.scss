@@ -1,3 +1,18 @@
 input {
+	all: unset;
 	font-family: Figtree, Roboto, Rubik, sans-serif;
+
+	border: 1px solid $input-hover-border-clr;
+
+	&:hover {
+		border: 1px solid $clr1;
+	}
+
+	&:focus {
+		border: 1px solid $bg-clr1;
+	}
+
+	cursor: text;
+
+	border-radius: 4px;
 }
