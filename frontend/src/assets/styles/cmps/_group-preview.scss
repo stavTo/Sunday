@@ -16,15 +16,17 @@
 		top: 40px;
 		left: -10px;
 		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 17px 6px;
+		display: flex;
+		flex-direction: column;
 
-		& > * {
-			padding: 8px 4px;
-			cursor: pointer;
-			font-size: rem(14px);
+		&>* {
+			display: grid;
+			grid-template-columns: 30px 1fr;
 			height: 32px;
-			display: flex;
-			align-items: center;
-			justify-content: start;
+			padding: 8px 4px;
+			font-size: rem(14px);
+			align-content: center;
+			cursor: pointer;
 
 			span.title {
 				color: $clr1;
@@ -33,9 +35,21 @@
 			}
 
 			.color-icon {
-				width: 8px;
-				height: 8px;
+				width: 14px;
+				height: 14px;
 				border-radius: 50%;
+			}
+
+			.option-group-icon {
+				justify-self: center;
+				align-self: center;
+				color: $icon-color;
+				max-width: 20px;
+				max-height: 20px;
+			}
+
+			.icon-font-awesome {
+				align-self: start;
 			}
 		}
 	}
@@ -114,12 +128,17 @@
 
 			.group-option {
 				position: absolute;
+
+				svg {
+					width: 22px;
+					height: 22px;
+				}
 			}
 		}
 	}
 
 	.task-row {
-		& > *:not(.task-option, .task-title-header, .task-title) {
+		&>*:not(.task-option, .task-title-header, .task-title) {
 			flex-shrink: 0;
 			user-select: none;
 			height: $task-row-height;
