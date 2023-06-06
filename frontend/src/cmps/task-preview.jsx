@@ -46,14 +46,40 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 				switch (cmp.cmpName) {
 					case STATUS_PICKER:
 					case PRIORITY_PICKER:
-						return <LabelPicker key={cmp.id} groupId={group.id} type={cmp.cmpName} task={task} />
+						return (
+							<LabelPicker
+								defaultWidth={cmp.defaultWidth}
+								key={cmp.id}
+								groupId={group.id}
+								type={cmp.cmpName}
+								task={task}
+							/>
+						)
 					case DATE_PICKER:
-						return <DatePicker key={cmp.id} groupId={group.id} task={task} />
+						return (
+							<DatePicker defaultWidth={cmp.defaultWidth} key={cmp.id} groupId={group.id} task={task} />
+						)
 					case OWNER_PICKER:
 					case COLLABORATOR_PICKER:
-						return <MemberPicker key={cmp.id} type={cmp.cmpName} groupId={group.id} task={task} />
+						return (
+							<MemberPicker
+								defaultWidth={cmp.defaultWidth}
+								key={cmp.id}
+								type={cmp.cmpName}
+								groupId={group.id}
+								task={task}
+							/>
+						)
 					case TIMELINE_PICKER:
-						return <TimelinePicker key={cmp.id} type={cmp.cmpName} groupId={group.id} task={task} />
+						return (
+							<TimelinePicker
+								defaultWidth={cmp.defaultWidth}
+								key={cmp.id}
+								type={cmp.cmpName}
+								groupId={group.id}
+								task={task}
+							/>
+						)
 					default:
 						return null
 				}

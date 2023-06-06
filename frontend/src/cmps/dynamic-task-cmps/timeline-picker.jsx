@@ -16,7 +16,7 @@ const defaultSelected = {
 	to: addDays(pastMonth, 4),
 }
 
-export function TimelinePicker({ task, groupId }) {
+export function TimelinePicker({ task, groupId, defaultWidth }) {
 	const [toggle, setToggle] = useState(false)
 	const [isHovered, setIsHovered] = useState(false)
 	const [hasTimeline, setHasTimeline] = useState(task.timeline && true)
@@ -96,17 +96,16 @@ export function TimelinePicker({ task, groupId }) {
 		// console.log("elapsedTime:", elapsedTime)
 
 		// TOTAL DURATION - ELAPSED TIME = how much progress made
-		const progressMade = (totalDuration - timePassedSinceStart)
+		const progressMade = totalDuration - timePassedSinceStart
 		// 				 NUMERATOR   /   DENOMINATOR
 		const result = Math.round(((totalDuration / progressMade) * 100).toFixed(2)) / 2
 
 		// Round the progress percentage to the nearest whole number
 		// 113942383 - 29094
-		// totalDuration - 
+		// totalDuration -
 
-		return Math.round(progressMade).toFixed(2);
+		return Math.round(progressMade).toFixed(2)
 	}
-
 
 	// function calculateTimelineProgress() {
 	// 	// if (!timeline || !timeline.startDate || !timeline.endDate || currentDate >= timeline.endDate) {
@@ -133,7 +132,6 @@ export function TimelinePicker({ task, groupId }) {
 	// 	// return Math.round(progressPercentage)
 	// }
 
-
 	function getEstTime() {
 		const estTime = timeline.endDate - timeline.startDate
 		return utilService.millisecondsToDays(estTime)
@@ -159,14 +157,14 @@ export function TimelinePicker({ task, groupId }) {
 
 		const startDay = utilService.timeStampToDate(timeline.startDate).slice(4)
 		const endDay = utilService.timeStampToDate(timeline.endDate).slice(4)
-		
-		if(startMonth === endMonth) {
+
+		if (startMonth === endMonth) {
 			return ` ${startMonth} ${startDay}-${endDay}`
 		} else {
 			return `${startMonth} ${startDay} - ${endDay}  ${endMonth}`
 		}
 	}
-	
+
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
 		setHasTimeline(false)
@@ -179,12 +177,14 @@ export function TimelinePicker({ task, groupId }) {
 			ref={setReferenceElement}
 			onClick={ev => onToggleModal(ev)}
 			onMouseEnter={() => setIsHovered(true)}
-			onMouseLeave={() => setIsHovered(false)}>
+			onMouseLeave={() => setIsHovered(false)}
+			style={{ width: defaultWidth }}
+		>
 			<div className="timeline-container">
 				{task.timeline && (
 					<div className="span-container flex align-center justify-center">
 						<div className="progress">
-							<span style={{ 'width': '50%' }}></span>
+							<span style={{ width: '50%' }}></span>
 						</div>
 						<span className="range-preview flex row justify-center">
 							{hasTimeline &&
@@ -210,7 +210,8 @@ export function TimelinePicker({ task, groupId }) {
 						className="timeline-popup-container"
 						ref={setPopperElement}
 						style={styles.popper}
-						{...attributes.popper}>
+						{...attributes.popper}
+					>
 						<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 						<DayPicker
 							numberOfMonths={2}

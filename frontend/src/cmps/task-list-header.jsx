@@ -23,7 +23,9 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 			style={{ borderInlineStart: `6px solid ${group.style.color}` }}
 		>
 			<TaskSelection isChecked={isGroupSelected} onCheck={toggleGroupChecked} />
-			<li className="task-title-header">Task</li>
+			<li style={{ width: '400px' }} className="task-title-header">
+				Task
+			</li>
 			{board.cmpsOrder.map((cmp, idx) => {
 				let cmpTitle
 				switch (cmp.cmpName) {
@@ -46,7 +48,13 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 						cmpTitle = 'Timeline'
 						break
 				}
-				return cmpTitle && <li key={cmp.id}>{cmpTitle}</li>
+				return (
+					cmpTitle && (
+						<li style={{ width: cmp.defaultWidth }} key={cmp.id}>
+							{cmpTitle}
+						</li>
+					)
+				)
 			})}
 		</ul>
 	)

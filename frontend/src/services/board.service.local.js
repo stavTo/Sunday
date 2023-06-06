@@ -28,7 +28,7 @@ export const boardService = {
 	updateGroup,
 	removeGroup,
 	getBoardUsers,
-	duplicateGroup
+	duplicateGroup,
 }
 
 async function query(filter = {}) {
@@ -514,12 +514,12 @@ function _getDummyBoard(boardNum) {
 			},
 		],
 		cmpsOrder: [
-			{ id: utilService.makeId(), cmpName: 'ownerPicker' },
-			{ id: utilService.makeId(), cmpName: 'statusPicker' },
-			{ id: utilService.makeId(), cmpName: 'priorityPicker' },
-			{ id: utilService.makeId(), cmpName: 'timelinePicker' },
-			{ id: utilService.makeId(), cmpName: 'collaboratorPicker' },
-			{ id: utilService.makeId(), cmpName: 'datePicker' },
+			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px' },
+			{ id: utilService.makeId(), cmpName: 'statusPicker', defaultWidth: '150px' },
+			{ id: utilService.makeId(), cmpName: 'priorityPicker', defaultWidth: '150px' },
+			{ id: utilService.makeId(), cmpName: 'timelinePicker', defaultWidth: '150px' },
+			{ id: utilService.makeId(), cmpName: 'collaboratorPicker', defaultWidth: '150px' },
+			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px' },
 		],
 		statusLabels: [
 			{ id: 'sl100', title: 'Done', color: '#00C875' },

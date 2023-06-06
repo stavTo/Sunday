@@ -3,13 +3,10 @@
 	gap: 1px;
 
 	.search-container {
+		// display: flex;
 		width: 92px;
 		transition: outline 0.1s;
 		transition: width 0.1s;
-
-		input {
-			width: 100%;
-		}
 
 		&.focused {
 			&:hover {

@@ -43,7 +43,7 @@ export function AddTask({ group }) {
 			style={{
 				borderInlineStart: `6px solid ${utilService.hexToRgba(group.style.color, 0.6)} `,
 			}}
-			className="add-task clean-list  task-row"
+			className="add-task clean-list"
 			onClick={() => {
 				elInput.current.focus()
 			}}

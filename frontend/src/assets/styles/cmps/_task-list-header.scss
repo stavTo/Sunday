@@ -1,7 +1,7 @@
 .task-list-header {
-	width: 100%;
 	font-size: rem(14px);
 	display: flex;
+	// width: 100vw;
 	border-top-left-radius: 4px;
 
 	& > * {
@@ -9,6 +9,7 @@
 		border-inline-end: 1px solid $border-clr;
 		line-height: rem(23px);
 		display: flex;
+		flex-shrink: 0;
 		justify-content: center;
 		align-items: center;
 	}
@@ -16,7 +17,5 @@
 	.task-title-header {
 		user-select: none;
 		height: $task-row-height;
-
-		flex: 2;
 	}
 }

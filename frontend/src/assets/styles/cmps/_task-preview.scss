@@ -17,11 +17,21 @@
 
 	.task-option {
 		position: absolute;
-		left: -31px;
+		left: -35px;
 		bottom: 4px;
+		font-size: rem(40px);
+		line-height: 36px;
 		border: none;
-		background-color: inherit;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		opacity: 0;
+		width: 25px;
+		height: 25px;
+		svg {
+			width: 25px;
+			height: 25px;
+		}
 	}
 
 	.label-picker {
