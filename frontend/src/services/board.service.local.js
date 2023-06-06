@@ -2,7 +2,6 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { DEFAULT_USER } from '../assets/icons/icons.js'
-import { async } from 'q'
 
 const STORAGE_KEY = 'board'
 
@@ -142,7 +141,6 @@ function getEmptyTask() {
 	}
 }
 
-function getEmptyGroup(title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() }, id = '') {
 function getEmptyGroup(title = 'New Group', tasks = [], style = { color: utilService.getRandomColor() }, id = '') {
 	return {
 		id,
