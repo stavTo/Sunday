@@ -1,11 +1,10 @@
 .task-list-header {
 	font-size: rem(14px);
 	display: flex;
-	// width: 100vw;
 	border-top-left-radius: 4px;
 
 	& > * {
-		border-block: 1px solid $border-clr;
+		border-block-start: 1px solid $border-clr;
 		border-inline-end: 1px solid $border-clr;
 		line-height: rem(23px);
 		display: flex;
