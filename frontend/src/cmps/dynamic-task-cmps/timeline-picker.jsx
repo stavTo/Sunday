@@ -178,7 +178,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		)
 	}
 
-	console.log("groupId, groupColor:", groupId, groupColor)
 
 	return (
 		<li

@@ -3,15 +3,23 @@ import { timeStampToDate, darkenHexColor, millisecondsToDays } from "../../servi
 
 export function TimelineSummary({ board, group, defaultWidth }) {
     const [isHovered, setIsHovered] = useState(false)
-    const [groupHasTimeline, setGroupHasTimeline] = useState(group.tasks[0].timeline)
+    const [groupHasTimeline, setGroupHasTimeline] = useState(getGroupTimelines())
     const [timeline, setTimeline] = useState({})
 
     useEffect(() => {
+        if (!group?.timeline?.startDate) return
+        if (!group?.timeline?.endDate) return
         calculateGroupTimeline()
         if (timeline.startDate && timeline.endDate) {
             calculateTimelineProgress()
         }
-    }, [])
+    }, [board])
+
+    function getGroupTimelines() {
+        return group?.tasks?.some(task => {
+            return task?.timeline?.startDate || task?.timeline?.endDate
+        })
+    }
 
     function calculateGroupTimeline() {
         let startDates = []
@@ -33,7 +41,6 @@ export function TimelineSummary({ board, group, defaultWidth }) {
                 endDates.push(timeline.endDate)
             })
         }
-
 
 
         const earliestDate = Math.min(...startDates)

@@ -1,4 +1,9 @@
 .timeline-picker {
+	h2 {
+		font-size: 16px;
+		font-weight: 300;
+	}
+
 	.reset-date-btn {
 		position: absolute;
 		right: 0px;
@@ -31,7 +36,7 @@
 		min-width: rem(107px);
 		text-align: center;
 		position: relative;
-	
+
 		span {
 			font-size: rem(12px);
 			font-weight: 400;
@@ -84,8 +89,7 @@
 	}
 }
 
-Today
-.rdp-day_today {
+Today .rdp-day_today {
 	border: 1px solid $bg-clr1;
 	border-radius: 50%;
 	color: $clr0;
@@ -105,7 +109,9 @@ Today
 }
 
 // Selected end date text-clr
-.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover {
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
 	color: $clr0;
 }
 
