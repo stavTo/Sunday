@@ -29,7 +29,6 @@
 	.resizing-container {
 		position: absolute;
 		z-index: 10;
-
 		width: 6px;
 		right: -2px;
 		cursor: col-resize;
@@ -37,6 +36,12 @@
 		height: $task-row-height;
 		opacity: 0;
 		background-color: $border-clr;
+
+		&.is-dragging {
+			background-color: $bg-clr1;
+			opacity: 1;
+		}
+
 		&:hover {
 			background-color: $bg-clr1;
 			opacity: 1;
