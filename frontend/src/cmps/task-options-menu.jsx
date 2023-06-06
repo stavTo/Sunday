@@ -7,9 +7,9 @@ export function TaskOptionsMenu({ task, group, onRemoveTask, setIsOptionOpen }) 
 
     const { boardId } = useParams()
 
-    async function onDuplicateTask() {
+    async function onDuplicateTask(boolean) {
         setIsOptionOpen(false)
-        duplicateTask(boardId, group, task)
+        duplicateTask(boardId, group, task, boolean)
     }
 
     return (
@@ -19,7 +19,7 @@ export function TaskOptionsMenu({ task, group, onRemoveTask, setIsOptionOpen }) 
                     <span className="option-group-icon" >{ICON_OPEN}</span>
                     <span className="title">Open</span>
                 </Link>
-                <div onClick={onDuplicateTask} className="btn-primary"  >
+                <div onClick={() => onDuplicateTask(true)} className="btn-primary"  >
                     <span className="option-group-icon">{ICON_DUPLICATE}</span>
                     <span className="title"> Duplicate this task</span>
                 </div>
@@ -27,7 +27,7 @@ export function TaskOptionsMenu({ task, group, onRemoveTask, setIsOptionOpen }) 
                     <span className="option-group-icon">{ICON_COPY_LINK} </span>
                     <span className="title">Copy task link</span>
                 </div>
-                <div className="btn-primary">
+                <div onClick={() => onDuplicateTask(false)} className="btn-primary">
                     <span className="option-group-icon">{ICON_ADD_GROUP}</span>
                     <span className="title"> Create new task below</span>
                 </div>

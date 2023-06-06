@@ -124,10 +124,10 @@ function getEmptyBoard() {
 	}
 }
 
-function getEmptyTask() {
+function getEmptyTask(title = '') {
 	return {
 		id: '',
-		title: '',
+		title,
 		status: '',
 		priority: '',
 		comments: [],
@@ -188,12 +188,13 @@ async function duplicateGroup(boardId, group, activity = '') {
 	return board
 }
 
-async function duplicateTask(boardId, group, task, activity = '') {
-	const newTask = { ...task, id: utilService.makeId() }
+async function duplicateTask(boardId, group, task, boolean) {
+	const newTask = boolean ? { ...task } : getEmptyTask('New task')
+	newTask.id = utilService.makeId()
 	const board = await getById(boardId)
 	const currGroup = board.groups.find(g => g.id === group.id)
 	const idx = currGroup.tasks.findIndex(t => t.id === task.id)
-	currGroup.tasks.splice(idx, 0, newTask)
+	currGroup.tasks.splice(idx + 1, 0, newTask)
 	await save(board)
 	return board
 }

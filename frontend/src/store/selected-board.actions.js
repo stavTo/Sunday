@@ -46,9 +46,9 @@ export async function duplicateGroup(boardId, group, activity = '') {
 	}
 }
 
-export async function duplicateTask(boardId, group, task, activity = '') {
+export async function duplicateTask(boardId, group, task, boolean) {
 	try {
-		const board = await boardService.duplicateTask(boardId, group, task)
+		const board = await boardService.duplicateTask(boardId, group, task, boolean)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant save task')
