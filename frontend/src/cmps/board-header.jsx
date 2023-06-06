@@ -39,7 +39,7 @@ export function BoardHeader({ board }) {
 						</TippyContainer>
 					)}
 					{board.isStarred && (
-						<TippyContainer txt="Add to favorites">
+						<TippyContainer txt="Remove from favorites">
 							<span onClick={onToggleStarState} className="star-icon header-icon btn-primary starred">
 								{ICON_STAR_STARRED}
 							</span>

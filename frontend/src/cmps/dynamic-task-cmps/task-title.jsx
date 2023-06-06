@@ -55,8 +55,8 @@ export function TaskTitle({ task, groupId }) {
 	}
 
 	return (
-		<li className="task-title">
-			<div className="title-icon-container">
+		<li className="task-title" style={{ width: '400px' }}>
+			<div className="title-main-container">
 				{!isInputVisible && <span onClick={handleClick}>{task.title}</span>}
 				{isInputVisible && (
 					<input

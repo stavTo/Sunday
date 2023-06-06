@@ -2,9 +2,11 @@
 	cursor: text;
 	font-size: rem(14px);
 	display: flex;
-	border-block-end: 1px solid $border-clr;
+	width: 100%;
+	border-block: 1px solid $border-clr;
+	height: $task-row-height;
 
-	& > * {
+	& > .task-selection {
 		border-inline-end: 1px solid $border-clr;
 	}
 

@@ -1,0 +1,19 @@
+.group-summary {
+	margin-inline-start: 440px;
+	height: $task-row-height;
+	border-block-end: 1px solid $border-clr;
+
+	border-bottom-left-radius: 8px;
+
+	.empty-owner-container {
+		border-inline-start: 1px solid $border-clr;
+		border-bottom-left-radius: 8px;
+	}
+
+	.group-summary-data {
+		display: flex;
+		flex-shrink: 0;
+		justify-content: center;
+		border-inline-end: 1px solid $border-clr;
+	}
+}

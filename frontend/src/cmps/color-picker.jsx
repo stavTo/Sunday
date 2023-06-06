@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-export function ColorPicker({ onSetColorPickerClose, setGroupStyle }) {
+export function ColorPicker({ onSetColorPickerClose, setGroupStyle , setIsColorPickerOpen }) {
 
     useEffect(() => {
         document.addEventListener('click', onSetColorPickerClose)
@@ -15,8 +15,8 @@ export function ColorPicker({ onSetColorPickerClose, setGroupStyle }) {
 
     function onChooseColor(color) {
         const newStyle = { color }
-        console.log(newStyle)
         setGroupStyle(newStyle)
+        setIsColorPickerOpen(false)
     }
 
     return (

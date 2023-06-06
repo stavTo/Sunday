@@ -3,6 +3,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 
 	.rdp-day_today:not(.rdp-day_outside) {
 		border: 1px solid $bg-clr1;
@@ -12,8 +13,8 @@
 
 	.reset-date-btn {
 		position: absolute;
-		right: 25px;
-		top: 12px;
+		right: 10px;
+		top: 10px;
 		background-color: $button-hover-bgc;
 		border-radius: 4px;
 		color: #000000;

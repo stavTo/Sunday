@@ -1,27 +1,45 @@
 .task-preview {
 	display: flex;
 	position: relative;
-	border-block-end: 1px solid $border-clr;
+	border-block-start: 1px solid $border-clr;
+	height: $task-row-height;
 
 	&:hover {
 		background-color: $task-hover-bgc;
 		box-shadow: 4px 3px 6px -3px $input-hover-border-clr;
+
 		.task-option {
 			opacity: 1;
+
+			svg {
+				height: 22px;
+				width: 22px;
+			}
 		}
 	}
 
-	& > * {
+	&>* {
 		border-inline-end: 1px solid $border-clr;
 	}
 
 	.task-option {
 		position: absolute;
-		left: -31px;
+		left: -35px;
 		bottom: 4px;
+		font-size: rem(40px);
+		line-height: 36px;
 		border: none;
-		background-color: inherit;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		opacity: 0;
+		width: 25px;
+		height: 25px;
+
+		svg {
+			width: 25px;
+			height: 25px;
+		}
 	}
 
 	.label-picker {

@@ -1,0 +1,22 @@
+.labels-progress-bar {
+	height: 36px;
+	width: 150px;
+	display: flex;
+	.list-labels-progress-bar {
+		padding: 0px;
+		width: 100%;
+		list-style: none;
+
+		margin-inline: 8px;
+		padding-block: 6px;
+
+		.progress-bar-item {
+			transition: transform 0.2s ease-in-out;
+
+			&:hover {
+				transition: transform 0s;
+				transform: scaleY(1.2);
+			}
+		}
+	}
+}

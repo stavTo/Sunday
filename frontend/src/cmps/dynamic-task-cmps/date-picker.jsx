@@ -10,7 +10,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { ICON_CLOSE, ICON_ADD_DATE } from '../../assets/icons/icons'
 import 'react-day-picker/dist/style.css'
 
-export function DatePicker({ task, groupId }) {
+export function DatePicker({ task, groupId, defaultWidth }) {
 	const [selected, setSelected] = useState()
 	const [isHovered, setIsHovered] = useState(false)
 	const [toggle, setToggle] = useState(false)
@@ -72,6 +72,7 @@ export function DatePicker({ task, groupId }) {
 
 	return (
 		<li
+			style={{ width: defaultWidth }}
 			className="date-picker flex align-center"
 			ref={setReferenceElement}
 			onMouseEnter={() => setIsHovered(true)}

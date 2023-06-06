@@ -8,7 +8,7 @@ import { usePopper } from 'react-popper'
 import { boardService } from '../../services/board.service.local'
 import { showErrorMsg } from '../../services/event-bus.service'
 
-export function MemberPicker({ groupId, type, task }) {
+export function MemberPicker({ groupId, type, task, defaultWidth }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
 	const [memberToSearch, setMemberToSearch] = useState('')
 	const elSearchInputRef = useRef()
@@ -119,7 +119,12 @@ export function MemberPicker({ groupId, type, task }) {
 	}
 
 	return (
-		<li className="member-picker" ref={setReferenceElement} onClick={ev => onToggleModal(ev)}>
+		<li
+			className="member-picker"
+			style={{ width: defaultWidth }}
+			ref={setReferenceElement}
+			onClick={ev => onToggleModal(ev)}
+		>
 			{type === 'ownerPicker' && task?.owner?._id && <img src={task.owner.imgUrl} alt="member img" />}
 			{type === 'collaboratorPicker' && !!task.collaborators?.length && (
 				<div className="collaborator-img-container">
