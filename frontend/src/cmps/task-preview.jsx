@@ -38,7 +38,7 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 	}
 
 	async function onRemoveTask() {
-		await removeTask(board._id, group.id, task.id)
+		await removeTask(task.id)
 	}
 
 	function onSetOptionClose(ev) {
@@ -47,17 +47,14 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 	}
 	return (
 		<>
-			{isOptionOpen && (
-				<TaskOptionsMenu
-					setIsOptionOpen={setIsOptionOpen} />
-			)}
+			{isOptionOpen && <TaskOptionsMenu setIsOptionOpen={setIsOptionOpen} />}
 			<ul
 				className="task-preview task-row clean-list"
 				style={{
 					borderInlineStart: `6px solid ${group.style.color}`,
-				}}>
-				<li onClick={() => setIsOptionOpen(true)}
-					className="task-option btn-primary">
+				}}
+			>
+				<li onClick={() => setIsOptionOpen(true)} className="task-option btn-primary">
 					{ICON_OPTIONS}
 				</li>
 				<TaskSelection onCheck={handleCheck} isChecked={checkedTaskIds.includes(task.id)} />
@@ -72,11 +69,17 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 									key={cmp.id}
 									groupId={group.id}
 									type={cmp.cmpName}
-									task={task} />
+									task={task}
+								/>
 							)
 						case DATE_PICKER:
 							return (
-								<DatePicker defaultWidth={cmp.defaultWidth} key={cmp.id} groupId={group.id} task={task} />
+								<DatePicker
+									defaultWidth={cmp.defaultWidth}
+									key={cmp.id}
+									groupId={group.id}
+									task={task}
+								/>
 							)
 						case OWNER_PICKER:
 						case COLLABORATOR_PICKER:

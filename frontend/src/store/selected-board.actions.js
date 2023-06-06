@@ -38,7 +38,7 @@ export async function addGroup(boardId, pushToTop = false, activity = '') {
 
 export async function duplicateGroup(boardId, group, activity = '') {
 	try {
-		const board = await boardService.duplicateGroup(boardId , group)
+		const board = await boardService.duplicateGroup(boardId, group)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant save task')
@@ -86,9 +86,11 @@ export async function addTaskToFirstGroup(boardId, activity = '') {
 	}
 }
 
-export async function removeTask(boardId, groupId, taskId, activity = '') {
+export async function removeTask(taskId) {
+	const selectedBoard = store.getState().selectedBoardModule.selectedBoard
+
 	try {
-		const board = await boardService.removeTask(boardId, groupId, taskId, activity)
+		const board = await boardService.removeTask(selectedBoard._id, taskId)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant remove task')

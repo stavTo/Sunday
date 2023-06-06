@@ -249,13 +249,12 @@ async function addTaskToFirstGroup(boardId, activity = '') {
 	return board
 }
 
-async function removeTask(boardId, groupId, taskId, activity = '') {
+async function removeTask(boardId, taskId, activity = '') {
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
-	board.groups = board.groups.map(group =>
-		group.id !== groupId ? group : { ...group, tasks: group.tasks.filter(t => t.id !== taskId) }
-	)
+	board.groups = board.groups.map(group => ({ ...group, tasks: group.tasks.filter(t => t.id !== taskId) }))
 	// board.board.activities.unshift(activity)
+	console.log(board)
 	await save(board)
 	return board
 }
