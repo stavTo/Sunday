@@ -8,6 +8,7 @@ import { UserDetails } from './pages/user-details'
 import { TaskDetails } from './cmps/task-details'
 import { UserMsg } from './cmps/user-msg'
 import { BoardIndex } from './pages/board-index'
+import { Kanban } from './pages/kanban'
 
 function App() {
 	return (
@@ -18,6 +19,9 @@ function App() {
 						<Routes>
 							<Route path="/" element={<HomePage />}></Route>
 							<Route path="/boards/:boardId" element={<BoardDetails />}>
+								<Route path="tasks/:taskId" element={<TaskDetails />} />
+							</Route>
+							<Route path="/boards/:boardId/views/kanban" element={<Kanban />}>
 								<Route path="tasks/:taskId" element={<TaskDetails />} />
 							</Route>
 							<Route path="/users/:userId" element={<UserDetails />}></Route>
