@@ -99,9 +99,9 @@ export async function addTaskToFirstGroup(boardId, activity = '') {
 	}
 }
 
-export async function removeTask(taskId) {
+export async function removeTask(boardId, taskId) {
 	try {
-		const board = await boardService.removeTask(selectedBoard._id, taskId)
+		const board = await boardService.removeTask(boardId, taskId)
 		store.dispatch({ type: REMOVE_CHECKED_TASK, taskId })
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {

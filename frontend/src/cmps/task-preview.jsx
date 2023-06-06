@@ -6,11 +6,11 @@ import { TimelinePicker } from './dynamic-task-cmps/timeline-picker'
 import { MemberPicker } from './dynamic-task-cmps/member-picker'
 import { TaskSelection } from './task-selection'
 import { ICON_OPTIONS } from '../assets/icons/icons'
-import { removeTask } from '../store/selected-board.actions'
 import { useDispatch } from 'react-redux'
 import { TOGGLE_CHECKED_TASK } from '../store/selected-task.reducer'
 import { useEffect, useState } from 'react'
 import { TaskOptionsMenu } from './task-options-menu'
+import { removeTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 
 const STATUS_PICKER = 'statusPicker'
@@ -38,26 +38,17 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 		dispatch({ type: TOGGLE_CHECKED_TASK, taskId: task.id })
 	}
 
-	async function onRemoveTask() {
-		setIsOptionOpen(false)
-		try {
-			await removeTask(task.id)
-		} catch {
-			showErrorMsg('cant delete task')
-		}
-	}
-
 	function onSetOptionClose(ev) {
 		if (ev.target.closest('.options-menu')) return
 		setIsOptionOpen(false)
 	}
+
 	return (
 		<>
 			{isOptionOpen && (
 				<TaskOptionsMenu
 					task={task}
 					group={group}
-					onRemoveTask={onRemoveTask}
 					setIsOptionOpen={setIsOptionOpen}
 				/>
 			)}
