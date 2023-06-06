@@ -12,6 +12,7 @@ export const utilService = {
 	millisecondsToDays,
 	getBlessingByTime,
 	fractionToPercent,
+	darkenHexColor,
 }
 
 function makeId(length = 6) {
@@ -124,7 +125,7 @@ function hexToRgba(hex, alpha = 1) {
 	return `rgba(${r},${g},${b},${alpha})`
 }
 
-function timeStampToDate(timeStamp) {
+export function timeStampToDate(timeStamp) {
 	const timelineToSave = new Date(timeStamp).toLocaleDateString('en-US', {
 		month: 'short',
 		day: 'numeric',
@@ -132,24 +133,45 @@ function timeStampToDate(timeStamp) {
 	return timelineToSave
 }
 
-function millisecondsToDays(ms) {
+export function millisecondsToDays(ms) {
 	return Math.floor(ms / 86400000) //num of ms in day
 }
 
 export function getBlessingByTime() {
 	const date = new Date
-	const currentHour = date.getHours();
+	const currentHour = date.getHours()
 
 	if (currentHour >= 5 && currentHour < 12) {
-		return 'Good morning';
+		return 'Good morning'
 	} else if (currentHour >= 12 && currentHour < 18) {
-		return 'Good afternoon';
+		return 'Good afternoon'
+	} else if (currentHour >= 18 && currentHour < 21) {
+		return 'Good evening'
 	} else {
-		return 'Good night';
+		return 'Good night'
 	}
 }
 
 function fractionToPercent(fractionString) {
 	const fractionNumbers = fractionString.split('/')
 	return (fractionNumbers[0] / fractionNumbers[1]) * 100
+}
+
+export function darkenHexColor(color) {
+	// Remove the '#' symbol from the hex color
+	const hexColor = color.replace('#', '')
+
+	// Convert the hex color to RGB values
+	const red = parseInt(hexColor.substr(0, 2), 16)
+	const green = parseInt(hexColor.substr(2, 2), 16)
+	const blue = parseInt(hexColor.substr(4, 2), 16)
+
+	// Calculate the darker RGB values
+	const darkerRed = Math.floor(red * 0.8)
+	const darkerGreen = Math.floor(green * 0.8)
+	const darkerBlue = Math.floor(blue * 0.8)
+
+	// Convert the darker RGB values back to a hex color
+	const darkerHexColor = `#${darkerRed.toString(16).padStart(2, '0')}${darkerGreen.toString(16).padStart(2, '0')}${darkerBlue.toString(16).padStart(2, '0')}`
+	return darkerHexColor
 }

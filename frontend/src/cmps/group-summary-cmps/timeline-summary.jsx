@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { utilService } from "../../services/util.service"
+import { timeStampToDate, darkenHexColor, millisecondsToDays } from "../../services/util.service"
 
 export function TimelineSummary({ board, group, defaultWidth }) {
     const [isHovered, setIsHovered] = useState(false)
@@ -17,7 +17,6 @@ export function TimelineSummary({ board, group, defaultWidth }) {
         let startDates = []
         let endDates = []
 
-        console.log("groupHasTimeline:", groupHasTimeline)
         if (!groupHasTimeline) return
 
         if (group.tasks.length === 1) {
@@ -26,7 +25,7 @@ export function TimelineSummary({ board, group, defaultWidth }) {
         } else {
             group.tasks.map(task => {
                 const { timeline } = task
-                
+
                 if (!timeline) return
                 if (startDates[timeline.startDate]) return
                 startDates.push(timeline.startDate)
@@ -54,9 +53,7 @@ export function TimelineSummary({ board, group, defaultWidth }) {
         }
 
         const totalDuration = endTimestamp - startTimestamp
-
         const timePassedSinceStart = currentDate - startTimestamp
-
         const progress = (timePassedSinceStart / totalDuration) * 100
 
         const result = Math.round(progress)
@@ -66,16 +63,16 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 
     function getTimestampInDays() {
         const estTime = timeline.endDate - timeline.startDate
-        return utilService.millisecondsToDays(estTime)
+        return millisecondsToDays(estTime)
     }
 
 
     function getTimelineRange() {
-        const startMonth = utilService.timeStampToDate(timeline.startDate).slice(0, 3)
-        const endMonth = utilService.timeStampToDate(timeline.endDate).slice(0, 3)
+        const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
+        const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 
-        const startDay = utilService.timeStampToDate(timeline.startDate).slice(4)
-        const endDay = utilService.timeStampToDate(timeline.endDate).slice(4)
+        const startDay = timeStampToDate(timeline.startDate).slice(4)
+        const endDay = timeStampToDate(timeline.endDate).slice(4)
 
         if (startMonth === endMonth) {
             return ` ${startMonth} ${startDay}-${endDay}`
@@ -94,7 +91,8 @@ export function TimelineSummary({ board, group, defaultWidth }) {
             <div className="timeline-container">
                 {groupHasTimeline && (
                     <div className="span-container flex align-center justify-center">
-                        <div className="progress" style={{ background: `linear-gradient(to right, ${group.style.color} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})` }} >
+                        <div className='progress' style={{ background: `linear-gradient(to right, ${isHovered ? darkenHexColor(group.style.color) : group.style.color} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})` }} >
+                            {/* <div className={`${isHovered ?  'progress darken' : 'progress'}`} style={{ background: `linear-gradient(to right, ${group.style.color} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})` }} > */}
                             <span style={{ 'width': '50%' }}></span>
                         </div>
                         <span className="range-preview flex row justify-center">

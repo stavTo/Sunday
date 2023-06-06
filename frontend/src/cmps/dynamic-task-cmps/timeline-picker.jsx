@@ -1,4 +1,4 @@
-import { utilService } from '../../services/util.service'
+import { timeStampToDate, darkenHexColor, millisecondsToDays } from "../../services/util.service"
 import { boardService } from '../../services/board.service.local'
 import { saveTask } from '../../store/selected-board.actions'
 import { useState, useEffect } from 'react'
@@ -112,7 +112,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 
 	function getTimestampInDays() {
 		const estTime = timeline.endDate - timeline.startDate
-		return utilService.millisecondsToDays(estTime)
+		return millisecondsToDays(estTime)
 	}
 
 	function onSetFooter() {
@@ -130,11 +130,11 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function getTimelineRange() {
-		const startMonth = utilService.timeStampToDate(timeline.startDate).slice(0, 3)
-		const endMonth = utilService.timeStampToDate(timeline.endDate).slice(0, 3)
+		const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
+		const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 
-		const startDay = utilService.timeStampToDate(timeline.startDate).slice(4)
-		const endDay = utilService.timeStampToDate(timeline.endDate).slice(4)
+		const startDay = timeStampToDate(timeline.startDate).slice(4)
+		const endDay = timeStampToDate(timeline.endDate).slice(4)
 
 		if (startMonth === endMonth) {
 			return ` ${startMonth} ${startDay}-${endDay}`
@@ -178,6 +178,8 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		)
 	}
 
+	console.log("groupId, groupColor:", groupId, groupColor)
+
 	return (
 		<li
 			className="timeline-picker flex align-center justify-center pointer"
@@ -190,7 +192,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 			<div className="timeline-container">
 				{task.timeline && (
 					<div className="span-container flex align-center justify-center">
-						<div className="progress" style={{ background: `linear-gradient(to right, ${groupColor} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})` }} >
+						<div className='progress' style={{ background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})` }} >
 							<span style={{ 'width': '50%' }}></span>
 						</div>
 						<span className="range-preview flex row justify-center">

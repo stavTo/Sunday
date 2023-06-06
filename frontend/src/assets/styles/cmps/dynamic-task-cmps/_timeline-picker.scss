@@ -28,12 +28,12 @@
 
 	.range-preview {
 		color: $clr0;
-		width: rem(107px);
+		min-width: rem(107px);
 		text-align: center;
 		position: relative;
 	
 		span {
-			font-size: 14px;
+			font-size: rem(12px);
 			font-weight: 400;
 		}
 	}
@@ -69,7 +69,7 @@
 		border-radius: 5em;
 		padding-inline: 1em;
 		color: $clr0;
-		min-width: max-content;
+		min-width: rem(107px);
 		text-align: center;
 	}
 }
