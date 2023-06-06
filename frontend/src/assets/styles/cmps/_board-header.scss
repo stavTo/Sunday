@@ -4,17 +4,26 @@
 	background-color: $clr0;
 	z-index: 1;
 	padding: 16px 30px 0px 38px;
+
 	.board-header-top {
 		height: 48px;
 		display: flex;
 		justify-content: space-between;
+
 		.board-header-top-left {
 			display: flex;
 			align-items: center;
+
 			.board-name {
 				font-size: em(32px);
 				font-weight: 500;
 				margin-inline-end: 8px;
+
+				&:hover {
+					outline: 1px solid $input-hover-border-clr;
+					border-radius: 4px;
+					cursor: text;
+				}
 			}
 
 			.header-icon {
@@ -35,7 +44,8 @@
 			gap: 8px;
 			align-self: center;
 			align-items: center;
-			& > * {
+
+			&>* {
 				height: 32px;
 				cursor: pointer;
 			}
@@ -60,6 +70,7 @@
 					margin-inline-end: em(8px);
 				}
 			}
+
 			.menu-container {
 				display: flex;
 				align-items: center;
@@ -77,14 +88,17 @@
 			user-select: none;
 		}
 	}
+
 	.btn-new-task {
 		@include btn-board-default($fontSize: em(14px), $padding: 4px 8px);
 		height: 32px;
 		font-family: inherit;
+
 		&.btn-text {
 			border-top-left-radius: 4px;
 			border-bottom-left-radius: 4px;
 		}
+
 		&.btn-icon {
 			margin-inline-end: em(14px);
 			border-top-right-radius: 4px;
