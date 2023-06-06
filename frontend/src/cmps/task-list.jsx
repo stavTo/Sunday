@@ -3,7 +3,7 @@ import { AddTask } from './add-task.jsx'
 import { TaskListHeader } from './task-list-header.jsx'
 import { TaskPreview } from './task-preview.jsx'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-import { GroupSummary } from './group-summary.jsx'
+import { GroupSummary } from './group-summary-cmps/group-summary'
 import { useSelector } from 'react-redux'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate.js'
 

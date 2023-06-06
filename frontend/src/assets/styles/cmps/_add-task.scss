@@ -6,7 +6,7 @@
 	border-block: 1px solid $border-clr;
 	height: $task-row-height;
 
-	& > * {
+	& > .task-selection {
 		border-inline-end: 1px solid $border-clr;
 	}
 

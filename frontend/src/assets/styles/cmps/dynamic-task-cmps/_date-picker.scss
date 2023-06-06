@@ -3,11 +3,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 
 	.reset-date-btn {
 		position: absolute;
-		right: 25px;
-		top: 12px;
+		right: 10px;
+		top: 10px;
 		background-color: $button-hover-bgc;
 		border-radius: 4px;
 		color: #000000;

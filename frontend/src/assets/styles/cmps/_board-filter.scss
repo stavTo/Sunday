@@ -3,7 +3,7 @@
 	gap: 1px;
 
 	.search-container {
-		// display: flex;
+		padding-inline-start: 5px;
 		width: 92px;
 		transition: outline 0.1s;
 		transition: width 0.1s;
@@ -12,6 +12,7 @@
 			&:hover {
 				background-color: inherit;
 			}
+
 			cursor: text;
 			width: 235px;
 
@@ -24,11 +25,13 @@
 	.filter-search-input {
 		all: unset;
 		width: 60px;
+		width: 100%;
 		height: 28px;
 		font-size: em(14px);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+		padding-inline-start: 5px;
 	}
 
 	& > * {

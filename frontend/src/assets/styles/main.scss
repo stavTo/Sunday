@@ -30,6 +30,11 @@
 @import 'cmps/side-bar';
 @import 'cmps/expandable-sidebar';
 @import 'cmps/task-details';
+
+// Group summary cmps
+@import 'cmps/group-summary-cmps/group-summary';
+@import 'cmps/group-summary-cmps/labels-progress-bar';
+
 // Board cmps
 @import 'cmps/board-container';
 @import 'cmps/task-preview';
@@ -42,7 +47,6 @@
 @import 'cmps/task-selection';
 @import 'cmps/task-list';
 @import 'cmps/board-toolbar';
-@import 'cmps/group-summary';
 @import 'cmps/checked-tasks-menu';
 
 // Board index cmps

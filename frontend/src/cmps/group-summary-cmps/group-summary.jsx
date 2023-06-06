@@ -1,4 +1,3 @@
-import { object } from 'prop-types'
 import { useSelector } from 'react-redux'
 import { LabelsProgressBar } from './labels-progress-bar'
 
@@ -21,7 +20,7 @@ export function GroupSummary({ group }) {
 					case STATUS_PICKER:
 					case PRIORITY_PICKER:
 						return (
-							<div key={cmp.id} className="group-summary-data">
+							<div width={cmp.defaultWidth} key={cmp.id} className="group-summary-data">
 								<LabelsProgressBar
 									defaultWidth={cmp.defaultWidth}
 									group={group}
