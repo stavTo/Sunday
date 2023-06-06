@@ -60,7 +60,11 @@ export function GroupPreview({ group }) {
 	}
 
 	async function onRemoveGroup() {
-		await removeGroup(board._id, group.id)
+		try {
+			await removeGroup(board._id, group.id)
+		} catch {
+			showErrorMsg('Cant remove group')
+		}
 	}
 
 	function openColorPicker() {
@@ -80,13 +84,15 @@ export function GroupPreview({ group }) {
 						group={group}
 						onRemoveGroup={onRemoveGroup}
 						openColorPicker={openColorPicker}
-						setIsOptionOpen={setIsOptionOpen} />
+						setIsOptionOpen={setIsOptionOpen}
+					/>
 				)}
 				{isColorPickerOpen && (
 					<ColorPicker
 						onSetColorPickerClose={onSetColorPickerClose}
 						setGroupStyle={setGroupStyle}
-						setIsColorPickerOpen={setIsColorPickerOpen} />
+						setIsColorPickerOpen={setIsColorPickerOpen}
+					/>
 				)}
 				<div className="expand-arrow-container">{ICON_EXPAND_ARROW}</div>
 				<div className="group-title-container" onClick={handleTitleClick}>
