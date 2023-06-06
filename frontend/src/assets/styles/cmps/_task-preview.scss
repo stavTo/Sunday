@@ -6,12 +6,18 @@
 	&:hover {
 		background-color: $task-hover-bgc;
 		box-shadow: 4px 3px 6px -3px $input-hover-border-clr;
+
 		.task-option {
 			opacity: 1;
+
+			svg {
+				height: 22px;
+				width: 22px;
+			}
 		}
 	}
 
-	& > * {
+	&>* {
 		border-inline-end: 1px solid $border-clr;
 	}
 
@@ -28,6 +34,7 @@
 		opacity: 0;
 		width: 25px;
 		height: 25px;
+
 		svg {
 			width: 25px;
 			height: 25px;

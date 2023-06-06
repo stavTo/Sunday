@@ -52,8 +52,7 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 								key={cmp.id}
 								groupId={group.id}
 								type={cmp.cmpName}
-								task={task}
-							/>
+								task={task} />
 						)
 					case DATE_PICKER:
 						return (

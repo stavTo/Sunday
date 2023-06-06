@@ -5,7 +5,7 @@ import { updateGroup, removeGroup } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { TippyContainer } from './tippy-container'
-import { OptionsMenu } from './options-menu'
+import { GroupOptionsMenu } from './group-options-menu'
 import { ColorPicker } from './color-picker'
 
 export function GroupPreview({ group }) {
@@ -76,7 +76,7 @@ export function GroupPreview({ group }) {
 					</div>
 				</div>
 				{isOptionOpen && (
-					<OptionsMenu
+					<GroupOptionsMenu
 						group={group}
 						onRemoveGroup={onRemoveGroup}
 						openColorPicker={openColorPicker}
