@@ -16,9 +16,9 @@ export function GroupPreview({ group }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	useEffect(() => {
-		document.addEventListener('click', onSetOptionClose)
+		document.addEventListener('mousedown', onSetOptionClose)
 		return () => {
-			document.removeEventListener('click', onSetOptionClose)
+			document.removeEventListener('mousedown', onSetOptionClose)
 		}
 	}, [])
 
@@ -71,7 +71,7 @@ export function GroupPreview({ group }) {
 		<section className="group-preview">
 			<div className="group-header" style={{ color: group.style.color }}>
 				<div className="group-option-container btn-primary flex align-center">
-					<div className="group-option flex align-center" onClick={() => setIsOptionOpen(true)}>
+					<div className="group-option btn-primary flex align-center" onClick={() => setIsOptionOpen(true)}>
 						{ICON_OPTIONS}
 					</div>
 				</div>
