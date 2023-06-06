@@ -1,4 +1,4 @@
-import { timeStampToDate, darkenHexColor, millisecondsToDays } from "../../services/util.service"
+import { timeStampToDate, darkenHexColor, millisecondsToDays } from '../../services/util.service'
 import { boardService } from '../../services/board.service.local'
 import { saveTask } from '../../store/selected-board.actions'
 import { useState, useEffect } from 'react'
@@ -109,7 +109,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		return `${result}%`
 	}
 
-
 	function getTimestampInDays() {
 		const estTime = timeline.endDate - timeline.startDate
 		return millisecondsToDays(estTime)
@@ -178,8 +177,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		)
 	}
 
-	console.log("groupId, groupColor:", groupId, groupColor)
-
 	return (
 		<li
 			className="timeline-picker flex align-center justify-center pointer"
@@ -192,17 +189,22 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 			<div className="timeline-container">
 				{task.timeline && (
 					<div className="span-container flex align-center justify-center">
-						<div className='progress' style={{ background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})` }} >
-							<span style={{ 'width': '50%' }}></span>
+						<div
+							className="progress"
+							style={{
+								background: `linear-gradient(to right, ${
+									isHovered ? darkenHexColor(groupColor) : groupColor
+								} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
+							}}
+						>
+							<span style={{ width: '50%' }}></span>
 						</div>
 						<span className="range-preview flex row justify-center">
 							{hasTimeline &&
 								(isHovered ? (
 									<span>{getTimestampInDays()}d</span>
 								) : (
-									<span>
-										{getTimelineRange(timeline)}
-									</span>
+									<span>{getTimelineRange(timeline)}</span>
 								))}
 							{isHovered && hasTimeline && (
 								<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
@@ -230,15 +232,15 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 							showOutsideDays
 							fixedWeeks
 							modifiersClassNames={{
-								today: 'my-today'
+								today: 'my-today',
 							}}
 							components={{
-								Caption: NavButtons
+								Caption: NavButtons,
 							}}
 						/>
 					</div>
 				)}
-			</div >
-		</li >
+			</div>
+		</li>
 	)
 }
