@@ -1,0 +1,58 @@
+.board-info-modal {
+    background: $clr0;
+    width: 850px;
+    height: 550px;
+    z-index: 99999;
+    border-radius: 8px;
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .modal-title {
+        font-size: rem(24px);
+        margin-block-start: 5px;
+    }
+
+    .close-modal-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .editor-container {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+        textarea {
+            all: unset;
+        }
+    }
+
+    .info-container {
+        display: flex;
+        flex-direction: column;
+        width: 323px;
+        background-color: rgb(245, 246, 248);
+    }
+}
+
+
+
+
+
+
+.modal-overlay {
+    cursor: pointer;
+    z-index: 9999;
+    position: absolute;
+    inset: 0;
+    background-color: rgba(41, 47, 76, 0.7);
+}
