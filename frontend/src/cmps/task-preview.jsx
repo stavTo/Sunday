@@ -45,24 +45,16 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 
 	return (
 		<>
-			{isOptionOpen && (
-				<TaskOptionsMenu
-					task={task}
-					group={group}
-					setIsOptionOpen={setIsOptionOpen}
-				/>
-			)}
-			<ul
-				className="task-preview task-row clean-list"
-				style={{
-					borderInlineStart: `6px solid ${group.style.color}`,
-				}}
-			>
-				<li onClick={() => setIsOptionOpen(prev => !prev)} className="task-option btn-primary">
-					{ICON_OPTIONS}
-				</li>
-				<TaskSelection onCheck={handleCheck} isChecked={checkedTaskIds.includes(task.id)} />
-				<TaskTitle groupId={group.id} task={task} />
+			{isOptionOpen && <TaskOptionsMenu task={task} group={group} setIsOptionOpen={setIsOptionOpen} />}
+			<ul className="task-preview task-row clean-list">
+				<div className="sticky-container">
+					<div onClick={() => setIsOptionOpen(prev => !prev)} className="task-option btn-primary">
+						{ICON_OPTIONS}
+					</div>
+					<div className="colored-border" style={{ backgroundColor: group.style.color }}></div>
+					<TaskSelection onCheck={handleCheck} isChecked={checkedTaskIds.includes(task.id)} />
+					<TaskTitle groupId={group.id} task={task} />
+				</div>
 				{board.cmpsOrder.map(cmp => {
 					switch (cmp.cmpName) {
 						case STATUS_PICKER:

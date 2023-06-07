@@ -67,18 +67,19 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 	}
 
 	return (
-		<ul
-			className="task-list-header task-row clean-list"
-			style={{ borderInlineStart: `6px solid ${group.style.color}` }}
-		>
-			{!isCollapsed && (
-				<>
-					<TaskSelection isChecked={isGroupSelected} onCheck={toggleGroupChecked} />
-					<li style={{ width: '400px' }} className="task-title-header">
-						Task
-					</li>
-				</>
-			)}
+		<ul className="task-list-header task-row clean-list">
+			<div className="sticky-container">
+				<div className="colored-border" style={{ backgroundColor: group.style.color }}></div>
+				{!isCollapsed && (
+					<>
+						<TaskSelection isChecked={isGroupSelected} onCheck={toggleGroupChecked} />
+						<li style={{ width: '400px' }} className="task-title-header">
+							Task
+						</li>
+					</>
+				)}
+			</div>
+
 			{board.cmpsOrder.map((cmp, idx) => {
 				let cmpTitle
 				switch (cmp.cmpName) {

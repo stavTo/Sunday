@@ -1,8 +1,33 @@
 .task-preview {
 	display: flex;
 	position: relative;
-	border-block-start: 1px solid $border-clr;
 	height: $task-row-height;
+	background-color: $clr0;
+	// width: 100vw;
+	border-block-start: 1px solid $border-clr;
+
+	.sticky-container {
+		border-block-end: 1px solid $border-clr;
+		display: flex;
+		position: sticky;
+		left: 30px;
+		background-color: inherit;
+		z-index: 1;
+
+		&:hover {
+			background-color: $task-hover-bgc;
+		}
+
+		li {
+			height: $task-row-height;
+		}
+	}
+
+	.colored-border {
+		margin-block-end: -2px;
+		height: calc(100% + 2px);
+		width: 6px;
+	}
 
 	&:hover {
 		background-color: $task-hover-bgc;
@@ -18,18 +43,18 @@
 	}
 
 	.task-option {
-		position: absolute;
-		left: -35px;
-		bottom: 4px;
-		font-size: rem(40px);
-		line-height: 36px;
-		border: none;
+		width: 25px;
+		height: 35px;
+		color: $clr1;
+		opacity: 0;
 		display: flex;
+		position: relative;
 		justify-content: center;
 		align-items: center;
-		opacity: 0;
-		width: 25px;
-		height: 25px;
+
+		display: none;
+		// font-size: rem(40px);
+		// line-height: 36px;
 
 		svg {
 			height: 22px;
