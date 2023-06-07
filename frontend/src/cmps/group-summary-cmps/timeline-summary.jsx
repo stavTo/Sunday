@@ -7,8 +7,8 @@ export function TimelineSummary({ board, group, defaultWidth }) {
     const [timeline, setTimeline] = useState({})
 
     useEffect(() => {
-        if (!group?.timeline?.startDate) return
-        if (!group?.timeline?.endDate) return
+        // if (!group.timeline?.startDate) return
+        // if (!group.timeline?.endDate) return
         calculateGroupTimeline()
         if (timeline.startDate && timeline.endDate) {
             calculateTimelineProgress()
@@ -41,7 +41,6 @@ export function TimelineSummary({ board, group, defaultWidth }) {
                 endDates.push(timeline.endDate)
             })
         }
-
 
         const earliestDate = Math.min(...startDates)
         const latestDate = Math.max(...endDates)
@@ -109,6 +108,7 @@ export function TimelineSummary({ board, group, defaultWidth }) {
                                     <span>{getTimestampInDays()}d</span>
                                 ) : (
                                     <span>
+                                        {/* Invalid date for some reason */}
                                         {getTimelineRange()}
                                     </span>
                                 ))}

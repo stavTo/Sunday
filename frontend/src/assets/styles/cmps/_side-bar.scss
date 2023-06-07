@@ -20,21 +20,17 @@
 			align-items: center;
 
 			ul {
-				gap: 0.5em;
 
-				li:first-child {
-					margin-block-start: 0.5em;
-					height: 2.5em;
-					width: 2.5em;
-
+				li:first-child:not(.work-management) {
 					img {
-						border-block-end: 1px solid #595c6f;
+						height: 2.5em;
+						width: 2.5em;
 					}
+
+					margin-block-start: 0.5em;
 				}
 
 				li:nth-child(2) {
-					margin-block-start: 0.6em;
-
 					svg {
 						height: 1.7em;
 						width: 1.7em;
@@ -91,6 +87,7 @@
 					padding: 6px;
 					margin-block-end: 8px;
 				}
+
 				cursor: pointer;
 				width: 2em;
 				text-align: center;

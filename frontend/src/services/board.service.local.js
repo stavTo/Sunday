@@ -189,6 +189,7 @@ async function duplicateGroup(boardId, group, activity = '') {
 }
 
 async function duplicateTask(boardId, group, task, boolean) {
+	console.log(boardId)
 	const newTask = boolean ? { ...task } : getEmptyTask('New task')
 	newTask.id = utilService.makeId()
 	const board = await getById(boardId)
@@ -524,12 +525,12 @@ function _getDummyBoard(boardNum) {
 			},
 		],
 		cmpsOrder: [
-			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px' },
-			{ id: utilService.makeId(), cmpName: 'statusPicker', defaultWidth: '150px' },
-			{ id: utilService.makeId(), cmpName: 'priorityPicker', defaultWidth: '150px' },
-			{ id: utilService.makeId(), cmpName: 'timelinePicker', defaultWidth: '150px' },
-			{ id: utilService.makeId(), cmpName: 'collaboratorPicker', defaultWidth: '150px' },
-			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px' },
+			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px', minWidth: '85px' },
+			{ id: utilService.makeId(), cmpName: 'statusPicker', defaultWidth: '150px', minWidth: '50px' },
+			{ id: utilService.makeId(), cmpName: 'priorityPicker', defaultWidth: '150px', minWidth: '50px' },
+			{ id: utilService.makeId(), cmpName: 'timelinePicker', defaultWidth: '150px', minWidth: '50px' },
+			{ id: utilService.makeId(), cmpName: 'collaboratorPicker', defaultWidth: '150px', minWidth: '100px' },
+			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px', minWidth: '50px' },
 		],
 		statusLabels: [
 			{ id: 'sl100', title: 'Done', color: '#00C875' },

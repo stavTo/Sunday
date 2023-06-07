@@ -11,11 +11,12 @@ import { IndexInbox } from '../cmps/index-cmps/IndexInbox.jsx'
 
 export function BoardIndex() {
     const boards = useSelector(({ boardModule }) => boardModule.boards)
+
     document.title = 'My Boards'
 
     useEffect(() => {
         onLoadBoards()
-    }, [])
+    }, [boards])
 
     async function onLoadBoards() {
         try {
@@ -24,7 +25,6 @@ export function BoardIndex() {
             showErrorMsg(`Board could not be loaded`)
         }
     }
-
 
     if (!boards) return <BoardLoader />
 

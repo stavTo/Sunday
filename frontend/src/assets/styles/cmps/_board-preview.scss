@@ -27,6 +27,14 @@
         svg {
             color: $icon-color;
         }
+
+        .header-icon {
+            &.starred {
+                svg {
+                    color: gold;
+                }
+            }
+        }
     }
 
     .title {

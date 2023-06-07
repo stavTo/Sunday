@@ -163,6 +163,12 @@
 		}
 	}
 
+	.drag-handle {
+		flex: 1;
+
+		height: 40px;
+	}
+
 	.task-row {
 		& > *:not(.task-option, .task-title-header, .task-title) {
 			flex-shrink: 0;

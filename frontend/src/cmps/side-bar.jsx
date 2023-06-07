@@ -38,18 +38,21 @@ export function SideBar({ isExpandable = true }) {
 									<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="" />
 								</Link>
 							</li>
-							<TippyContainer txt={'Work management'} placement="right" offset={[0, 20]}>
-								<li className="flex work-management">{ICON_WORK_MANAGEMENT}</li>
-							</TippyContainer>
-							<TippyContainer txt={'My Work'} placement="right" offset={[0, 20]}>
-								<li className="flex my-work">{ICON_MY_WORK}</li>
-							</TippyContainer>
-							<TippyContainer txt={'Favorites'} placement="right" offset={[0, 20]}>
-								<li className="flex favorites"
+							<hr></hr>
+							<div className="flex column gap-1">
+								<TippyContainer txt={'Work management'} placement="right" offset={[0, 20]}>
+									<li className="flex work-management">{ICON_WORK_MANAGEMENT}</li>
+								</TippyContainer>
+								<TippyContainer txt={'My Work'} placement="right" offset={[0, 20]}>
+									<li className="flex my-work">{ICON_MY_WORK}</li>
+								</TippyContainer>
+								<TippyContainer txt={'Favorites'} placement="right" offset={[0, 20]}>
+									<li className="flex favorites"
 									onClick={onToggleFavorites}>
 									{ICON_FAVORITES}
 								</li>
-							</TippyContainer>
+								</TippyContainer>
+							</div>
 						</ul>
 					</li>
 					<li className="bottom-navigation-area">
