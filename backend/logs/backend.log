@@ -62874,3 +62874,6 @@
 7.6.2023, 17:43:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
 7.6.2023, 17:43:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
 7.6.2023, 17:43:50 - INFO - Sample Logger Middleware 
+7.6.2023, 17:54:53 - INFO - Server is running on port: 3030 
+7.6.2023, 17:59:41 - INFO - Sample Logger Middleware 
+7.6.2023, 17:59:41 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 

@@ -4,9 +4,6 @@ import { DEFAULT_USER, ICON_BOARD_LIST } from "../assets/icons/icons";
 
 export function BoardInfo({ board, setIsInfoOpen }) {
 
-
-
-
     return (
         <>
             <section className="board-info-modal">
