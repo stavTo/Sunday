@@ -1,4 +1,9 @@
 .group-summary {
+	.collapsed & {
+		border: 1px solid $border-clr;
+		margin-inline-start: 0;
+	}
+
 	margin-inline-start: 440px;
 	height: $task-row-height;
 	border-block-end: 1px solid $border-clr;
@@ -6,6 +11,7 @@
 	border-bottom-left-radius: 8px;
 
 	.empty-owner-container {
+		box-sizing: content-box;
 		border-inline-start: 1px solid $border-clr;
 		border-bottom-left-radius: 8px;
 	}

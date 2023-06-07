@@ -7,12 +7,19 @@ import { useSelector } from 'react-redux'
 import { TippyContainer } from './tippy-container'
 import { GroupOptionsMenu } from './group-options-menu'
 import { ColorPicker } from './color-picker'
+import { GroupSummary } from './group-summary-cmps/group-summary'
+import { TaskListHeader } from './task-list-header'
+import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 
 export function GroupPreview({ group, provided }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [isOptionOpen, setIsOptionOpen] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(group.title)
 	const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
+	const [isCollapsed, setIsCollapsed] = useState(false)
+	const [isGroupSelected, setIsGroupSelected] = useState(false)
+
+	const checkedTaskIds = useSelector(({ selectedTaskModule }) => selectedTaskModule.checkedTaskIds)
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	useEffect(() => {
@@ -21,6 +28,10 @@ export function GroupPreview({ group, provided }) {
 			document.removeEventListener('mousedown', onSetOptionClose)
 		}
 	}, [])
+
+	useEffectUpdate(() => {
+		if (!checkedTaskIds.length) setIsGroupSelected(false)
+	}, [checkedTaskIds])
 
 	function handleTitleClick() {
 		setIsInputVisible(true)
@@ -72,7 +83,7 @@ export function GroupPreview({ group, provided }) {
 		setIsColorPickerOpen(true)
 	}
 	return (
-		<section className="group-preview">
+		<section className={`group-preview ${isCollapsed ? 'collapsed' : ''}`}>
 			<div className="group-header" style={{ color: group.style.color }}>
 				<div className="group-option-container btn-primary flex align-center">
 					<div className="group-option btn-primary flex align-center" onClick={() => setIsOptionOpen(true)}>
@@ -94,7 +105,12 @@ export function GroupPreview({ group, provided }) {
 						setIsColorPickerOpen={setIsColorPickerOpen}
 					/>
 				)}
-				<div className="expand-arrow-container">{ICON_EXPAND_ARROW}</div>
+				<div
+					onClick={() => setIsCollapsed(prev => !prev)}
+					className={`expand-arrow-container ${isCollapsed ? 'collapsed' : ''}`}
+				>
+					{ICON_EXPAND_ARROW}
+				</div>
 				<div className="group-title-container" onClick={handleTitleClick}>
 					{!isInputVisible && (
 						<TippyContainer txt="Click to Edit" offset={[0, 5]}>
@@ -115,7 +131,16 @@ export function GroupPreview({ group, provided }) {
 				<div className="task-count">{group.tasks?.length} Tasks</div>
 				<div className="drag-handle" {...provided.dragHandleProps}></div>
 			</div>
-			<TaskList group={group} tasks={group.tasks} />
+			<TaskListHeader
+				isCollapsed={isCollapsed}
+				group={group}
+				tasks={group.tasks}
+				isGroupSelected={isGroupSelected}
+				setIsGroupSelected={setIsGroupSelected}
+			/>
+			{!isCollapsed && <TaskList group={group} tasks={group.tasks} setIsGroupSelected={setIsGroupSelected} />}
+
+			<GroupSummary group={group} isCollapsed={isCollapsed} />
 		</section>
 	)
 }

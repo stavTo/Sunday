@@ -8,7 +8,8 @@
 		transition: outline 0.1s;
 		transition: width 0.1s;
 
-		&.focused {
+		&.focused,
+		&:has(:focus) {
 			&:hover {
 				background-color: inherit;
 			}

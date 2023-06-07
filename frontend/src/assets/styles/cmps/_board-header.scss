@@ -45,7 +45,7 @@
 			align-self: center;
 			align-items: center;
 
-			&>* {
+			& > * {
 				height: 32px;
 				cursor: pointer;
 			}
@@ -122,6 +122,10 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 
+	img {
+		border-radius: 50%;
+	}
+
 	.modal-title {
 		font-size: rem(24px);
 		margin-block-start: 5px;
@@ -147,9 +151,21 @@
 		margin-block: 20px;
 	}
 
-	li {
+	.user-list {
 		display: flex;
-		gap: 10px;
+		flex-direction: column;
+		gap: 1em;
+
+		li {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			span:hover {
+				color: $bg-clr1;
+				font-weight: 500;
+				cursor: pointer;
+			}
+		}
 	}
 
 	img {
