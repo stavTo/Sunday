@@ -5,21 +5,7 @@ import { EDIT_LABEL } from '../../assets/icons/icons'
 import { saveTask, updateLabels } from '../../store/selected-board.actions'
 import { boardService } from '../../services/board.service'
 import { usePopper } from 'react-popper'
-
-// const DEFAULT_STATUS_LABELS = [
-// 	{ id: 'sl100', title: 'Done', color: '#00C875' },
-// 	{ id: 'sl101', title: 'Working on it', color: '#fdab3d' },
-// 	{ id: 'sl102', title: 'Stuck', color: '#e2445c' },
-// 	{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' },
-// ]
-
-// const DEFAULT_PRIORITY_LABELS = [
-// 	{ id: 'pl100', title: 'Critical', color: '#333333' },
-// 	{ id: 'pl101', title: 'High', color: '#401694' },
-// 	{ id: 'pl102', title: 'Medium', color: '#5559df' },
-// 	{ id: 'pl103', title: 'Low', color: '#579bfc' },
-// 	{ id: 'pl104', title: '', color: '#c4c4c4' },
-// ]
+import { showErrorMsg } from '../../services/event-bus.service'
 
 export function LabelPicker({ type, task, groupId, defaultWidth }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
@@ -44,7 +30,7 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 		} else if (type === 'priorityPicker') {
 			setLabelsName('priorityLabels')
 		}
-	}, [task, type])
+	}, [task, type, board])
 
 	useEffect(() => {
 		document.addEventListener('mousedown', onPickerClose)
@@ -54,9 +40,10 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 	}, [])
 
 	useEffectUpdate(() => {
-		const labelTxt = type === 'statusPicker' ? task.status : task.priority
-		setLabel(board[labelsName].find(l => l.title === labelTxt))
-	}, [labelsName])
+		const labelId = type === 'statusPicker' ? task.status : task.priority
+		const label = board[labelsName].find(l => l.id === labelId)
+		setLabel(label)
+	}, [labelsName, board])
 
 	function onPickerClose(ev) {
 		if (!ev.target.closest('.label-picker-popup')) {
@@ -69,14 +56,18 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 		setIsPickerOpen(true)
 	}
 
-	function onChangeLabel(ev, label) {
+	async function onChangeLabel(ev, label) {
 		ev.stopPropagation()
 		setIsPickerOpen(false)
 		const labelTaskName = labelsName === 'statusLabels' ? 'status' : 'priority'
 		const taskToEdit = { ...task }
-		taskToEdit[labelTaskName] = label.title
-		saveTask(board._id, groupId, taskToEdit, 'changed label')
-		setLabel(label)
+		taskToEdit[labelTaskName] = label.id
+		try {
+			await saveTask(board._id, groupId, taskToEdit, 'changed label')
+			setLabel(label)
+		} catch (err) {
+			showErrorMsg('Cant change label')
+		}
 	}
 
 	return (
@@ -98,6 +89,7 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 						styles={styles}
 						setArrowElement={setArrowElement}
 						attributes={attributes}
+						setIsEditor={setIsEditor}
 					/>
 				) : (
 					<LabelPickerPopUp
@@ -140,62 +132,82 @@ function LabelPickerPopUp({
 					</li>
 				))}
 			</ul>
-			<div className="sperator"></div>
-			{/* <button className="edit-labels" onClick={() => setIsEditor(true)}>
-				<span>{EDIT_LABEL}</span>
-				<span>Edit Labels</span>
-			</button> */}
+			<div className="separator"></div>
+			<button className="edit-labels" onClick={() => setIsEditor(true)}>
+				<span className="icon">{EDIT_LABEL}</span>
+				<span className="title">Edit Labels</span>
+			</button>
 		</div>
 	)
 }
 
-function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrowElement, attributes }) {
+function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrowElement, attributes, setIsEditor }) {
 	const [boardLabels, setBoardLabels] = useState(board[labelsName])
-	// const [labelToEdit, setLabelToEdit] = useState(label)
 
-	// useEffect(() => {
-	// 	setBoardLabels()
-	// }, [])
+	useEffect(() => {
+		setBoardLabels(board[labelsName])
+	}, [board])
 
 	function handleChange({ target }) {
 		const field = target.name
 		const value = target.value
 		const x = boardLabels.map(l => (l.id !== field ? l : { ...l, title: value }))
 		console.log(x)
-
 		setBoardLabels(x)
 	}
 
-	function addNewLabel() {
+	function onAddNewLabel() {
 		const newLabel = boardService.getEmptyLabel()
-		const newLabels = [...board[labelsName], newLabel]
-		updateLabels(board, labelsName, newLabels)
+		setBoardLabels(prev => [...prev, newLabel])
 	}
 
-	function removeLabel(labelId) {
+	function onRemoveLabel(labelId) {
+		const labelTaskName = labelsName === 'statusLabels' ? 'status' : 'priority'
+		const isUse = board.groups.some(g => g.tasks.some(t => t[labelTaskName].id === labelId))
+		if (isUse) return
 		const newLabels = board[labelsName].filter(l => l.id !== labelId)
 		updateLabels(board, labelsName, newLabels)
 	}
+
+	async function onSaveLabels() {
+		setIsEditor(false)
+		try {
+			updateLabels(board, labelsName, boardLabels)
+		} catch (err) {
+			showErrorMsg('Cant edit label')
+		}
+	}
+
+	if (!board[labelsName].length) return
+
 	return (
 		<div className="label-picker-popup" style={styles.popper} {...attributes.popper} ref={popperRef}>
 			<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 			<ul className="labels-input-list clean-list">
-				{board[labelsName].map(label => (
-					<li key={label.id}>
+				{boardLabels.map(label => {
+					return <li key={label.id} className="edit-label">
 						<div className="input-container">
-							<span className="remove-label-btn" onClick={() => removeLabel(label.id)}>
+							<span
+								className="remove-label-btn"
+								onClick={() => onRemoveLabel(label.id)}>
 								X
 							</span>
-							<input type="text" value={label.title} name={label.id} onChange={handleChange} />
+							<input
+								type="text"
+								value={label.title}
+								name={label.id}
+								onChange={handleChange}
+							>
+							</input>
 						</div>
 					</li>
-				))}
+				})}
 			</ul>
-			<button onClick={addNewLabel}>+ New label</button>
-			<div className="sperator"></div>
-			<button className="edit-labels">
-				<span>{EDIT_LABEL}</span>
-				<span>Apply</span>
+			<button onClick={onAddNewLabel}>+ New label</button>
+			<div className="separator"></div>
+			<button className="edit-labels" onClick={onSaveLabels}>
+				<span className="icon">{EDIT_LABEL}</span>
+				<span className="title">Apply</span>
 			</button>
 		</div>
 	)
