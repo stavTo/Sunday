@@ -5,8 +5,6 @@ import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.redu
 import { REMOVE_CHECKED_TASK } from './selected-task.reducer'
 import { store } from './store'
 
-const selectedBoard = store.getState().selectedBoardModule.selectedBoard
-
 export async function loadBoard(boardId, filter = {}) {
 	!Object.keys(filter).length && store.dispatch({ type: SET_IS_LOADING, isLoading: true })
 	try {

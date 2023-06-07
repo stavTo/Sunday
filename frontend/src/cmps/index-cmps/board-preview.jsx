@@ -6,15 +6,14 @@ import img from '../../assets/img/quick_search_recent_board.svg'
 import {
     ICON_BOARD_LIST,
     ICON_STAR,
-    ICON_WORK_MANAGEMENT
+    ICON_WORK_MANAGEMENT,
+    ICON_STAR_STARRED
 } from '../../assets/icons/icons'
 export function BoardPreview({ board }) {
 
     function onToggleStarState() {
         const isStarred = board.isStarred
         const newBoard = { ...board, isStarred: !isStarred }
-        console.log("board:", board)
-        console.log("hey:", newBoard)
         saveBoard(newBoard)
     }
 
@@ -40,7 +39,7 @@ export function BoardPreview({ board }) {
                         board.isStarred && (
                             <TippyContainer txt="Remove from favorites">
                                 <div className="star-icon header-icon btn-primary starred" onClick={onToggleStarState}>
-                                    {ICON_STAR}
+                                    {ICON_STAR_STARRED}
                                 </div>
                             </TippyContainer>
                         )

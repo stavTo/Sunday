@@ -13,12 +13,12 @@ export function BoardToolbar() {
 	}
 
 	return (
-		<ul className="clean-list flex board-nav-bar board-toolbar">
+		<ul className="clean-list flex board-nav-bar board-toolbar ">
 			<li
 				onClick={() => onNavigate(`/boards/${board._id}`)}
 				className={` ${!currWindow.includes('/kanban') ? 'active-page' : ''}`}
 			>
-				<div>
+				<div className="btn-primary">
 					<span>{ICON_HOUSE} Main Table</span>
 				</div>
 			</li>
@@ -26,7 +26,7 @@ export function BoardToolbar() {
 				onClick={() => onNavigate(`/boards/${board._id}/views/kanban`)}
 				className={` ${currWindow.includes('/kanban') ? 'active-page' : ''}`}
 			>
-				<div>
+				<div className="btn-primary">
 					<span>Kanban</span>
 				</div>
 			</li>

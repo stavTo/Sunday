@@ -7,10 +7,10 @@ import { GroupSummary } from './group-summary-cmps/group-summary'
 import { useSelector } from 'react-redux'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate.js'
 
-export function TaskList({ tasks, group }) {
+export function TaskList({ tasks, group, setIsGroupSelected }) {
 	const [activeTask, setActiveTask] = useState('')
 	const checkedTaskIds = useSelector(({ selectedTaskModule }) => selectedTaskModule.checkedTaskIds)
-	const [isGroupSelected, setIsGroupSelected] = useState(false)
+	// const [isGroupSelected, setIsGroupSelected] = useState(false)
 
 	useEffect(() => {
 		document.addEventListener('mousedown', unsetActiveTask)
@@ -20,11 +20,6 @@ export function TaskList({ tasks, group }) {
 		}
 	}, [])
 
-	//TODO make this code better
-	useEffectUpdate(() => {
-		if (!checkedTaskIds.length) setIsGroupSelected(false)
-	}, [checkedTaskIds])
-
 	function unsetActiveTask() {
 		setActiveTask('')
 	}
@@ -33,12 +28,6 @@ export function TaskList({ tasks, group }) {
 		<Droppable droppableId={group.id}>
 			{(provided, snapshot) => (
 				<ul className="task-list clean-list task-row" {...provided.droppableProps} ref={provided.innerRef}>
-					<TaskListHeader
-						group={group}
-						tasks={tasks}
-						isGroupSelected={isGroupSelected}
-						setIsGroupSelected={setIsGroupSelected}
-					/>
 					{tasks.map((task, idx) => (
 						<Draggable key={task.id} draggableId={task.id} index={idx}>
 							{(provided, snapshot) => (
@@ -60,13 +49,8 @@ export function TaskList({ tasks, group }) {
 						</Draggable>
 					))}
 					{provided.placeholder}
-					{/* {console.log(provided.placeholder)} */}
 					<li>
 						<AddTask group={group} />
-					</li>
-
-					<li>
-						<GroupSummary group={group} />
 					</li>
 				</ul>
 			)}

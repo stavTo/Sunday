@@ -3,6 +3,10 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { DEFAULT_USER } from '../assets/icons/icons.js'
 
+import stavImg from '../assets/img/stav-user.jpeg'
+import idoImg from '../assets/img/ido-user.jpeg'
+import roniImg from '../assets/img/roni-img.jpg'
+
 const STORAGE_KEY = 'board'
 
 export const boardService = {
@@ -30,7 +34,37 @@ export const boardService = {
 	getBoardUsers,
 	duplicateGroup,
 	duplicateTask,
+	getGroupDateSummary,
+	groupHasDate,
 }
+
+export function groupHasDate(group) {
+	return group.tasks.some(task => task.dueDate)
+}
+
+export function getGroupDateSummary(group) {
+	let dates = []
+
+	const hasTimeline = group.tasks.some(task => task.dueDate)
+
+	if (!hasTimeline) return
+
+	group.tasks.forEach(task => {
+		const { dueDate } = task
+
+		if (!dueDate) return
+		if (dates.includes(dueDate)) return
+		dates.push(dueDate);
+	})
+
+	const earliestDate = Math.min(...dates)
+	const latestDate = Math.max(...dates)
+	return {
+		startDate: earliestDate,
+		endDate: latestDate
+	}
+}
+
 
 async function query(filter = {}) {
 	let boards = await storageService.query(STORAGE_KEY)
@@ -75,7 +109,7 @@ async function save(board) {
 		savedBoard = await storageService.put(STORAGE_KEY, board)
 	} else {
 		// Later, owner is set by the backend
-		board.owner = userService.getLoggedInUser()
+		// board.owner = userService.getLoggedInUser()
 		savedBoard = await storageService.post(STORAGE_KEY, board)
 	}
 	return savedBoard
@@ -189,7 +223,6 @@ async function duplicateGroup(boardId, group, activity = '') {
 }
 
 async function duplicateTask(boardId, group, task, boolean) {
-	console.log(boardId)
 	const newTask = boolean ? { ...task } : getEmptyTask('New task')
 	newTask.id = utilService.makeId()
 	const board = await getById(boardId)
@@ -315,12 +348,12 @@ function _getDummyBoard(boardNum) {
 		createdBy: {
 			_id: 'u101',
 			fullname: 'Ido Kadosh',
-			imgUrl: DEFAULT_USER,
+			imgUrl: idoImg,
 		},
 		members: [
-			{ _id: 'u101', fullname: 'Ido Kadosh', imgUrl: DEFAULT_USER },
-			{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
-			{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
+			{ _id: 'u101', fullname: 'Ido Kadosh', imgUrl: idoImg },
+			{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
+			{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
 			{ _id: 'u104', fullname: 'Eyal Golan', imgUrl: DEFAULT_USER },
 			{ _id: 'u105', fullname: 'Steve Jobs', imgUrl: DEFAULT_USER },
 		],
@@ -334,8 +367,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c101',
 						title: 'Advertising on billboards',
 						status: 'Working on it',
-						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
-						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
+						owner: { _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
+						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg }],
 						timeline: { startDate: 1686258000000, endDate: 1686862800000 },
 						dueDate: 1686258000000,
 						comments: [],
@@ -345,7 +378,7 @@ function _getDummyBoard(boardNum) {
 						id: 'c102',
 						title: 'Advertising on social media',
 						status: 'Done',
-						owner: { _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						owner: { _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
 						collaborators: [],
 						timeline: { startDate: 1688331600000, endDate: 1688850000000 },
 						dueDate: null,
@@ -356,7 +389,7 @@ function _getDummyBoard(boardNum) {
 						id: 'c103',
 						title: 'Collaboration with social media influencers',
 						status: 'Stuck',
-						owner: { _id: 'u101', fullname: 'Ido Kadosh', imgUrl: DEFAULT_USER },
+						owner: { _id: 'u101', fullname: 'Ido Kadosh', imgUrl: idoImg },
 						collaborators: [],
 						timeline: { startDate: 1688936400000, endDate: 1690146000000 },
 						dueDate: null,
@@ -375,7 +408,7 @@ function _getDummyBoard(boardNum) {
 						id: 'c104',
 						title: 'Frontend',
 						status: 'Stuck',
-						owner: { _id: 'u101', fullname: 'Ido Kadosh', imgUrl: DEFAULT_USER },
+						owner: { _id: 'u101', fullname: 'Ido Kadosh', imgUrl: idoImg },
 						collaborators: [],
 						timeline: { startDate: 1688331600000, endDate: 1688850000000 },
 						dueDate: 1686258000000,
@@ -388,8 +421,8 @@ function _getDummyBoard(boardNum) {
 						status: 'Working on it',
 						owner: {},
 						collaborators: [
-							{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
-							{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+							{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
+							{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
 						],
 						timeline: { startDate: 1687035600000, endDate: 1687986000000 },
 						dueDate: 1686255000000,
@@ -400,9 +433,9 @@ function _getDummyBoard(boardNum) {
 						id: 'c106',
 						title: 'Design color palette',
 						status: 'Almost done',
-						owner: { _id: 'u101', fullname: 'Ido Kadosh', imgUrl: DEFAULT_USER },
+						owner: { _id: 'u101', fullname: 'Ido Kadosh', imgUrl: idoImg },
 						collaborators: [],
-						timeline: { startDate: 1689195600000, endDate: 1688158800000 },
+						timeline: { startDate: 1688195600000, endDate: 1689158800000 },
 						dueDate: 1686258000000,
 						comments: [],
 						priority: 'High',
@@ -411,7 +444,7 @@ function _getDummyBoard(boardNum) {
 						id: 'c107',
 						title: 'Purchase server',
 						status: 'Stuck',
-						owner: { _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
+						owner: { _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
 						collaborators: [],
 						timeline: { startDate: 1687467600000, endDate: 1687554000000 },
 						dueDate: 1686258000000,
@@ -422,7 +455,7 @@ function _getDummyBoard(boardNum) {
 						id: 'c108',
 						title: 'Node.js',
 						status: 'Almost done',
-						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
+						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
 						collaborators: [],
 						timeline: { startDate: 1685566800000, endDate: 1685912400000 },
 						dueDate: null,
@@ -441,8 +474,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c109',
 						title: 'Estimate amount of consumers',
 						status: 'Working on it',
-						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
-						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
+						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
+						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg }],
 						timeline: { startDate: 1686430800000, endDate: 1686690000000 },
 						dueDate: 1686258000000,
 						comments: [],
@@ -452,8 +485,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c110',
 						title: 'Schedule meetup with Eged',
 						status: 'Working on it',
-						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
-						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
+						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
+						collaborators: [{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg }],
 						timeline: { startDate: 1686430800000, endDate: 1686690000000 },
 						dueDate: 1686258000000,
 						comments: [],
@@ -463,8 +496,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c111',
 						title: 'Schedule meetup with Carmelit Haifa',
 						status: 'Done',
-						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
-						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
+						owner: { _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
+						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg }],
 						timeline: { startDate: 1686430800000, endDate: 1686690000000 },
 						dueDate: null,
 						comments: [],
@@ -482,8 +515,8 @@ function _getDummyBoard(boardNum) {
 						id: 'c112',
 						title: 'Work arrangement with taxi drivers',
 						status: 'Working on it',
-						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
-						collaborators: [{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER }],
+						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
+						collaborators: [{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg }],
 						timeline: { startDate: 1686430800000, endDate: 1686690000000 },
 						dueDate: 1686258000000,
 						comments: [],
@@ -493,11 +526,11 @@ function _getDummyBoard(boardNum) {
 						id: 'c113',
 						title: 'Carpool',
 						status: 'Stuck',
-						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
+						owner: { _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
 						collaborators: [
-							{ _id: 'u101', fullname: 'Ido Kadosh', imgUrl: DEFAULT_USER },
-							{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: DEFAULT_USER },
-							{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: DEFAULT_USER },
+							{ _id: 'u101', fullname: 'Ido Kadosh', imgUrl: idoImg },
+							{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
+							{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
 						],
 						timeline: { startDate: 1683925200000, endDate: 1689886800000 },
 						dueDate: 1686258000000,
@@ -515,8 +548,8 @@ function _getDummyBoard(boardNum) {
 				createdAt: 154514,
 				byMember: {
 					_id: 'u101',
-					fullname: 'Abi Abambi',
-					imgUrl: 'http://some-img',
+					fullname: 'Ido kadosh',
+					imgUrl: idoImg,
 				},
 				task: {
 					id: 'c101',
