@@ -81,7 +81,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function calculateTimelineProgress() {
-		if (!timeline) return 0
+		if (!timeline.startDate || !timeline.endDate) return 0
 
 		// Get the current date
 		const currentDate = Date.now()
@@ -188,33 +188,33 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 			style={{ width: defaultWidth }}
 		>
 			<div className="timeline-container">
-				{task.timeline && (
-					<div className="span-container flex align-center justify-center">
-						<div
-							className="progress"
-							style={{
-								background: `linear-gradient(to right, ${
-									isHovered ? darkenHexColor(groupColor) : groupColor
+				<div className="span-container flex align-center justify-center">
+					<div
+						className="progress"
+						style={!hasTimeline ? { backgroundColor: "#ABABAB" } : {
+							background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor
 								} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
-							}}
-						>
-							<span style={{ width: '50%' }}></span>
-						</div>
-						<span className="range-preview flex row justify-center">
-							{hasTimeline &&
+						}}>
+						<span></span>
+					</div>
+					<span className="range-preview flex row justify-center">
+						{!hasTimeline && (isHovered ?
+							(<span>Set Dates</span>) :
+							<span>-</span>)
+						}
+						{hasTimeline &&
 								(isHovered ? (
 									<span>{getTimestampInDays()}d</span>
 								) : (
 									<span>{getTimelineRange(timeline)}</span>
 								))}
-							{isHovered && hasTimeline && (
-								<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
-									{ICON_CLOSE}
-								</div>
-							)}
-						</span>
-					</div>
-				)}
+						{isHovered && hasTimeline && (
+							<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
+								{ICON_CLOSE}
+							</div>
+						)}
+					</span>
+				</div>
 				{toggle && (
 					<div
 						className="timeline-popup-container"

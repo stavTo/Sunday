@@ -33,6 +33,7 @@ export async function addBoard(board) {
 }
 
 export async function updateBoard(board) {
+	console.log("board from updateBoard", board)
 	try {
 		const newBoard = await boardService.save(board)
 		store.dispatch({ type: UPDATE_BOARD, board: newBoard })

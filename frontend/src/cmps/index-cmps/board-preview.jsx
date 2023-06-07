@@ -19,7 +19,9 @@ export function BoardPreview({ board }) {
 
     return (
         <div className="board-preview pointer">
-            <img src={img} />
+            <Link to={`/boards/${board._id}`}>
+                <img src={img} />
+            </Link>
             <div className="board-title flex column align-center space-between">
                 <div className="preview-header flex row align-center space-between w-100">
                     <Link to={`/boards/${board._id}`}>
