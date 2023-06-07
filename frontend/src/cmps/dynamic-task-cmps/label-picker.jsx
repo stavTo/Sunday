@@ -151,9 +151,8 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 	function handleChange({ target }) {
 		const field = target.name
 		const value = target.value
-		const x = boardLabels.map(l => (l.id !== field ? l : { ...l, title: value }))
-		console.log(x)
-		setBoardLabels(x)
+		const newLabels = boardLabels.map(l => (l.id !== field ? l : { ...l, title: value }))
+		setBoardLabels(newLabels)
 	}
 
 	function onAddNewLabel() {

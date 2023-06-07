@@ -5,6 +5,19 @@
 	background-color: $bg-clr3;
 	border-inline-end: 1px solid $clr2;
 
+	.icon-star {
+		svg {
+			fill: gold;
+		}
+	}
+
+	.separator {
+		height: 1px;
+		width: 230px;
+		background-color: $border-clr;
+		margin-inline: auto;
+	}
+
 	.expandable-sidebar-container {
 		&.expanded {
 			.expandable-sidebar {
@@ -72,4 +85,12 @@
 			}
 		}
 	}
+}
+
+.favorites-title {
+	margin-inline-start: 10px;
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	margin-block-end: 7px;
 }

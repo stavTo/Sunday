@@ -28,11 +28,12 @@ export function FavoritesList() {
     return (
         <section className="workspace-board-list">
             <div className="board-list-header flex column">
-                <div className="workspace-title flex align-center">
+                <div className="favorites-title">
+                    <h4 className="icon-star">{ICON_STAR_STARRED}</h4>
                     <h4>Favorites</h4>
-                    <h4>{ICON_STAR_STARRED}</h4>
                 </div>
             </div>
+            <div className="separator"></div>
             <ul className="board-list clean-list flex column">
                 {boards.map(board => {
                     if (board.isStarred) {
