@@ -33,7 +33,6 @@ export function DateSummary({ defaultWidth, group, board }) {
         const progress = (timePassedSinceStart / totalDuration) * 100
 
         const result = Math.round(progress)
-        console.log("result%:", result)
         return `${result}%`
     }
 

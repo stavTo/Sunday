@@ -189,7 +189,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		>
 			<div className="timeline-container">
 				<div className="span-container flex align-center justify-center">
-					{console.log("!hasTimeline:", !hasTimeline)}
 					<div
 						className="progress"
 						style={!hasTimeline ? { backgroundColor: "#ABABAB" } : {
