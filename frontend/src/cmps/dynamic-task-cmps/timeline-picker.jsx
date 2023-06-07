@@ -129,6 +129,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function getTimelineRange() {
+
 		const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
 		const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 
