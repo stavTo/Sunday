@@ -4,6 +4,21 @@
 	border-top-left-radius: 4px;
 	position: relative;
 
+	.sticky-container {
+		position: sticky;
+		left: 30px;
+		background-color: $clr0;
+		z-index: 1;
+		border-start-start-radius: 4px;
+	}
+
+	.colored-border {
+		margin-block-end: -1px;
+		height: calc(100% + 2px);
+		width: 6px;
+		border-start-start-radius: 4px;
+	}
+
 	& > * {
 		border-block-start: 1px solid $border-clr;
 		border-inline-end: 1px solid $border-clr;
@@ -24,6 +39,9 @@
 	.task-title-header {
 		user-select: none;
 		height: $task-row-height;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.resizing-container {

@@ -40,26 +40,29 @@ export function AddTask({ group }) {
 
 	return (
 		<ul
-			style={{
-				borderInlineStart: `6px solid ${utilService.hexToRgba(group.style.color, 0.6)} `,
-			}}
 			className="add-task clean-list"
 			onClick={() => {
 				elInput.current.focus()
 			}}
 		>
-			<TaskSelection isDisabled={true} />
-			<li>
-				<input
-					className="add-task-input"
-					ref={elInput}
-					onKeyDown={handleKeyPressed}
-					placeholder="+ Add item"
-					value={taskToAdd.title}
-					onBlur={onAddTask}
-					onChange={handleChange}
-				></input>
-			</li>
+			<div className="sticky-container">
+				<div
+					className="colored-border"
+					style={{ backgroundColor: utilService.hexToRgba(group.style.color, 0.6) }}
+				></div>
+				<TaskSelection isDisabled={true} />
+				<li>
+					<input
+						className="add-task-input"
+						ref={elInput}
+						onKeyDown={handleKeyPressed}
+						placeholder="+ Add item"
+						value={taskToAdd.title}
+						onBlur={onAddTask}
+						onChange={handleChange}
+					></input>
+				</li>
+			</div>
 		</ul>
 	)
 }

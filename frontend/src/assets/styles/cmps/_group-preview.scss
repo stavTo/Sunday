@@ -81,6 +81,15 @@
 		}
 	}
 
+	.group-sticky-container {
+		position: sticky;
+		// width: 100%;
+		top: 165px;
+		left: 150px;
+		z-index: 10;
+		background-color: $clr0;
+	}
+
 	.group-header {
 		display: flex;
 		align-items: center;
@@ -108,9 +117,9 @@
 
 		.group-title-input {
 			all: unset;
-			font-weight: 600;
-			font-size: rem(20px);
-			font-family: Figtree, Roboto, Rubik, sans-serif;
+			font-weight: 500;
+			font-size: rem(18px);
+			font-family: $title-font;
 			width: 80vw;
 
 			&:focus {
@@ -120,7 +129,11 @@
 		}
 
 		.expand-arrow-container {
-			height: 100%;
+			width: 24px;
+			height: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
 			position: relative;
 			z-index: 1;
@@ -133,8 +146,11 @@
 			transform: rotate(-90deg);
 		}
 
-		&:hover .task-count {
-			opacity: 1;
+		&:hover {
+			.task-count,
+			.group-option-container {
+				opacity: 1;
+			}
 		}
 
 		.task-count {
@@ -147,28 +163,19 @@
 			transition: opacity 0.2s;
 		}
 
-		&:hover .group-option-container {
-			opacity: 1;
-		}
-
 		.group-option-container {
+			width: 25px;
+			height: 25px;
 			color: $clr1;
 			opacity: 0;
-			left: -30px;
 			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
-			.group-option {
-				width: 25px;
-				height: 25px;
-				position: absolute;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-
-				svg {
-					width: 22px;
-					height: 22px;
-				}
+			svg {
+				width: 22px;
+				height: 22px;
 			}
 		}
 	}
@@ -178,6 +185,7 @@
 		z-index: 0;
 		position: absolute;
 		user-select: none;
+		top: 0;
 		width: 100vw;
 		opacity: 0;
 		height: 40px;

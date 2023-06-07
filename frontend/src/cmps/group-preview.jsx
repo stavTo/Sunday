@@ -29,6 +29,16 @@ export function GroupPreview({ group, provided }) {
 		}
 	}, [])
 
+	function handleKeyPressed(key) {
+		if (key.key === 'Enter') setGroupTitle()
+		if (key.key === 'Escape') onEmptyInput()
+	}
+
+	function onEmptyInput() {
+		setTitleToChange(board.title)
+		setIsInputVisible(false)
+	}
+
 	useEffectUpdate(() => {
 		if (!checkedTaskIds.length) setIsGroupSelected(false)
 	}, [checkedTaskIds])
@@ -84,63 +94,73 @@ export function GroupPreview({ group, provided }) {
 	}
 	return (
 		<section className={`group-preview ${isCollapsed ? 'collapsed' : ''}`}>
-			<div className="group-header" style={{ color: group.style.color }}>
-				<div className="group-option-container btn-primary flex align-center">
-					<div className="group-option btn-primary flex align-center" onClick={() => setIsOptionOpen(true)}>
+			<div className="group-sticky-container">
+				<div className="group-header" style={{ color: group.style.color }}>
+					<div
+						className="group-option-container btn-primary flex align-center"
+						onClick={() => setIsOptionOpen(true)}
+					>
+						{/* <div
+							className="group-option btn-primary flex align-center"
+							onClick={() => setIsOptionOpen(true)}
+						> */}
 						{ICON_OPTIONS}
+						{/* </div> */}
 					</div>
-				</div>
-				{isOptionOpen && (
-					<GroupOptionsMenu
-						group={group}
-						onRemoveGroup={onRemoveGroup}
-						openColorPicker={openColorPicker}
-						setIsOptionOpen={setIsOptionOpen}
-					/>
-				)}
-				{isColorPickerOpen && (
-					<ColorPicker
-						onSetColorPickerClose={onSetColorPickerClose}
-						setGroupStyle={setGroupStyle}
-						setIsColorPickerOpen={setIsColorPickerOpen}
-					/>
-				)}
-				<div
-					onClick={() => setIsCollapsed(prev => !prev)}
-					className={`expand-arrow-container ${isCollapsed ? 'collapsed' : ''}`}
-				>
-					{ICON_EXPAND_ARROW}
-				</div>
-				<div className="group-title-container" onClick={handleTitleClick}>
-					{!isInputVisible && (
-						<TippyContainer txt="Click to Edit" offset={[0, 5]}>
-							<h4 className="group-title">{group.title}</h4>
-						</TippyContainer>
+					{isOptionOpen && (
+						<GroupOptionsMenu
+							group={group}
+							onRemoveGroup={onRemoveGroup}
+							openColorPicker={openColorPicker}
+							setIsOptionOpen={setIsOptionOpen}
+						/>
 					)}
-					{isInputVisible && (
-						<input
-							className="group-title-input"
-							autoFocus
-							type="text"
-							value={titleToChange}
-							onChange={handleChange}
-							onBlur={setGroupTitle}
-						></input>
+					{isColorPickerOpen && (
+						<ColorPicker
+							onSetColorPickerClose={onSetColorPickerClose}
+							setGroupStyle={setGroupStyle}
+							setIsColorPickerOpen={setIsColorPickerOpen}
+						/>
 					)}
+					<div
+						onClick={() => setIsCollapsed(prev => !prev)}
+						className={`expand-arrow-container ${isCollapsed ? 'collapsed' : ''}`}
+					>
+						{ICON_EXPAND_ARROW}
+					</div>
+					<div className="group-title-container" onClick={handleTitleClick}>
+						{!isInputVisible && (
+							<TippyContainer txt="Click to Edit" offset={[0, 5]}>
+								<h4 className="group-title">{group.title}</h4>
+							</TippyContainer>
+						)}
+						{isInputVisible && (
+							<input
+								className="group-title-input"
+								onKeyDown={handleKeyPressed}
+								autoFocus
+								type="text"
+								value={titleToChange}
+								onChange={handleChange}
+								onBlur={setGroupTitle}
+							></input>
+						)}
+					</div>
+					<div className="task-count">{group.tasks?.length} Tasks</div>
 				</div>
-				<div className="task-count">{group.tasks?.length} Tasks</div>
-				<div className="drag-handle" {...provided.dragHandleProps}></div>
+
+				<TaskListHeader
+					isCollapsed={isCollapsed}
+					group={group}
+					tasks={group.tasks}
+					isGroupSelected={isGroupSelected}
+					setIsGroupSelected={setIsGroupSelected}
+				/>
 			</div>
-			<TaskListHeader
-				isCollapsed={isCollapsed}
-				group={group}
-				tasks={group.tasks}
-				isGroupSelected={isGroupSelected}
-				setIsGroupSelected={setIsGroupSelected}
-			/>
 			{!isCollapsed && <TaskList group={group} tasks={group.tasks} setIsGroupSelected={setIsGroupSelected} />}
 
 			<GroupSummary group={group} isCollapsed={isCollapsed} />
+			<div className="drag-handle" {...provided.dragHandleProps}></div>
 		</section>
 	)
 }
