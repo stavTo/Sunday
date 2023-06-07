@@ -143,7 +143,7 @@ export function TimelineSummary({ board, group, defaultWidth, dates }) {
             <div className="timeline-container">
                 {dates ? (
                     <div className="span-container flex align-center justify-center">
-                        {console.log("calculateDateProgress():", calculateDateProgress())}
+                        {/* {console.log("calculateDateProgress():", calculateDateProgress())} */}
                         <div className='progress' style={{ background: `linear-gradient(to right, ${isHovered ? darkenHexColor(group.style.color) : group.style.color} ${calculateDateProgress()}, #333333 ${calculateDateProgress()})` }} >
                             <span style={{ 'width': '50%' }}></span>
                         </div>
@@ -153,7 +153,7 @@ export function TimelineSummary({ board, group, defaultWidth, dates }) {
                             ) : (
                                 <span>
                                     {getTimelineRange(dates)}
-                                    {console.log("getTimelineRange(dates):", getTimelineRange(dates))}
+                                    {/* {console.log("getTimelineRange(dates):", getTimelineRange(dates))} */}
                                 </span>
                             ))}
                         </span>

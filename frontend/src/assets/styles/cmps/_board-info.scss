@@ -30,6 +30,7 @@
         display: flex;
         flex-direction: column;
         flex-grow: 1;
+        padding: 16px 32px 32px 32px;
 
         textarea {
             all: unset;
@@ -37,10 +38,13 @@
     }
 
     .info-container {
+        border-end-end-radius: 8px;
+        border-start-end-radius: 8px;
         display: flex;
         flex-direction: column;
         width: 323px;
         background-color: rgb(245, 246, 248);
+        padding: 32px;
     }
 }
 

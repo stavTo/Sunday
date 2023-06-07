@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { boardService } from '../services/board.service.local'
+import { boardService } from '../services/board.service'
 import { ReactQuillWrapper } from './dynamic-task-cmps/react-quill-wrapper'
 import { ICON_CLOSE, ICON_HOUSE } from '../assets/icons/icons'
 import { loadBoard, saveTask } from '../store/selected-board.actions'

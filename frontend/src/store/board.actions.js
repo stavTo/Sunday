@@ -1,4 +1,4 @@
-import { boardService } from '../services/board.service.local'
+import { boardService } from '../services/board.service'
 import { ADD_BOARD, REMOVE_BOARD, SET_BOARDS, UPDATE_BOARD } from './board.reducer'
 import { store } from './store'
 

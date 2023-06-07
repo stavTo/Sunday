@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { boardService } from '../services/board.service.local'
+import { boardService } from '../services/board.service'
 import { addTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'

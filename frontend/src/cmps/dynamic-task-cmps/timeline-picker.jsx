@@ -1,5 +1,5 @@
 import { timeStampToDate, darkenHexColor, millisecondsToDays } from '../../services/util.service'
-import { boardService } from '../../services/board.service.local'
+import { boardService } from '../../services/board.service'
 import { saveTask } from '../../store/selected-board.actions'
 import { useState, useEffect } from 'react'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'

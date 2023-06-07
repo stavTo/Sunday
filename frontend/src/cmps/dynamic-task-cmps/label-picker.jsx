@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 import { EDIT_LABEL } from '../../assets/icons/icons'
 import { saveTask, updateLabels } from '../../store/selected-board.actions'
-import { boardService } from '../../services/board.service.local'
+import { boardService } from '../../services/board.service'
 import { usePopper } from 'react-popper'
 
 // const DEFAULT_STATUS_LABELS = [

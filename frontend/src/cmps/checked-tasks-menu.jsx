@@ -7,7 +7,7 @@ import { IoDocumentsOutline } from 'react-icons/io5'
 import { duplicateTask, removeTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
-import { boardService } from '../services/board.service.local'
+import { boardService } from '../services/board.service'
 export function CheckedTasksMenu({ checkedTaskIds }) {
 	const dispatch = useDispatch()
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)

@@ -1,0 +1,475 @@
+{
+    "title": "Moovit",
+    "description": "Building the best transportation platform out there",
+    "isStarred": false,
+    "archivedAt": null,
+    "createdBy": {
+        "_id": "u101",
+        "fullname": "Ido Kadosh",
+        "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+    },
+    "members": [
+        {
+            "_id": "u101",
+            "fullname": "Ido Kadosh",
+            "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+        },
+        {
+            "_id": "u102",
+            "fullname": "Roni Yerushalmi",
+            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+        },
+        {
+            "_id": "u103",
+            "fullname": "Stav Tohami",
+            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+        },
+        {
+            "_id": "u104",
+            "fullname": "Eyal Golan",
+            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1685731091/default-user_p7r1gy.png"
+        },
+        {
+            "_id": "u105",
+            "fullname": "Steve Jobs",
+            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1685731091/default-user_p7r1gy.png"
+        }
+    ],
+    "groups": [
+        {
+            "id": "g101",
+            "title": "Marketing",
+            "archivedAt": null,
+            "tasks": [
+                {
+                    "id": "c101",
+                    "title": "Advertising on billboards",
+                    "status": "Working on it",
+                    "owner": {
+                        "_id": "u102",
+                        "fullname": "Roni Yerushalmi",
+                        "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                    },
+                    "collaborators": [
+                        {
+                            "_id": "u103",
+                            "fullname": "Stav Tohami",
+                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        }
+                    ],
+                    "timeline": {
+                        "startDate": 1686258000000,
+                        "endDate": 1686862800000
+                    },
+                    "dueDate": 1686258000000,
+                    "comments": [],
+                    "priority": "Medium"
+                },
+                {
+                    "id": "c102",
+                    "title": "Advertising on social media",
+                    "status": "Done",
+                    "owner": {
+                        "_id": "u102",
+                        "fullname": "Roni Yerushalmi",
+                        "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                    },
+                    "collaborators": [],
+                    "timeline": {
+                        "startDate": 1688331600000,
+                        "endDate": 1688850000000
+                    },
+                    "dueDate": null,
+                    "comments": [],
+                    "priority": "Critical"
+                },
+                {
+                    "id": "c103",
+                    "title": "Collaboration with social media influencers",
+                    "status": "Stuck",
+                    "owner": {
+                        "_id": "u101",
+                        "fullname": "Ido Kadosh",
+                        "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                    },
+                    "collaborators": [],
+                    "timeline": {
+                        "startDate": 1688936400000,
+                        "endDate": 1690146000000
+                    },
+                    "dueDate": null,
+                    "comments": [],
+                    "priority": "High"
+                }
+            ],
+            "style": {
+                "color": "#579BFC"
+            }
+        },
+        {
+            "id": "g102",
+            "title": "App development",
+            "archivedAt": null,
+            "tasks": [
+                {
+                    "id": "c104",
+                    "title": "Frontend",
+                    "status": "Stuck",
+                    "owner": {
+                        "_id": "u101",
+                        "fullname": "Ido Kadosh",
+                        "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                    },
+                    "collaborators": [],
+                    "timeline": {
+                        "startDate": 1688331600000,
+                        "endDate": 1688850000000
+                    },
+                    "dueDate": 1686258000000,
+                    "comments": [],
+                    "priority": "High"
+                },
+                {
+                    "id": "c105",
+                    "title": "Design a logo",
+                    "status": "Working on it",
+                    "owner": {},
+                    "collaborators": [
+                        {
+                            "_id": "u103",
+                            "fullname": "Stav Tohami",
+                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        },
+                        {
+                            "_id": "u102",
+                            "fullname": "Roni Yerushalmi",
+                            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                        }
+                    ],
+                    "timeline": {
+                        "startDate": 1687035600000,
+                        "endDate": 1687986000000
+                    },
+                    "dueDate": 1686255000000,
+                    "comments": [],
+                    "priority": "Medium"
+                },
+                {
+                    "id": "c106",
+                    "title": "Design color palette",
+                    "status": "Almost done",
+                    "owner": {
+                        "_id": "u101",
+                        "fullname": "Ido Kadosh",
+                        "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                    },
+                    "collaborators": [],
+                    "timeline": {
+                        "startDate": 1688195600000,
+                        "endDate": 1689158800000
+                    },
+                    "dueDate": 1686258000000,
+                    "comments": [],
+                    "priority": "High"
+                },
+                {
+                    "id": "c107",
+                    "title": "Purchase server",
+                    "status": "Stuck",
+                    "owner": {
+                        "_id": "u102",
+                        "fullname": "Roni Yerushalmi",
+                        "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                    },
+                    "collaborators": [],
+                    "timeline": {
+                        "startDate": 1687467600000,
+                        "endDate": 1687554000000
+                    },
+                    "dueDate": 1686258000000,
+                    "comments": [],
+                    "priority": "Medium"
+                },
+                {
+                    "id": "c108",
+                    "title": "Node.js",
+                    "status": "Almost done",
+                    "owner": {
+                        "_id": "u103",
+                        "fullname": "Stav Tohami",
+                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                    },
+                    "collaborators": [],
+                    "timeline": {
+                        "startDate": 1685566800000,
+                        "endDate": 1685912400000
+                    },
+                    "dueDate": null,
+                    "comments": [],
+                    "priority": "High"
+                }
+            ],
+            "style": {
+                "color": "#A25DDC"
+            }
+        },
+        {
+            "id": "g103",
+            "title": "Data Collection",
+            "archivedAt": null,
+            "tasks": [
+                {
+                    "id": "c109",
+                    "title": "Estimate amount of consumers",
+                    "status": "Working on it",
+                    "owner": {
+                        "_id": "u103",
+                        "fullname": "Stav Tohami",
+                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                    },
+                    "collaborators": [
+                        {
+                            "_id": "u103",
+                            "fullname": "Stav Tohami",
+                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        }
+                    ],
+                    "timeline": {
+                        "startDate": 1686430800000,
+                        "endDate": 1686690000000
+                    },
+                    "dueDate": 1686258000000,
+                    "comments": [],
+                    "priority": ""
+                },
+                {
+                    "id": "c110",
+                    "title": "Schedule meetup with Eged",
+                    "status": "Working on it",
+                    "owner": {
+                        "_id": "u103",
+                        "fullname": "Stav Tohami",
+                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                    },
+                    "collaborators": [
+                        {
+                            "_id": "u102",
+                            "fullname": "Roni Yerushalmi",
+                            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                        }
+                    ],
+                    "timeline": {
+                        "startDate": 1686430800000,
+                        "endDate": 1686690000000
+                    },
+                    "dueDate": 1686258000000,
+                    "comments": [],
+                    "priority": ""
+                },
+                {
+                    "id": "c111",
+                    "title": "Schedule meetup with Carmelit Haifa",
+                    "status": "Done",
+                    "owner": {
+                        "_id": "u102",
+                        "fullname": "Roni Yerushalmi",
+                        "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                    },
+                    "collaborators": [
+                        {
+                            "_id": "u103",
+                            "fullname": "Stav Tohami",
+                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        }
+                    ],
+                    "timeline": {
+                        "startDate": 1686430800000,
+                        "endDate": 1686690000000
+                    },
+                    "dueDate": null,
+                    "comments": [],
+                    "priority": ""
+                }
+            ],
+            "style": {
+                "color": "#00C875"
+            }
+        },
+        {
+            "id": "g104",
+            "title": "Other tasks",
+            "archivedAt": null,
+            "tasks": [
+                {
+                    "id": "c112",
+                    "title": "Work arrangement with taxi drivers",
+                    "status": "Working on it",
+                    "owner": {
+                        "_id": "u103",
+                        "fullname": "Stav Tohami",
+                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                    },
+                    "collaborators": [
+                        {
+                            "_id": "u102",
+                            "fullname": "Roni Yerushalmi",
+                            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                        }
+                    ],
+                    "timeline": {
+                        "startDate": 1686430800000,
+                        "endDate": 1686690000000
+                    },
+                    "dueDate": 1686258000000,
+                    "comments": [],
+                    "priority": "Low"
+                },
+                {
+                    "id": "c113",
+                    "title": "Carpool",
+                    "status": "Stuck",
+                    "owner": {
+                        "_id": "u103",
+                        "fullname": "Stav Tohami",
+                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                    },
+                    "collaborators": [
+                        {
+                            "_id": "u101",
+                            "fullname": "Ido Kadosh",
+                            "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                        },
+                        {
+                            "_id": "u102",
+                            "fullname": "Roni Yerushalmi",
+                            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                        },
+                        {
+                            "_id": "u103",
+                            "fullname": "Stav Tohami",
+                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        }
+                    ],
+                    "timeline": {
+                        "startDate": 1683925200000,
+                        "endDate": 1689886800000
+                    },
+                    "dueDate": 1686258000000,
+                    "comments": [],
+                    "priority": "Low"
+                }
+            ],
+            "style": {
+                "color": "#E2565C"
+            }
+        }
+    ],
+    "activities": [
+        {
+            "id": "a101",
+            "txt": "Changed Color",
+            "createdAt": 154514,
+            "byMember": {
+                "_id": "u101",
+                "fullname": "Ido kadosh",
+                "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+            },
+            "task": {
+                "id": "c101",
+                "title": "Replace Logo"
+            }
+        }
+    ],
+    "cmpsOrder": [
+        {
+            "id": "3yilg2",
+            "cmpName": "ownerPicker",
+            "defaultWidth": "85px",
+            "minWidth": "85px"
+        },
+        {
+            "id": "zrizws",
+            "cmpName": "statusPicker",
+            "defaultWidth": "150px",
+            "minWidth": "50px"
+        },
+        {
+            "id": "nDe7DS",
+            "cmpName": "priorityPicker",
+            "defaultWidth": "150px",
+            "minWidth": "50px"
+        },
+        {
+            "id": "Hkl2N9",
+            "cmpName": "timelinePicker",
+            "defaultWidth": "150px",
+            "minWidth": "50px"
+        },
+        {
+            "id": "ukbmwt",
+            "cmpName": "collaboratorPicker",
+            "defaultWidth": "150px",
+            "minWidth": "100px"
+        },
+        {
+            "id": "0QJ3BC",
+            "cmpName": "datePicker",
+            "defaultWidth": "100px",
+            "minWidth": "50px"
+        }
+    ],
+    "statusLabels": [
+        {
+            "id": "sl100",
+            "title": "Done",
+            "color": "#00C875"
+        },
+        {
+            "id": "sl101",
+            "title": "Working on it",
+            "color": "#FDAB3D"
+        },
+        {
+            "id": "sl102",
+            "title": "Stuck",
+            "color": "#E2445C"
+        },
+        {
+            "id": "sl103",
+            "title": "Almost done",
+            "color": "#0086C0"
+        },
+        {
+            "id": "sl104",
+            "title": "",
+            "color": "#C4C4C4"
+        }
+    ],
+    "priorityLabels": [
+        {
+            "id": "pl100",
+            "title": "Critical",
+            "color": "#333333"
+        },
+        {
+            "id": "pl101",
+            "title": "High",
+            "color": "#401694"
+        },
+        {
+            "id": "pl102",
+            "title": "Medium",
+            "color": "#5559DF"
+        },
+        {
+            "id": "pl103",
+            "title": "Low",
+            "color": "#579BFC"
+        },
+        {
+            "id": "pl104",
+            "title": "",
+            "color": "#C4C4C4"
+        }
+    ]
+}

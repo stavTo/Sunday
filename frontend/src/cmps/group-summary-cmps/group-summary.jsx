@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux'
 import { LabelsProgressBar } from './labels-progress-bar'
 import { TimelineSummary } from './timeline-summary'
 import { MemberSummary } from './member-summary'
-import { getGroupDateSummary, groupHasDate } from '../../services/board.service.local'
+import { getGroupDateSummary, groupHasDate } from '../../services/board.service'
 
 const STATUS_PICKER = 'statusPicker'
 const PRIORITY_PICKER = 'priorityPicker'

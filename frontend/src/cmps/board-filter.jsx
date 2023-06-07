@@ -2,7 +2,7 @@ import { FILTER_PERSON, FILTER_FILTER, FILTER_SORT, FILTER_HIDE } from '../asset
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useRef, useState } from 'react'
-import { boardService } from '../services/board.service.local'
+import { boardService } from '../services/board.service'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 import { loadBoard } from '../store/selected-board.actions'
 import { TippyContainer } from './tippy-container'

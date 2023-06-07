@@ -5,7 +5,7 @@ import { userService } from '../../services/user.service'
 import { useSelector } from 'react-redux'
 import { saveTask } from '../../store/selected-board.actions'
 import { usePopper } from 'react-popper'
-import { boardService } from '../../services/board.service.local'
+import { boardService } from '../../services/board.service'
 import { showErrorMsg } from '../../services/event-bus.service'
 
 export function MemberPicker({ groupId, type, task, defaultWidth }) {
