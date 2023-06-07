@@ -1,6 +1,6 @@
 .task-preview {
 	display: flex;
-	position: relative;
+	// position: relative;
 	height: $task-row-height;
 	background-color: $clr0;
 	z-index: 2;
@@ -15,11 +15,14 @@
 	}
 
 	.sticky-container {
-		// border-block-end: 1px solid $border-clr;
+		z-index: 2;
+		height: 36px;
 		display: flex;
 		position: sticky;
 		left: 35px;
 		background-color: inherit;
+		background-color: #fff;
+		border-block-end: 1px solid $border-clr;
 
 		&:hover {
 			background-color: $task-hover-bgc;

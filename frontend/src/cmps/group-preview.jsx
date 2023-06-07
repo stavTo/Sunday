@@ -109,6 +109,7 @@ export function GroupPreview({ group, provided }) {
 					setIsColorPickerOpen={setIsColorPickerOpen}
 				/>
 			)}
+			<div className="group-sticky-background"></div>
 			<div className="group-sticky-container">
 				<div className="header-container">
 					<div {...provided.dragHandleProps} className="group-header" style={{ color: group.style.color }}>
@@ -147,7 +148,6 @@ export function GroupPreview({ group, provided }) {
 						</div>
 						<div className="task-count">{group.tasks?.length} Tasks</div>
 					</div>
-					<div className="full-scroll-helper"></div>
 				</div>
 
 				<TaskListHeader
@@ -161,7 +161,7 @@ export function GroupPreview({ group, provided }) {
 			{!isCollapsed && <TaskList group={group} tasks={group.tasks} setIsGroupSelected={setIsGroupSelected} />}
 
 			<GroupSummary group={group} isCollapsed={isCollapsed} />
-			{/* <div className="drag-handle" {...provided.dragHandleProps}></div> */}
+			<div className="drag-handle" {...provided.dragHandleProps}></div>
 		</section>
 	)
 }
