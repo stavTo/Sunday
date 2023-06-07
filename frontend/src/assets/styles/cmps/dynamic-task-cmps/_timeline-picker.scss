@@ -18,6 +18,10 @@
 		z-index: 1;
 	}
 
+	.timeline-container {
+		max-width: 100%;
+	}
+
 	.span-container {
 		height: 20px;
 		border-radius: 10px;
@@ -37,7 +41,15 @@
 		text-align: center;
 		position: relative;
 
+		.span-container {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 		span {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 			font-size: rem(12px);
 			font-weight: 400;
 		}
@@ -164,7 +176,7 @@ Today .rdp-day_today {
 
 // Middle days (range)
 .rdp-day_range_middle {
-	background-color: #CCE5fF;
+	background-color: #cce5ff;
 	color: $clr1;
 }
 

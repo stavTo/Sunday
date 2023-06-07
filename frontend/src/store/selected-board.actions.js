@@ -1,4 +1,5 @@
 import { boardService } from '../services/board.service.local'
+import { showErrorMsg } from '../services/event-bus.service'
 import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.reducer'
 import { REMOVE_CHECKED_TASK } from './selected-task.reducer'
 import { store } from './store'
@@ -26,6 +27,29 @@ export async function saveBoard(board) {
 		console.log('cant save task')
 		store.dispatch({ type: UNDO_SET_BOARD })
 		throw err
+	}
+}
+
+/*  This is used for things that need to be saved, but not as importantly (such as cmp width)
+    Get this function into a useRef, then call it with the board on ref.current*/
+export function saveBoardDebounced(timeout = 300) {
+	async function saveOnServer(board) {
+		try {
+			await boardService.save(board)
+		} catch (err) {
+			console.log(err)
+			store.dispatch({ type: UNDO_SET_BOARD })
+			showErrorMsg('Something went wrong')
+		}
+	}
+	let timer
+	return board => {
+		store.dispatch({ type: SET_BOARD, board })
+
+		clearTimeout(timer)
+		timer = setTimeout(() => {
+			saveOnServer(board)
+		}, timeout)
 	}
 }
 

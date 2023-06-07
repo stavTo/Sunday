@@ -1,23 +1,34 @@
 import { useState } from 'react'
 import { ICON_HOUSE } from '../assets/icons/icons'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 export function BoardToolbar() {
-	const [activeTab, setActiveTab] = useState('main')
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
+	const navigate = useNavigate()
 	const currWindow = window.location.href
+
+	function onNavigate(navigateTo) {
+		navigate(navigateTo, { state: board })
+	}
+
 	return (
 		<ul className="clean-list flex board-nav-bar board-toolbar">
-			<li className={` ${!currWindow.includes('/kanban') ? 'active-page' : ''}`}>
-				<Link className="btn-primary" to={`/boards/${board._id}`}>
+			<li
+				onClick={() => onNavigate(`/boards/${board._id}`)}
+				className={` ${!currWindow.includes('/kanban') ? 'active-page' : ''}`}
+			>
+				<div>
 					<span>{ICON_HOUSE} Main Table</span>
-				</Link>
+				</div>
 			</li>
-			<li className={` ${currWindow.includes('/kanban') ? 'active-page' : ''}`}>
-				<Link className="btn-primary" to={`/boards/${board._id}/views/kanban`}>
+			<li
+				onClick={() => onNavigate(`/boards/${board._id}/views/kanban`)}
+				className={` ${currWindow.includes('/kanban') ? 'active-page' : ''}`}
+			>
+				<div>
 					<span>Kanban</span>
-				</Link>
+				</div>
 			</li>
 		</ul>
 	)

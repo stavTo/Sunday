@@ -2,6 +2,7 @@
 	font-size: rem(14px);
 	display: flex;
 	border-top-left-radius: 4px;
+	position: relative;
 
 	& > * {
 		border-block-start: 1px solid $border-clr;
@@ -11,10 +12,39 @@
 		flex-shrink: 0;
 		justify-content: center;
 		align-items: center;
+		position: relative;
+
+		&:hover {
+			.resizing-container {
+				opacity: 1;
+			}
+		}
 	}
 
 	.task-title-header {
 		user-select: none;
 		height: $task-row-height;
+	}
+
+	.resizing-container {
+		position: absolute;
+		z-index: 10;
+		width: 6px;
+		right: -2px;
+		cursor: col-resize;
+		border-radius: 2px;
+		height: $task-row-height;
+		opacity: 0;
+		background-color: $border-clr;
+
+		&.is-dragging {
+			background-color: $bg-clr1;
+			opacity: 1;
+		}
+
+		&:hover {
+			background-color: $bg-clr1;
+			opacity: 1;
+		}
 	}
 }
