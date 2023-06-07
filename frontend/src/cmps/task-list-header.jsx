@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 import { saveBoardDebounced } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 
-export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelected }) {
+export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelected, isCollapsed }) {
 	// state to make sure resizer stays visible during drag
 	const [activeResizerIdx, setActiveResizerIdx] = useState()
 	const dragStartX = useRef()
@@ -71,10 +71,14 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 			className="task-list-header task-row clean-list"
 			style={{ borderInlineStart: `6px solid ${group.style.color}` }}
 		>
-			<TaskSelection isChecked={isGroupSelected} onCheck={toggleGroupChecked} />
-			<li style={{ width: '400px' }} className="task-title-header">
-				Task
-			</li>
+			{!isCollapsed && (
+				<>
+					<TaskSelection isChecked={isGroupSelected} onCheck={toggleGroupChecked} />
+					<li style={{ width: '400px' }} className="task-title-header">
+						Task
+					</li>
+				</>
+			)}
 			{board.cmpsOrder.map((cmp, idx) => {
 				let cmpTitle
 				switch (cmp.cmpName) {

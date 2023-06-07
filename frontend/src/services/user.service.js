@@ -15,7 +15,7 @@ export const userService = {
 	remove,
 	update,
 	changeScore,
-	getDemoUsers,
+	// getDemoUsers,
 	getEmptyUser,
 }
 
@@ -86,15 +86,15 @@ function getLoggedInUser() {
 	return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))
 }
 
-function getDemoUsers(filter = '') {
-	const users = [
-		getEmptyUser('u101', 'Ido Kadosh'),
-		getEmptyUser('u102', 'Roni Yerushalmi'),
-		getEmptyUser('u103', 'Stav Tohami'),
-		getEmptyUser('u104', 'Eyal Golan'),
-		getEmptyUser('u105', 'Steve Jobs', '../assets/img/guest.png'),
-	]
-}
+// function getDemoUsers(filter = '') {
+// 	const users = [
+// 		getEmptyUser('u101', 'Ido Kadosh'),
+// 		getEmptyUser('u102', 'Roni Yerushalmi'),
+// 		getEmptyUser('u103', 'Stav Tohami'),
+// 		getEmptyUser('u104', 'Eyal Golan'),
+// 		getEmptyUser('u105', 'Steve Jobs', '../assets/img/guest.png'),
+// 	]
+// }
 
 function getEmptyUser(_id = '', fullname = '', imgUrl = DEFAULT_USER) {
 	return {

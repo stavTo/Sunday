@@ -11,7 +11,7 @@ const TIMELINE_PICKER = 'timelinePicker'
 const OWNER_PICKER = 'ownerPicker'
 const COLLABORATOR_PICKER = 'collaboratorPicker'
 
-export function GroupSummary({ group }) {
+export function GroupSummary({ group, isCollapsed }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	return (
@@ -36,7 +36,10 @@ export function GroupSummary({ group }) {
 						return (
 							<div
 								key={cmp.id}
-								style={{ width: cmp.defaultWidth }}
+								style={{
+									width: cmp.defaultWidth,
+									borderInlineStart: `${isCollapsed ? `6px solid ${group.style.color}` : ''}`,
+								}}
 								className="empty-owner-container group-summary-data"
 							></div>
 						)

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { loadBoards } from '../store/board.actions'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -12,9 +12,7 @@ import {
 } from '../assets/icons/icons'
 
 export function WorkspaceBoardList() {
-	const [toggleOptions, setToggleOptions] = useState(false)
 	const boards = useSelector(({ boardModule }) => boardModule.boards)
-	document.title = 'My Boards'
 
 	useEffect(() => {
 		onLoadBoards()
@@ -46,17 +44,13 @@ export function WorkspaceBoardList() {
 			<ul className="board-list clean-list flex column">
 				{boards.map(board => (
 					<li className="board-title-preview flex pointer" key={board._id}>
-						{/* onMouseEnter={() => setToggleOptions(true)}
-						onMouseLeave={() => setToggleOptions(false)} */}
 						<Link to={`/boards/${board._id}`}>
 							{ICON_BOARD_LIST}
 							<span>
 								{board.title}
 							</span>
 						</Link>
-						{/* {toggleOptions && */}
 						<span className="options">{ICON_OPTIONS}</span>
-						{/* } */}
 					</li>
 				))}
 			</ul>
