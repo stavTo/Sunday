@@ -3,6 +3,7 @@
 	color: $clr0;
 	text-align: center;
 	position: relative;
+	z-index: 100000;
 
 	span {
 		overflow: hidden;
@@ -29,7 +30,7 @@
 	.label-picker-popup {
 		position: absolute;
 		top: calc($task-row-height + 5px);
-		z-index: 9999;
+		z-index: 999;
 		width: 200px;
 		min-height: em(280px);
 		background-color: $clr0;

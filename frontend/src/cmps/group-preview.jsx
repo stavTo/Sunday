@@ -94,6 +94,21 @@ export function GroupPreview({ group, provided }) {
 	}
 	return (
 		<section className={`group-preview ${isCollapsed ? 'collapsed' : ''}`}>
+			{isOptionOpen && (
+				<GroupOptionsMenu
+					group={group}
+					onRemoveGroup={onRemoveGroup}
+					openColorPicker={openColorPicker}
+					setIsOptionOpen={setIsOptionOpen}
+				/>
+			)}
+			{isColorPickerOpen && (
+				<ColorPicker
+					onSetColorPickerClose={onSetColorPickerClose}
+					setGroupStyle={setGroupStyle}
+					setIsColorPickerOpen={setIsColorPickerOpen}
+				/>
+			)}
 			<div className="group-sticky-container">
 				<div className="header-container">
 					<div {...provided.dragHandleProps} className="group-header" style={{ color: group.style.color }}>
@@ -105,21 +120,7 @@ export function GroupPreview({ group, provided }) {
 								{ICON_OPTIONS}
 							</div>
 						</div>
-						{isOptionOpen && (
-							<GroupOptionsMenu
-								group={group}
-								onRemoveGroup={onRemoveGroup}
-								openColorPicker={openColorPicker}
-								setIsOptionOpen={setIsOptionOpen}
-							/>
-						)}
-						{isColorPickerOpen && (
-							<ColorPicker
-								onSetColorPickerClose={onSetColorPickerClose}
-								setGroupStyle={setGroupStyle}
-								setIsColorPickerOpen={setIsColorPickerOpen}
-							/>
-						)}
+
 						<div
 							onClick={() => setIsCollapsed(prev => !prev)}
 							className={`expand-arrow-container ${isCollapsed ? 'collapsed' : ''}`}

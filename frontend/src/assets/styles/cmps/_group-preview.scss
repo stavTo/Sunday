@@ -16,7 +16,7 @@
 		border-radius: 6px;
 		position: absolute;
 		background-color: $clr0;
-		z-index: 120;
+		z-index: 100;
 		top: 40px;
 		left: -10px;
 		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 17px 6px;
@@ -60,8 +60,8 @@
 
 	.color-picker {
 		position: absolute;
-		bottom: em(80px);
-		left: em(0px);
+		top: 40px;
+		left: 70px;
 		width: em(135px);
 		height: em(115px);
 		background-color: $clr0;
@@ -70,7 +70,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: start;
-		z-index: 5;
+		z-index: 100;
 
 		.color {
 			cursor: pointer;
