@@ -62874,3 +62874,8 @@
 7.6.2023, 17:43:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
 7.6.2023, 17:43:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
 7.6.2023, 17:43:50 - INFO - Sample Logger Middleware 
+7.6.2023, 17:52:13 - INFO - Server is running on port: 3030 
+7.6.2023, 17:52:15 - ERROR - while finding board undefined | Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters 
+7.6.2023, 17:52:15 - ERROR - Failed to get board | Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters 
+7.6.2023, 17:52:15 - INFO - Sample Logger Middleware 
+7.6.2023, 17:52:15 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
