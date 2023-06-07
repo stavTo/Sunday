@@ -30,7 +30,37 @@ export const boardService = {
 	getBoardUsers,
 	duplicateGroup,
 	duplicateTask,
+	getGroupDateSummary,
+	groupHasDate,
 }
+
+export function groupHasDate(group) {
+	return group.tasks.some(task => task.dueDate)
+}
+
+export function getGroupDateSummary(group) {
+	let dates = []
+
+	const hasTimeline = group.tasks.some(task => task.dueDate)
+
+	if (!hasTimeline) return
+
+	group.tasks.forEach(task => {
+		const { dueDate } = task
+
+		if (!dueDate) return
+		if (dates.includes(dueDate)) return
+		dates.push(dueDate);
+	})
+
+	const earliestDate = Math.min(...dates)
+	const latestDate = Math.max(...dates)
+	return {
+		startDate: earliestDate,
+		endDate: latestDate
+	}
+}
+
 
 async function query(filter = {}) {
 	let boards = await storageService.query(STORAGE_KEY)

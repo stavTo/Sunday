@@ -6,10 +6,7 @@
     padding-inline: rem(75px);
 
     .titles-container {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-right: 12px;
+        height: 75px;
 
         .welcome-message {
             font-weight: 400;

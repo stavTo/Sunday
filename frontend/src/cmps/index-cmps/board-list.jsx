@@ -3,17 +3,17 @@ import { ICON_EXPAND_ARROW } from '../../assets/icons/icons.js'
 import { useState } from 'react'
 
 export function BoardList({ boards }) {
-    const [toggle, setToggle] = useState(true)
+    const [toggleView, setToggleView] = useState(true)
 
 
     return (
         <div className="list-wrapper">
             <h1 className="fs18 flex row gap-half text-cursor">
-                <div className={`${toggle ? 'expand-arrow-container pointer' : 'close-arrow-container pointer'}`} onClick={() => setToggle(!toggle)}>
+                <div className={`${toggleView ? 'expand-arrow-container pointer' : 'close-arrow-container pointer'}`} onClick={() => setToggleView(!toggleView)}>
                     {ICON_EXPAND_ARROW}
                 </div>Recently visited
             </h1>
-            {toggle &&
+            {toggleView &&
                 <ul className="clean-list flex row gap-1">
                     {boards && boards.map(board => {
                         return <li key={board._id}>

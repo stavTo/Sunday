@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { LabelsProgressBar } from './labels-progress-bar'
 import { TimelineSummary } from './timeline-summary'
 import { MemberSummary } from './member-summary'
+import { getGroupDateSummary, groupHasDate } from '../../services/board.service.local'
 
 const STATUS_PICKER = 'statusPicker'
 const PRIORITY_PICKER = 'priorityPicker'
@@ -12,7 +13,7 @@ const COLLABORATOR_PICKER = 'collaboratorPicker'
 
 export function GroupSummary({ group }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
-	
+
 	return (
 		<div className="group-summary flex">
 			<div className="empty-margin-footer"></div>
@@ -41,8 +42,17 @@ export function GroupSummary({ group }) {
 						)
 					case DATE_PICKER:
 						return (
-							<div key={cmp.id} className="group-summary-data">
-								<div style={{ width: cmp.defaultWidth }}>{cmp.cmpName}</div>
+							<div key={cmp.id} className="group-summary-data flex align-center">
+								<div style={{ width: cmp.defaultWidth }}>
+									{groupHasDate(group) &&
+										<TimelineSummary
+											defaultWidth={cmp.defaultWidth}
+											group={group}
+											board={board}
+											dates={getGroupDateSummary(group)}
+										/>
+									}
+								</div>
 							</div>
 						)
 					case COLLABORATOR_PICKER:
@@ -55,11 +65,11 @@ export function GroupSummary({ group }) {
 						return (
 							<div key={cmp.id} className="group-summary-data flex align-center">
 								<div style={{ width: cmp.defaultWidth }}>
-								<TimelineSummary
-									defaultWidth={cmp.defaultWidth}
-									group={group}
-									board={board}
-								/>
+									<TimelineSummary
+										defaultWidth={cmp.defaultWidth}
+										group={group}
+										board={board}
+									/>
 								</div>
 							</div>
 						)
