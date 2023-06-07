@@ -63,10 +63,10 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		const taskToEdit = { ...task, timeline }
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
+			setHasTimeline(true)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}
-		setHasTimeline(true)
 	}
 
 	function onClosePicker(ev) {
@@ -190,23 +190,26 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 				<div className="span-container flex align-center justify-center">
 					<div
 						className="progress"
-						style={!hasTimeline ? { backgroundColor: "#ABABAB" } : {
-							background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor
-								} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
-						}}>
+						style={
+							!hasTimeline
+								? { backgroundColor: '#ABABAB' }
+								: {
+										background: `linear-gradient(to right, ${
+											isHovered ? darkenHexColor(groupColor) : groupColor
+										} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
+								  }
+						}
+					>
 						<span></span>
 					</div>
 					<span className="range-preview flex row justify-center">
-						{!hasTimeline && (isHovered ?
-							(<span>Set Dates</span>) :
-							<span>-</span>)
-						}
+						{!hasTimeline && (isHovered ? <span>Set Dates</span> : <span>-</span>)}
 						{hasTimeline &&
-								(isHovered ? (
-									<span>{getTimestampInDays()}d</span>
-								) : (
-									<span>{getTimelineRange(timeline)}</span>
-								))}
+							(isHovered ? (
+								<span>{getTimestampInDays()}d</span>
+							) : (
+								<span>{getTimelineRange(timeline)}</span>
+							))}
 						{isHovered && hasTimeline && (
 							<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
 								{ICON_CLOSE}
