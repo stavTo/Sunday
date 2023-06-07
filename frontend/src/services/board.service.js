@@ -96,7 +96,7 @@ function getEmptyBoard() {
 			{ id: 'pl103', title: 'Low', color: '#579bfc' },
 			{ id: 'pl104', title: '', color: '#c4c4c4' },
 		],
-		activities: []
+		activities: [],
 	}
 }
 
@@ -104,8 +104,8 @@ function getEmptyTask(title = '') {
 	return {
 		id: '',
 		title,
-		status: '',
-		priority: '',
+		status: 'sl104',
+		priority: 'pl104',
 		comments: [],
 		collaborators: [],
 		dueDate: null,
@@ -219,7 +219,8 @@ async function saveTask(boardId, groupId, task, activity = '') {
 	try {
 		const board = await getById(boardId)
 		board.groups = board.groups.map(group =>
-			group.id !== groupId ? group : { ...group, tasks: group.tasks.map(t => (t.id === task.id ? task : t)) })
+			group.id !== groupId ? group : { ...group, tasks: group.tasks.map(t => (t.id === task.id ? task : t)) }
+		)
 		// board.board.activities.unshift(activity)
 		await save(board)
 		return board
@@ -233,7 +234,8 @@ async function addTask(boardId, groupId, task, activity = '') {
 		const board = await getById(boardId)
 		task.id = utilService.makeId()
 		board.groups = board.groups.map(group =>
-			group.id !== groupId ? group : { ...group, tasks: [...group.tasks, task] })
+			group.id !== groupId ? group : { ...group, tasks: [...group.tasks, task] }
+		)
 		// board.board.activities.unshift(activity)
 		await save(board)
 		return board
@@ -327,7 +329,7 @@ export function getGroupDateSummary(group) {
 
 		if (!dueDate) return
 		if (dates.includes(dueDate)) return
-		dates.push(dueDate);
+		dates.push(dueDate)
 	})
 
 	const earliestDate = Math.min(...dates)
@@ -335,6 +337,6 @@ export function getGroupDateSummary(group) {
 
 	return {
 		earliestDate,
-		latestDate
+		latestDate,
 	}
 }

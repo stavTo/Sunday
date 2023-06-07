@@ -4,6 +4,7 @@
 	margin-block-end: 55px;
 	border-radius: 4px;
 	position: relative;
+	min-width: max-content;
 
 	.task-options-menu {
 		position: absolute;
@@ -16,7 +17,7 @@
 		border-radius: 6px;
 		position: absolute;
 		background-color: $clr0;
-		z-index: 20;
+		z-index: 100;
 		top: 40px;
 		left: -10px;
 		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 17px 6px;
@@ -60,8 +61,8 @@
 
 	.color-picker {
 		position: absolute;
-		bottom: em(80px);
-		left: em(0px);
+		top: 40px;
+		left: 70px;
 		width: em(135px);
 		height: em(115px);
 		background-color: $clr0;
@@ -70,7 +71,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: start;
-		z-index: 5;
+		z-index: 100;
 
 		.color {
 			cursor: pointer;
@@ -83,18 +84,24 @@
 
 	.group-sticky-container {
 		position: sticky;
-		// width: 100%;
+		// width: 1500px;
 		top: 165px;
-		left: 150px;
-		z-index: 10;
+		z-index: 20;
 		background-color: $clr0;
 	}
 
+	.header-container {
+		display: flex;
+		justify-content: space-between;
+		height: 100%;
+		width: 100%;
+	}
+
 	.group-header {
+		position: sticky;
+		left: 0;
 		display: flex;
 		align-items: center;
-		margin-inline-start: 4px;
-
 		.group-title-container {
 			padding-inline: 4px;
 			margin-block: 9px;
@@ -164,34 +171,39 @@
 		}
 
 		.group-option-container {
-			width: 25px;
-			height: 25px;
+			width: 35px;
+			height: 35px;
 			color: $clr1;
 			opacity: 0;
+			background-color: $clr0;
 			position: relative;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			z-index: 10;
 
-			svg {
-				width: 22px;
-				height: 22px;
+			.group-option {
+				svg {
+					width: 22px;
+					height: 22px;
+				}
 			}
 		}
 	}
 
 	.drag-handle {
 		flex: 1;
-		z-index: 0;
+		z-index: 20;
 		position: absolute;
 		user-select: none;
 		top: 0;
-		width: 100vw;
+		width: 100%;
 		opacity: 0;
 		height: 40px;
 	}
 
 	.task-row {
+		min-width: min-content;
 		& > *:not(.task-option, .task-title-header, .task-title) {
 			flex-shrink: 0;
 			user-select: none;
