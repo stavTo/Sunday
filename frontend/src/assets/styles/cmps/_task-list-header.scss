@@ -3,6 +3,13 @@
 	display: flex;
 	border-top-left-radius: 4px;
 	position: relative;
+	border-block: 1px solid $border-clr;
+
+	.empty-option-container {
+		width: 35px;
+		height: 40px;
+		background-color: $clr0;
+	}
 
 	.sticky-container {
 		position: sticky;
@@ -13,14 +20,13 @@
 	}
 
 	.colored-border {
-		margin-block-end: -1px;
+		margin-block: -1px;
 		height: calc(100% + 2px);
 		width: 6px;
 		border-start-start-radius: 4px;
 	}
 
 	& > * {
-		border-block-start: 1px solid $border-clr;
 		border-inline-end: 1px solid $border-clr;
 		line-height: rem(23px);
 		display: flex;

@@ -15,71 +15,80 @@ export function GroupSummary({ group, isCollapsed }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	return (
-		<div className="group-summary flex">
+		<div className={`group-summary flex ${isCollapsed ? 'collapsed' : ''}`}>
 			<div className="empty-margin-footer"></div>
-
-			{board.cmpsOrder.map(cmp => {
-				switch (cmp.cmpName) {
-					case STATUS_PICKER:
-					case PRIORITY_PICKER:
-						return (
-							<div width={cmp.defaultWidth} key={cmp.id} className="group-summary-data">
-								<LabelsProgressBar
-									defaultWidth={cmp.defaultWidth}
-									group={group}
-									type={cmp.cmpName}
-									board={board}
-								/>
-							</div>
-						)
-					case OWNER_PICKER:
-						return (
-							<div
-								key={cmp.id}
-								style={{
-									width: cmp.defaultWidth,
-									borderInlineStart: `${isCollapsed ? `6px solid ${group.style.color}` : ''}`,
-								}}
-								className="empty-owner-container group-summary-data"
-							></div>
-						)
-					case DATE_PICKER:
-						return (
-							<div key={cmp.id} className="group-summary-data flex align-center">
-								<div style={{ width: cmp.defaultWidth }}>
-									{groupHasDate(group) &&
+			<div className="summary-data-container">
+				{isCollapsed && <div className="colored-border" style={{ backgroundColor: group.style.color }}></div>}
+				{board.cmpsOrder.map(cmp => {
+					switch (cmp.cmpName) {
+						case STATUS_PICKER:
+						case PRIORITY_PICKER:
+							return (
+								<div
+									style={{ width: cmp.defaultWidth, maxWidth: cmp.defaultWidth }}
+									key={cmp.id}
+									className="group-summary-data"
+								>
+									<LabelsProgressBar
+										defaultWidth={cmp.defaultWidth}
+										group={group}
+										type={cmp.cmpName}
+										board={board}
+									/>
+								</div>
+							)
+						case OWNER_PICKER:
+							return (
+								<div
+									key={cmp.id}
+									style={{
+										width: cmp.defaultWidth,
+									}}
+									className="empty-owner-container group-summary-data"
+								></div>
+							)
+						case DATE_PICKER:
+							return (
+								<div
+									key={cmp.id}
+									className="group-summary-data flex align-center"
+									style={{ width: cmp.defaultWidth, maxWidth: cmp.defaultWidth }}
+								>
+									{groupHasDate(group) && (
 										<TimelineSummary
 											defaultWidth={cmp.defaultWidth}
 											group={group}
 											board={board}
 											dates={getGroupDateSummary(group)}
 										/>
-									}
+									)}
 								</div>
-							</div>
-						)
-					case COLLABORATOR_PICKER:
-						return (
-							<div key={cmp.id} className="group-summary-data">
-								<MemberSummary defaultWidth={cmp.defaultWidth} group={group} />
-							</div>
-						)
-					case TIMELINE_PICKER:
-						return (
-							<div key={cmp.id} className="group-summary-data flex align-center">
-								<div style={{ width: cmp.defaultWidth }}>
-									<TimelineSummary
-										defaultWidth={cmp.defaultWidth}
-										group={group}
-										board={board}
-									/>
+							)
+						case COLLABORATOR_PICKER:
+							return (
+								<div
+									style={{ width: cmp.defaultWidth, maxWidth: cmp.defaultWidth }}
+									key={cmp.id}
+									className="group-summary-data"
+								>
+									<MemberSummary defaultWidth={cmp.defaultWidth} group={group} />
 								</div>
-							</div>
-						)
-					default:
-						return null
-				}
-			})}
+							)
+						case TIMELINE_PICKER:
+							return (
+								<div
+									key={cmp.id}
+									className="group-summary-data flex align-center"
+									style={{ width: cmp.defaultWidth, maxWidth: cmp.defaultWidth }}
+								>
+									<TimelineSummary defaultWidth={cmp.defaultWidth} group={group} board={board} />
+								</div>
+							)
+						default:
+							return null
+					}
+				})}
+			</div>
 		</div>
 	)
 }
