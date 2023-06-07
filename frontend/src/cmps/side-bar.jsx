@@ -1,19 +1,32 @@
 import { Link } from 'react-router-dom'
 
 import {
-	ICON_INBOX,
 	ICON_WORK_MANAGEMENT,
 	ICON_MY_WORK,
 	ICON_FAVORITES,
-	ICON_INVITE_MEMBERS,
 } from '../assets/icons/icons'
 
 import guest from '../assets/img/guest.png'
 
 import { ExpandableSidebar } from '../cmps/expandable-sidebar.jsx'
 import { TippyContainer } from './tippy-container'
+import { useState } from 'react'
+import { utilService } from '../services/util.service'
 
 export function SideBar({ isExpandable = true }) {
+
+	const [isFavoritesOpen, setIsFavoritesOpen] = useState(false)
+	const [isFixed, setIsFixed] = useState(false)
+	const [isHovered, setIsHovered] = useState(false)
+
+	const debouncedSetIsHovered = utilService.debounce(setIsHovered, 200)
+
+
+	function onToggleFavorites() {
+		setIsFavoritesOpen(prev => !prev)
+		setIsFixed(prev => !prev)
+	}
+
 	return (
 		<>
 			<section className="side-bar">
@@ -32,16 +45,15 @@ export function SideBar({ isExpandable = true }) {
 								<li className="flex my-work">{ICON_MY_WORK}</li>
 							</TippyContainer>
 							<TippyContainer txt={'Favorites'} placement="right" offset={[0, 20]}>
-								<li className="flex favorites">{ICON_FAVORITES}</li>
+								<li className="flex favorites"
+									onClick={onToggleFavorites}>
+									{ICON_FAVORITES}
+								</li>
 							</TippyContainer>
 						</ul>
 					</li>
-					{/* Section 1 ends here */}
 					<li className="bottom-navigation-area">
 						<ul className="clean-list flex column align-center">
-							{/* <TippyContainer txt={'Invite Members'} placement="right" offset={[0, 20]}>
-								<li className="flex invite-members">{ICON_INVITE_MEMBERS}</li>
-							</TippyContainer> */}
 							<TippyContainer txt={'Profile'} placement="right" offset={[0, 20]}>
 								<li className="flex profile ">
 									<img src={guest} data-tippy-content="guest" />
@@ -51,7 +63,16 @@ export function SideBar({ isExpandable = true }) {
 					</li>
 				</ul>
 			</section>
-			{isExpandable ? <ExpandableSidebar /> : ''}
+			{isExpandable ? <ExpandableSidebar
+				isFavoritesOpen={isFavoritesOpen} 
+				setIsFavoritesOpen={setIsFavoritesOpen}
+				isHovered={isHovered}
+				debouncedSetIsHovered={debouncedSetIsHovered}
+				isFixed={isFixed}
+				setIsFixed={setIsFixed}
+				/>
+				:
+				''}
 		</>
 	)
 }
