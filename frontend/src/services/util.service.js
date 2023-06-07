@@ -13,6 +13,7 @@ export const utilService = {
 	getBlessingByTime,
 	fractionToPercent,
 	darkenHexColor,
+	isValidTimestamp
 }
 
 function makeId(length = 6) {
@@ -125,7 +126,12 @@ function hexToRgba(hex, alpha = 1) {
 	return `rgba(${r},${g},${b},${alpha})`
 }
 
+export function isValidTimestamp(timestamp) {
+	return (!isNaN(new Date(timestamp).getTime()))
+}
+
 export function timeStampToDate(timeStamp) {
+	// console.log("timeStamp", timeStamp)
 	const timelineToSave = new Date(timeStamp).toLocaleDateString('en-US', {
 		month: 'short',
 		day: 'numeric',

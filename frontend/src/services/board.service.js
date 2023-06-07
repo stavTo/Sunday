@@ -53,7 +53,6 @@ async function remove(boardId) {
 async function save(board) {
 	let savedBoard
 	if (board._id) {
-		console.log(board)
 		savedBoard = await httpService.put(BASE_URL + board._id, board)
 	} else {
 		savedBoard = await httpService.post(BASE_URL, board)
@@ -319,7 +318,6 @@ export function groupHasDate(group) {
 
 export function getGroupDateSummary(group) {
 	let dates = []
-
 	const hasTimeline = group.tasks.some(task => task.dueDate)
 
 	if (!hasTimeline) return
@@ -334,8 +332,9 @@ export function getGroupDateSummary(group) {
 
 	const earliestDate = Math.min(...dates)
 	const latestDate = Math.max(...dates)
+
 	return {
-		startDate: earliestDate,
-		endDate: latestDate
+		earliestDate,
+		latestDate
 	}
 }
