@@ -8,9 +8,11 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { TippyContainer } from './tippy-container'
 import { useState } from 'react'
 import { showErrorMsg } from '../services/event-bus.service'
+import { BoardInfo } from './board-info'
 
 export function BoardHeader({ board }) {
 	const [isInviteOpen, setIsInviteOpen] = useState(false)
+	const [isInfoOpen, setIsInfoOpen] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(board.title)
 	const [isInputVisible, setIsInputVisible] = useState(false)
 
@@ -81,7 +83,10 @@ export function BoardHeader({ board }) {
 							</div>
 						</TippyContainer>
 						<TippyContainer txt="Show board description">
-							<span className="info-icon header-icon btn-primary">{ICON_INFO}</span>
+							<span className="info-icon header-icon btn-primary"
+								onClick={() => setIsInfoOpen(prev => !prev)}>
+								{ICON_INFO}
+							</span>
 						</TippyContainer>
 						{!board.isStarred && (
 							<TippyContainer txt="Add to favorites">
@@ -126,7 +131,7 @@ export function BoardHeader({ board }) {
 						<span className="close-modal-btn btn-primary" onClick={() => setIsInviteOpen(false)}>
 							<TfiClose />
 						</span>
-						<span className="modal-title">Board Members</span>
+						<span className="modal-title">{board.title}</span>
 						<input type="text" placeholder="Enter name" />
 						<ul className="user-list clean-list">
 							{/* //TODO make this find all users EXCEPT logged in user */}
@@ -141,6 +146,7 @@ export function BoardHeader({ board }) {
 					<div className="modal-overlay" onClick={() => setIsInviteOpen(false)}></div>
 				</>
 			)}
+			{isInfoOpen && <BoardInfo board={board} setIsInfoOpen={setIsInfoOpen} />}
 		</>
 	)
 }
