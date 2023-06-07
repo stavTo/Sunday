@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { TippyContainer } from '../tippy-container'
 import { utilService } from '../../services/util.service'
+import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 
 export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 	const [labelsName, setLabelsName] = useState('')
@@ -16,10 +17,17 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 		}
 	}, [type])
 
+	// useEffectUpdate(() => {
+	// 	const labelId = type === 'statusPicker' ? task.status : task.priority
+	// 	const label = board[labelsName].find(l => l.id === labelId)
+	// 	setLabel(label)
+	// }, [labelsName])
+
 	function getLabelColor(labelName) {
+		console.log(labelName)
 		const labels = board[labelsNameInBoard]
 		const label = labels.find(l => l.title === labelName)
-		return label.color
+		return label?.color
 	}
 
 	function getLabelRatio() {
@@ -32,9 +40,12 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 			return `${val}/${sum}`
 		})
 
-		return labelNames.map((label, idx) => ({
+		const x = labelNames.map((label, idx) => ({
 			[label]: valuesPercent[idx],
 		}))
+
+		console.log(x)
+		return x
 	}
 
 	function calcLabels() {
@@ -52,15 +63,16 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 		<div className="labels-progress-bar" style={{ width: defaultWidth }}>
 			<ul className="list-labels-progress-bar flex">
 				{getLabelRatio().map((val, idx) => {
-					const label = Object.keys(val)[0]
-					const widthFraction = val[label]
+					const labelId = Object.keys(val)[0]
+					const label = board[labelsNameInBoard].find(l => l.id === labelId)
+					const widthFraction = val[labelId]
 					const widthPercent = utilService.fractionToPercent(widthFraction).toFixed(1)
 					return (
-						<TippyContainer key={idx} txt={`${label} ${widthFraction} ${widthPercent}%`}>
+						<TippyContainer key={idx} txt={`${label.title} ${widthFraction} ${widthPercent}%`}>
 							<li
 								className="progress-bar-item"
 								style={{
-									backgroundColor: getLabelColor(label),
+									backgroundColor: getLabelColor(label.title),
 									width: widthPercent + '%',
 								}}
 							></li>

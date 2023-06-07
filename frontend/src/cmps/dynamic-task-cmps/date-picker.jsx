@@ -10,6 +10,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { ICON_CLOSE, ICON_ADD_DATE } from '../../assets/icons/icons'
 import 'react-day-picker/dist/style.css'
 import { showErrorMsg } from '../../services/event-bus.service'
+import { updateBoard } from '../../store/board.actions'
 
 export function DatePicker({ task, groupId, defaultWidth }) {
 	const [selected, setSelected] = useState()
@@ -29,11 +30,17 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 	})
 
 	useEffect(() => {
+		if (selected) {
+			onChangeDueDate()
+			setHasDate(task)
+			setToggle(!toggle)
+		}
+
 		document.addEventListener('mousedown', onClosePicker)
 		return () => {
 			document.removeEventListener('mousedown', onClosePicker)
 		}
-	}, [])
+	}, [selected])
 
 	function onClosePicker(ev) {
 		if (ev.target.closest('.date-picker-container')) return
@@ -46,16 +53,10 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 		setToggle(prev => !prev)
 	}
 
-	useEffect(() => {
-		if (selected) {
-			onChangeDueDate()
-			setHasDate(task)
-			setToggle(!toggle)
-		}
-	}, [selected])
-
 	async function onChangeDueDate() {
-		const taskToEdit = { ...task, dueDate: selected }
+		const timestamp = selected.getTime()
+		console.log("timestamp:", timestamp)
+		const taskToEdit = { ...task, dueDate: timestamp }
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
 		} catch {

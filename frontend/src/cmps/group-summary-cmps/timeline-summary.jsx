@@ -27,11 +27,7 @@ export function TimelineSummary({ board, group, defaultWidth, dates }) {
 
         if (!groupHasTimeline) return
 
-        // ! Remove this If, it's bullshit
-        if (group.tasks.length === 1) {
-            startDates.push((group.tasks[0].startDate))
-            endDates.push((group.tasks[0].endDate))
-        } else {
+        else {
             group.tasks.map(task => {
                 const { timeline } = task
 
@@ -96,10 +92,12 @@ export function TimelineSummary({ board, group, defaultWidth, dates }) {
     }
 
     function getTimelineRange(dates) {
+        // For date summary
         if (dates) {
             const { startDate, endDate } = dates
 
             if (isNaN(startDate) || isNaN(endDate)) return
+            
             const startMonth = timeStampToDate(startDate).slice(0, 3)
             const endMonth = timeStampToDate(endDate).slice(0, 3)
 
@@ -116,7 +114,10 @@ export function TimelineSummary({ board, group, defaultWidth, dates }) {
                 // console.log(`${startMonth} ${startDay} - ${endMonth} ${endDay}`)
                 return `${startMonth} ${startDay} - ${endMonth} ${endDay}`
             }
-        } else {
+        } 
+
+        // This is for timeline summary
+        else {
             const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
             const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 
@@ -153,7 +154,7 @@ export function TimelineSummary({ board, group, defaultWidth, dates }) {
                             ) : (
                                 <span>
                                     {getTimelineRange(dates)}
-                                    {/* {console.log("getTimelineRange(dates):", getTimelineRange(dates))} */}
+                                    {console.log("getTimelineRange(dates):", getTimelineRange(dates))}
                                 </span>
                             ))}
                         </span>

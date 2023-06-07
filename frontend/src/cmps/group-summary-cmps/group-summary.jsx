@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 import { LabelsProgressBar } from './labels-progress-bar'
 import { TimelineSummary } from './timeline-summary'
+import { DateSummary } from './date-summary'
 import { MemberSummary } from './member-summary'
-import { getGroupDateSummary, groupHasDate } from '../../services/board.service'
 
 const STATUS_PICKER = 'statusPicker'
 const PRIORITY_PICKER = 'priorityPicker'
@@ -49,19 +49,10 @@ export function GroupSummary({ group, isCollapsed }) {
 							)
 						case DATE_PICKER:
 							return (
-								<div
-									key={cmp.id}
-									className="group-summary-data flex align-center"
-									style={{ width: cmp.defaultWidth, maxWidth: cmp.defaultWidth }}
-								>
-									{groupHasDate(group) && (
-										<TimelineSummary
-											defaultWidth={cmp.defaultWidth}
-											group={group}
-											board={board}
-											dates={getGroupDateSummary(group)}
-										/>
-									)}
+								<div key={cmp.id} className="group-summary-data flex align-center">
+									<div style={{ width: cmp.defaultWidth }}>
+										<DateSummary defaultWidth={cmp.defaultWidth} group={group} board={board} />
+									</div>
 								</div>
 							)
 						case COLLABORATOR_PICKER:

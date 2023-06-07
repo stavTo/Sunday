@@ -6,23 +6,23 @@
     "createdBy": {
         "_id": "u101",
         "fullname": "Ido Kadosh",
-        "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg"
     },
     "members": [
         {
             "_id": "u101",
             "fullname": "Ido Kadosh",
-            "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg"
         },
         {
             "_id": "u102",
             "fullname": "Roni Yerushalmi",
-            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
         },
         {
             "_id": "u103",
             "fullname": "Stav Tohami",
-            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
         },
         {
             "_id": "u104",
@@ -44,17 +44,17 @@
                 {
                     "id": "c101",
                     "title": "Advertising on billboards",
-                    "status": "Working on it",
+                    "status": "sl101",
                     "owner": {
                         "_id": "u102",
                         "fullname": "Roni Yerushalmi",
-                        "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
                     },
                     "collaborators": [
                         {
                             "_id": "u103",
                             "fullname": "Stav Tohami",
-                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                         }
                     ],
                     "timeline": {
@@ -63,16 +63,16 @@
                     },
                     "dueDate": 1686258000000,
                     "comments": [],
-                    "priority": "Medium"
+                    "priority": "pl102"
                 },
                 {
                     "id": "c102",
                     "title": "Advertising on social media",
-                    "status": "Done",
+                    "status": "sl100",
                     "owner": {
                         "_id": "u102",
                         "fullname": "Roni Yerushalmi",
-                        "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
                     },
                     "collaborators": [],
                     "timeline": {
@@ -81,16 +81,16 @@
                     },
                     "dueDate": null,
                     "comments": [],
-                    "priority": "Critical"
+                    "priority": "pl100"
                 },
                 {
                     "id": "c103",
                     "title": "Collaboration with social media influencers",
-                    "status": "Stuck",
+                    "status": "sl102",
                     "owner": {
                         "_id": "u101",
                         "fullname": "Ido Kadosh",
-                        "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg"
                     },
                     "collaborators": [],
                     "timeline": {
@@ -99,7 +99,7 @@
                     },
                     "dueDate": null,
                     "comments": [],
-                    "priority": "High"
+                    "priority": "pl101"
                 }
             ],
             "style": {
@@ -114,11 +114,11 @@
                 {
                     "id": "c104",
                     "title": "Frontend",
-                    "status": "Stuck",
+                    "status": "sl102",
                     "owner": {
                         "_id": "u101",
                         "fullname": "Ido Kadosh",
-                        "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg"
                     },
                     "collaborators": [],
                     "timeline": {
@@ -127,23 +127,23 @@
                     },
                     "dueDate": 1686258000000,
                     "comments": [],
-                    "priority": "High"
+                    "priority": "pl101"
                 },
                 {
                     "id": "c105",
                     "title": "Design a logo",
-                    "status": "Working on it",
+                    "status": "sl101",
                     "owner": {},
                     "collaborators": [
                         {
                             "_id": "u103",
                             "fullname": "Stav Tohami",
-                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                         },
                         {
                             "_id": "u102",
                             "fullname": "Roni Yerushalmi",
-                            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
                         }
                     ],
                     "timeline": {
@@ -152,16 +152,16 @@
                     },
                     "dueDate": 1686255000000,
                     "comments": [],
-                    "priority": "Medium"
+                    "priority": "pl102"
                 },
                 {
                     "id": "c106",
                     "title": "Design color palette",
-                    "status": "Almost done",
+                    "status": "sl103",
                     "owner": {
                         "_id": "u101",
                         "fullname": "Ido Kadosh",
-                        "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg"
                     },
                     "collaborators": [],
                     "timeline": {
@@ -170,16 +170,16 @@
                     },
                     "dueDate": 1686258000000,
                     "comments": [],
-                    "priority": "High"
+                    "priority": "pl101"
                 },
                 {
                     "id": "c107",
                     "title": "Purchase server",
-                    "status": "Stuck",
+                    "status": "sl102",
                     "owner": {
                         "_id": "u102",
                         "fullname": "Roni Yerushalmi",
-                        "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
                     },
                     "collaborators": [],
                     "timeline": {
@@ -188,16 +188,16 @@
                     },
                     "dueDate": 1686258000000,
                     "comments": [],
-                    "priority": "Medium"
+                    "priority": "pl102"
                 },
                 {
                     "id": "c108",
                     "title": "Node.js",
-                    "status": "Almost done",
+                    "status": "sl103",
                     "owner": {
                         "_id": "u103",
                         "fullname": "Stav Tohami",
-                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                     },
                     "collaborators": [],
                     "timeline": {
@@ -206,7 +206,7 @@
                     },
                     "dueDate": null,
                     "comments": [],
-                    "priority": "High"
+                    "priority": "pl101"
                 }
             ],
             "style": {
@@ -221,17 +221,17 @@
                 {
                     "id": "c109",
                     "title": "Estimate amount of consumers",
-                    "status": "Working on it",
+                    "status": "sl101",
                     "owner": {
                         "_id": "u103",
                         "fullname": "Stav Tohami",
-                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                     },
                     "collaborators": [
                         {
                             "_id": "u103",
                             "fullname": "Stav Tohami",
-                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                         }
                     ],
                     "timeline": {
@@ -240,22 +240,22 @@
                     },
                     "dueDate": 1686258000000,
                     "comments": [],
-                    "priority": ""
+                    "priority": "pl102"
                 },
                 {
                     "id": "c110",
                     "title": "Schedule meetup with Eged",
-                    "status": "Working on it",
+                    "status": "sl101",
                     "owner": {
                         "_id": "u103",
                         "fullname": "Stav Tohami",
-                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                     },
                     "collaborators": [
                         {
                             "_id": "u102",
                             "fullname": "Roni Yerushalmi",
-                            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
                         }
                     ],
                     "timeline": {
@@ -264,22 +264,22 @@
                     },
                     "dueDate": 1686258000000,
                     "comments": [],
-                    "priority": ""
+                    "priority": "pl103"
                 },
                 {
                     "id": "c111",
                     "title": "Schedule meetup with Carmelit Haifa",
-                    "status": "Done",
+                    "status": "sl100",
                     "owner": {
                         "_id": "u102",
                         "fullname": "Roni Yerushalmi",
-                        "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
                     },
                     "collaborators": [
                         {
                             "_id": "u103",
                             "fullname": "Stav Tohami",
-                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                         }
                     ],
                     "timeline": {
@@ -288,7 +288,7 @@
                     },
                     "dueDate": null,
                     "comments": [],
-                    "priority": ""
+                    "priority": "pl104"
                 }
             ],
             "style": {
@@ -303,17 +303,17 @@
                 {
                     "id": "c112",
                     "title": "Work arrangement with taxi drivers",
-                    "status": "Working on it",
+                    "status": "sl101",
                     "owner": {
                         "_id": "u103",
                         "fullname": "Stav Tohami",
-                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                     },
                     "collaborators": [
                         {
                             "_id": "u102",
                             "fullname": "Roni Yerushalmi",
-                            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
                         }
                     ],
                     "timeline": {
@@ -322,32 +322,32 @@
                     },
                     "dueDate": 1686258000000,
                     "comments": [],
-                    "priority": "Low"
+                    "priority": "pl103"
                 },
                 {
                     "id": "c113",
                     "title": "Carpool",
-                    "status": "Stuck",
+                    "status": "sl102",
                     "owner": {
                         "_id": "u103",
                         "fullname": "Stav Tohami",
-                        "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                        "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                     },
                     "collaborators": [
                         {
                             "_id": "u101",
                             "fullname": "Ido Kadosh",
-                            "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg"
                         },
                         {
                             "_id": "u102",
                             "fullname": "Roni Yerushalmi",
-                            "imgUrl": "/static/media/roni-img.9a564ec3671ebf0bbe00.jpg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg"
                         },
                         {
                             "_id": "u103",
                             "fullname": "Stav Tohami",
-                            "imgUrl": "/static/media/stav-user.c9c6aee8ec6b6dc6414d.jpeg"
+                            "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg"
                         }
                     ],
                     "timeline": {
@@ -356,7 +356,7 @@
                     },
                     "dueDate": 1686258000000,
                     "comments": [],
-                    "priority": "Low"
+                    "priority": "pl103"
                 }
             ],
             "style": {
@@ -372,7 +372,7 @@
             "byMember": {
                 "_id": "u101",
                 "fullname": "Ido kadosh",
-                "imgUrl": "/static/media/ido-user.9117917814d1d5a39bd0.jpeg"
+                "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg"
             },
             "task": {
                 "id": "c101",
