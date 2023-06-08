@@ -1,6 +1,6 @@
 import { addGroup, addTaskToFirstGroup, saveBoard } from '../store/selected-board.actions'
 import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_STAR_STARRED } from '../assets/icons/icons'
-import { BoardFilter } from './board-filter'
+import { BoardFilter } from './board-filter-cmps/board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { TfiClose } from 'react-icons/tfi'
@@ -83,8 +83,10 @@ export function BoardHeader({ board }) {
 							</div>
 						</TippyContainer>
 						<TippyContainer txt="Show board description">
-							<span className="info-icon header-icon btn-primary"
-								onClick={() => setIsInfoOpen(prev => !prev)}>
+							<span
+								className="info-icon header-icon btn-primary"
+								onClick={() => setIsInfoOpen(prev => !prev)}
+							>
 								{ICON_INFO}
 							</span>
 						</TippyContainer>

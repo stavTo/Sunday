@@ -1,6 +1,11 @@
 .task-preview {
 	display: flex;
 	// position: relative;
+	&:hover {
+		.sticky-container {
+			background-color: $task-hover-bgc;
+		}
+	}
 	height: $task-row-height;
 	background-color: $clr0;
 	z-index: 2;
@@ -50,7 +55,7 @@
 
 	.task-option-container {
 		position: sticky;
-		z-index: 20;
+		z-index: 30;
 		left: 0px;
 		height: $task-row-height;
 		width: 35px;

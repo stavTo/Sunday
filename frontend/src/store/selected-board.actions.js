@@ -9,7 +9,6 @@ import { socketService, SOCKET_EMIT_SEND_BOARD } from '../services/socket.servic
 export async function loadBoard(boardId, filter = {}) {
 	try {
 		const board = await boardService.getById(boardId, filter)
-		console.log("board", board)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log(err)
