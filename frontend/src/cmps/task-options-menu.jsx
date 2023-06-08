@@ -23,7 +23,7 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 		}
 		try {
 			await duplicateTask(boardId, group, newTask, boolean)
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('cant duplicate task')
 		}
@@ -41,7 +41,7 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 			}
 
 			await removeTask(boardId, task.id, action)
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('cant delete task')
 		}

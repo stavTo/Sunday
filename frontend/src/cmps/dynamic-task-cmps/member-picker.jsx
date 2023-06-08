@@ -95,7 +95,7 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 		}
 		try {
 			await saveTask(board._id, groupId, newTask, 'removed member ')
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setAssignedMembers(filteredMembers)
 			setMemberList(prev => [...prev, member])
 		} catch {
@@ -113,7 +113,7 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 		}
 		try {
 			await saveTask(board._id, groupId, newTask, 'Set new member ')
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Cant update member')
 		}
@@ -147,8 +147,8 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 			{/* if not any of the above, show default image. */}
 			{((type === 'ownerPicker' && !task?.owner?._id) ||
 				(type === 'collaboratorPicker' && !task.collaborators?.length)) && (
-					<img src={EMPTY_MEMBER} alt="member img" />
-				)}
+				<img src={EMPTY_MEMBER} alt="member img" />
+			)}
 			{isPickerOpen && (
 				<div
 					className="member-picker-modal"

@@ -54,10 +54,10 @@ export function TaskTitle({ task, groupId }) {
 				description: 'Added Task',
 				type: 'Rename',
 				oldTaskTitle: task.title,
-				nameTaskTitle: titleToChange
+				nameTaskTitle: titleToChange,
 			}
 			await saveTask(board._id, groupId, newTask, action)
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Cant save task')
 		}

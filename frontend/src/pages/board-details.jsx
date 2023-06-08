@@ -41,7 +41,6 @@ export function BoardDetails() {
 
 	async function onLoadBoard(boardId, skipLoading) {
 		try {
-			console.log(skipLoading)
 			await initialLoadBoard(boardId, skipLoading)
 		} catch {
 			showErrorMsg(`Board ${boardId} does not exist. `)

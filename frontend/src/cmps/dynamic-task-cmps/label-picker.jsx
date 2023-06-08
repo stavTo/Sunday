@@ -65,7 +65,7 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 		taskToEdit[labelTaskName] = label.id
 		try {
 			await saveTask(board._id, groupId, taskToEdit, 'changed label')
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setLabel(label)
 		} catch (err) {
 			showErrorMsg('Cant change label')

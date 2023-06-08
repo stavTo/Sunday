@@ -22,40 +22,31 @@ export function TaskDetails() {
 	const [task, setTask] = useState({})
 	const [isEditorOpen, setIsEditorOpen] = useState(false)
 	const [commentToEdit, setCommentToEdit] = useState('')
-	const [comments, setComments] = useState([])
+	// const [comments, setComments] = useState([])
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [titleToChange, setTitleToChange] = useState('')
 	const [activeTab, setActiveTab] = useState('updates')
 	const location = useLocation()
-	const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoading)
+	// const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoading)
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 	const navigate = useNavigate()
 
 	useEffect(() => {
 		// Set socket topic (task)
-		socketService.emit(SOCKET_EMIT_SET_TASK, taskId)
+		// socketService.emit(SOCKET_EMIT_SET_TASK, taskId)
 		if (taskId && board._id) loadGroup()
-	}, [taskId])
+	}, [taskId, board])
 
-	useEffect(() => {
-		// Listen to adding a msg event
-		socketService.on(SOCKET_EVENT_ADD_TASK_MSG, addComment)
+	// useEffect(() => {
+	// 	document.addEventListener('click', onCloseEditor)
+	// 	return () => {
+	// 		document.removeEventListener('click', onCloseEditor)
+	// 	}
+	// }, [])
 
-		return () => {
-			socketService.off(SOCKET_EVENT_ADD_TASK_MSG, addComment)
-		}
-	}, [])
-
-	useEffect(() => {
-		document.addEventListener('click', onCloseEditor)
-		return () => {
-			document.removeEventListener('click', onCloseEditor)
-		}
-	}, [])
-
-	function addComment(newComment) {
-		setComments(prevComments => [newComment, ...prevComments])
-	}
+	// function addComment(newComment) {
+	// setComments(prevComments => [newComment, ...prevComments])
+	// }
 
 	function handleKeyPressed(key) {
 		if (key.key === 'Enter') setNewTitle()
@@ -72,7 +63,7 @@ export function TaskDetails() {
 			const newGroup = boardService.getGroupByTask(board, taskId)
 			const currTask = boardService.getTaskById(board, newGroup.id, taskId)
 			setTitleToChange(currTask.title)
-			setComments(currTask.comments)
+			// setComments(currTask.comments)
 			setTask(currTask)
 		} catch (err) {
 			console.log(err)
@@ -93,13 +84,13 @@ export function TaskDetails() {
 
 	async function onSaveComment() {
 		const newComment = { txt: commentToEdit, id: utilService.makeId() }
-		socketService.emit(SOCKET_EMIT_SEND_MSG, newComment)
+		// socketService.emit(SOCKET_EMIT_SEND_MSG, newComment)
 		const newTask = { ...task, comments: [newComment, ...task.comments] }
 		// setComments(prevComments => [])
 		try {
 			const group = boardService.getGroupByTask(board, taskId)
 			await saveTask(boardId, group.id, newTask, 'saved new comment')
-			setComments(prevComments => [newComment, ...prevComments])
+			// setComments(prevComments => [newComment, ...prevComments])
 			setCommentToEdit('')
 			setIsEditorOpen(false)
 		} catch (err) {
@@ -142,7 +133,7 @@ export function TaskDetails() {
 			showErrorMsg('Cant save task')
 		}
 	}
-	if (!task || !comments) return
+	if (!task || !task.comments) return
 	return (
 		<>
 			<div className="details-back-panel"></div>
@@ -205,8 +196,8 @@ export function TaskDetails() {
 
 					<section className="comments-container">
 						<ul className="clean-list">
-							{!!comments.length ? (
-								comments.map(comment => (
+							{!!task.comments.length ? (
+								task.comments.map(comment => (
 									// <li className="comment" key={`${comment.id}-${idx}`}>
 									<li className="comment" key={comment.id}>
 										<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>

@@ -26,7 +26,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	const [groupColor, setGroupColor] = useState(boardService.getGroupById(board, groupId).style.color)
 	const [toggle, setToggle] = useState(false)
 	const [isHovered, setIsHovered] = useState(false)
-	const [hasTimeline, setHasTimeline] = useState(task.timeline && true)
 	const [range, setRange] = useState(defaultSelected)
 	const [modalFooter, setModalFooter] = useState(<p>Please pick the first day.</p>)
 	const { timeline } = task
@@ -64,8 +63,8 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		const taskToEdit = { ...task, timeline }
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
-			setHasTimeline(true)
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			// setHasTimeline(true)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}
@@ -113,6 +112,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function getTimestampInDays() {
+		if (!timeline) return
 		const estTime = timeline.endDate - timeline.startDate
 		return millisecondsToDays(estTime)
 	}
@@ -132,8 +132,8 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function getTimelineRange() {
-		if (!timeline.startDate || !timeline.endDate) return
-		
+		if (!timeline?.startDate || !timeline?.endDate) return
+
 		const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
 		const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 
@@ -149,10 +149,10 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
-		setHasTimeline(false)
+		// setHasTimeline(false)
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}
@@ -182,7 +182,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 			</div>
 		)
 	}
-
 	return (
 		<li
 			className="timeline-picker flex align-center justify-center pointer"
@@ -197,7 +196,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 					<div
 						className="progress"
 						style={
-							!hasTimeline
+							!timeline || !Object.keys(timeline).length
 								? { backgroundColor: '#ABABAB' }
 								: {
 										background: `linear-gradient(to right, ${
@@ -209,14 +208,16 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 						<span></span>
 					</div>
 					<span className="range-preview flex row justify-center">
-						{!hasTimeline && (isHovered ? <span>Set Dates</span> : <span>-</span>)}
-						{hasTimeline &&
+						{(!timeline || !Object.keys(timeline).length) &&
+							(isHovered ? <span>Set Dates</span> : <span>-</span>)}
+						{timeline &&
+							Object.keys(timeline).length &&
 							(isHovered ? (
 								<span>{getTimestampInDays()}d</span>
 							) : (
 								<span>{getTimelineRange(timeline)}</span>
 							))}
-						{isHovered && hasTimeline && (
+						{isHovered && timeline && Object.keys(timeline).length && (
 							<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
 								{ICON_CLOSE}
 							</div>

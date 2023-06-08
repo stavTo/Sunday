@@ -1,5 +1,6 @@
 // import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
+import { SOCKET_EMIT_SEND_BOARD, socketService } from './socket.service.js'
 import { utilService } from './util.service.js'
 
 // import { DEFAULT_USER } from '../assets/icons/icons.js'
@@ -9,36 +10,6 @@ import { utilService } from './util.service.js'
 
 const STORAGE_KEY = 'board'
 const BASE_URL = 'board/'
-
-export const boardService = {
-	query,
-	getById,
-	save,
-	remove,
-	getEmptyBoard,
-	saveTask,
-	addTask,
-	getEmptyTask,
-	addGroup,
-	getEmptyGroup,
-	removeTask,
-	addTaskToFirstGroup,
-	getDefaultFilter,
-	getEmptyLabel,
-	updateLabels,
-	getTaskById,
-	getGroupByTask,
-	getGroupById,
-	updateGroup,
-	removeGroup,
-	getBoardMembers,
-	duplicateGroup,
-	duplicateTask,
-	getGroupDateSummary,
-	groupHasDate,
-	getStatusLabelById,
-	getEmptyActivity,
-}
 
 async function query(filterBy = { txt: '', price: 0 }) {
 	return httpService.get(BASE_URL, filterBy)
@@ -53,13 +24,18 @@ async function remove(boardId) {
 }
 
 async function save(board) {
-	let savedBoard
-	if (board._id) {
-		savedBoard = await httpService.put(BASE_URL + board._id, board)
-	} else {
-		savedBoard = await httpService.post(BASE_URL, board)
+	try {
+		let savedBoard
+		if (board._id) {
+			savedBoard = await httpService.put(BASE_URL + board._id, board)
+		} else {
+			savedBoard = await httpService.post(BASE_URL, board)
+		}
+		socketService.emit(SOCKET_EMIT_SEND_BOARD)
+		return savedBoard
+	} catch (err) {
+		throw err
 	}
-	return savedBoard
 }
 
 // async function addBoardMsg(boardId, txt) {
@@ -163,13 +139,11 @@ async function addGroup(boardId, pushToTop, activity = '') {
 			type: 'Created group',
 		}
 
-
 		const board = await getById(boardId)
 		pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
 
 		const activity = getEmptyActivity(board, newGroup.id, action)
 		board.activities.unshift(activity)
-
 
 		await save(board)
 		return board
@@ -389,6 +363,36 @@ function getGroupDateSummary(group) {
 		earliestDate,
 		latestDate,
 	}
+}
+
+export const boardService = {
+	query,
+	getById,
+	save,
+	remove,
+	getEmptyBoard,
+	saveTask,
+	addTask,
+	getEmptyTask,
+	addGroup,
+	getEmptyGroup,
+	removeTask,
+	addTaskToFirstGroup,
+	getDefaultFilter,
+	getEmptyLabel,
+	updateLabels,
+	getTaskById,
+	getGroupByTask,
+	getGroupById,
+	updateGroup,
+	removeGroup,
+	getBoardMembers,
+	duplicateGroup,
+	duplicateTask,
+	getGroupDateSummary,
+	groupHasDate,
+	getStatusLabelById,
+	getEmptyActivity,
 }
 
 // const activities = [

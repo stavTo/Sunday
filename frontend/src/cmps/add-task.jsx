@@ -28,10 +28,9 @@ export function AddTask({ group }) {
 				groupTitle: group.title,
 				groupColor: group.style.color,
 				type: 'Created task',
-				taskTitle: taskToAdd.title
+				taskTitle: taskToAdd.title,
 			}
 			await addTask(board._id, group.id, taskToAdd, action)
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setTaskToAdd(prevTask => ({ ...prevTask, title: '' }))
 		} catch (err) {
 			console.log(err)
