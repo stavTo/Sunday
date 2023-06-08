@@ -36,6 +36,7 @@ export const boardService = {
 	duplicateTask,
 	getGroupDateSummary,
 	groupHasDate,
+	getStatusLabelById,
 	getEmptyActivity,
 }
 
@@ -140,6 +141,10 @@ function getEmptyLabel() {
 	}
 }
 
+function getStatusLabelById(board, labelId) {
+	return board.statusLabels.find(label => label.id === labelId)
+}
+
 function getBoardMembers(board, filter = '') {
 	const members = board.members
 	const regex = new RegExp(filter, 'i')
@@ -175,8 +180,9 @@ async function addGroup(boardId, pushToTop, activity = '') {
 async function duplicateGroup(boardId, group, activity = '') {
 	const newGroup = structuredClone(group)
 	const newGroupChangeTaskId = {
-		...newGroup, id: utilService.makeId(),
-		tasks: newGroup.tasks.map(t => ({ ...t, id: utilService.makeId() }))
+		...newGroup,
+		id: utilService.makeId(),
+		tasks: newGroup.tasks.map(t => ({ ...t, id: utilService.makeId() })),
 	}
 	try {
 		const board = await getById(boardId)
@@ -411,4 +417,4 @@ function getGroupDateSummary(group) {
 // timeline: task | type | from 01/09 -> 02/09
 // date: from Jun 6 -> Jun 14
 // person: task | person | added | user img
-// owner: task | 'added owner' | (person) 
+// owner: task | 'added owner' | (person)
