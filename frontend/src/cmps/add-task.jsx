@@ -49,6 +49,7 @@ export function AddTask({ group }) {
 			}}
 		>
 			<div className="sticky-container">
+				<div className="empty-option-container"></div>
 				<div
 					className="colored-border"
 					style={{ backgroundColor: utilService.hexToRgba(group.style.color, 0.6) }}

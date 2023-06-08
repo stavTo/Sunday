@@ -1,9 +1,12 @@
 .task-selection {
 	min-width: 36px;
+	height: 100%;
 	width: 36px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-inline-end: 1px solid $border-clr;
+
 	.checkbox {
 		width: 16px;
 		height: 16px;

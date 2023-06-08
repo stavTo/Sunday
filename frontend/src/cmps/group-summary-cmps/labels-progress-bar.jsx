@@ -39,11 +39,9 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 			return `${val}/${sum}`
 		})
 
-		const x = labelNames.map((label, idx) => ({
+		return labelNames.map((label, idx) => ({
 			[label]: valuesPercent[idx],
 		}))
-
-		return x
 	}
 
 	function calcLabels() {

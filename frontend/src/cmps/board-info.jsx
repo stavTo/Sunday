@@ -12,20 +12,39 @@ export function BoardInfo({ board, setIsInfoOpen }) {
                         <TfiClose />
                     </span>
                     <span className="modal-title">{board.title}</span>
+                   <div className="textarea-container">
                     <textarea type="text" placeholder="Add a description here to make sure your team is aligned on the purpose of this board" />
+                   </div>
                 </div>
                 <div className="info-container">
-                    <span>Board info</span>
-                    <span>Workspace</span>
-                    <span>Main workspace</span>
-                    <span>Created by</span>
-                    <span>
-                        <img src={DEFAULT_USER} alt="" />
-                        Stav Tohami</span>
-                    <span>Board type</span>
-                    <span>{ICON_BOARD_LIST} This board is public, visible to all team members.</span>
+                    <span className="title">Board info</span>
+                    <div className="Workspace flex column">
+                        <span className="subtitle">Workspace</span>
+                        <span>Main workspace</span>
+                    </div>
+                    <div className="created-by flex column">
+                        <span className="subtitle">Created by</span>
+                        <div className="flex align-center">
+                            <span><img src={DEFAULT_USER} alt="" /> </span>
+                            <span>08/06/2023</span>
+                        </div>
+                    </div>
+                    <div className="owners flex column">
+                        <span className="subtitle">Owners</span>
+                        <div className="flex align-center">
+                            <span> <img src={DEFAULT_USER} alt="" /> </span>
+                            <span>{board.createdBy.fullname}</span>
+                        </div>
+                    </div>
+                    <div className="board-type flex column">
+                        <span className="subtitle">Board type</span>
+                        <div className="flex">
+                            <span>{ICON_BOARD_LIST} </span>
+                            <span> This board is public, visible to all team members.</span>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </section >
 
             <div className="modal-overlay" onClick={() => setIsInfoOpen(false)}></div>
         </>

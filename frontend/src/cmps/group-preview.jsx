@@ -94,59 +94,60 @@ export function GroupPreview({ group, provided }) {
 	}
 	return (
 		<section className={`group-preview ${isCollapsed ? 'collapsed' : ''}`}>
+			{isOptionOpen && (
+				<GroupOptionsMenu
+					group={group}
+					onRemoveGroup={onRemoveGroup}
+					openColorPicker={openColorPicker}
+					setIsOptionOpen={setIsOptionOpen}
+				/>
+			)}
+			{isColorPickerOpen && (
+				<ColorPicker
+					onSetColorPickerClose={onSetColorPickerClose}
+					setGroupStyle={setGroupStyle}
+					setIsColorPickerOpen={setIsColorPickerOpen}
+				/>
+			)}
+			<div className="group-sticky-background"></div>
 			<div className="group-sticky-container">
-				<div className="group-header" style={{ color: group.style.color }}>
-					<div
-						className="group-option-container btn-primary flex align-center"
-						onClick={() => setIsOptionOpen(true)}
-					>
-						{/* <div
-							className="group-option btn-primary flex align-center"
-							onClick={() => setIsOptionOpen(true)}
-						> */}
-						{ICON_OPTIONS}
-						{/* </div> */}
+				<div className="header-container">
+					<div {...provided.dragHandleProps} className="group-header" style={{ color: group.style.color }}>
+						<div className="group-option-container flex align-center">
+							<div
+								className="group-option btn-primary flex align-center"
+								onClick={() => setIsOptionOpen(true)}
+							>
+								{ICON_OPTIONS}
+							</div>
+						</div>
+
+						<div
+							onClick={() => setIsCollapsed(prev => !prev)}
+							className={`expand-arrow-container ${isCollapsed ? 'collapsed' : ''}`}
+						>
+							{ICON_EXPAND_ARROW}
+						</div>
+						<div className="group-title-container" onClick={handleTitleClick}>
+							{!isInputVisible && (
+								<TippyContainer txt="Click to Edit" offset={[0, 5]}>
+									<h4 className="group-title">{group.title}</h4>
+								</TippyContainer>
+							)}
+							{isInputVisible && (
+								<input
+									className="group-title-input"
+									onKeyDown={handleKeyPressed}
+									autoFocus
+									type="text"
+									value={titleToChange}
+									onChange={handleChange}
+									onBlur={setGroupTitle}
+								></input>
+							)}
+						</div>
+						<div className="task-count">{group.tasks?.length} Tasks</div>
 					</div>
-					{isOptionOpen && (
-						<GroupOptionsMenu
-							group={group}
-							onRemoveGroup={onRemoveGroup}
-							openColorPicker={openColorPicker}
-							setIsOptionOpen={setIsOptionOpen}
-						/>
-					)}
-					{isColorPickerOpen && (
-						<ColorPicker
-							onSetColorPickerClose={onSetColorPickerClose}
-							setGroupStyle={setGroupStyle}
-							setIsColorPickerOpen={setIsColorPickerOpen}
-						/>
-					)}
-					<div
-						onClick={() => setIsCollapsed(prev => !prev)}
-						className={`expand-arrow-container ${isCollapsed ? 'collapsed' : ''}`}
-					>
-						{ICON_EXPAND_ARROW}
-					</div>
-					<div className="group-title-container" onClick={handleTitleClick}>
-						{!isInputVisible && (
-							<TippyContainer txt="Click to Edit" offset={[0, 5]}>
-								<h4 className="group-title">{group.title}</h4>
-							</TippyContainer>
-						)}
-						{isInputVisible && (
-							<input
-								className="group-title-input"
-								onKeyDown={handleKeyPressed}
-								autoFocus
-								type="text"
-								value={titleToChange}
-								onChange={handleChange}
-								onBlur={setGroupTitle}
-							></input>
-						)}
-					</div>
-					<div className="task-count">{group.tasks?.length} Tasks</div>
 				</div>
 
 				<TaskListHeader

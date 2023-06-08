@@ -1,22 +1,24 @@
 .group-summary {
-	.collapsed & {
-		border: 1px solid $border-clr;
-		margin-inline-start: 0;
+	min-width: max-content;
+	// border-inline-start: 1px solid $border-clr;
+	border-block-end: 1px solid $border-clr;
+	height: $task-row-height;
+	.summary-data-container {
+		display: flex;
 	}
 
-	margin-inline-start: 440px;
-	height: $task-row-height;
-	border-block-end: 1px solid $border-clr;
-
-	border-bottom-left-radius: 8px;
-
-	.empty-owner-container {
-		box-sizing: content-box;
-		border-inline-start: 1px solid $border-clr;
-		border-bottom-left-radius: 8px;
+	.empty-margin-footer {
+		position: sticky;
+		z-index: 2;
+		left: 0px;
+		width: 478px;
+		background-color: $clr0;
+		height: $task-row-height;
+		border-inline-end: 1px solid $border-clr;
 	}
 
 	.group-summary-data {
+		// border-block-end: 1px solid $border-clr;
 		display: flex;
 		flex-shrink: 0;
 		justify-content: center;

@@ -23,8 +23,11 @@ export function SideBar({ isExpandable = true }) {
 
 
 	function onToggleFavorites() {
+		if (isFavoritesOpen) return
 		setIsFavoritesOpen(prev => !prev)
+		if (isFixed) return
 		setIsFixed(prev => !prev)
+
 	}
 
 	return (
@@ -41,16 +44,18 @@ export function SideBar({ isExpandable = true }) {
 							<hr></hr>
 							<div className="flex column gap-1">
 								<TippyContainer txt={'Work management'} placement="right" offset={[0, 20]}>
-									<li className="flex work-management">{ICON_WORK_MANAGEMENT}</li>
+									<li className="flex work-management" onClick={() => setIsFavoritesOpen(false)}>
+										{ICON_WORK_MANAGEMENT}
+									</li>
 								</TippyContainer>
 								<TippyContainer txt={'My Work'} placement="right" offset={[0, 20]}>
-									<li className="flex my-work">{ICON_MY_WORK}</li>
+									<li className="flex my-work" >{ICON_MY_WORK}</li>
 								</TippyContainer>
 								<TippyContainer txt={'Favorites'} placement="right" offset={[0, 20]}>
 									<li className="flex favorites"
-									onClick={onToggleFavorites}>
-									{ICON_FAVORITES}
-								</li>
+										onClick={onToggleFavorites}>
+										{ICON_FAVORITES}
+									</li>
 								</TippyContainer>
 							</div>
 						</ul>
@@ -67,13 +72,13 @@ export function SideBar({ isExpandable = true }) {
 				</ul>
 			</section>
 			{isExpandable ? <ExpandableSidebar
-				isFavoritesOpen={isFavoritesOpen} 
+				isFavoritesOpen={isFavoritesOpen}
 				setIsFavoritesOpen={setIsFavoritesOpen}
 				isHovered={isHovered}
 				debouncedSetIsHovered={debouncedSetIsHovered}
 				isFixed={isFixed}
 				setIsFixed={setIsFixed}
-				/>
+			/>
 				:
 				''}
 		</>

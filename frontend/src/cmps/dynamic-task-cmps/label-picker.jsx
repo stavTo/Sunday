@@ -30,7 +30,7 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 		} else if (type === 'priorityPicker') {
 			setLabelsName('priorityLabels')
 		}
-	}, [task, type, board])
+	}, [task, type])
 
 	useEffect(() => {
 		document.addEventListener('mousedown', onPickerClose)
@@ -41,7 +41,7 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 
 	useEffectUpdate(() => {
 		const labelId = type === 'statusPicker' ? task.status : task.priority
-		const label = board[labelsName].find(l => l.id === labelId)
+		const label = board[labelsName]?.find(l => l.id === labelId)
 		setLabel(label)
 	}, [labelsName, board])
 
@@ -151,9 +151,8 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 	function handleChange({ target }) {
 		const field = target.name
 		const value = target.value
-		const x = boardLabels.map(l => (l.id !== field ? l : { ...l, title: value }))
-		console.log(x)
-		setBoardLabels(x)
+		const newLabels = boardLabels.map(l => (l.id !== field ? l : { ...l, title: value }))
+		setBoardLabels(newLabels)
 	}
 
 	function onAddNewLabel() {
@@ -185,22 +184,16 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 			<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 			<ul className="labels-input-list clean-list">
 				{boardLabels.map(label => {
-					return <li key={label.id} className="edit-label">
-						<div className="input-container">
-							<span
-								className="remove-label-btn"
-								onClick={() => onRemoveLabel(label.id)}>
-								X
-							</span>
-							<input
-								type="text"
-								value={label.title}
-								name={label.id}
-								onChange={handleChange}
-							>
-							</input>
-						</div>
-					</li>
+					return (
+						<li key={label.id} className="edit-label">
+							<div className="input-container">
+								<span className="remove-label-btn" onClick={() => onRemoveLabel(label.id)}>
+									X
+								</span>
+								<input type="text" value={label.title} name={label.id} onChange={handleChange}></input>
+							</div>
+						</li>
+					)
 				})}
 			</ul>
 			<button onClick={onAddNewLabel}>+ New label</button>
