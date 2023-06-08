@@ -364,22 +364,7 @@
             }
         }
     ],
-    "activities": [
-        {
-            "id": "a101",
-            "txt": "Changed Color",
-            "createdAt": 154514,
-            "byMember": {
-                "_id": "u101",
-                "fullname": "Ido kadosh",
-                "imgUrl": "https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg"
-            },
-            "task": {
-                "id": "c101",
-                "title": "Replace Logo"
-            }
-        }
-    ],
+    "activities": [],
     "cmpsOrder": [
         {
             "id": "3yilg2",

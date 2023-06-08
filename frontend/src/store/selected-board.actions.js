@@ -4,7 +4,6 @@ import { UPDATE_BOARD } from './board.reducer'
 import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.reducer'
 import { REMOVE_CHECKED_TASK } from './selected-task.reducer'
 import { store } from './store'
-import { socketService, SOCKET_EMIT_SEND_BOARD } from '../services/socket.service'
 
 export async function loadBoard(boardId, filter = {}) {
 	try {

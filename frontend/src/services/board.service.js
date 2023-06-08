@@ -237,11 +237,9 @@ async function addTask(boardId, groupId, task, action = {}) {
 			group.id !== groupId ? group : { ...group, tasks: [...group.tasks, task] }
 		)
 
-		// const users = getBoardMembers()
-		// const user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
-		const activity = getEmptyActivity(boardId, task.id, action)
+		const activity = getEmptyActivity(board, task.id, action)
 		board.activities.unshift(activity)
-		
+
 		await save(board)
 		return board
 	} catch (err) {
@@ -249,18 +247,15 @@ async function addTask(boardId, groupId, task, action = {}) {
 	}
 }
 
-async function getEmptyActivity(boardId, taskId = '', action = {}) {
-	const users = getBoardMembers(boardId)
-	const user = await users[utilService.getRandomIntInclusive(0, users.length - 1)]
-	console.log("user", user)
-	console.log("users", users)
+function getEmptyActivity(board, taskId = '', action = {}) {
+	const users = getBoardMembers(board)
+	const user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
 
 	return {
 		id: utilService.makeId(),
 		createdAt: Date.now(),
-		// by: user,
+		by: user,
 		taskId,
-		// actionType: action.type, // Label/ name/ timeline
 		action,
 	}
 }
@@ -360,21 +355,6 @@ function getGroupDateSummary(group) {
 		latestDate,
 	}
 }
-
-// const activities = [
-// 	{
-// 		id,
-// 		createdAt,
-// 		by,
-// 		task,
-// 		actionType, // Label/ name/ timeline
-// 		action: {
-// 			description,
-// 		},
-// 	}
-// ]
-
-// 5m roni
 
 // const activities = [
 // 	{
