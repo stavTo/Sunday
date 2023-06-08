@@ -7,6 +7,7 @@ import { saveTask } from '../../store/selected-board.actions'
 import { usePopper } from 'react-popper'
 import { boardService } from '../../services/board.service'
 import { showErrorMsg } from '../../services/event-bus.service'
+import { SOCKET_EMIT_SEND_BOARD, socketService } from '../../services/socket.service'
 
 export function MemberPicker({ groupId, type, task, defaultWidth }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
@@ -84,7 +85,7 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 		setMemberList(filteredMembers)
 	}
 
-	function onRemoveAssignedMember(member) {
+	async function onRemoveAssignedMember(member) {
 		const filteredMembers = assignedMembers.filter(m => m._id !== member._id)
 		let newTask
 		if (type === 'ownerPicker') {
@@ -92,12 +93,17 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 		} else if (type === 'collaboratorPicker') {
 			newTask = { ...task, collaborators: filteredMembers }
 		}
-		saveTask(board._id, groupId, newTask, 'removed member ')
-		setAssignedMembers(filteredMembers)
-		setMemberList(prev => [...prev, member])
+		try {
+			await saveTask(board._id, groupId, newTask, 'removed member ')
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			setAssignedMembers(filteredMembers)
+			setMemberList(prev => [...prev, member])
+		} catch {
+			showErrorMsg('Cant update member')
+		}
 	}
 
-	function onSetMember(member) {
+	async function onSetMember(member) {
 		setIsPickerOpen(false)
 		let newTask
 		if (type === 'ownerPicker') {
@@ -105,7 +111,12 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 		} else if (type === 'collaboratorPicker') {
 			newTask = { ...task, collaborators: [...task.collaborators, member] }
 		}
-		saveTask(board._id, groupId, newTask, 'Set new member ')
+		try {
+			await saveTask(board._id, groupId, newTask, 'Set new member ')
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
+		} catch {
+			showErrorMsg('Cant update member')
+		}
 	}
 
 	function onClosePicker(ev) {
@@ -136,8 +147,8 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 			{/* if not any of the above, show default image. */}
 			{((type === 'ownerPicker' && !task?.owner?._id) ||
 				(type === 'collaboratorPicker' && !task.collaborators?.length)) && (
-				<img src={EMPTY_MEMBER} alt="member img" />
-			)}
+					<img src={EMPTY_MEMBER} alt="member img" />
+				)}
 			{isPickerOpen && (
 				<div
 					className="member-picker-modal"

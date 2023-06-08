@@ -6,6 +6,7 @@ import { saveTask, updateLabels } from '../../store/selected-board.actions'
 import { boardService } from '../../services/board.service'
 import { usePopper } from 'react-popper'
 import { showErrorMsg } from '../../services/event-bus.service'
+import { SOCKET_EMIT_SEND_BOARD, socketService } from '../../services/socket.service'
 
 export function LabelPicker({ type, task, groupId, defaultWidth }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
@@ -64,6 +65,7 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 		taskToEdit[labelTaskName] = label.id
 		try {
 			await saveTask(board._id, groupId, taskToEdit, 'changed label')
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setLabel(label)
 		} catch (err) {
 			showErrorMsg('Cant change label')
