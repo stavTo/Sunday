@@ -9,6 +9,7 @@ import { ICON_CONVERSATION, ICON_CONVERSATION_EMPTY } from '../../assets/icons/i
 import { socketService, SOCKET_EMIT_SEND_BOARD } from '../../services/socket.service'
 
 import { TippyContainer } from '../tippy-container'
+import { boardService } from '../../services/board.service'
 
 export function TaskTitle({ task, groupId }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
@@ -49,7 +50,13 @@ export function TaskTitle({ task, groupId }) {
 		const newTask = { ...task, title: titleToChange }
 		setIsInputFocused(false)
 		try {
-			await saveTask(board._id, groupId, newTask, 'changed task title')
+			const action = {
+				description: 'Added Task',
+				type: 'Rename',
+				oldTaskTitle: task.title,
+				nameTaskTitle: titleToChange
+			}
+			await saveTask(board._id, groupId, newTask, action)
 			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Cant save task')

@@ -82,7 +82,13 @@ export function GroupPreview({ group, provided }) {
 
 	async function onRemoveGroup() {
 		try {
-			await removeGroup(board._id, group.id)
+			const action = {
+				description: 'Deleted group',
+				groupTitle: group.title ,
+				groupColor: group.style.color,
+				type: 'Deleted group',
+			}
+			await removeGroup(board._id, group.id , action)
 		} catch {
 			showErrorMsg('Cant remove group')
 		}

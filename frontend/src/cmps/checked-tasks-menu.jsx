@@ -20,7 +20,16 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 	async function onRemove() {
 		for (let taskId of checkedTaskIds) {
 			try {
-				await removeTask(board._id, taskId)
+				const group = boardService.getGroupByTask(board, taskId)
+				const task = await boardService.getTaskById(board, group.id, taskId)
+				const action = {
+					description: 'Deleted Task',
+					groupTitle: group.title,
+					groupColor: group.style.color,
+					type: 'Deleted task',
+					taskTitle: task.title,
+				}
+				await removeTask(board._id, taskId, action)
 			} catch {
 				showErrorMsg('Error deleting tasks')
 			}

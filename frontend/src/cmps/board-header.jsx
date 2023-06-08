@@ -22,7 +22,14 @@ export function BoardHeader({ board }) {
 	}
 
 	function onAddTask() {
-		addTaskToFirstGroup(board._id)
+		const action = {
+			description: 'Added Task',
+			groupTitle: board.groups[0].title,
+			groupColor: board.groups[0].style.color,
+			type: 'Created task',
+			taskTitle: 'New task'
+		}
+		addTaskToFirstGroup(board._id, action)
 	}
 
 	function onToggleStarState() {

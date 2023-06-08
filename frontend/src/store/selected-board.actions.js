@@ -103,9 +103,9 @@ export async function updateLabels(board, labelsName, labels) {
 	}
 }
 
-export async function saveTask(boardId, groupId, task, activity = '') {
+export async function saveTask(boardId, groupId, task, action = {}) {
 	try {
-		const board = await boardService.saveTask(boardId, groupId, task, activity)
+		const board = await boardService.saveTask(boardId, groupId, task, action)
 		// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
@@ -114,9 +114,9 @@ export async function saveTask(boardId, groupId, task, activity = '') {
 	}
 }
 
-export async function addTask(boardId, groupId, task, activity = '') {
+export async function addTask(boardId, groupId, task, action = {}) {
 	try {
-		const board = await boardService.addTask(boardId, groupId, task, activity)
+		const board = await boardService.addTask(boardId, groupId, task, action)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant add task')
@@ -124,9 +124,9 @@ export async function addTask(boardId, groupId, task, activity = '') {
 	}
 }
 
-export async function addTaskToFirstGroup(boardId, activity = '') {
+export async function addTaskToFirstGroup(boardId, action = {}) {
 	try {
-		const board = await boardService.addTaskToFirstGroup(boardId, activity)
+		const board = await boardService.addTaskToFirstGroup(boardId, action)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant add task')
@@ -134,9 +134,9 @@ export async function addTaskToFirstGroup(boardId, activity = '') {
 	}
 }
 
-export async function removeTask(boardId, taskId) {
+export async function removeTask(boardId, taskId, action = {}) {
 	try {
-		const board = await boardService.removeTask(boardId, taskId)
+		const board = await boardService.removeTask(boardId, taskId, action)
 		store.dispatch({ type: REMOVE_CHECKED_TASK, taskId })
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
@@ -165,9 +165,9 @@ export async function updateGroup(boardId, group, activity = '') {
 	}
 }
 
-export async function removeGroup(boardId, groupId, activity = '') {
+export async function removeGroup(boardId, groupId, action = {}) {
 	try {
-		const board = await boardService.removeGroup(boardId, groupId, activity)
+		const board = await boardService.removeGroup(boardId, groupId, action)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant remove group')

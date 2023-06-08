@@ -27,7 +27,8 @@ export function AddTask({ group }) {
 				description: 'Added Task',
 				groupTitle: group.title,
 				groupColor: group.style.color,
-				type: 'Created'
+				type: 'Created task',
+				taskTitle: taskToAdd.title
 			}
 			await addTask(board._id, group.id, taskToAdd, action)
 			socketService.emit(SOCKET_EMIT_SEND_BOARD)

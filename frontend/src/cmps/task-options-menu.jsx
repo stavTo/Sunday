@@ -22,8 +22,15 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen }) {
     async function onRemoveTask() {
         setIsOptionOpen(false)
         try {
-            console.log(task.id)
-            await removeTask(boardId, task.id)
+            const action = {
+                description: 'Deleted Task',
+                groupTitle: group.title,
+                groupColor: group.style.color,
+                type: 'Deleted task',
+                taskTitle : task.title,
+            }
+
+            await removeTask(boardId, task.id, action)
             socketService.emit(SOCKET_EMIT_SEND_BOARD)
         } catch {
             showErrorMsg('cant delete task')

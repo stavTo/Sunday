@@ -5,7 +5,7 @@ export function ActivityList({ board }) {
     const [activities, setActivities] = useState(board.activities)
 
     useEffect(() => {
-        console.log("activities:", activities)
+        // console.log("activities:", activities)
     }, [])
 
     return (

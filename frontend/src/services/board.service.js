@@ -150,8 +150,21 @@ async function addGroup(boardId, pushToTop, activity = '') {
 	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	try {
+		const action = {
+			description: 'Added group',
+			groupTitle: 'New Group',
+			groupColor: newGroup.style.color,
+			type: 'Created group',
+		}
+
+
 		const board = await getById(boardId)
 		pushToTop ? board.groups.push(newGroup) : board.groups.unshift(newGroup)
+
+		const activity = getEmptyActivity(board, newGroup.id, action)
+		board.activities.unshift(activity)
+
+
 		await save(board)
 		return board
 	} catch (err) {
@@ -219,13 +232,15 @@ function getGroupById(board, groupId) {
 	return newBoard.groups.find(group => group.id === groupId)
 }
 
-async function saveTask(boardId, groupId, task, activity = '') {
+async function saveTask(boardId, groupId, task, action = {}) {
 	try {
 		const board = await getById(boardId)
 		board.groups = board.groups.map(group =>
 			group.id !== groupId ? group : { ...group, tasks: group.tasks.map(t => (t.id === task.id ? task : t)) }
 		)
-		// board.board.activities.unshift(activity)
+		const activity = getEmptyActivity(board, task.id, action)
+		board.activities.unshift(activity)
+
 		await save(board)
 		return board
 	} catch (err) {
@@ -251,27 +266,16 @@ async function addTask(boardId, groupId, task, action = {}) {
 	}
 }
 
-function getEmptyActivity(board, taskId = '', action = {}) {
-	const users = getBoardMembers(board)
-	const user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
-
-	return {
-		id: utilService.makeId(),
-		createdAt: Date.now(),
-		by: user,
-		taskId,
-		action,
-	}
-}
-
-async function addTaskToFirstGroup(boardId, activity = '') {
+async function removeTask(boardId, taskId, action = {}) {
 	try {
+		console.log(taskId)
 		const board = await getById(boardId)
-		const task = getEmptyTask()
-		task.title = 'New Task'
-		task.id = utilService.makeId()
-		board.groups[0].tasks.push(task)
-		// board.board.activities.unshift(activity)
+		board.groups = board.groups.map(group => ({ ...group, tasks: group.tasks.filter(t => t.id !== taskId) }))
+
+		console.log(action)
+		const activity = getEmptyActivity(board, taskId, action)
+		board.activities.unshift(activity)
+
 		await save(board)
 		return board
 	} catch (err) {
@@ -279,12 +283,30 @@ async function addTaskToFirstGroup(boardId, activity = '') {
 	}
 }
 
-async function removeTask(boardId, taskId, activity = '') {
+function getEmptyActivity(board, entityId = '', action = {}) {
+	const users = getBoardMembers(board)
+	const user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
+
+	return {
+		id: utilService.makeId(),
+		createdAt: Date.now(),
+		by: user,
+		entityId,
+		action,
+	}
+}
+
+async function addTaskToFirstGroup(boardId, action = {}) {
 	try {
 		const board = await getById(boardId)
-		board.groups = board.groups.map(group => ({ ...group, tasks: group.tasks.filter(t => t.id !== taskId) }))
-		// board.board.activities.unshift(activity)
-		console.log(board)
+		const task = getEmptyTask()
+		task.title = 'New Task'
+		task.id = utilService.makeId()
+		board.groups[0].tasks.push(task)
+
+		const activity = getEmptyActivity(board, task.id, action)
+		board.activities.unshift(activity)
+
 		await save(board)
 		return board
 	} catch (err) {
@@ -303,12 +325,14 @@ async function updateGroup(boardId, group) {
 	}
 }
 
-async function removeGroup(boardId, groupId, activity = '') {
+async function removeGroup(boardId, groupId, action = {}) {
 	try {
 		const board = await getById(boardId)
-		// PUT /api/board/b123/task/t678
 		board.groups = board.groups.filter(g => g.id !== groupId)
-		// board.board.activities.unshift(activity)
+
+		const activity = getEmptyActivity(board, groupId, action)
+		board.activities.unshift(activity)
+
 		await save(board)
 		return board
 	} catch (err) {
