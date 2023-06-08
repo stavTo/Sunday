@@ -32,7 +32,7 @@ export function BoardInfo({ board, setIsInfoOpen }) {
                     <div className="owners flex column">
                         <span className="subtitle">Owners</span>
                         <div className="flex align-center">
-                            <span> <img src={DEFAULT_USER} alt="" /> </span>
+                            <span> <img src={board.createdBy.imgUrl} alt="" /> </span>
                             <span>{board.createdBy.fullname}</span>
                         </div>
                     </div>

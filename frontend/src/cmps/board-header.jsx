@@ -9,6 +9,7 @@ import { TippyContainer } from './tippy-container'
 import { useState } from 'react'
 import { showErrorMsg } from '../services/event-bus.service'
 import { BoardInfo } from './board-info'
+import { Link } from 'react-router-dom'
 
 export function BoardHeader({ board }) {
 	const [isInviteOpen, setIsInviteOpen] = useState(false)
@@ -107,7 +108,9 @@ export function BoardHeader({ board }) {
 					</div>
 					<div className="board-header-top-right">
 						<div className="activity-container btn-primary">
-							Activity
+							<Link className="open-task-details" to={`/boards/${board._id}/activity_log/`}>
+								Activity
+							</Link>
 							<div className="user-img-container"></div>
 						</div>
 						<div onClick={() => setIsInviteOpen(prev => !prev)} className="invite-container btn-primary">

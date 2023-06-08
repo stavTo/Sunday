@@ -37,6 +37,7 @@ export const boardService = {
 	getGroupDateSummary,
 	groupHasDate,
 	getStatusLabelById,
+	getEmptyActivity,
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -110,6 +111,10 @@ function getEmptyTask(title = '') {
 		comments: [],
 		collaborators: [],
 		dueDate: null,
+		// timeline: {
+		// 	startDate: null,
+		// 	endDate: null
+		// },
 		owner: {
 			_id: '',
 			username: '',
@@ -160,11 +165,16 @@ async function addGroup(boardId, pushToTop, activity = '') {
 }
 
 async function duplicateGroup(boardId, group, activity = '') {
-	const newGroup = { ...group, id: utilService.makeId() }
+	const newGroup = structuredClone(group)
+	const newGroupChangeTaskId = {
+		...newGroup,
+		id: utilService.makeId(),
+		tasks: newGroup.tasks.map(t => ({ ...t, id: utilService.makeId() })),
+	}
 	try {
 		const board = await getById(boardId)
 		const idx = board.groups.findIndex(g => g.id === group.id)
-		board.groups.splice(idx, 0, newGroup)
+		board.groups.splice(idx, 0, newGroupChangeTaskId)
 		await save(board)
 		return board
 	} catch (err) {
@@ -229,18 +239,34 @@ async function saveTask(boardId, groupId, task, activity = '') {
 	}
 }
 
-async function addTask(boardId, groupId, task, activity = '') {
+async function addTask(boardId, groupId, task, action = {}) {
 	try {
 		const board = await getById(boardId)
 		task.id = utilService.makeId()
 		board.groups = board.groups.map(group =>
 			group.id !== groupId ? group : { ...group, tasks: [...group.tasks, task] }
 		)
-		// board.board.activities.unshift(activity)
+
+		const activity = getEmptyActivity(board, task.id, action)
+		board.activities.unshift(activity)
+
 		await save(board)
 		return board
 	} catch (err) {
 		throw err
+	}
+}
+
+function getEmptyActivity(board, taskId = '', action = {}) {
+	const users = getBoardMembers(board)
+	const user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
+
+	return {
+		id: utilService.makeId(),
+		createdAt: Date.now(),
+		by: user,
+		taskId,
+		action,
 	}
 }
 
@@ -339,3 +365,32 @@ function getGroupDateSummary(group) {
 		latestDate,
 	}
 }
+
+// const activities = [
+// 	{
+// 		id: '1238a',
+// 		createdAt: '12328267658',
+// 		by: {
+// 			_id: '18D',
+// 			fullname: 'muki',
+// 			imgUrl: '../../assets...'
+// 		},
+// 		taskId: task.id,
+// 		actionType: 'label'
+// 		action: {
+// 			description,
+// 		},
+// 	}
+// ]
+
+// component types
+// timeSince | user | level | type | dynamic cmp
+// group: group | type (no cmp to render) // (delete/ add)
+// group color change: group | type | from clf1 -> clr2
+// task: task | type | related group  // (add/ delete)
+// label: task | type | from label x -> to label y
+// name: task | type | from name1 -> name2
+// timeline: task | type | from 01/09 -> 02/09
+// date: from Jun 6 -> Jun 14
+// person: task | person | added | user img
+// owner: task | 'added owner' | (person)

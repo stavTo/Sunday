@@ -23,7 +23,13 @@ export function AddTask({ group }) {
 		if (taskToAdd.title.replace(/\s/g, '') === '') return
 		elInput.current.blur()
 		try {
-			await addTask(board._id, group.id, taskToAdd, 'Added Task')
+			const action = {
+				description: 'Added Task',
+				groupTitle: group.title,
+				groupColor: group.style.color,
+				type: 'Created'
+			}
+			await addTask(board._id, group.id, taskToAdd, action)
 			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setTaskToAdd(prevTask => ({ ...prevTask, title: '' }))
 		} catch (err) {
