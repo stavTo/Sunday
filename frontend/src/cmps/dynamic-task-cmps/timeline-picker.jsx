@@ -63,8 +63,8 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		const timeline = { startDate, endDate }
 		const taskToEdit = { ...task, timeline }
 		try {
-			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			await saveTask(board._id, groupId, taskToEdit, '')
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setHasTimeline(true)
 		} catch {
 			showErrorMsg('Something went wrong')
@@ -132,6 +132,8 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function getTimelineRange() {
+		if (!timeline.startDate || !timeline.endDate) return
+		
 		const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
 		const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 
@@ -150,7 +152,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		setHasTimeline(false)
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}
