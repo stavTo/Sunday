@@ -108,7 +108,6 @@ export async function updateLabels(board, labelsName, labels) {
 export async function saveTask(boardId, groupId, task, action = {}) {
 	try {
 		const board = await boardService.saveTask(boardId, groupId, task, action)
-		// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant save task')

@@ -10,12 +10,12 @@ import { useSelector } from 'react-redux'
 import { utilService } from '../services/util.service'
 import imgEmptyPage from '../assets/img/img/pulse-page-empty-state.svg'
 
-import {
-	socketService,
-	SOCKET_EVENT_ADD_TASK_MSG,
-	SOCKET_EMIT_SET_TASK,
-	SOCKET_EMIT_SEND_MSG,
-} from '../services/socket.service'
+// import {
+// 	socketService,
+// 	SOCKET_EVENT_ADD_TASK_MSG,
+// 	SOCKET_EMIT_SET_TASK,
+// 	SOCKET_EMIT_SEND_MSG,
+// } from '../services/socket.service'
 
 export function TaskDetails() {
 	const { taskId, boardId } = useParams()

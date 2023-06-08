@@ -26,8 +26,8 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	const [groupColor, setGroupColor] = useState(boardService.getGroupById(board, groupId).style.color)
 	const [toggle, setToggle] = useState(false)
 	const [isHovered, setIsHovered] = useState(false)
-	const [range, setRange] = useState(defaultSelected)
-	const [modalFooter, setModalFooter] = useState(<p>Please pick the first day.</p>)
+	const [range, setRange] = useState()
+	// const [modalFooter, setModalFooter] = useState(<p>Please pick the first day.</p>)
 	const { timeline } = task
 
 	const [referenceElement, setReferenceElement] = useState(null)
@@ -43,7 +43,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	useEffectUpdate(() => {
 		if (range) {
 			onChangeTimelineRange()
-			onSetFooter()
+			// onSetFooter()
 		}
 		// eslint-disable-next-line
 	}, [range])
@@ -117,19 +117,19 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		return millisecondsToDays(estTime)
 	}
 
-	function onSetFooter() {
-		if (range?.from) {
-			if (!range.to) {
-				setModalFooter(<p>{format(range.from, 'PPP')}</p>)
-			} else if (range.to) {
-				setModalFooter(
-					<p>
-						{format(range.from, 'PPP')}-{format(range.to, 'PPP')}
-					</p>
-				)
-			}
-		}
-	}
+	// function onSetFooter() {
+	// 	if (range?.from) {
+	// 		if (!range.to) {
+	// 			setModalFooter(<p>{format(range.from, 'PPP')}</p>)
+	// 		} else if (range.to) {
+	// 			setModalFooter(
+	// 				<p>
+	// 					{format(range.from, 'PPP')}-{format(range.to, 'PPP')}
+	// 				</p>
+	// 			)
+	// 		}
+	// 	}
+	// }
 
 	function getTimelineRange() {
 		if (!timeline?.startDate || !timeline?.endDate) return
@@ -149,9 +149,11 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
+		setRange()
 		// setHasTimeline(false)
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
+
 			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')

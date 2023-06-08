@@ -37,9 +37,11 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 				endDates.push(timeline.endDate)
 			})
 		}
+		if (!startDates.length || !endDates.length) return
 		const earliestDate = Math.min(...startDates)
 		const latestDate = Math.max(...endDates)
 		if (!earliestDate || !latestDate) return
+
 		setTimeline(prevTimeline => ({ ...prevTimeline, startDate: earliestDate, endDate: latestDate }))
 	}
 
@@ -76,7 +78,6 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 			return `${startMonth} ${startDay} - ${endMonth} ${endDay}`
 		}
 	}
-
 	return (
 		<div
 			className="timeline-picker flex align-center justify-center pointer"

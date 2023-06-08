@@ -87,10 +87,10 @@ function getEmptyTask(title = '', status = 'sl104') {
 		comments: [],
 		collaborators: [],
 		dueDate: null,
-		// timeline: {
-		// 	startDate: null,
-		// 	endDate: null
-		// },
+		timeline: {
+			startDate: null,
+			endDate: null,
+		},
 		owner: {
 			_id: '',
 			username: '',
