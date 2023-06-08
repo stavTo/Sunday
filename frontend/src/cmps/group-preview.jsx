@@ -148,6 +148,7 @@ export function GroupPreview({ group, provided }) {
 						</div>
 						<div className="task-count">{group.tasks?.length} Tasks</div>
 					</div>
+					<div className="drag-handle" {...provided.dragHandleProps}></div>
 				</div>
 
 				<TaskListHeader
@@ -161,7 +162,6 @@ export function GroupPreview({ group, provided }) {
 			{!isCollapsed && <TaskList group={group} tasks={group.tasks} setIsGroupSelected={setIsGroupSelected} />}
 
 			<GroupSummary group={group} isCollapsed={isCollapsed} />
-			<div className="drag-handle" {...provided.dragHandleProps}></div>
 		</section>
 	)
 }
