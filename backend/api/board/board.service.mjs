@@ -23,7 +23,7 @@ async function query(filterBy = { txt: '' }) {
 async function getById(boardId) {
     try {
         const collection = await dbService.getCollection('board')
-        const board = collection.findOne({ _id: ObjectId(boardId) })
+        const board = await collection.findOne({ _id: ObjectId(boardId) })
         return board
     } catch (err) {
         logger.error(`while finding board ${boardId}`, err)

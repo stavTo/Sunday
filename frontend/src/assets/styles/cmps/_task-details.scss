@@ -14,7 +14,7 @@
 	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
 	resize: initial;
 
-	& > * {
+	&>* {
 		grid-column: 2;
 	}
 
@@ -37,6 +37,7 @@
 			all: unset;
 			margin: 0;
 			width: 100%;
+
 			&:focus {
 				background-color: unset;
 				outline: 1px solid $bg-clr1;
@@ -48,6 +49,7 @@
 	.close-modal-btn {
 		height: 10px;
 		cursor: pointer;
+
 		svg {
 			margin-block-start: 10px;
 			width: 30px;
@@ -94,6 +96,12 @@
 
 				.ql-container.ql-snow {
 					border: none;
+
+					.ql-editor {
+						&:focus {
+							outline: none;
+						}
+					}
 				}
 			}
 		}
@@ -152,6 +160,7 @@
 .details-back-panel:has(+ .task-details:hover) {
 	visibility: visible;
 }
+
 .details-back-panel {
 	position: absolute;
 	width: 100vw;
