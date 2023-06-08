@@ -1,6 +1,6 @@
 import { addGroup, addTaskToFirstGroup, saveBoard } from '../store/selected-board.actions'
 import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_STAR_STARRED } from '../assets/icons/icons'
-import { BoardFilter } from './board-filter'
+import { BoardFilter } from './board-filter-cmps/board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { TfiClose } from 'react-icons/tfi'
@@ -9,6 +9,7 @@ import { TippyContainer } from './tippy-container'
 import { useState } from 'react'
 import { showErrorMsg } from '../services/event-bus.service'
 import { BoardInfo } from './board-info'
+import { Link } from 'react-router-dom'
 
 export function BoardHeader({ board }) {
 	const [isInviteOpen, setIsInviteOpen] = useState(false)
@@ -83,8 +84,10 @@ export function BoardHeader({ board }) {
 							</div>
 						</TippyContainer>
 						<TippyContainer txt="Show board description">
-							<span className="info-icon header-icon btn-primary"
-								onClick={() => setIsInfoOpen(prev => !prev)}>
+							<span
+								className="info-icon header-icon btn-primary"
+								onClick={() => setIsInfoOpen(prev => !prev)}
+							>
 								{ICON_INFO}
 							</span>
 						</TippyContainer>
@@ -105,7 +108,9 @@ export function BoardHeader({ board }) {
 					</div>
 					<div className="board-header-top-right">
 						<div className="activity-container btn-primary">
-							Activity
+							<Link className="open-task-details" to={`/boards/${board._id}/activity_log/`}>
+								Activity
+							</Link>
 							<div className="user-img-container"></div>
 						</div>
 						<div onClick={() => setIsInviteOpen(prev => !prev)} className="invite-container btn-primary">

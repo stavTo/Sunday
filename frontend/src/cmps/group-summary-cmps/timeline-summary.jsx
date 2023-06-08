@@ -63,32 +63,7 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 		return millisecondsToDays(estTime)
 	}
 
-	function getTimelineRange(dates) {
-		// // For date summary
-		// if (dates) {
-		// 	const { startDate, endDate } = dates
-
-		// 	if (isNaN(startDate) || isNaN(endDate)) return
-
-		// 	const startMonth = timeStampToDate(startDate).slice(0, 3)
-		// 	const endMonth = timeStampToDate(endDate).slice(0, 3)
-
-		// 	// console.log("startMonth:", startMonth)
-		// 	// console.log("endMonth:", endMonth)
-
-		// 	const startDay = timeStampToDate(startDate).slice(4)
-		// 	const endDay = timeStampToDate(endDate).slice(4)
-
-		// 	if (startMonth === endMonth) {
-		// 		return ` ${startMonth} ${startDay}-${endDay}`
-		// 	} else {
-		// 		// console.log(`${startMonth} ${startDay} - ${endMonth} ${endDay}`)
-		// 		return `${startMonth} ${startDay} - ${endMonth} ${endDay}`
-		// 	}
-		// }
-
-		// This is for timeline summary
-
+	function getTimelineRange() {
 		const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
 		const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 

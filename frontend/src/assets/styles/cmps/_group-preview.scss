@@ -7,7 +7,8 @@
 	min-width: max-content;
 
 	.task-options-menu {
-		position: absolute;
+		position: relative;
+		z-index: 99;
 	}
 
 	.options-menu {
@@ -17,9 +18,9 @@
 		border-radius: 6px;
 		position: absolute;
 		background-color: $clr0;
-		z-index: 100;
-		top: 40px;
-		left: -10px;
+		z-index: 30;
+		top: 0px;
+		left: 40px;
 		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 17px 6px;
 		display: flex;
 		flex-direction: column;

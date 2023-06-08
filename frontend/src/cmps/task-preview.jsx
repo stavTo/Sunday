@@ -43,9 +43,10 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected })
 
 	return (
 		<>
-			{isOptionOpen && <TaskOptionsMenu task={task} group={group} setIsOptionOpen={setIsOptionOpen} />}
 			<ul className="task-preview task-row clean-list">
 				<div className="task-option-container">
+					{isOptionOpen && <TaskOptionsMenu task={task} group={group} setIsOptionOpen={setIsOptionOpen} />}
+
 					<div onClick={() => setIsOptionOpen(prev => !prev)} className="task-option btn-primary">
 						{ICON_OPTIONS}
 					</div>

@@ -3,6 +3,7 @@ import { ICON_ADD_GROUP, ICON_COPY_LINK, ICON_DUPLICATE, ICON_OPEN, ICON_TRASH }
 import { Link } from "react-router-dom";
 import { duplicateTask, removeTask } from "../store/selected-board.actions";
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service";
+import { socketService, SOCKET_EMIT_SEND_BOARD } from "../services/socket.service";
 
 export function TaskOptionsMenu({ task, group, setIsOptionOpen }) {
 
@@ -12,6 +13,7 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen }) {
         setIsOptionOpen(false)
         try {
             await duplicateTask(boardId, group, task, boolean)
+            socketService.emit(SOCKET_EMIT_SEND_BOARD)
         } catch {
             showErrorMsg('cant duplicate task')
         }
@@ -22,6 +24,7 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen }) {
         try {
             console.log(task.id)
             await removeTask(boardId, task.id)
+            socketService.emit(SOCKET_EMIT_SEND_BOARD)
         } catch {
             showErrorMsg('cant delete task')
         }
