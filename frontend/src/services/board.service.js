@@ -31,7 +31,7 @@ export const boardService = {
 	getGroupById,
 	updateGroup,
 	removeGroup,
-	getBoardUsers,
+	getBoardMembers,
 	duplicateGroup,
 	duplicateTask,
 	getGroupDateSummary,
@@ -79,7 +79,7 @@ function getEmptyBoard() {
 			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px', minWidth: '85px' },
 			{ id: utilService.makeId(), cmpName: 'statusPicker', defaultWidth: '150px', minWidth: '50px' },
 			{ id: utilService.makeId(), cmpName: 'priorityPicker', defaultWidth: '150px', minWidth: '50px' },
-			{ id: utilService.makeId(), cmpName: 'timelinePicker', defaultWidth: '150px', minWidth: '50px' },
+			{ id: utilService.makeId(), cmpName: 'timelinePicker', defaultWidth: '150px', minWidth: '70px' },
 			{ id: utilService.makeId(), cmpName: 'collaboratorPicker', defaultWidth: '150px', minWidth: '100px' },
 			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px', minWidth: '50px' },
 		],
@@ -135,15 +135,10 @@ function getEmptyLabel() {
 	}
 }
 
-async function getBoardUsers(boardId, filter = '') {
-	try {
-		const board = await getById(boardId)
-		const members = board.members
-		const regex = new RegExp(filter, 'i')
-		return members.filter(member => regex.test(member.fullname))
-	} catch (err) {
-		throw err
-	}
+function getBoardMembers(board, filter = '') {
+	const members = board.members
+	const regex = new RegExp(filter, 'i')
+	return members.filter(member => regex.test(member.fullname))
 }
 
 async function addGroup(boardId, pushToTop, activity = '') {
@@ -299,7 +294,7 @@ async function removeGroup(boardId, groupId, activity = '') {
 function getDefaultFilter() {
 	return {
 		txt: '',
-		byUserId: '',
+		memberId: '',
 		advancedFilter: {
 			groups: {},
 			tasks: {},

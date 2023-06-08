@@ -56,6 +56,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}, [])
 
 	async function onChangeTimelineRange() {
+		console.log(range)
 		if (!range.from || !range.to) return
 		const startDate = new Date(range.from).getTime()
 		const endDate = new Date(range.to).getTime()

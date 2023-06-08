@@ -17,28 +17,33 @@ async function query(filterBy = { txt: '' }) {
 }
 
 async function getById(boardId, filter) {
-	const criteria = {}
-	const txtRe = new RegExp()
-	// criteria.group.title = { $regex: filter.txt, $options: 'i' }
-	console.log(filter.txt)
 	try {
 		const collection = await dbService.getCollection('board')
-		// const x = await collection
-		// 	.aggregate([
-		// 		{ $match: { _id: ObjectId(boardId) } },
-		// 		{
-		// 			$addFields: {
-		// 				groups: {
-
-		// 				},
-		// 			},
-		// 		},
-		// 	])
-		// 	.toArray()
-		// console.log(x[0].groups)
-		// console.log('-----')
 		const board = await collection.findOne({ _id: ObjectId(boardId) })
-		// console.log(board)
+
+		if (filter.txt) {
+			const regex = new RegExp(filter.txt, 'i')
+
+			// filter groups with title, if group title doesn't match, filter its tasks.
+			board.groups = board.groups.map(group =>
+				regex.test(group.title)
+					? group
+					: { ...group, tasks: group.tasks.filter(task => regex.test(task.title)) }
+			)
+			board.groups = board.groups.filter(group => group.tasks.length)
+		}
+		if (filter.memberId) {
+			board.groups = board.groups.map(group => ({
+				...group,
+				tasks: group.tasks.filter(
+					task =>
+						task.owner._id === filter.memberId ||
+						task.collaborators.some(collaborator => collaborator._id === filter.memberId)
+				),
+			}))
+		}
+		// after filtering tasks, remove groups where no task matches.
+
 		return board
 	} catch (err) {
 		logger.error(`while finding board ${boardId}`, err)

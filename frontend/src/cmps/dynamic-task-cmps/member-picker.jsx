@@ -37,7 +37,7 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 
 	async function loadUsers() {
 		try {
-			const boardUsers = await boardService.getBoardUsers(board._id)
+			const boardUsers = boardService.getBoardMembers(board)
 			setMemberList(boardUsers)
 			fullMemberList.current = boardUsers
 		} catch {
@@ -51,7 +51,7 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 
 	async function onSearchMember() {
 		try {
-			const filteredMembers = await boardService.getBoardUsers(board._id, memberToSearch)
+			const filteredMembers = boardService.getBoardMembers(board, memberToSearch)
 			setMemberList(filteredMembers)
 		} catch {
 			showErrorMsg('cant load users')
