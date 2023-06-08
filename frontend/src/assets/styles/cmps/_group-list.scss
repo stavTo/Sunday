@@ -4,6 +4,8 @@
 
 	min-width: 1100px;
 	.add-group-btn {
+		position: sticky;
+		left: 35px;
 		border: 1px solid rgb(195, 198, 212);
 		border-radius: 4px;
 		height: em(32px);

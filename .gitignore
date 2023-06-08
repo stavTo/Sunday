@@ -1,5 +1,5 @@
 frontend/node_modules
 /frontend/.vscode
+/backend/.vscode
 backend/node_modules
 backend/logs/backend.log
-/backend/.vscode

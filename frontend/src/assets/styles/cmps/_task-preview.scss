@@ -50,6 +50,7 @@
 
 	.task-option-container {
 		position: sticky;
+		z-index: 20;
 		left: 0px;
 		height: $task-row-height;
 		width: 35px;

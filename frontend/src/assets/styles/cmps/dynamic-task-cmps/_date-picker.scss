@@ -5,24 +5,80 @@
 	justify-content: center;
 	position: relative;
 
-	.rdp-day_today:not(.rdp-day_outside) {
-		border: 1px solid $bg-clr1;
-		border-radius: 50%;
-		font-weight: 300;
+	&:hover {
+		.date-container {
+			border: 1px solid $clr4;
+		}
+		.reset-date-btn {
+			opacity: 1;
+		}
+		.add-date-btn {
+			opacity: 1;
+		}
+	}
+
+	.date-container {
+		display: flex;
+		justify-content: center;
+		&.has-date {
+			justify-content: space-between;
+		}
+
+		width: 90%;
+		height: 80%;
+
+		.start-margin {
+			width: 30px;
+		}
+	}
+
+	.date-preview-container {
+		position: relative;
+		overflow: hidden;
+
+		.date-preview {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			font-size: 13px;
+			color: $clr6;
+			// display: block;
+			// width: fit-content;
+		}
+
+		span:hover {
+			color: $link-color;
+		}
+	}
+	.span-container {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	.reset-date-btn {
-		position: absolute;
-		right: 10px;
-		top: 10px;
+		opacity: 0;
+		margin-inline-end: 5px;
 		background-color: $button-hover-bgc;
 		border-radius: 4px;
 		color: #000000;
 		width: 15px;
+		align-self: center;
+	}
+
+	.add-date-btn {
+		opacity: 0;
+		gap: 0.2em;
 	}
 
 	.rdp {
 		margin: 0;
+	}
+
+	.rdp-day_today:not(.rdp-day_outside) {
+		border: 1px solid $bg-clr1;
+		border-radius: 50%;
+		font-weight: 300;
 	}
 
 	.rdp-months {
@@ -35,10 +91,6 @@
 
 	// Buttons
 
-	.add-date-btn {
-		gap: 0.2em;
-	}
-
 	.date-picker-container {
 		// position: absolute;
 		z-index: 30;
@@ -46,31 +98,5 @@
 
 	li.date-picker:hover {
 		cursor: text;
-	}
-
-	&:hover .date-preview-container {
-		border: 1px solid $clr4;
-	}
-
-	.date-preview-container {
-		position: relative;
-
-		// margin: 0 auto;
-		width: 90%;
-		height: 80%;
-
-		.date-preview {
-			font-size: 13px;
-			color: $clr6;
-		}
-
-		span.date-preview {
-			// display: block;
-			width: fit-content;
-		}
-
-		span:hover {
-			color: $link-color;
-		}
 	}
 }

@@ -42,8 +42,8 @@ async function query(filterBy = { txt: '', price: 0 }) {
 	return httpService.get(BASE_URL, filterBy)
 }
 
-function getById(boardId) {
-	return httpService.get(BASE_URL + boardId)
+function getById(boardId, filter = {}) {
+	return httpService.get(BASE_URL + boardId, filter)
 }
 
 async function remove(boardId) {
@@ -314,11 +314,11 @@ function getDefaultFilter() {
 	}
 }
 
-export function groupHasDate(group) {
+function groupHasDate(group) {
 	return group.tasks.some(task => task.dueDate)
 }
 
-export function getGroupDateSummary(group) {
+function getGroupDateSummary(group) {
 	let dates = []
 	const hasTimeline = group.tasks.some(task => task.dueDate)
 
@@ -331,10 +331,9 @@ export function getGroupDateSummary(group) {
 		if (dates.includes(dueDate)) return
 		dates.push(dueDate)
 	})
-
+	// console.log(dates)
 	const earliestDate = Math.min(...dates)
 	const latestDate = Math.max(...dates)
-
 	return {
 		earliestDate,
 		latestDate,
