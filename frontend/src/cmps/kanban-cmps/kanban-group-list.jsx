@@ -53,6 +53,7 @@ export function KanbanGroupList({ groups }) {
 		setIsDragDisabled(true)
 	}
 
+	console.log(groupsByLabels)
 	if (!board._id || !groupsByLabels) return
 
 	return (

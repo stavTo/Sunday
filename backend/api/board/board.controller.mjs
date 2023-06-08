@@ -19,7 +19,8 @@ export async function getBoardById(req, res) {
 		const boardId = req.params.id
 		const filter = req.query
 		const board = await boardService.getById(boardId, filter)
-		res.json(board)
+		if (board) res.json(board)
+		else throw new Error('Failed to get board')
 	} catch (err) {
 		logger.error('Failed to get board', err)
 		res.status(400).send({ err: 'Failed to get board' })

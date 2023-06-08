@@ -6,60 +6,6 @@
 	position: relative;
 	min-width: max-content;
 
-	.task-options-menu {
-		position: relative;
-		z-index: 99;
-	}
-
-	.options-menu {
-		width: 264px;
-		height: auto;
-		padding: 8px;
-		border-radius: 6px;
-		position: absolute;
-		background-color: $clr0;
-		z-index: 30;
-		top: 0px;
-		left: 40px;
-		box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 17px 6px;
-		display: flex;
-		flex-direction: column;
-
-		& > * {
-			display: grid;
-			grid-template-columns: 30px 1fr;
-			height: 32px;
-			padding: 8px 4px;
-			font-size: rem(14px);
-			align-content: center;
-			cursor: pointer;
-
-			span.title {
-				color: $clr1;
-				margin-inline-start: 4px;
-				font-weight: 400;
-			}
-
-			.color-icon {
-				width: 14px;
-				height: 14px;
-				border-radius: 50%;
-			}
-
-			.option-group-icon {
-				justify-self: center;
-				align-self: center;
-				color: $icon-color;
-				max-width: 20px;
-				max-height: 20px;
-			}
-
-			.icon-font-awesome {
-				align-self: start;
-			}
-		}
-	}
-
 	.color-picker {
 		position: absolute;
 		top: 40px;

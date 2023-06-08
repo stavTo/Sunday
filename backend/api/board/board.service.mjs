@@ -20,7 +20,6 @@ async function getById(boardId, filter) {
 	try {
 		const collection = await dbService.getCollection('board')
 		const board = await collection.findOne({ _id: ObjectId(boardId) })
-
 		if (filter.txt) {
 			const regex = new RegExp(filter.txt, 'i')
 

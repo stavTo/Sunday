@@ -20,14 +20,12 @@ export function BoardDetails() {
 
 	const navigate = useNavigate()
 	useEffect(() => {
-		if (location.state) saveBoard(location.state)
-		// else if (boardId) onLoadBoard(boardId)
-		else if (boardId) onLoadBoard(boardId)
+		onLoadBoard(boardId, location.state)
 	}, [boardId])
 
 	useEffect(() => {
 		socketService.on(SOCKET_EVENT_LOAD_BOARD, onSetBoard)
-	
+
 		return () => {
 			socketService.off(SOCKET_EVENT_LOAD_BOARD, onSetBoard)
 		}
@@ -38,18 +36,19 @@ export function BoardDetails() {
 	}
 
 	useEffect(() => {
-		document.title = board.title || document.title // if empty, don't input
+		document.title = board?.title || document.title // if empty, don't input
 	}, [board])
 
-	async function onLoadBoard(boardId) {
+	async function onLoadBoard(boardId, skipLoading) {
 		try {
-			await initialLoadBoard(boardId)	
+			console.log(skipLoading)
+			await initialLoadBoard(boardId, skipLoading)
 		} catch {
 			showErrorMsg(`Board ${boardId} does not exist. `)
 			navigate('/')
 		}
 	}
-	if (isLoading) return <BoardLoader />
+	if (isLoading || !board) return <BoardLoader />
 	return (
 		<section className="board-details">
 			<SideBar />

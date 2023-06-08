@@ -15,10 +15,11 @@ export async function loadBoard(boardId, filter = {}) {
 	}
 }
 
-export async function initialLoadBoard(boardId) {
-	store.dispatch({ type: SET_IS_LOADING, isLoading: true })
+export async function initialLoadBoard(boardId, skipLoading = false) {
+	if (!skipLoading) store.dispatch({ type: SET_IS_LOADING, isLoading: true })
 	try {
 		const board = await boardService.getById(boardId)
+
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log(err)

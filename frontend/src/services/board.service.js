@@ -102,11 +102,11 @@ function getEmptyBoard() {
 	}
 }
 
-function getEmptyTask(title = '') {
+function getEmptyTask(title = '', status = 'sl104') {
 	return {
 		id: '',
 		title,
-		status: 'sl104',
+		status,
 		priority: 'pl104',
 		comments: [],
 		collaborators: [],
@@ -119,7 +119,8 @@ function getEmptyTask(title = '') {
 			_id: '',
 			username: '',
 			fullname: '',
-			imgUrl: 'https://asset.cloudinary.com/diyikz4gq/3a419ce071a927e482ec39a775a4677d',
+			// imgUrl: 'https://asset.cloudinary.com/diyikz4gq/3a419ce071a927e482ec39a775a4677d',
+			imgUrl: '',
 		},
 	}
 }

@@ -9,7 +9,7 @@ export function BoardToolbar() {
 	const currWindow = window.location.href
 
 	function onNavigate(navigateTo) {
-		navigate(navigateTo, { state: board })
+		navigate(navigateTo, { state: true })
 	}
 
 	return (

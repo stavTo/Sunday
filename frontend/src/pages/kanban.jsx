@@ -5,7 +5,7 @@ import { SideBar } from '../cmps/side-bar'
 import { useSelector } from 'react-redux'
 import { GroupList } from '../cmps/group-list'
 import { BoardLoader } from '../cmps/board-loader'
-import { loadBoard, saveBoard } from '../store/selected-board.actions'
+import { initialLoadBoard, loadBoard, saveBoard } from '../store/selected-board.actions'
 import { useEffect } from 'react'
 import { showErrorMsg } from '../services/event-bus.service'
 import { KanbanGroupList } from '../cmps/kanban-cmps/kanban-group-list'
@@ -18,17 +18,16 @@ export function Kanban() {
 	const navigate = useNavigate()
 
 	useEffect(() => {
-		if (location.state) saveBoard(location.state)
-		else if (boardId) onLoadBoard(boardId)
+		if (boardId) onLoadBoard(boardId, location.state)
 	}, [boardId])
 
 	useEffect(() => {
 		document.title = board.title || document.title // if empty, don't input
 	}, [board])
 
-	async function onLoadBoard(boardId) {
+	async function onLoadBoard(boardId, skipLoading) {
 		try {
-			await loadBoard(boardId)
+			await initialLoadBoard(boardId, skipLoading)
 		} catch {
 			showErrorMsg(`Board ${boardId} does not exist. `)
 			navigate('/')

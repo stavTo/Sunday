@@ -1,8 +1,7 @@
+// import loader from '../../assets/img/board-loader.gif'
 import loader from '../assets/img/board-loader.gif'
-
 export function BoardLoader() {
 	return (
-		//TODO ADD LOADING SIDEBAR
 		<section className="board-loader">
 			<div className="sidebar-loader"></div>
 			<div className="main-loader-container">

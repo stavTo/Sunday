@@ -1,19 +1,32 @@
 import { useSelector } from 'react-redux'
 import { MemberPicker } from '../dynamic-task-cmps/member-picker'
-import { ICON_CONVERSATION, ICON_CONVERSATION_EMPTY } from '../../assets/icons/icons'
+import { ICON_CONVERSATION, ICON_CONVERSATION_EMPTY, ICON_OPTIONS } from '../../assets/icons/icons'
 import { boardService } from '../../services/board.service'
 import { LabelPicker } from '../dynamic-task-cmps/label-picker'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TippyContainer } from '../tippy-container'
+import { TaskOptionsMenu } from '../task-options-menu'
+import { BoardLoader } from '../board-loader'
 
 export function KanbanTaskPreview({ task }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
-	const [groupId, setGroupId] = useState()
+	const [isOptionOpen, setIsOptionOpen] = useState()
+	const [group, setGroup] = useState(boardService.getGroupByTask(board, task.id))
 
 	useEffect(() => {
-		setGroupId(boardService.getGroupByTask(board, task.id).id)
-	}, [task])
+		document.addEventListener('mousedown', onSetOptionClose)
+		return () => {
+			document.removeEventListener('mousedown', onSetOptionClose)
+		}
+	}, [])
+
+	function onSetOptionClose(ev) {
+		if (ev.target.closest('.options-menu')) return
+		setIsOptionOpen(false)
+	}
+
+	console.log(task.status)
 
 	return (
 		<div className="kanban-task-preview">
@@ -37,16 +50,28 @@ export function KanbanTaskPreview({ task }) {
 							</TippyContainer>
 						)}
 					</Link>
-					<span className="task-options"></span>
+					<div className="options-container">
+						<div onClick={() => setIsOptionOpen(prev => !prev)} className="task-options btn-primary">
+							{ICON_OPTIONS}
+						</div>
+						{isOptionOpen && (
+							<TaskOptionsMenu
+								kanbanStatus={task.status}
+								task={task}
+								group={group}
+								setIsOptionOpen={setIsOptionOpen}
+							/>
+						)}
+					</div>
 				</div>
 			</div>
 			<ul className="kanban-member-picker clean-list kanban-row">
 				<li>Owner</li>
-				<MemberPicker groupId={groupId} type="ownerPicker" task={task} defaultWidth="140px" />
+				<MemberPicker groupId={group.id} type="ownerPicker" task={task} defaultWidth="140px" />
 			</ul>
 			<ul className="kanban-priority-picker clean-list kanban-row">
 				<li>Priority</li>
-				<LabelPicker type="priorityPicker" task={task} groupId={groupId} defaultWidth="140px" />
+				<LabelPicker type="priorityPicker" task={task} groupId={group.id} defaultWidth="140px" />
 			</ul>
 		</div>
 	)
