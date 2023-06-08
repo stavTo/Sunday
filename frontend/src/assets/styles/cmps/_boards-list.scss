@@ -5,7 +5,8 @@
     color: $clr1;
     border-radius: 8px;
     box-shadow: $index-layout-shadow;
-
+    height: fit-content;
+    
     .expand-arrow-container {
         transform: rotate(-90deg);
         width: min-content;

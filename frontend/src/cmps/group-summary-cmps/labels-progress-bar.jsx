@@ -24,7 +24,6 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 	// }, [labelsName])
 
 	function getLabelColor(labelName) {
-		console.log(labelName)
 		const labels = board[labelsNameInBoard]
 		const label = labels.find(l => l.title === labelName)
 		return label?.color
@@ -44,7 +43,6 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 			[label]: valuesPercent[idx],
 		}))
 
-		console.log(x)
 		return x
 	}
 

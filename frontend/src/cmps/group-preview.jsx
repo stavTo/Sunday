@@ -10,6 +10,7 @@ import { ColorPicker } from './color-picker'
 import { GroupSummary } from './group-summary-cmps/group-summary'
 import { TaskListHeader } from './task-list-header'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
+import { socketService, SOCKET_EVENT_ADD_TASK } from '../services/socket.service'
 
 export function GroupPreview({ group, provided }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
@@ -18,7 +19,6 @@ export function GroupPreview({ group, provided }) {
 	const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
 	const [isCollapsed, setIsCollapsed] = useState(false)
 	const [isGroupSelected, setIsGroupSelected] = useState(false)
-
 	const checkedTaskIds = useSelector(({ selectedTaskModule }) => selectedTaskModule.checkedTaskIds)
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 

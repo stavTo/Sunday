@@ -9,6 +9,7 @@ import { loadBoard, saveBoard } from '../store/selected-board.actions'
 import { SideBar } from '../cmps/side-bar'
 import { BoardLoader } from '../cmps/board-loader'
 import { CheckedTasksMenu } from '../cmps/checked-tasks-menu'
+import { socketService, SOCKET_EVENT_LOAD_BOARD } from '../services/socket.service'
 
 export function BoardDetails() {
 	const { boardId } = useParams()
@@ -22,6 +23,18 @@ export function BoardDetails() {
 		if (location.state) saveBoard(location.state)
 		else if (boardId) onLoadBoard(boardId)
 	}, [boardId])
+
+	useEffect(() => {
+		socketService.on(SOCKET_EVENT_LOAD_BOARD, onSetBoard)
+	
+		return () => {
+			socketService.off(SOCKET_EVENT_LOAD_BOARD, onSetBoard)
+		}
+	}, [])
+
+	function onSetBoard() {
+		loadBoard(boardId)
+	}
 
 	useEffect(() => {
 		document.title = board.title || document.title // if empty, don't input
