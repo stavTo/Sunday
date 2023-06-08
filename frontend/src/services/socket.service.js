@@ -3,6 +3,7 @@ import { userService } from './user.service'
 
 // BOARD
 export const SOCKET_EVENT_LOAD_BOARD = 'load-board'
+export const SOCKET_EMIT_SEND_BOARD = 'send-board'
 
 // Task comments
 export const SOCKET_EVENT_ADD_TASK_MSG = 'task-add-msg'
@@ -12,7 +13,6 @@ export const SOCKET_EMIT_SET_TASK = 'task-set-topic'
 // Add task
 // export const SOCKET_EVENT_ADD_TASK = 'group-add-task'
 export const SOCKET_EMIT_SET_GROUP = 'set-group'
-export const SOCKET_EMIT_SEND_TASK = 'send-task'
 
 
 export const SOCKET_EMIT_USER_WATCH = 'user-watch'

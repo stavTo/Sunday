@@ -1,0 +1,2238 @@
+8.6.2023, 13:33:55 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:33:56 - INFO - New connected socket [id: 0vsdDKuw4VBMSDpRAAAl] 
+8.6.2023, 13:35:03 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:35:04 - INFO - New connected socket [id: KGNDJgS-NySHfqi_AAAn] 
+8.6.2023, 13:35:59 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:35:59 - INFO - New connected socket [id: AzLbnmJ3z4uph1VUAAAp] 
+8.6.2023, 13:36:00 - INFO - Sample Logger Middleware 
+8.6.2023, 13:36:00 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:36:06 - INFO - New task added socket [id: AzLbnmJ3z4uph1VUAAAp] 
+8.6.2023, 13:36:21 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:36:21 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:36:21 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:36:21 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:36:21 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:36:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:36:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:36:21 - INFO - New connected socket [id: TwmKZpl9mafZ9cqsAAAr] 
+8.6.2023, 13:36:26 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:36:26 - INFO - New connected socket [id: 4U_YWIUtGrPTz-2SAAAt] 
+8.6.2023, 13:36:32 - INFO - New task added socket [id: 4U_YWIUtGrPTz-2SAAAt] 
+8.6.2023, 13:36:35 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:36:36 - INFO - New connected socket [id: qsqeCEiPdeMQ3bIKAAAv] 
+8.6.2023, 13:37:33 - INFO - Server is running on port: 3030 
+8.6.2023, 13:37:33 - INFO - New connected socket [id: tpBrURGRy6jHYJcrAAAC] 
+8.6.2023, 13:37:33 - INFO - New connected socket [id: aRnPjR-_BRtUbGZlAAAD] 
+8.6.2023, 13:37:34 - INFO - New connected socket [id: Tx6TaDFAUEywa4j1AAAF] 
+8.6.2023, 13:37:34 - INFO - New connected socket [id: 3BI2CCtqjSOGF559AAAM] 
+8.6.2023, 13:37:34 - INFO - New connected socket [id: M-L0U5vp63a8GLkMAAAN] 
+8.6.2023, 13:37:34 - INFO - New connected socket [id: uQZULdoHBwWakJlhAAAO] 
+8.6.2023, 13:37:34 - INFO - New connected socket [id: bSuvTujlFWFeYWKPAAAP] 
+8.6.2023, 13:37:34 - INFO - New connected socket [id: XG7TdyhO69KlHiDzAAAQ] 
+8.6.2023, 13:37:34 - INFO - New connected socket [id: rXQYMdq59hl2TE0VAAAR] 
+8.6.2023, 13:38:02 - INFO - New task added socket [id: M-L0U5vp63a8GLkMAAAN] 
+8.6.2023, 13:38:07 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:38:07 - INFO - New connected socket [id: R3tbdgiM6TB7Ar0UAAAT] 
+8.6.2023, 13:38:10 - INFO - New task added socket [id: R3tbdgiM6TB7Ar0UAAAT] 
+8.6.2023, 13:38:10 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:38:10 - INFO - New connected socket [id: USFil1HQJUWSj1J5AAAV] 
+8.6.2023, 13:38:12 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:38:12 - INFO - New connected socket [id: I9omc-G8SK5vGRssAAAX] 
+8.6.2023, 13:38:16 - INFO - New task added socket [id: R3tbdgiM6TB7Ar0UAAAT] 
+8.6.2023, 13:38:16 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:38:16 - INFO - New connected socket [id: 9hJAyGwTBQkpvKJ_AAAZ] 
+8.6.2023, 13:38:20 - INFO - New task added socket [id: R3tbdgiM6TB7Ar0UAAAT] 
+8.6.2023, 13:38:25 - INFO - New task added socket [id: R3tbdgiM6TB7Ar0UAAAT] 
+8.6.2023, 13:38:34 - INFO - Sample Logger Middleware 
+8.6.2023, 13:38:34 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:38:39 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:38:40 - INFO - New connected socket [id: OHy8h1xAnL53lX8aAAAb] 
+8.6.2023, 13:38:40 - INFO - Sample Logger Middleware 
+8.6.2023, 13:38:40 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:39:02 - INFO - New task added socket [id: R3tbdgiM6TB7Ar0UAAAT] 
+8.6.2023, 13:46:30 - INFO - Sample Logger Middleware 
+8.6.2023, 13:46:30 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:46:33 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:46:34 - INFO - New connected socket [id: VrHuWm8Hi5fiTSlTAAAd] 
+8.6.2023, 13:46:36 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:46:37 - INFO - New connected socket [id: sDTYfNVkT5lATgmrAAAf] 
+8.6.2023, 13:46:39 - INFO - New task added socket [id: sDTYfNVkT5lATgmrAAAf] 
+8.6.2023, 13:46:59 - INFO - New task added socket [id: sDTYfNVkT5lATgmrAAAf] 
+8.6.2023, 13:47:17 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:47:18 - INFO - New connected socket [id: 52Ccn04F4Fm6cZ6RAAAh] 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:19 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:19 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:20 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:21 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:21 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:47:27 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:47:27 - INFO - New connected socket [id: T7qxMzLNc2PZLagCAAAj] 
+8.6.2023, 13:47:27 - INFO - Sample Logger Middleware 
+8.6.2023, 13:47:27 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:11 - INFO - New task added socket [id: T7qxMzLNc2PZLagCAAAj] 
+8.6.2023, 13:48:31 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:48:31 - INFO - New connected socket [id: 5rdl5EgrKvo6p6AZAAAl] 
+8.6.2023, 13:48:31 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:31 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:35 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:48:36 - INFO - New connected socket [id: MGGAtGJbb-su3kVHAAAn] 
+8.6.2023, 13:48:36 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:36 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:45 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:45 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:46 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:46 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:47 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:47 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:48 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:48 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:49 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:49 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:48:50 - INFO - New connected socket [id: fXc1i-7Q0uME2oAMAAAp] 
+8.6.2023, 13:48:50 - INFO - Sample Logger Middleware 
+8.6.2023, 13:48:50 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:50:15 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:50:15 - INFO - New connected socket [id: 8U1AcEa2zjqjRu45AAAr] 
+8.6.2023, 13:50:18 - INFO - New task added socket [id: 8U1AcEa2zjqjRu45AAAr] 
+8.6.2023, 13:50:24 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:50:25 - INFO - New connected socket [id: 5JSBcI8EHs-cNhSzAAAt] 
+8.6.2023, 13:50:25 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:50:25 - INFO - New connected socket [id: ERKBQmLLFA7-AnxxAAAv] 
+8.6.2023, 13:50:28 - INFO - New task added socket [id: 5JSBcI8EHs-cNhSzAAAt] 
+8.6.2023, 13:50:31 - INFO - Sample Logger Middleware 
+8.6.2023, 13:50:31 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:50:39 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:50:39 - INFO - New connected socket [id: qJku9j558Mxxv2FDAAAx] 
+8.6.2023, 13:53:03 - INFO - Server is running on port: 3030 
+8.6.2023, 13:53:03 - INFO - New connected socket [id: dCMOpMmL7ICvzL1sAAAB] 
+8.6.2023, 13:53:04 - INFO - New connected socket [id: TB0t2ieRG1N8HXJCAAAD] 
+8.6.2023, 13:53:04 - INFO - Sample Logger Middleware 
+8.6.2023, 13:53:04 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 13:53:04 - INFO - New connected socket [id: W23DzkWHX1H0v0kCAAAF] 
+8.6.2023, 13:53:04 - INFO - New connected socket [id: TOp4T6_mCE8-kVqgAAAM] 
+8.6.2023, 13:53:04 - INFO - New connected socket [id: 4AXVHRjGkHJ30WcrAAAN] 
+8.6.2023, 13:53:04 - INFO - New connected socket [id: J3DSUv3GKupkRlH8AAAO] 
+8.6.2023, 13:53:04 - INFO - New connected socket [id: yCWRuDLzNWCKdA4uAAAP] 
+8.6.2023, 13:53:04 - INFO - New connected socket [id: Y_qmL3WCwD9NQ45GAAAQ] 
+8.6.2023, 13:53:04 - INFO - New connected socket [id: uE9QoVuF4wprjYIJAAAR] 
+8.6.2023, 13:53:06 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:53:06 - INFO - New connected socket [id: ZaSFAU5NRaFO7NSBAAAT] 
+8.6.2023, 13:53:06 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:53:09 - INFO - New connected socket [id: sz8dPqOKWmBK_Ro0AAAV] 
+8.6.2023, 13:53:10 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:53:11 - INFO - New connected socket [id: mxgjMOMx4SzaY20EAAAX] 
+8.6.2023, 13:53:14 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:53:14 - INFO - New connected socket [id: WToYtsEEvUO15uCZAAAZ] 
+8.6.2023, 13:54:37 - INFO - Server is running on port: 3030 
+8.6.2023, 13:54:37 - INFO - New connected socket [id: SM6yVAfmEV150PATAAAC] 
+8.6.2023, 13:54:37 - INFO - New connected socket [id: 0GRfglMoSwdVduyzAAAD] 
+8.6.2023, 13:54:37 - INFO - New connected socket [id: K5e7YvXxYfH3Wv5TAAAF] 
+8.6.2023, 13:54:37 - INFO - New connected socket [id: zeFnlBPg_TH2hyvbAAAH] 
+8.6.2023, 13:54:39 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:54:39 - INFO - New connected socket [id: spTekNUK8tHIQgQRAAAK] 
+8.6.2023, 13:54:39 - INFO - New connected socket [id: IZZ5jNbrQqwGX1VLAAAL] 
+8.6.2023, 13:54:40 - INFO - New connected socket [id: HaCXZDEdm1ARJ63PAAAN] 
+8.6.2023, 13:54:40 - INFO - New connected socket [id: vPJcbVZAh5DA0BpZAAAQ] 
+8.6.2023, 13:54:40 - INFO - New connected socket [id: a1tLu2O7g6sIxUTsAAAR] 
+8.6.2023, 13:54:42 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 13:54:42 - INFO - New connected socket [id: OfTmyFMsmCRmqccIAAAT] 
+8.6.2023, 13:54:43 - INFO - New connected socket [id: z7WVxPf4QQnjpqI1AAAV] 
+8.6.2023, 13:56:17 - INFO - Server is running on port: 3030 
+8.6.2023, 13:56:17 - INFO - New connected socket [id: B60Frm7MW4ZrmqFiAAAB] 
+8.6.2023, 13:56:17 - INFO - New connected socket [id: JGKNqmE_NI8qHSsLAAAD] 
+8.6.2023, 13:56:17 - INFO - New connected socket [id: QhBJt7kOCYDCHzObAAAF] 
+8.6.2023, 13:56:18 - INFO - New connected socket [id: LW5eI1WgbICgQYMbAAAH] 
+8.6.2023, 13:56:20 - INFO - New connected socket [id: EulmI-GlXLTa7ue6AAAJ] 
+8.6.2023, 13:56:21 - INFO - New connected socket [id: n81foRK9bjyshHRJAAAL] 
+8.6.2023, 13:56:21 - INFO - New connected socket [id: DJV-hcmVdjb_vCiLAAAO] 
+8.6.2023, 13:56:21 - INFO - New connected socket [id: KmuOiCoNivT1phGzAAAP] 
+8.6.2023, 13:56:22 - INFO - New connected socket [id: YKIhGqckzxPoe7xnAAAR] 
+8.6.2023, 13:59:42 - INFO - Server is running on port: 3030 
+8.6.2023, 13:59:42 - INFO - New connected socket [id: P7vCEhLMRan0uCWVAAAB] 
+8.6.2023, 13:59:42 - INFO - New connected socket [id: 5v3R5wwv2vVjsdS8AAAD] 
+8.6.2023, 13:59:42 - INFO - New connected socket [id: E6vQG_FEiJwDzv-YAAAJ] 
+8.6.2023, 13:59:42 - INFO - New connected socket [id: WVFcZKSsfRH-DQXoAAAK] 
+8.6.2023, 13:59:42 - INFO - New connected socket [id: jSwcwb59yPlE8DKoAAAL] 
+8.6.2023, 13:59:42 - INFO - New connected socket [id: CohSyACytAgVRZZiAAAM] 
+8.6.2023, 13:59:42 - INFO - New connected socket [id: J95GkXV3517G5L1-AAAN] 
+8.6.2023, 13:59:43 - INFO - New connected socket [id: nKdqV_1IUssnqyoiAAAQ] 
+8.6.2023, 13:59:43 - INFO - New connected socket [id: 1ka_MSkDDLEXaCBLAAAR] 
+8.6.2023, 14:00:03 - INFO - Server is running on port: 3030 
+8.6.2023, 14:00:03 - INFO - New connected socket [id: Sh3oXRk2HujhmRHxAAAD] 
+8.6.2023, 14:00:03 - INFO - New connected socket [id: ByHOOsLf4pR6tfrIAAAE] 
+8.6.2023, 14:00:03 - INFO - New connected socket [id: jKzIbzbkNW0AOUCnAAAF] 
+8.6.2023, 14:00:04 - INFO - New connected socket [id: PvaDRQubvmcp-MJsAAAH] 
+8.6.2023, 14:00:04 - INFO - New connected socket [id: naozGtreHwca8eEuAAAJ] 
+8.6.2023, 14:00:04 - INFO - New connected socket [id: oM-Usak8hlZ9_ow4AAAO] 
+8.6.2023, 14:00:04 - INFO - New connected socket [id: Tma_FHwtfwLjZpliAAAP] 
+8.6.2023, 14:00:04 - INFO - New connected socket [id: tXWxqUydE3UF-lRFAAAQ] 
+8.6.2023, 14:00:04 - INFO - New connected socket [id: rsz3csbRB77MzrLwAAAR] 
+8.6.2023, 14:00:06 - INFO - Server is running on port: 3030 
+8.6.2023, 14:00:07 - INFO - New connected socket [id: jzXf1UJu9rDkYelLAAAD] 
+8.6.2023, 14:00:07 - INFO - New connected socket [id: RIduzye1CDgLmtiyAAAI] 
+8.6.2023, 14:00:07 - INFO - New connected socket [id: eSdrO76CIVWMlRB9AAAH] 
+8.6.2023, 14:00:07 - INFO - New connected socket [id: Q4zQn1QcyKzFNjiqAAAG] 
+8.6.2023, 14:00:07 - INFO - New connected socket [id: hbFLZf9FCzW1PUW3AAAJ] 
+8.6.2023, 14:00:08 - INFO - New connected socket [id: -rdo6_-KnUT1il5uAAAL] 
+8.6.2023, 14:00:08 - INFO - New connected socket [id: huIE0NGrec8x10MtAAAN] 
+8.6.2023, 14:00:08 - INFO - New connected socket [id: Jw4iwK53pwyQ9gcjAAAQ] 
+8.6.2023, 14:00:08 - INFO - New connected socket [id: iLGCuPuwMufYxUQOAAAR] 
+8.6.2023, 14:00:10 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:00:10 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:00:10 - INFO - New connected socket [id: FVq3jJqmBV-vn3faAAAT] 
+8.6.2023, 14:00:11 - INFO - New connected socket [id: UAaDmIpJevFzKAoEAAAV] 
+8.6.2023, 14:00:15 - INFO - New task added socket [id: FVq3jJqmBV-vn3faAAAT] 
+8.6.2023, 14:03:56 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:03:56 - INFO - New connected socket [id: VhH6-l7AgdcTey-TAAAX] 
+8.6.2023, 14:03:57 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:03:57 - INFO - New connected socket [id: lAZmTc0vPcWGOeKhAAAZ] 
+8.6.2023, 14:05:39 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:05:39 - INFO - New connected socket [id: i211q0lMawfyy6DsAAAb] 
+8.6.2023, 14:05:39 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:05:40 - INFO - New connected socket [id: zHjS77FweAmY6EQyAAAd] 
+8.6.2023, 14:05:42 - INFO - New task added socket [id: zHjS77FweAmY6EQyAAAd] 
+8.6.2023, 14:06:53 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:06:53 - INFO - New connected socket [id: 51aocfVPSviuHaR4AAAf] 
+8.6.2023, 14:06:53 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:06:54 - INFO - New connected socket [id: JE0a1iG-SysnmI0hAAAh] 
+8.6.2023, 14:06:57 - INFO - New task added socket [id: 51aocfVPSviuHaR4AAAf] 
+8.6.2023, 14:07:02 - INFO - New task added socket [id: 51aocfVPSviuHaR4AAAf] 
+8.6.2023, 14:08:05 - INFO - New connected socket [id: VycPX69YfwmUXiMMAAAj] 
+8.6.2023, 14:08:05 - INFO - New connected socket [id: ciZf657sH9xXm3HsAAAl] 
+8.6.2023, 14:08:05 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 14:08:05 - INFO - Sample Logger Middleware 
+8.6.2023, 14:08:05 - INFO - New connected socket [id: U0ApthLKpdRNRVEuAAAo] 
+8.6.2023, 14:08:05 - INFO - New connected socket [id: mx79gy7qOh6CAuiLAAAp] 
+8.6.2023, 14:08:05 - INFO - New connected socket [id: igxw_5s-jt8lWQvWAAAs] 
+8.6.2023, 14:08:05 - INFO - New connected socket [id: WiR_WSnCM8bO3U2yAAAt] 
+8.6.2023, 14:08:08 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:08:08 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:08:08 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:08:08 - INFO - New connected socket [id: 3QS-0Z8K2JOqxMhhAAAv] 
+8.6.2023, 14:08:08 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:08:08 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:08:08 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:08:09 - INFO - New connected socket [id: 0FG2k8jO7mHwv9sAAAAx] 
+8.6.2023, 14:08:20 - INFO - Sample Logger Middleware 
+8.6.2023, 14:08:20 - DEBUG - Getting Boards: | {"txt":"","price":"0"} 
+8.6.2023, 14:08:25 - INFO - Server is running on port: 3030 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: 6IULvY4qqxjCbEs2AAAB] 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: hsqX-JIKUfY8vd-PAAAK] 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: DrPcIOvaa0oERLCSAAAL] 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: K-AmAbvhTjdUeh-2AAAM] 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: cmdZrsFp7ASLmS1KAAAN] 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: 0CRcsFYlBLa2iXxmAAAO] 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: ciwyDPR3WPwpPKADAAAP] 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: GQ5PjzVcQf0lSZwBAAAQ] 
+8.6.2023, 14:08:26 - INFO - New connected socket [id: 2kQ2grzn9VFRyNmNAAAR] 
+8.6.2023, 14:08:27 - INFO - New connected socket [id: 1sxYLiA4feOTXudJAAAU] 
+8.6.2023, 14:08:27 - INFO - New connected socket [id: 6bADH1LGbdfgIYZuAAAV] 
+8.6.2023, 14:08:39 - INFO - Server is running on port: 3030 
+8.6.2023, 14:08:39 - INFO - New connected socket [id: 3qyQM2uqHja4d7UpAAAB] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: 5L5ZHquOK1PF6VINAAAD] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: pIXZgxf8RjA7oNJdAAAF] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: EZDwcxU2FXrn42QIAAAO] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: pPmAgX7pFu_5T2FQAAAP] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: 7RMEf_-d-VJXAdMFAAAQ] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: N0rb9FnHhl4e3RU5AAAS] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: aOdzPfgvMoMQ5d1eAAAR] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: Pz0UzT4i60f-P-nWAAAT] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: SsEFyGIv76xXdMuCAAAU] 
+8.6.2023, 14:08:40 - INFO - New connected socket [id: NimKWAa5Ln6jh5bTAAAV] 
+8.6.2023, 14:08:43 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:08:43 - INFO - New connected socket [id: o59Yu14-EHeNClABAAAX] 
+8.6.2023, 14:08:43 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:08:44 - INFO - New connected socket [id: isC8y9wh7eJACiFLAAAZ] 
+8.6.2023, 14:08:47 - INFO - New task added socket [id: o59Yu14-EHeNClABAAAX] 
+8.6.2023, 14:08:48 - INFO - New task added socket [id: o59Yu14-EHeNClABAAAX] 
+8.6.2023, 14:08:54 - INFO - New task added socket [id: o59Yu14-EHeNClABAAAX] 
+8.6.2023, 14:09:10 - INFO - Socket disconnected [id: undefined] 
+8.6.2023, 14:09:10 - INFO - New connected socket [id: BipWJwtTWolSF7LbAAAb] 

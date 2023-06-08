@@ -7,7 +7,7 @@ import { TaskSelection } from './task-selection'
 import { ICON_CHECKBOX } from '../assets/icons/icons'
 import { utilService } from '../services/util.service'
 
-import { socketService, SOCKET_EMIT_SEND_TASK } from '../services/socket.service'
+import { socketService, SOCKET_EMIT_SEND_BOARD } from '../services/socket.service'
 
 export function AddTask({ group }) {
 	const [taskToAdd, setTaskToAdd] = useState(boardService.getEmptyTask())
@@ -24,7 +24,7 @@ export function AddTask({ group }) {
 		elInput.current.blur()
 		try {
 			await addTask(board._id, group.id, taskToAdd, 'Added Task')
-			socketService.emit(SOCKET_EMIT_SEND_TASK, taskToAdd)
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setTaskToAdd(prevTask => ({ ...prevTask, title: '' }))
 		} catch (err) {
 			console.log(err)

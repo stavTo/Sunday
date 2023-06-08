@@ -39,9 +39,11 @@ export function setupSocketAPI(server) {
             socket.broadcast.to(socket.myTopic).emit('task-add-msg', msg)
         })
         
-        socket.on('send-task', task => {
+        socket.on('send-board', task => {
             console.log("task", task)
             logger.info(`New task added socket [id: ${socket.id}]`)
+            // socket.emit('load-board', task)
+            socket.broadcast.emit('load-board')
         })
 
         socket.on('user-watch', userId => {
