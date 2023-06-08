@@ -70,12 +70,12 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function onClosePicker(ev) {
-		if (ev.target.closest('.timeline-container')) return
+		if (ev.target.closest('.timeline-popup-container, .reset-date-btn')) return
 		setToggle(false)
 	}
 
 	function onToggleModal(ev) {
-		if (ev.target.closest('.timeline-container')) return
+		if (ev.target.closest('.timeline-popup-container, .reset-date-btn')) return
 		ev.stopPropagation()
 		setToggle(prev => !prev)
 	}

@@ -7,12 +7,14 @@ import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 import { loadBoard } from '../store/selected-board.actions'
 import { TippyContainer } from './tippy-container'
 import { showErrorMsg } from '../services/event-bus.service'
+import { utilService } from '../services/util.service'
 
 export function BoardFilter({ board }) {
 	const [filter, setFilter] = useState(boardService.getDefaultFilter())
 	const [inputFocused, setInputFocused] = useState(false)
 	const [active, setActive] = useState('')
 	const elSearchInput = useRef('')
+	const debouncedLoadBoard = useRef(utilService.debounce(loadBoard))
 
 	useEffect(() => {
 		document.addEventListener('click', unsetActive)
@@ -36,7 +38,7 @@ export function BoardFilter({ board }) {
 
 	async function onLoadBoard() {
 		try {
-			loadBoard(board._id, filter)
+			debouncedLoadBoard.current(board._id, filter)
 		} catch {
 			console.log('cant load board')
 		}

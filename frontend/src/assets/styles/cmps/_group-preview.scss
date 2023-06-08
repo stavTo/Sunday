@@ -100,9 +100,12 @@
 	.group-header {
 		position: sticky;
 		left: 0;
+		// max-width: max-content;
+		// z-index: 21;
 		display: flex;
 		align-items: center;
 		.group-title-container {
+			cursor: text;
 			padding-inline: 4px;
 			margin-block: 9px;
 			position: relative;
@@ -193,10 +196,9 @@
 
 	.drag-handle {
 		flex: 1;
-		z-index: 20;
-		position: absolute;
+		// z-index: 20;
 		user-select: none;
-		top: 0;
+		// top: 0;
 		width: 100%;
 		opacity: 0;
 		height: 40px;

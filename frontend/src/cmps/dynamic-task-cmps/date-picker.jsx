@@ -14,7 +14,6 @@ import { updateBoard } from '../../store/board.actions'
 
 export function DatePicker({ task, groupId, defaultWidth }) {
 	const [selected, setSelected] = useState()
-	const [isHovered, setIsHovered] = useState(false)
 	const [toggle, setToggle] = useState(false)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [hasDate, setHasDate] = useState(task.dueDate)
@@ -55,7 +54,6 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 
 	async function onChangeDueDate() {
 		const timestamp = selected.getTime()
-		console.log("timestamp:", timestamp)
 		const taskToEdit = { ...task, dueDate: timestamp }
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
@@ -80,36 +78,38 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 	}
 
 	return (
-		<li
-			style={{ width: defaultWidth }}
-			className="date-picker flex align-center"
-			ref={setReferenceElement}
-			onMouseEnter={() => setIsHovered(true)}
-			onMouseLeave={() => setIsHovered(false)}
-		>
-			<div className="date-preview-container flex align-center justify-center" onClick={ev => onToggleModal(ev)}>
-				{isHovered && !hasDate && (
-					<div className="add-date-btn flex align-center justify-center">
-						<FontAwesomeIcon icon={faCirclePlus} style={{ color: '#0073ea' }} />
-						{ICON_ADD_DATE}
-					</div>
-				)}
-				{task.dueDate && (
-					<div className="span-container flex align-center justify-center">
-						<span className="date-preview">
-							{new Date(task.dueDate).toLocaleDateString('en-US', {
-								month: 'short',
-								day: 'numeric',
-							})}
-						</span>
+		<li style={{ width: defaultWidth }} className="date-picker flex align-center" ref={setReferenceElement}>
+			<div className={`date-container ${hasDate ? 'has-date' : ''}`}>
+				{hasDate && <div className="start-margin"></div>}
+				<div
+					className="date-preview-container flex align-center justify-center"
+					onClick={ev => onToggleModal(ev)}
+				>
+					{!hasDate && (
+						<>
+							<div className="add-date-btn flex align-center justify-center">
+								<FontAwesomeIcon icon={faCirclePlus} style={{ color: '#0073ea' }} />
+								{ICON_ADD_DATE}
+							</div>
+						</>
+					)}
+					{task.dueDate && (
+						<div className="span-container flex align-center justify-center">
+							<span className="date-preview">
+								{new Date(task.dueDate).toLocaleDateString('en-US', {
+									month: 'short',
+									day: 'numeric',
+								})}
+							</span>
+						</div>
+					)}
+				</div>
+				{hasDate && (
+					<div className="reset-date-btn pointer flex align-center" onClick={() => clearTaskDueDate()}>
+						{ICON_CLOSE}
 					</div>
 				)}
 			</div>
-			{isHovered && hasDate && (
-				<div className="reset-date-btn pointer flex align-center" onClick={() => clearTaskDueDate()}>
-					{ICON_CLOSE}
-				</div>
-			)}
 			{toggle && (
 				<div
 					className="date-picker-container"
