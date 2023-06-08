@@ -78,6 +78,7 @@
 			margin-inline: auto;
 			align-items: center;
 			gap: 4px;
+			cursor: pointer;
 
 			.icon {
 				display: flex;
@@ -100,7 +101,6 @@
 			position: absolute;
 			color: black;
 			right: -21px;
-
 
 			input {
 				color: $clr1;

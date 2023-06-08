@@ -160,11 +160,15 @@ async function addGroup(boardId, pushToTop, activity = '') {
 }
 
 async function duplicateGroup(boardId, group, activity = '') {
-	const newGroup = { ...group, id: utilService.makeId() }
+	const newGroup = structuredClone(group)
+	const newGroupChangeTaskId = {
+		...newGroup, id: utilService.makeId(),
+		tasks: newGroup.tasks.map(t => ({ ...t, id: utilService.makeId() }))
+	}
 	try {
 		const board = await getById(boardId)
 		const idx = board.groups.findIndex(g => g.id === group.id)
-		board.groups.splice(idx, 0, newGroup)
+		board.groups.splice(idx, 0, newGroupChangeTaskId)
 		await save(board)
 		return board
 	} catch (err) {
