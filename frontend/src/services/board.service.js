@@ -36,6 +36,7 @@ export const boardService = {
 	duplicateTask,
 	getGroupDateSummary,
 	groupHasDate,
+	getStatusLabelById,
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
@@ -133,6 +134,10 @@ function getEmptyLabel() {
 		title: '',
 		color: '#c4c4c4',
 	}
+}
+
+function getStatusLabelById(board, labelId) {
+	return board.statusLabels.find(label => label.id === labelId)
 }
 
 function getBoardMembers(board, filter = '') {

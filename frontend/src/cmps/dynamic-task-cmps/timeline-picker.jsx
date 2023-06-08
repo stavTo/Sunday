@@ -57,7 +57,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}, [])
 
 	async function onChangeTimelineRange() {
-		console.log(range)
 		if (!range.from || !range.to) return
 		const startDate = new Date(range.from).getTime()
 		const endDate = new Date(range.to).getTime()
@@ -199,9 +198,10 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 							!hasTimeline
 								? { backgroundColor: '#ABABAB' }
 								: {
-									background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor
+										background: `linear-gradient(to right, ${
+											isHovered ? darkenHexColor(groupColor) : groupColor
 										} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
-								}
+								  }
 						}
 					>
 						<span></span>

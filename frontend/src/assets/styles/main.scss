@@ -52,6 +52,10 @@
 @import 'cmps/checked-tasks-menu';
 @import 'cmps/board-info';
 
+// Kanban cmps
+@import 'cmps/kanban-cmps/_kanban-group-preview';
+@import 'cmps/kanban-cmps/kanban-group-list';
+@import 'cmps/kanban-cmps/kanban-task-preview';
 // Board index cmps
 @import 'cmps/board-index-header';
 @import 'cmps/boards-list';

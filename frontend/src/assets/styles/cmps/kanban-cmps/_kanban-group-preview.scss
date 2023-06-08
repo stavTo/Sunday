@@ -1,0 +1,27 @@
+.kanban-group-preview {
+	background-color: $bg-clr3;
+	width: 260px;
+	height: 100%;
+	border-start-start-radius: 8px;
+	border-start-end-radius: 8px;
+
+	// display: flex;
+
+	.group-title {
+		border-start-start-radius: 8px;
+		border-start-end-radius: 8px;
+		height: 40px;
+		font-size: rem(18px);
+		color: $clr0;
+		display: flex;
+		padding-inline-start: 8px;
+		align-items: center;
+	}
+
+	.kanban-task-list {
+		margin-block-start: 10px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+}

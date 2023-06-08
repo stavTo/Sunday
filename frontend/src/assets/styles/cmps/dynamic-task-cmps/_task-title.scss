@@ -40,8 +40,10 @@
 			align-items: center;
 			justify-content: center;
 			padding-inline: 16px;
+			position: relative;
 
 			.updates-count {
+				cursor: pointer;
 				position: absolute;
 				top: 12px;
 				background-color: $bg-clr1;

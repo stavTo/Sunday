@@ -1,0 +1,80 @@
+.kanban-task-preview {
+	width: 236px;
+	height: 130px;
+	background-color: $clr0;
+	margin: auto;
+	border-radius: 4px;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	font-size: rem(13px);
+
+	.kanban-row {
+		height: $task-row-height;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.kanban-task-header {
+		padding: 8px;
+		display: flex;
+		justify-content: space-between;
+
+		.kanban-task-title {
+			line-height: 18px;
+			white-space: break-spaces;
+		}
+
+		.kanban-task-toolbar {
+			.conversation-icon-container {
+				cursor: pointer;
+				// position: relative;
+				height: 100%;
+				color: $clr9;
+
+				&.comments-available {
+					color: $bg-clr1;
+				}
+
+				&:hover {
+					color: $bg-clr1;
+				}
+				div {
+					position: relative;
+					width: 100%;
+					height: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding-inline: 16px;
+
+					.updates-count {
+						position: absolute;
+						right: 15px;
+						top: 18px;
+						background-color: $bg-clr1;
+						border-radius: 250px;
+						color: $clr0;
+						font-size: rem(10px);
+						padding: 2px 4px;
+						line-height: 9px;
+					}
+				}
+			}
+		}
+	}
+
+	.kanban-member-picker {
+		width: 100%;
+
+		.member-picker {
+			height: 100%;
+			background-color: $bg-clr3;
+		}
+	}
+
+	.kanban-priority-picker {
+		.label-picker {
+			height: 100%;
+		}
+	}
+}

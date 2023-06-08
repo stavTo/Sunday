@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
+import { useLocation } from 'react-router-dom'
 import { boardService } from '../services/board.service'
 import { ReactQuillWrapper } from './dynamic-task-cmps/react-quill-wrapper'
 import { ICON_CLOSE, ICON_HOUSE } from '../assets/icons/icons'
@@ -9,7 +10,12 @@ import { useSelector } from 'react-redux'
 import { utilService } from '../services/util.service'
 import imgEmptyPage from '../assets/img/img/pulse-page-empty-state.svg'
 
-import { socketService, SOCKET_EVENT_ADD_TASK_MSG, SOCKET_EMIT_SET_TASK, SOCKET_EMIT_SEND_MSG } from '../services/socket.service'
+import {
+	socketService,
+	SOCKET_EVENT_ADD_TASK_MSG,
+	SOCKET_EMIT_SET_TASK,
+	SOCKET_EMIT_SEND_MSG,
+} from '../services/socket.service'
 
 export function TaskDetails() {
 	const { taskId, boardId } = useParams()
@@ -20,6 +26,7 @@ export function TaskDetails() {
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [titleToChange, setTitleToChange] = useState('')
 	const [activeTab, setActiveTab] = useState('updates')
+	const location = useLocation()
 	const isLoading = useSelector(({ selectedBoardModule }) => selectedBoardModule.isLoading)
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 	const navigate = useNavigate()
@@ -28,7 +35,6 @@ export function TaskDetails() {
 		// Set socket topic (task)
 		socketService.emit(SOCKET_EMIT_SET_TASK, taskId)
 		if (taskId && board._id) loadGroup()
-
 	}, [taskId])
 
 	useEffect(() => {
@@ -81,7 +87,8 @@ export function TaskDetails() {
 	}
 
 	async function onCloseModal() {
-		navigate(`/boards/${boardId}`)
+		if (location.pathname.includes('kanban')) navigate(`/boards/${boardId}/views/kanban`)
+		else navigate(`/boards/${boardId}`)
 	}
 
 	async function onSaveComment() {
@@ -199,7 +206,7 @@ export function TaskDetails() {
 					<section className="comments-container">
 						<ul className="clean-list">
 							{!!comments.length ? (
-								comments.map((comment) => (
+								comments.map(comment => (
 									// <li className="comment" key={`${comment.id}-${idx}`}>
 									<li className="comment" key={comment.id}>
 										<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>
