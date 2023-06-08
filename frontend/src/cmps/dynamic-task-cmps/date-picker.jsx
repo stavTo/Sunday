@@ -10,7 +10,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { ICON_CLOSE, ICON_ADD_DATE } from '../../assets/icons/icons'
 import 'react-day-picker/dist/style.css'
 import { showErrorMsg } from '../../services/event-bus.service'
-import { updateBoard } from '../../store/board.actions'
+import { socketService, SOCKET_EMIT_SEND_BOARD } from '../../services/socket.service'
 
 export function DatePicker({ task, groupId, defaultWidth }) {
 	const [selected, setSelected] = useState()
@@ -59,6 +59,7 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 		const taskToEdit = { ...task, dueDate: timestamp }
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Cant change date')
 		}
@@ -69,6 +70,7 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 		setHasDate(taskToEdit.dueDate)
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}

@@ -4,6 +4,7 @@ import { UPDATE_BOARD } from './board.reducer'
 import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.reducer'
 import { REMOVE_CHECKED_TASK } from './selected-task.reducer'
 import { store } from './store'
+import { socketService, SOCKET_EMIT_SEND_BOARD } from '../services/socket.service'
 
 export async function loadBoard(boardId, filter = {}) {
 	try {
@@ -107,6 +108,7 @@ export async function updateLabels(board, labelsName, labels) {
 export async function saveTask(boardId, groupId, task, activity = '') {
 	try {
 		const board = await boardService.saveTask(boardId, groupId, task, activity)
+		// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant save task')

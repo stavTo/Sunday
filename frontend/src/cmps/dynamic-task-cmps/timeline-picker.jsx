@@ -12,6 +12,7 @@ import 'react-day-picker/dist/style.css'
 import { NEXT_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
 import { PREV_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
 import { showErrorMsg } from '../../services/event-bus.service'
+import { socketService, SOCKET_EMIT_SEND_BOARD } from '../../services/socket.service'
 
 const pastMonth = new Date() // Define your past month date here
 
@@ -62,6 +63,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		const timeline = { startDate, endDate }
 		const taskToEdit = { ...task, timeline }
 		try {
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			await saveTask(board._id, groupId, taskToEdit, '')
 			setHasTimeline(true)
 		} catch {
@@ -81,6 +83,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function calculateTimelineProgress() {
+		if (timeline === null) return
 		if (!timeline.startDate || !timeline.endDate) return 0
 
 		// Get the current date
@@ -147,6 +150,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		setHasTimeline(false)
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
+			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}
@@ -194,10 +198,9 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 							!hasTimeline
 								? { backgroundColor: '#ABABAB' }
 								: {
-										background: `linear-gradient(to right, ${
-											isHovered ? darkenHexColor(groupColor) : groupColor
+									background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor
 										} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
-								  }
+								}
 						}
 					>
 						<span></span>
