@@ -1,5 +1,6 @@
 import { boardService } from './board.service.mjs'
 import { logger } from '../../services/logger.service.mjs'
+import { socketService } from '../../services/socket.service.mjs'
 
 export async function getBoards(req, res) {
 	try {

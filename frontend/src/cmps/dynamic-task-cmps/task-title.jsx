@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons'
 import { ICON_CONVERSATION, ICON_CONVERSATION_EMPTY } from '../../assets/icons/icons'
+import { socketService, SOCKET_EVENT_LOAD_BOARD, SOCKET_EMIT_SEND_BOARD } from '../../services/socket.service'
 
 import { TippyContainer } from '../tippy-container'
 
@@ -49,6 +50,7 @@ export function TaskTitle({ task, groupId }) {
 		setIsInputFocused(false)
 		try {
 			await saveTask(board._id, groupId, newTask, 'changed task title')
+			socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Cant save task')
 		}

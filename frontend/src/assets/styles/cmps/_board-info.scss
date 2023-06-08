@@ -29,22 +29,72 @@
     .editor-container {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         flex-grow: 1;
         padding: 16px 32px 32px 32px;
 
-        textarea {
-            all: unset;
+        .textarea-container {
+            margin-block-start: em(20px);
+            width: 100%;
+            height: 26.625em;
+            padding: em(8px);
+
+            &:hover {
+                border: 0.8px $icon-color dashed;
+            }
+
+            textarea {
+                all: unset;
+                height: 100%;
+                width: 100%;
+            }
         }
+
     }
 
     .info-container {
         border-end-end-radius: 8px;
         border-start-end-radius: 8px;
+        width: 323px;
+        background-color: $task-hover-bgc;
+        padding: 32px;
         display: flex;
         flex-direction: column;
-        width: 323px;
-        background-color: rgb(245, 246, 248);
-        padding: 32px;
+        font-size: rem(14px);
+        color: $clr1;
+
+        &>* {
+            margin-block-end: 24px;
+        }
+
+        .title {
+            font-size: rem(16px);
+            font-weight: 500;
+        }
+
+        .subtitle {
+            color: $icon-color;
+            margin-block-end: 8px;
+
+        }
+
+        span {
+            margin-inline-start: 8px;
+        }
+
+        img {
+            width: 28.4px;
+            height: 28.4px;
+        }
+
+        .board-type {
+
+            div {}
+        }
+
+
+
+
     }
 }
 

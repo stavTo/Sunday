@@ -6,9 +6,20 @@ import { REMOVE_CHECKED_TASK } from './selected-task.reducer'
 import { store } from './store'
 
 export async function loadBoard(boardId, filter = {}) {
-	!Object.keys(filter).length && store.dispatch({ type: SET_IS_LOADING, isLoading: true })
 	try {
 		const board = await boardService.getById(boardId, filter)
+		console.log("board", board)
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log(err)
+		throw err
+	}
+}
+
+export async function initialLoadBoard(boardId) {
+	store.dispatch({ type: SET_IS_LOADING, isLoading: true })
+	try {
+		const board = await boardService.getById(boardId)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log(err)
