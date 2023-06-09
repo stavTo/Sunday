@@ -1,12 +1,12 @@
-import { cloneElement, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
-import { EDIT_LABEL, ICON_CLOSE } from '../../assets/icons/icons'
+import { EDIT_LABEL, ICON_CLOSE, ICON_COLOR_BUCKET } from '../../assets/icons/icons'
 import { saveTask, updateLabels } from '../../store/selected-board.actions'
 import { boardService } from '../../services/board.service'
 import { usePopper } from 'react-popper'
 import { showErrorMsg } from '../../services/event-bus.service'
-import { SOCKET_EMIT_SEND_BOARD, socketService } from '../../services/socket.service'
+import { ColorPicker } from '../color-picker'
 
 export function LabelPicker({ type, task, groupId, defaultWidth }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
@@ -64,17 +64,14 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 		const oldLabel = board[labelsName]?.find(l => l.id === task[labelTaskName])
 		const taskToEdit = { ...task }
 		taskToEdit[labelTaskName] = label.id
-		console.log("label:", label)
-		console.log("oldLabel:", oldLabel)
 		try {
 			const action = {
 				description: taskToEdit.title,
-				fromLabel: oldLabel, 
+				fromLabel: oldLabel,
 				toLabel: label,
 				type: 'Label',
 			}
 			await saveTask(board._id, groupId, taskToEdit, action)
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setLabel(label)
 		} catch (err) {
 			showErrorMsg('Cant change label')
@@ -86,11 +83,9 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 			style={{ backgroundColor: label?.color || '#C4C4C4', width: defaultWidth }}
 			className="label-picker"
 			ref={setReferenceElement}
-			onClick={handleClick}
-		>
+			onClick={handleClick}>
 			<span>{label?.title || ''}</span>
 			<div className="corner-fold"></div>
-
 			{isPickerOpen &&
 				(isEditor ? (
 					<LabelPickerPopUpEditor
@@ -154,10 +149,26 @@ function LabelPickerPopUp({
 
 function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrowElement, attributes, setIsEditor }) {
 	const [boardLabels, setBoardLabels] = useState(board[labelsName])
+	const [isPalleteOpen, setIsPalleteOpen] = useState(false)
+	const [labelToEdit, setLabelToEdit] = useState({})
 
 	useEffect(() => {
 		setBoardLabels(board[labelsName])
 	}, [board])
+
+	useEffect(() => {
+		document.addEventListener('mousedown', onEditorClose)
+		return () => {
+			document.removeEventListener('mousedown', onEditorClose)
+		}
+	}, [])
+
+	function onEditorClose(ev) {
+		if (!ev.target.closest('.label-picker-popup')) {
+			setIsEditor(false)
+			onSaveLabels()
+		}
+	}
 
 	function handleChange({ target }) {
 		const field = target.name
@@ -188,18 +199,44 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 		}
 	}
 
+	function setLabelStyle(newStyle) {
+		try {
+			const labelsToUpdate = boardLabels.map(l => l.id === labelToEdit.id ? { ...labelToEdit, color: newStyle.color } : l)
+			updateLabels(board, labelsName, labelsToUpdate)
+		} catch {
+			showErrorMsg('Cant update style')
+		}
+	}
+
+	function onSetLabelStyle(label) {
+		setIsPalleteOpen(prev => !prev)
+		setLabelToEdit(label)
+	}
+
 	if (!board[labelsName].length) return
 
 	return (
+
 		<div className="label-picker-popup" style={styles.popper} {...attributes.popper} ref={popperRef}>
+			{isPalleteOpen &&
+				<ColorPicker
+					setIsColorPickerOpen={setIsPalleteOpen}
+					setEntityStyle={setLabelStyle}
+				/>}
 			<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 			<ul className="labels-input-list clean-list">
 				{boardLabels.map(label => {
 					return (
 						<li key={label.id} className="edit-label">
+
 							<div className="input-container">
 								<span className="remove-label-btn" onClick={() => onRemoveLabel(label.id)}>
 									{ICON_CLOSE}
+								</span>
+								<span className="icon-color-bucket"
+									style={{ backgroundColor: label.color }}
+									onClick={() => onSetLabelStyle(label)}>
+									{ICON_COLOR_BUCKET}
 								</span>
 								<input type="text" value={label.title} name={label.id} onChange={handleChange}></input>
 							</div>
@@ -208,7 +245,7 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 				})}
 			</ul>
 			<div className="new-label-btn"
-			onClick={onAddNewLabel}>+ New label</div>
+				onClick={onAddNewLabel}>+ New label</div>
 			<div className="separator"></div>
 			<button className="edit-labels" onClick={onSaveLabels}>
 				<span className="icon">{EDIT_LABEL}</span>

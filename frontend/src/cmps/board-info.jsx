@@ -12,9 +12,11 @@ export function BoardInfo({ board, setIsInfoOpen }) {
                         <TfiClose />
                     </span>
                     <span className="modal-title">{board.title}</span>
-                   <div className="textarea-container">
-                    <textarea type="text" placeholder="Add a description here to make sure your team is aligned on the purpose of this board" />
-                   </div>
+                    <div className="textarea-container">
+                            <textarea wrap="hard"
+                                type="text"
+                                placeholder="Add a description here to make sure your team is aligned on the purpose of this board" />
+                    </div>
                 </div>
                 <div className="info-container">
                     <span className="title">Board info</span>

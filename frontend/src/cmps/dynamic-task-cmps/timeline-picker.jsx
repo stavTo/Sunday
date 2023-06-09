@@ -43,7 +43,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	useEffectUpdate(() => {
 		if (range) {
 			onChangeTimelineRange()
-			// onSetFooter()
 		}
 		// eslint-disable-next-line
 	}, [range])
@@ -61,10 +60,25 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		const endDate = new Date(range.to).getTime()
 		const timeline = { startDate, endDate }
 		const taskToEdit = { ...task, timeline }
+		// console.log("task.timeline:", task.timeline)
+		// console.log("timeline:", timeline)
 		try {
-			await saveTask(board._id, groupId, taskToEdit, '')
+			const action = {
+				description: taskToEdit.title,
+				fromTimeline: {
+					startDate: timeStampToDate(task.timeline.startDate),
+					endDate: timeStampToDate(task.timeline.endDate)
+				},
+				toTimeline: {
+					startDate: timeStampToDate(timeline.startDate),
+					endDate: timeStampToDate(timeline.endDate)
+				},
+				groupColor,
+				type: 'Timeline',
+			}
+			console.log("action:", action)
+			await saveTask(board._id, groupId, taskToEdit, action)
 			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
-			// setHasTimeline(true)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}
@@ -117,20 +131,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		return millisecondsToDays(estTime) || 1
 	}
 
-	// function onSetFooter() {
-	// 	if (range?.from) {
-	// 		if (!range.to) {
-	// 			setModalFooter(<p>{format(range.from, 'PPP')}</p>)
-	// 		} else if (range.to) {
-	// 			setModalFooter(
-	// 				<p>
-	// 					{format(range.from, 'PPP')}-{format(range.to, 'PPP')}
-	// 				</p>
-	// 			)
-	// 		}
-	// 	}
-	// }
-
 	function getTimelineRange() {
 		if (!timeline?.startDate || !timeline?.endDate) return
 		const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
@@ -149,10 +149,9 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	async function clearTaskTimeline() {
 		const taskToEdit = { ...task, timeline: null }
 		setRange()
-		// setHasTimeline(false)
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
-
+			// ! add activity
 			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')
@@ -166,8 +165,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 				<span
 					className="month-btn-prev"
 					disabled={!previousMonth}
-					onClick={() => previousMonth && goToMonth(previousMonth)}
-				>
+					onClick={() => previousMonth && goToMonth(previousMonth)}>
 					{PREV_BTN}
 				</span>
 
@@ -200,10 +198,9 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 							!timeline || !timeline.startDate || !timeline.endDate
 								? { backgroundColor: '#ABABAB' }
 								: {
-										background: `linear-gradient(to right, ${
-											isHovered ? darkenHexColor(groupColor) : groupColor
+									background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor
 										} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
-								  }
+								}
 						}
 					>
 						<span></span>

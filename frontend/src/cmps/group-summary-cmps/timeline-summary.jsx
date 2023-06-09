@@ -5,6 +5,7 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 	const [isHovered, setIsHovered] = useState(false)
 	const [groupHasTimeline, setGroupHasTimeline] = useState(getGroupTimelines())
 	const [timeline, setTimeline] = useState({})
+	
 	useEffect(() => {
 		// if (!group.timeline?.startDate) return
 		// if (!group.timeline?.endDate) return
@@ -14,10 +15,6 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 		//     calculateTimelineProgress()
 		// }
 	}, [board, group])
-
-	// useEffect(() => {
-	// 	console.log(timeline)
-	// }, [timeline])
 
 	function getGroupTimelines() {
 		return group?.tasks?.some(task => task?.timeline?.startDate && task?.timeline?.endDate)
