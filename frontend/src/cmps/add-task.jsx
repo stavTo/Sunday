@@ -24,11 +24,10 @@ export function AddTask({ group }) {
 		elInput.current.blur()
 		try {
 			const action = {
-				description: 'Added Task',
+				description: taskToAdd.title,
 				groupTitle: group.title,
 				groupColor: group.style.color,
 				type: 'Created task',
-				taskTitle: taskToAdd.title,
 			}
 			await addTask(board._id, group.id, taskToAdd, action)
 			setTaskToAdd(prevTask => ({ ...prevTask, title: '' }))

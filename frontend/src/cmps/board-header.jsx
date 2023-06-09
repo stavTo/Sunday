@@ -23,11 +23,10 @@ export function BoardHeader({ board }) {
 
 	function onAddTask() {
 		const action = {
-			description: 'Added Task',
+			description: 'New task',
 			groupTitle: board.groups[0].title,
 			groupColor: board.groups[0].style.color,
 			type: 'Created task',
-			taskTitle: 'New task'
 		}
 		addTaskToFirstGroup(board._id, action)
 	}

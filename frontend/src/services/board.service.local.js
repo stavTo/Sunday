@@ -204,7 +204,7 @@ async function getBoardUsers(boardId, filter = '') {
 	}
 }
 
-async function addGroup(boardId, pushToTop, activity = '') {
+async function addGroup(boardId, pushToTop, activity = {}) {
 	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	const board = await getById(boardId)
@@ -213,7 +213,7 @@ async function addGroup(boardId, pushToTop, activity = '') {
 	return board
 }
 
-async function duplicateGroup(boardId, group, activity = '') {
+async function duplicateGroup(boardId, group, activity = {}) {
 	const newGroup = { ...group, id: utilService.makeId() }
 	const board = await getById(boardId)
 	const idx = board.groups.findIndex(g => g.id === group.id)
@@ -257,7 +257,7 @@ function getGroupById(board, groupId) {
 	return newBoard.groups.find(group => group.id === groupId)
 }
 
-async function saveTask(boardId, groupId, task, activity = '') {
+async function saveTask(boardId, groupId, task, activity = {}) {
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
 
@@ -269,7 +269,7 @@ async function saveTask(boardId, groupId, task, activity = '') {
 	return board
 }
 
-async function addTask(boardId, groupId, task, activity = '') {
+async function addTask(boardId, groupId, task, activity = {}) {
 	const board = await getById(boardId)
 	task.id = utilService.makeId()
 	// PUT /api/board/b123/task/t678
@@ -282,7 +282,7 @@ async function addTask(boardId, groupId, task, activity = '') {
 	return board
 }
 
-async function addTaskToFirstGroup(boardId, activity = '') {
+async function addTaskToFirstGroup(boardId, activity = {}) {
 	const board = await getById(boardId)
 	const task = getEmptyTask()
 	task.title = 'New Task'
@@ -294,7 +294,7 @@ async function addTaskToFirstGroup(boardId, activity = '') {
 	return board
 }
 
-async function removeTask(boardId, taskId, activity = '') {
+async function removeTask(boardId, taskId, activity = {}) {
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
 	board.groups = board.groups.map(group => ({ ...group, tasks: group.tasks.filter(t => t.id !== taskId) }))
@@ -311,7 +311,7 @@ async function updateGroup(boardId, group) {
 	return board
 }
 
-async function removeGroup(boardId, groupId, activity = '') {
+async function removeGroup(boardId, groupId, activity = {}) {
 	const board = await getById(boardId)
 	// PUT /api/board/b123/task/t678
 	board.groups = board.groups.filter(g => g.id !== groupId)

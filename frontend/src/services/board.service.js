@@ -128,12 +128,12 @@ function getBoardMembers(board, filter = '') {
 	return members.filter(member => regex.test(member.fullname))
 }
 
-async function addGroup(boardId, pushToTop, activity = '') {
+async function addGroup(boardId, pushToTop) {
 	const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	try {
 		const action = {
-			description: 'Added group',
+			description: 'New Group',
 			groupTitle: 'New Group',
 			groupColor: newGroup.style.color,
 			type: 'Created group',
@@ -152,7 +152,7 @@ async function addGroup(boardId, pushToTop, activity = '') {
 	}
 }
 
-async function duplicateGroup(boardId, group, activity = '') {
+async function duplicateGroup(boardId, group, action = {}) {
 	const newGroup = structuredClone(group)
 	const newGroupChangeTaskId = {
 		...newGroup,
@@ -163,6 +163,10 @@ async function duplicateGroup(boardId, group, activity = '') {
 		const board = await getById(boardId)
 		const idx = board.groups.findIndex(g => g.id === group.id)
 		board.groups.splice(idx, 0, newGroupChangeTaskId)
+		
+		const activity = getEmptyActivity(board, newGroup.id, action)
+		board.activities.unshift(activity)
+
 		await save(board)
 		return board
 	} catch (err) {
@@ -170,7 +174,7 @@ async function duplicateGroup(boardId, group, activity = '') {
 	}
 }
 
-async function duplicateTask(boardId, group, task, boolean) {
+async function duplicateTask(boardId, group, task, boolean, action = {}) {
 	const newTask = boolean ? { ...task } : getEmptyTask('New task')
 	newTask.id = utilService.makeId()
 	try {
@@ -178,6 +182,10 @@ async function duplicateTask(boardId, group, task, boolean) {
 		const currGroup = board.groups.find(g => g.id === group.id)
 		const idx = currGroup.tasks.findIndex(t => t.id === task.id)
 		currGroup.tasks.splice(idx + 1, 0, newTask)
+
+		const activity = getEmptyActivity(board, newTask.id, action)
+		board.activities.unshift(activity)
+
 		await save(board)
 		return board
 	} catch (err) {
@@ -185,10 +193,14 @@ async function duplicateTask(boardId, group, task, boolean) {
 	}
 }
 
-async function updateLabels(board, labelsName, labels) {
+async function updateLabels(board, labelsName, labels, action = {}) {
 	const boardToSave = structuredClone(board)
 	boardToSave[labelsName] = labels
 	try {
+
+		const activity = getEmptyActivity(board, '', action)
+		board.activities.unshift(activity)
+
 		await save(boardToSave)
 		return boardToSave
 	} catch (err) {
@@ -295,10 +307,15 @@ async function addTaskToFirstGroup(boardId, action = {}) {
 	}
 }
 
-async function updateGroup(boardId, group) {
+async function updateGroup(boardId, group, action) {
 	try {
+		console.log("action", action)
 		const board = await getById(boardId)
 		board.groups = board.groups.map(g => (g.id === group.id ? group : g))
+
+		const activity = getEmptyActivity(board, group.id, action)
+		board.activities.unshift(activity)
+
 		await save(board)
 		return board
 	} catch (err) {

@@ -1,0 +1,28 @@
+.filter-activity {
+    height: 2em;
+    // margin-block: rem(12px);
+    margin-block-end: rem(16px);
+    justify-content: flex-start;
+    
+    .input-container {
+        height: 2em;
+        border: 1px solid $input-border;
+        border-radius: 4px;
+        width: rem(150px);
+
+        input[type="search"] {
+            all: unset;
+            padding-inline: 16px;
+            width: 100%;
+        
+        &::placeholder {
+            font-size: 14px;
+        }
+        }
+
+    }
+    
+    .filter-person {
+        padding: .5em;
+    }
+}

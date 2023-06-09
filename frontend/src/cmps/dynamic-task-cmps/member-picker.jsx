@@ -1,13 +1,12 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { ICON_CLOSE, ICON_SEARCH } from '../../assets/icons/icons'
 import { EMPTY_MEMBER } from '../../assets/icons/icons'
-import { userService } from '../../services/user.service'
 import { useSelector } from 'react-redux'
 import { saveTask } from '../../store/selected-board.actions'
 import { usePopper } from 'react-popper'
 import { boardService } from '../../services/board.service'
 import { showErrorMsg } from '../../services/event-bus.service'
-import { SOCKET_EMIT_SEND_BOARD, socketService } from '../../services/socket.service'
+import { TippyContainer } from '../tippy-container'
 
 export function MemberPicker({ groupId, type, task, defaultWidth }) {
 	const [isPickerOpen, setIsPickerOpen] = useState(false)
@@ -129,6 +128,27 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 		setMemberToSearch(target.value)
 	}
 
+	function getMaximumCollaboratorsToShow() {
+		return Math.floor((parseInt(defaultWidth) - 30) / 30)
+	}
+
+	function getRemainingCollaboratorNames(idx) {
+		let names = []
+		{
+			for (let i = idx; i < task.collaborators.length; i++) {
+				names.push(
+					<span key={task.collaborators[i]._id}>
+						{task.collaborators[i].fullname}
+						{!!(task.collaborators.length - 1 - i) && ','}
+						<br />
+					</span>
+				)
+			}
+		}
+
+		return names
+	}
+
 	return (
 		<li
 			className="member-picker"
@@ -139,9 +159,18 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 			{type === 'ownerPicker' && task?.owner?._id && <img src={task.owner.imgUrl} alt="member img" />}
 			{type === 'collaboratorPicker' && !!task.collaborators?.length && (
 				<div className="collaborator-img-container">
-					{task.collaborators.map(collaborator => (
-						<img key={collaborator._id} src={collaborator.imgUrl} alt="member img" />
-					))}
+					{task.collaborators.map((collaborator, idx) => {
+						const maxCollaboratorsToShow = getMaximumCollaboratorsToShow()
+						if (idx < maxCollaboratorsToShow) {
+							return <img key={collaborator._id} src={collaborator.imgUrl} alt="member img" />
+						} else if (idx === maxCollaboratorsToShow) {
+							return (
+								<TippyContainer key={collaborator._id} txt={getRemainingCollaboratorNames(idx)}>
+									<span className="extra-members-box">+{task.collaborators.length - idx}</span>
+								</TippyContainer>
+							)
+						}
+					})}
 				</div>
 			)}
 			{/* if not any of the above, show default image. */}

@@ -31,8 +31,11 @@
 @import 'cmps/side-bar';
 @import 'cmps/expandable-sidebar';
 @import 'cmps/task-details';
-@import 'cmps/activity-details';
-@import 'cmps/activity-preview';
+
+// Activity cmps
+@import 'cmps/activity-log-cmps/activity-details';
+@import 'cmps/activity-log-cmps/activity-preview';
+@import 'cmps/activity-log-cmps/activity-filter';
 
 // Group summary cmps
 @import 'cmps/group-summary-cmps/group-summary';

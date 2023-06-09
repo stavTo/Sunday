@@ -22,7 +22,13 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 			newTask = task
 		}
 		try {
-			await duplicateTask(boardId, group, newTask, boolean)
+			const action = {
+				description: newTask.title,
+				groupTitle: group.title,
+				groupColor: group.style.color,
+				type: 'Duplicated task',
+			}
+			await duplicateTask(boardId, group, newTask, boolean, action)
 			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('cant duplicate task')
@@ -33,11 +39,12 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 		setIsOptionOpen(false)
 		try {
 			const action = {
-				description: 'Deleted Task',
+				// description: 'Deleted Task',
+				description: task.title,
 				groupTitle: group.title,
 				groupColor: group.style.color,
 				type: 'Deleted task',
-				taskTitle: task.title,
+				// taskTitle: task.title,
 			}
 
 			await removeTask(boardId, task.id, action)
