@@ -1,11 +1,11 @@
 .kanban-group-preview {
 	background-color: $bg-clr3;
 	width: 260px;
-	height: 100%;
 	border-start-start-radius: 8px;
 	border-start-end-radius: 8px;
-
-	// display: flex;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
 
 	.group-title {
 		border-start-start-radius: 8px;
@@ -19,7 +19,11 @@
 	}
 
 	.kanban-task-list {
-		margin-block-start: 10px;
+		&:hover {
+			background-color: $bg-clr8;
+		}
+		flex: 1;
+		padding-block-start: 10px;
 		display: flex;
 		flex-direction: column;
 		gap: 10px;

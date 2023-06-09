@@ -8,11 +8,16 @@
 		border-radius: 50%;
 		min-width: 30px;
 		min-height: 30px;
-		width: 30px;
-		height: 30px;
+		max-width: 30px;
+		max-height: 30px;
+		border: 2px solid white;
+		border-radius: 50%;
 	}
 
 	.collaborator-img-container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		.extra-members-box {
 			background-color: $bg-clr6;
 			color: $clr0;
@@ -24,24 +29,18 @@
 			align-items: center;
 			justify-content: center;
 		}
-		// max-width: 50px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+
 		img {
 			&:not(:last-child) {
 				margin-inline-end: -6px;
 			}
-			box-sizing: content-box;
-			border: 2px solid white;
-			border-radius: 50%;
 		}
 	}
 
 	.member-picker-modal {
 		cursor: default;
 		max-width: 360px;
-		font-size: em(14px);
+		font-size: rem(14px);
 		z-index: 99999;
 		background-color: #ffffff;
 		border-radius: 8px;

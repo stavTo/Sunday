@@ -233,7 +233,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 						style={styles.popper}
 						{...attributes.popper}
 					>
-						<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
+						<div className="modal-up-arrow timeline-arrow" ref={setArrowElement} style={styles.arrow}></div>
 						<DayPicker
 							numberOfMonths={2}
 							mode="range"
