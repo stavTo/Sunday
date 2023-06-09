@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg } from '../../services/event-bus.service'
 import { saveTask } from '../../store/selected-board.actions'
@@ -15,6 +15,8 @@ export function TaskTitle({ task, groupId }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [isInputFocused, setIsInputFocused] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(task.title)
+	const titleRef = useRef()
+	const [titleHasEllipsis, setTitleHasEllipsis] = useState(false)
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 
 	useEffect(() => {
@@ -28,6 +30,14 @@ export function TaskTitle({ task, groupId }) {
 		if (key.key === 'Enter') setNewTitle()
 		if (key.key === 'Escape') onEmptyInput()
 	}
+
+	useEffect(() => {
+		const element = titleRef.current.children[0]
+		// console.log(element)
+		if (!element) return
+		const isOverflowing = element.scrollWidth > element.clientWidth
+		setTitleHasEllipsis(isOverflowing)
+	}, [task, titleRef])
 
 	function setInputInvisible() {
 		setIsInputVisible(false)
@@ -65,8 +75,12 @@ export function TaskTitle({ task, groupId }) {
 
 	return (
 		<li className="task-title" style={{ width: '400px' }}>
-			<div className="title-main-container">
-				{!isInputVisible && <span onClick={handleClick}>{task.title}</span>}
+			<div ref={titleRef} className="title-main-container">
+				{!isInputVisible && (
+					<TippyContainer txt={titleHasEllipsis ? task.title : ''}>
+						<span onClick={handleClick}>{task.title}</span>
+					</TippyContainer>
+				)}
 				{isInputVisible && (
 					<input
 						autoFocus={true}
@@ -86,7 +100,9 @@ export function TaskTitle({ task, groupId }) {
 						<div className="icon">
 							<FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} style={{ color: '#5e6b83' }} />
 						</div>
-						<div className="open">Open</div>
+						<TippyContainer txt="Open item page">
+							<div className="open">Open</div>
+						</TippyContainer>
 					</Link>
 				)}
 			</div>

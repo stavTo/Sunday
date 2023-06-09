@@ -163,7 +163,7 @@ async function duplicateGroup(boardId, group, action = {}) {
 		const board = await getById(boardId)
 		const idx = board.groups.findIndex(g => g.id === group.id)
 		board.groups.splice(idx, 0, newGroupChangeTaskId)
-		
+
 		const activity = getEmptyActivity(board, newGroup.id, action)
 		board.activities.unshift(activity)
 
@@ -197,7 +197,6 @@ async function updateLabels(board, labelsName, labels, action = {}) {
 	const boardToSave = structuredClone(board)
 	boardToSave[labelsName] = labels
 	try {
-
 		const activity = getEmptyActivity(board, '', action)
 		board.activities.unshift(activity)
 
@@ -309,7 +308,7 @@ async function addTaskToFirstGroup(boardId, action = {}) {
 
 async function updateGroup(boardId, group, action) {
 	try {
-		console.log("action", action)
+		console.log('action', action)
 		const board = await getById(boardId)
 		board.groups = board.groups.map(g => (g.id === group.id ? group : g))
 

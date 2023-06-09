@@ -126,14 +126,13 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	}
 
 	function getTimestampInDays() {
-		if (!timeline) return
+		if (!timeline || !timeline.startDate || !timeline.endDate) return
 		const estTime = timeline.endDate - timeline.startDate
 		return millisecondsToDays(estTime) || 1
 	}
 
 	function getTimelineRange() {
 		if (!timeline?.startDate || !timeline?.endDate) return
-
 		const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
 		const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 
@@ -196,7 +195,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 					<div
 						className="progress"
 						style={
-							!timeline || !Object.keys(timeline).length
+							!timeline || !timeline.startDate || !timeline.endDate
 								? { backgroundColor: '#ABABAB' }
 								: {
 									background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor
@@ -207,16 +206,17 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 						<span></span>
 					</div>
 					<span className="range-preview flex row justify-center">
-						{(!timeline || !Object.keys(timeline).length) &&
+						{(!timeline || !timeline.startDate || !timeline.endDate) &&
 							(isHovered ? <span>Set Dates</span> : <span>-</span>)}
 						{timeline &&
-							Object.keys(timeline).length &&
+							timeline.startDate &&
+							timeline.endDate &&
 							(isHovered ? (
 								<span>{getTimestampInDays()}d</span>
 							) : (
 								<span>{getTimelineRange(timeline)}</span>
 							))}
-						{isHovered && timeline && Object.keys(timeline).length && (
+						{isHovered && timeline && timeline.startDate && timeline.endDate && (
 							<div className="reset-date-btn flex align-center" onClick={() => clearTaskTimeline()}>
 								{ICON_CLOSE}
 							</div>
