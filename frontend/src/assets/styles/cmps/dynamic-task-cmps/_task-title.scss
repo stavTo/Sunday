@@ -2,6 +2,7 @@
 	display: flex;
 	// position: relative;
 	// left: 0;
+
 	align-items: center;
 	justify-content: space-between;
 	overflow: hidden;
@@ -87,6 +88,7 @@
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;
+		cursor: text;
 
 		&:hover {
 			outline: 1px solid $input-hover-border-clr;
@@ -97,6 +99,7 @@
 
 	input {
 		all: unset;
+		cursor: text;
 		width: 100%;
 		margin: 6px 10px 6px 26px;
 

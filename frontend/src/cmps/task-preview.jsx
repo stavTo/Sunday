@@ -18,7 +18,7 @@ const TIMELINE_PICKER = 'timelinePicker'
 const OWNER_PICKER = 'ownerPicker'
 const COLLABORATOR_PICKER = 'collaboratorPicker'
 
-export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected }) {
+export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected, snapshot }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 	const [isOptionOpen, setIsOptionOpen] = useState(false)
 

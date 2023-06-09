@@ -53,7 +53,6 @@ export function KanbanGroupList({ groups }) {
 		setIsDragDisabled(true)
 	}
 
-	console.log(groupsByLabels)
 	if (!board._id || !groupsByLabels) return
 
 	return (
@@ -63,7 +62,7 @@ export function KanbanGroupList({ groups }) {
 					<ul {...provided.droppableProps} ref={provided.innerRef} className="kanban-group-list clean-list">
 						{Object.keys(groupsByLabels).map((labelId, idx) => (
 							<Draggable key={labelId} draggableId={labelId} index={idx}>
-								{provided => (
+								{(provided, snapshot) => (
 									<li
 										{...provided.draggableProps}
 										{...provided.dragHandleProps}
