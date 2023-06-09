@@ -128,7 +128,7 @@ export function GroupPreview({ group, provided }) {
 				{isColorPickerOpen && (
 					<ColorPicker
 						onSetColorPickerClose={onSetColorPickerClose}
-						setGroupStyle={setGroupStyle}
+						setEntityStyle={setGroupStyle}
 						setIsColorPickerOpen={setIsColorPickerOpen}
 					/>
 				)}

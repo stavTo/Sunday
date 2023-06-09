@@ -5,7 +5,7 @@ export function KanbanGroupPreview({ group, statusLabel, isDragDisabled }) {
 	return (
 		<div className="kanban-group-preview clean-list">
 			<div className="group-title" style={{ background: statusLabel.color }}>
-				{statusLabel.title} / {group.length}
+				{statusLabel.title || 'Blank'} / {group.length}
 			</div>
 			<Droppable droppableId={statusLabel.id}>
 				{(provided, snapshot) => (
@@ -19,10 +19,10 @@ export function KanbanGroupPreview({ group, statusLabel, isDragDisabled }) {
 					>
 						{group.map((task, idx) => (
 							<Draggable key={task.id} draggableId={task.id} index={idx}>
-								{provided => (
+								{(provided, snapshot) => (
 									<li
-										{...provided.draggableProps}
 										{...provided.dragHandleProps}
+										{...provided.draggableProps}
 										ref={provided.innerRef}
 									>
 										<KanbanTaskPreview task={task} />

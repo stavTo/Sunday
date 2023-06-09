@@ -30,7 +30,7 @@
 		position: absolute;
 		top: calc($task-row-height + 5px);
 		z-index: 999;
-		width: 200px;
+		width: fit-content;
 		background-color: $clr0;
 		border-radius: 8px;
 		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.32);
@@ -55,9 +55,10 @@
 		}
 
 		ul {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
+			display: grid;
+			grid-template-rows: repeat(6, auto);
+			grid-auto-flow: column;
+			column-gap: 10px;
 			padding: 16px 24px 0px 24px;
 
 			li {
@@ -78,6 +79,7 @@
 					scale: 0.95;
 
 				}
+
 				&:hover .remove-label-btn {
 					opacity: 1;
 				}
@@ -86,7 +88,7 @@
 
 		.separator {
 			height: 1px;
-			width: 168px;
+			width: 90%;
 			background-color: $border-clr;
 			margin-inline: auto;
 		}
@@ -121,6 +123,7 @@
 			color: $clr1;
 			height: rem(32px);
 			width: rem(152px);
+
 		}
 
 		.remove-label-btn {
@@ -129,6 +132,23 @@
 			right: -20px;
 			top: 2px;
 			opacity: 0;
+		}
+
+		.icon-color-bucket {
+			position: absolute;
+			left: 5px;
+			top: 5px;
+			height: 24px;
+			width: 24px;
+			border-radius: 4px;
+
+			svg {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				translate: -50% -50%;
+				color: $clr0;
+			}
 		}
 	}
 }

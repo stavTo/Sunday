@@ -94,3 +94,27 @@
 	gap: 3px;
 	margin-block-end: 7px;
 }
+
+.empty-favorites {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-inline: 12px;
+	text-align: center;
+
+	img {
+		height: 80px;
+		width: 80px;
+	}
+
+	span {
+		font-size: rem(15px);
+		font-weight: 700;
+		color: $clr1;
+	}
+
+	p {
+		color: $clr1;
+		font-weight: 400;
+	}
+}
