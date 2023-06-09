@@ -10,7 +10,6 @@
 		white-space: nowrap;
 		font-size: rem(14px);
 		line-height: rem($task-row-height);
-
 	}
 
 	&:hover .corner-fold {
@@ -40,7 +39,7 @@
 			display: flex;
 			align-items: center;
 			flex-direction: column;
-			padding: em(16px) em(24px) em(8px) em(24px);
+			padding: 16px 24px 8px 24px;
 
 			li {
 				border-radius: 2px;
@@ -52,14 +51,12 @@
 				font-size: rem(14px);
 				margin-block-end: 8px;
 
-
 				&.edit-label {
 					color: $clr1;
 				}
 
 				&:active:not(.edit-label) {
 					scale: 0.95;
-
 				}
 			}
 		}

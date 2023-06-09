@@ -1,3 +1,10 @@
+.group-options-menu {
+	left: 0px;
+	top: 35px;
+	// z-index: 99;
+	position: absolute;
+}
+
 .group-preview {
 	font-size: em(18px);
 	line-height: 24px;
@@ -5,6 +12,10 @@
 	border-radius: 4px;
 	position: relative;
 	min-width: max-content;
+
+	li:has(&) {
+		position: relative;
+	}
 
 	.color-picker {
 		position: absolute;
@@ -33,7 +44,7 @@
 		position: sticky;
 		// width: 1500px;
 		top: 165px;
-		z-index: 20;
+		z-index: 40;
 		background-color: $clr0;
 	}
 
@@ -48,7 +59,6 @@
 		position: sticky;
 		left: 0;
 		// max-width: max-content;
-		// z-index: 21;
 		display: flex;
 		align-items: center;
 		.group-title-container {
@@ -130,7 +140,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			z-index: 10;
+			z-index: 50;
 
 			.group-option {
 				svg {

@@ -119,7 +119,7 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 					style={styles.popper}
 					{...attributes.popper}
 				>
-					<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
+					<div className="modal-up-arrow date-arrow" ref={setArrowElement} style={styles.arrow}></div>
 					<DayPicker mode="single" selected={selected} onSelect={setSelected} footer={footer} />
 				</div>
 			)}

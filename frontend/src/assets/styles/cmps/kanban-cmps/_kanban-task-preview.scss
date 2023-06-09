@@ -7,11 +7,32 @@
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 	font-size: rem(13px);
 
-	.kanban-row {
-		height: $task-row-height;
+	// .kanban-row {
+	// 	height: $task-row-height;
+	// 	display: flex;
+	// 	justify-content: space-around;
+	// 	align-items: center;
+	.kanban-row-title {
 		display: flex;
-		justify-content: space-around;
 		align-items: center;
+		max-width: max-content;
+		gap: 5px;
+		svg {
+			color: $icon-color;
+			width: 16px;
+			height: 16px;
+		}
+	}
+	// }
+
+	.kanban-body-container {
+		display: grid;
+		grid-template-columns: auto 140px;
+		grid-template-rows: repeat(2, $task-row-height);
+		align-items: center;
+		margin-inline: 5px;
+		// column-gap: 5px;
+		// justify-items: center;
 	}
 
 	.kanban-task-header {
@@ -20,6 +41,7 @@
 		justify-content: space-between;
 
 		.kanban-task-title {
+			// font-size: rem(13px);
 			line-height: 18px;
 			white-space: break-spaces;
 		}
@@ -53,7 +75,7 @@
 					.updates-count {
 						position: absolute;
 						right: 6px;
-						top: 12px;
+						top: 11px;
 						background-color: $bg-clr1;
 						border-radius: 250px;
 						color: $clr0;
@@ -74,18 +96,15 @@
 		}
 	}
 
-	.kanban-member-picker {
-		width: 100%;
-
-		.member-picker {
-			height: 100%;
-			background-color: $bg-clr3;
+	.member-picker {
+		&:hover {
+			background-color: $bg-clr8;
 		}
+		height: 100%;
+		background-color: $bg-clr3;
 	}
 
-	.kanban-priority-picker {
-		.label-picker {
-			height: 100%;
-		}
+	.label-picker {
+		height: 100%;
 	}
 }

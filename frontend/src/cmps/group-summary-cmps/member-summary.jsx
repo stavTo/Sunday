@@ -1,7 +1,14 @@
 import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { TippyContainer } from '../tippy-container'
 
 export function MemberSummary({ defaultWidth, group }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
+	const [allGroupCollaborators, setAllGroupCollaborators] = useState()
+
+	useEffect(() => {
+		setAllGroupCollaborators(getAllGroupCollaborators())
+	}, [])
 
 	function getAllGroupCollaborators() {
 		const collaborators = group.tasks.reduce((acc, task) => {
@@ -14,12 +21,42 @@ export function MemberSummary({ defaultWidth, group }) {
 		return collaborators
 	}
 
+	function getMaximumCollaboratorsToShow() {
+		return Math.floor((parseInt(defaultWidth) - 30) / 30)
+	}
+
+	function getRemainingCollaboratorNames(idx) {
+		let names = []
+		{
+			for (let i = idx; i < allGroupCollaborators.length; i++) {
+				names.push(
+					<span key={allGroupCollaborators[i]._id}>
+						{allGroupCollaborators[i].fullname}
+						{!!(allGroupCollaborators.length - 1 - i) && ','}
+						<br />
+					</span>
+				)
+			}
+		}
+
+		return names
+	}
+	if (!allGroupCollaborators) return
 	return (
 		<div className="member-summary" style={{ width: defaultWidth }}>
 			<div className="collaborator-img-container">
-				{getAllGroupCollaborators().map(collaborator => (
-					<img key={collaborator._id} src={collaborator.imgUrl} alt="member img" />
-				))}
+				{allGroupCollaborators.map((collaborator, idx) => {
+					const maxCollaboratorsToShow = getMaximumCollaboratorsToShow()
+					if (idx < maxCollaboratorsToShow) {
+						return <img key={collaborator._id} src={collaborator.imgUrl} alt="member img" />
+					} else if (idx === maxCollaboratorsToShow) {
+						return (
+							<TippyContainer key={collaborator._id} txt={getRemainingCollaboratorNames(idx)}>
+								<span className="extra-members-box">+{allGroupCollaborators.length - idx}</span>
+							</TippyContainer>
+						)
+					}
+				})}
 			</div>
 		</div>
 	)

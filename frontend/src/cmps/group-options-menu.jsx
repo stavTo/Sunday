@@ -1,8 +1,8 @@
-import { faDownLeftAndUpRightToCenter, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { duplicateGroup } from "../store/selected-board.actions";
-import { useParams } from "react-router";
-import { ICON_ADD_GROUP, ICON_DUPLICATE, ICON_TRASH } from "../assets/icons/icons";
+import { faDownLeftAndUpRightToCenter, faSquareCheck } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { duplicateGroup } from '../store/selected-board.actions'
+import { useParams } from 'react-router'
+import { ICON_ADD_GROUP, ICON_DUPLICATE, ICON_TRASH } from '../assets/icons/icons'
 
 export function GroupOptionsMenu({ onRemoveGroup, openColorPicker, group, setIsOptionOpen, onAddGroup }) {
     const { boardId } = useParams()

@@ -70,6 +70,7 @@ export function KanbanGroupList({ groups }) {
 										ref={provided.innerRef}
 									>
 										<KanbanGroupPreview
+											isDragDisabled={isDragDisabled}
 											statusLabel={boardService.getStatusLabelById(board, labelId)}
 											group={groupsByLabels[labelId]}
 										/>
