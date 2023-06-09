@@ -3,7 +3,17 @@
 	align-items: center;
 	justify-content: center;
 	.collaborator-img-container {
-		max-width: 50px;
+		.extra-members-box {
+			background-color: $bg-clr6;
+			color: $clr0;
+			border-radius: 50%;
+			font-size: rem(12px);
+			width: 25px;
+			height: 25px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 		display: flex;
 		align-items: center;
 		justify-content: center;
