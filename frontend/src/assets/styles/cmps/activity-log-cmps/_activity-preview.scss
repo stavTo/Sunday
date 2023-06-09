@@ -44,7 +44,8 @@
 
     .dynamic-cmp {
         grid-area: 1 / 4 / 2 / 6;
-
+        display: flex;
+        
         span {
             text-overflow: ellipsis;
             overflow: hidden;
@@ -65,11 +66,13 @@
 
         .arrow {
             transform: rotate(180deg);
+            width: fit-content;
 
             svg {
                 color: #cdcdcd;
                 min-height: 12px;
                 min-width: 12px;
+                margin: 0;
             }
         }
 

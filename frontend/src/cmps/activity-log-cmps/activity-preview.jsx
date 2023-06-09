@@ -53,7 +53,11 @@ export function DynamicCmp({ action }) {
             )
         case RENAME_TASK:
             return (
-                <div className="dynamic-cmp">{action.oldTaskTitle} {'>'} {action.nameTaskTitle}</div>
+                <div className="dynamic-cmp">{action.oldTaskTitle}
+                    <div className="arrow">
+                        {ICON_EXPAND_ARROW}
+                    </div> {action.nameTaskTitle}
+                </div>
             )
         case DUPLICATE_TASK:
             return (
@@ -87,9 +91,11 @@ export function DynamicCmp({ action }) {
                                 className="progress fs12 flex align-center justify-center"
                                 style={{ backgroundColor: action.groupColor, 'borderRadius': '5em', 'width': '80px', 'height': '20px' }}>
                                 <div className="timeline-wrapper">
-                                    <span class="span-color" style={{ 'color': '#fff' }}>
-                                        {utilService.getTimelineRange(action.fromTimeline)}
-                                    </span>
+                                    <TippyContainer txt={utilService.getTimelineRange(action.fromTimeline)}>
+                                        <span className="span-color" style={{ 'color': '#fff' }}>
+                                            {utilService.getTimelineRange(action.fromTimeline)}
+                                        </span>
+                                    </TippyContainer>
                                 </div>
                             </div>
                             <div className="arrow">
@@ -100,9 +106,11 @@ export function DynamicCmp({ action }) {
                                 className="progress fs12 flex align-center justify-center"
                                 style={{ backgroundColor: action.groupColor, 'borderRadius': '5em', 'width': '80px', 'height': '20px' }}>
                                 <div className="timeline-wrapper">
-                                    <span class="span-color" style={{ 'color': '#fff' }}>
-                                        {utilService.getTimelineRange(action.toTimeline)}
-                                    </span>
+                                    <TippyContainer txt={utilService.getTimelineRange(action.fromTimeline)}>
+                                        <span className="span-color" style={{ 'color': '#fff' }}>
+                                            {utilService.getTimelineRange(action.toTimeline)}
+                                        </span>
+                                    </TippyContainer>
                                 </div>
                             </div>
                             <span className="range-preview flex row justify-center">
@@ -114,12 +122,19 @@ export function DynamicCmp({ action }) {
         case RENAME_GROUP:
             return (
                 <div className="dynamic-cmp">
-                    <span>
-                        {action.description}
-                    </span> {'>'}
-                    <span>
-                        {action.newGroupTitle}
-                    </span>
+                    <TippyContainer txt={action.description}>
+                        <span>
+                            {action.description}
+                        </span>
+                    </TippyContainer>
+                    <div className="arrow">
+                        {ICON_EXPAND_ARROW}
+                    </div>
+                    <TippyContainer txt={action.newGroupTitle}>
+                        <span>
+                            {action.newGroupTitle}
+                        </span>
+                    </TippyContainer>
                 </div>
             )
         case CHANGE_COLOR_GROUP:
@@ -127,7 +142,10 @@ export function DynamicCmp({ action }) {
                 <div className="dynamic-cmp">
                     <span style={{ 'color': action.groupColor }}>
                         {action.description}
-                    </span> {'>'}
+                    </span>
+                    <div className="arrow">
+                        {ICON_EXPAND_ARROW}
+                    </div>
                     <span style={{ 'color': action.newGroupColor }}>
                         {action.description}
                     </span>
