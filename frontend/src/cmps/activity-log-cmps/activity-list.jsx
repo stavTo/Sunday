@@ -9,7 +9,7 @@ export function ActivityList({ board }) {
 
     useEffect(() => {
         setActivities(boardService.loadActivities(board, filter))
-    }, [filter])
+    }, [filter, board])
 
     function onSetFilter(filter) {
         setFilter(prev => ({ ...prev, ...filter }))

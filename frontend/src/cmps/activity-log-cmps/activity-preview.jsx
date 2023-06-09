@@ -53,7 +53,11 @@ export function DynamicCmp({ action }) {
             )
         case RENAME_TASK:
             return (
-                <div className="dynamic-cmp">{action.oldTaskTitle} {'>'} {action.nameTaskTitle}</div>
+                <div className="dynamic-cmp">{action.oldTaskTitle}
+                    <div className="arrow">
+                        {ICON_EXPAND_ARROW}
+                    </div> {action.nameTaskTitle}
+                </div>
             )
         case DUPLICATE_TASK:
             return (
@@ -118,12 +122,19 @@ export function DynamicCmp({ action }) {
         case RENAME_GROUP:
             return (
                 <div className="dynamic-cmp">
-                    <span>
-                        {action.description}
-                    </span> {'>'}
-                    <span>
-                        {action.newGroupTitle}
-                    </span>
+                    <TippyContainer txt={action.description}>
+                        <span>
+                            {action.description}
+                        </span>
+                    </TippyContainer>
+                    <div className="arrow">
+                        {ICON_EXPAND_ARROW}
+                    </div>
+                    <TippyContainer txt={action.newGroupTitle}>
+                        <span>
+                            {action.newGroupTitle}
+                        </span>
+                    </TippyContainer>
                 </div>
             )
         case CHANGE_COLOR_GROUP:
@@ -131,7 +142,10 @@ export function DynamicCmp({ action }) {
                 <div className="dynamic-cmp">
                     <span style={{ 'color': action.groupColor }}>
                         {action.description}
-                    </span> {'>'}
+                    </span>
+                    <div className="arrow">
+                        {ICON_EXPAND_ARROW}
+                    </div>
                     <span style={{ 'color': action.newGroupColor }}>
                         {action.description}
                     </span>
