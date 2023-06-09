@@ -15,6 +15,22 @@ export const utilService = {
 	darkenHexColor,
 	isValidTimestamp,
 	timeSince,
+	getTimelineRange,
+}
+
+function getTimelineRange(timeline) {
+	// Used by activity-preview, unlike "getTimelineRange" at timeline-summary. 
+	const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
+	const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
+
+	const startDay = timeStampToDate(timeline.startDate).slice(4)
+	const endDay = timeStampToDate(timeline.endDate).slice(4)
+
+	if (startMonth === endMonth) {
+		return ` ${startMonth} ${startDay}-${endDay}`
+	} else {
+		return `${startMonth} ${startDay} - ${endMonth} ${endDay}`
+	}
 }
 
 function timeSince(timeStamp) {

@@ -64,8 +64,6 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 		const oldLabel = board[labelsName]?.find(l => l.id === task[labelTaskName])
 		const taskToEdit = { ...task }
 		taskToEdit[labelTaskName] = label.id
-		console.log("label:", label)
-		console.log("oldLabel:", oldLabel)
 		try {
 			const action = {
 				description: taskToEdit.title,

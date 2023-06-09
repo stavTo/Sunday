@@ -65,6 +65,28 @@
 
         .arrow {
             transform: rotate(180deg);
+
+            svg {
+                color: #cdcdcd;
+                min-height: 12px;
+                min-width: 12px;
+            }
+        }
+
+        .timeline-container {
+            color: $clr0;
+
+            .timeline-wrapper {
+                overflow: hidden;
+                white-space: nowrap;
+                max-width: 60px;
+                text-overflow: ellipsis;
+                color: #fff;
+
+                .span-color {
+                    color: #fff;
+                }
+            }
         }
     }
 }
