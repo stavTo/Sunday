@@ -34,7 +34,6 @@
 	}
 }
 
-
 @mixin btn-get-started() {
 	display: inline-block;
 	border-radius: em(40px);
@@ -76,7 +75,6 @@
 @mixin btn-board-default($fontSize: 1em, $padding: 0px) {
 	min-width: max-content;
 	color: #ffffff;
-	border: #ffffff;
 	background-color: $bg-clr1;
 	cursor: pointer;
 	border: none;

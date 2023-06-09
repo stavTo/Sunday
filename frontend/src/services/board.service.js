@@ -403,11 +403,9 @@ async function addTask(boardId, groupId, task, action = {}) {
 
 async function removeTask(boardId, taskId, action = {}) {
 	try {
-		console.log(taskId)
 		const board = await getById(boardId)
 		board.groups = board.groups.map(group => ({ ...group, tasks: group.tasks.filter(t => t.id !== taskId) }))
 
-		console.log(action)
 		const activity = getEmptyActivity(board, taskId, action)
 		board.activities.unshift(activity)
 

@@ -1,10 +1,6 @@
 * {
 	box-sizing: border-box;
 	user-select: none;
-
-	&:focus {
-		outline: 1px solid $button-clicked-bgc;
-	}
 }
 
 html {
