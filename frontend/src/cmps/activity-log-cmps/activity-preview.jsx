@@ -1,7 +1,8 @@
 import { utilService } from '../../services/util.service'
 import { ICON_CLOCK } from '../../assets/icons/icons'
 import { ICON_EXPAND_ARROW } from '../../assets/icons/icons'
-
+import { TippyContainer } from '../tippy-container'
+import Tippy from '@tippyjs/react'
 const CREATED_TASK = 'Created task'
 const DELETED_TASK = 'Deleted task'
 const DUPLICATE_TASK = 'Duplicated task'
@@ -61,15 +62,19 @@ export function DynamicCmp({ action }) {
         case LABEL_TASK:
             return (
                 <div className="dynamic-cmp flex align-center">
-                    <div className="old-label flex align-center" style={{ 'backgroundColor': action.fromLabel.color, 'color': '#fff' }}>
-                        <span>{action.fromLabel.title}</span>
-                    </div>
+                    <TippyContainer txt={action.fromLabel.title}>
+                        <div className="old-label flex align-center" style={{ 'backgroundColor': action.fromLabel.color, 'color': '#fff' }}>
+                            <span>{action.fromLabel.title}</span>
+                        </div>
+                    </TippyContainer>
                     <div className="arrow">
                         {ICON_EXPAND_ARROW}
                     </div>
-                    <div className="new-label flex align-center" style={{ 'backgroundColor': action.toLabel.color, 'color': '#fff' }}>
-                        <span>{action.toLabel.title}</span>
-                    </div>
+                    <TippyContainer txt={action.toLabel.title}>
+                        <div className="new-label flex align-center" style={{ 'backgroundColor': action.toLabel.color, 'color': '#fff' }}>
+                            <span>{action.toLabel.title}</span>
+                        </div>
+                    </TippyContainer>
                 </div>
             )
         case TIMELINE_TASK:

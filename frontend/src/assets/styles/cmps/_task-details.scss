@@ -10,11 +10,11 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	z-index: 99999;
+	z-index: 9999;
 	box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
 	resize: initial;
 
-	&>* {
+	& > * {
 		grid-column: 2;
 	}
 

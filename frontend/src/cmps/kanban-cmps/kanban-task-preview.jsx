@@ -26,8 +26,6 @@ export function KanbanTaskPreview({ task }) {
 		setIsOptionOpen(false)
 	}
 
-	console.log(task.status)
-
 	return (
 		<div className="kanban-task-preview">
 			<div className="kanban-task-header">

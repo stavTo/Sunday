@@ -1,7 +1,7 @@
 import { cloneElement, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
-import { EDIT_LABEL } from '../../assets/icons/icons'
+import { EDIT_LABEL, ICON_CLOSE } from '../../assets/icons/icons'
 import { saveTask, updateLabels } from '../../store/selected-board.actions'
 import { boardService } from '../../services/board.service'
 import { usePopper } from 'react-popper'
@@ -171,8 +171,8 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 
 	function onRemoveLabel(labelId) {
 		const labelTaskName = labelsName === 'statusLabels' ? 'status' : 'priority'
-		const isUse = board.groups.some(g => g.tasks.some(t => t[labelTaskName].id === labelId))
-		if (isUse) return
+		const isUse = board.groups.some(g => g.tasks.some(t => t[labelTaskName] === labelId))
+		if (isUse) return showErrorMsg('You cant delete label while in use')
 		const newLabels = board[labelsName].filter(l => l.id !== labelId)
 		updateLabels(board, labelsName, newLabels)
 	}
@@ -197,7 +197,7 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 						<li key={label.id} className="edit-label">
 							<div className="input-container">
 								<span className="remove-label-btn" onClick={() => onRemoveLabel(label.id)}>
-									X
+									{ICON_CLOSE}
 								</span>
 								<input type="text" value={label.title} name={label.id} onChange={handleChange}></input>
 							</div>
@@ -205,7 +205,8 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 					)
 				})}
 			</ul>
-			<button onClick={onAddNewLabel}>+ New label</button>
+			<div className="new-label-btn"
+			onClick={onAddNewLabel}>+ New label</div>
 			<div className="separator"></div>
 			<button className="edit-labels" onClick={onSaveLabels}>
 				<span className="icon">{EDIT_LABEL}</span>

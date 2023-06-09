@@ -1,109 +1,100 @@
 .board-info-modal {
-    background: $clr0;
-    width: 850px;
-    height: 550px;
-    z-index: 99999;
-    border-radius: 8px;
-    position: absolute;
-    display: flex;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	background: $clr0;
+	width: 850px;
+	height: 550px;
+	z-index: 99999;
+	border-radius: 8px;
+	position: absolute;
+	display: flex;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 
-    .modal-title {
-        font-size: rem(24px);
-        margin-block-start: 5px;
-        font-weight: 500;
-        font-family: $title-font;
-    }
+	.modal-title {
+		font-size: rem(24px);
+		margin-block-start: 5px;
+		font-weight: 500;
+		font-family: $title-font;
+	}
 
-    .close-modal-btn {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 25px;
-        height: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+	.close-modal-btn {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		width: 25px;
+		height: 25px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-    .editor-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-grow: 1;
-        padding: 16px 32px 32px 32px;
-        
-        
-        .textarea-container {
-            margin-block-start: em(20px);
-            width: 100%;
-            height: 26.625em;
-            padding: em(8px);
-            border: 0.8px inherit dashed;
+	.editor-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex-grow: 1;
+		padding: 16px 32px 32px 32px;
 
-            &:hover {
-                border: 0.8px $icon-color dashed;
-            }
+		.textarea-container {
+			margin-block-start: em(20px);
+			width: 100%;
+			height: 26.625em;
+			padding: em(8px);
+			border: 1px $clr0 dashed;
 
-            textarea {
-                all: unset;
-                height: 100%;
-                width: 100%;
-            }
-        }
+			&:hover {
+				border: 1px $icon-color dashed;
+			}
 
-    }
+			textarea {
+				all: unset;
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
 
-    .info-container {
-        border-end-end-radius: 8px;
-        border-start-end-radius: 8px;
-        width: 323px;
-        background-color: $task-hover-bgc;
-        padding: 32px;
-        display: flex;
-        flex-direction: column;
-        font-size: rem(14px);
-        color: $clr1;
+	.info-container {
+		border-end-end-radius: 8px;
+		border-start-end-radius: 8px;
+		width: 323px;
+		background-color: $task-hover-bgc;
+		padding: 32px;
+		display: flex;
+		flex-direction: column;
+		font-size: rem(14px);
+		color: $clr1;
 
-        &>* {
-            margin-block-end: 24px;
-        }
+		& > * {
+			margin-block-end: 24px;
+		}
 
-        .title {
-            font-size: rem(16px);
-            font-weight: 500;
-        }
+		.title {
+			font-size: rem(16px);
+			font-weight: 500;
+		}
 
-        .subtitle {
-            color: $icon-color;
-            margin-block-end: 8px;
+		.subtitle {
+			color: $icon-color;
+			margin-block-end: 8px;
+		}
 
-        }
+		span {
+			margin-inline-start: 8px;
+		}
 
-        span {
-            margin-inline-start: 8px;
-        }
-
-        img {
-            width: 28.4px;
-            height: 28.4px;
-            border-radius: 50%;
-
-        }
-    }
+		img {
+			width: 28.4px;
+			height: 28.4px;
+			border-radius: 50%;
+		}
+	}
 }
 
-
-
-
-
-
 .modal-overlay {
-    cursor: pointer;
-    z-index: 9999;
-    position: absolute;
-    inset: 0;
-    background-color: rgba(41, 47, 76, 0.7);
+	cursor: pointer;
+	z-index: 9999;
+	position: absolute;
+	inset: 0;
+	background-color: rgba(41, 47, 76, 0.7);
 }
