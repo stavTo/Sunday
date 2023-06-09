@@ -9,6 +9,7 @@ import {
     ICON_STAR_STARRED,
 } from '../assets/icons/icons'
 
+import imgNoFavorites from '../assets/img/favorites-no-bg.gif'
 
 export function FavoritesList() {
     const boards = useSelector(({ boardModule }) => boardModule.boards)
@@ -24,6 +25,7 @@ export function FavoritesList() {
             console.log("couldn't load boards")
         }
     }
+    const boardsStarredLength = boards.filter(b => b.isStarred)
 
     return (
         <section className="workspace-board-list">
@@ -34,21 +36,32 @@ export function FavoritesList() {
                 </div>
             </div>
             <div className="separator"></div>
-            <ul className="board-list clean-list flex column">
-                {boards.map(board => {
-                    if (board.isStarred) {
-                        return (<li className="board-title-preview flex pointer" key={board._id}>
-                            <Link to={`/boards/${board._id}`}>
-                                {ICON_BOARD_LIST}
-                                <span>
-                                    {board.title}
-                                </span>
-                            </Link>
-                            <span className="options">{ICON_OPTIONS}</span>
-                        </li>)
-                    }
-                })}
-            </ul>
+            {!!boardsStarredLength.length
+                ?
+                (<ul className="board-list clean-list flex column">
+                    {boards.map(board => {
+                        if (board.isStarred) {
+                            return (<li className="board-title-preview flex pointer" key={board._id}>
+                                <Link to={`/boards/${board._id}`}>
+                                    {ICON_BOARD_LIST}
+                                    <span>
+                                        {board.title}
+                                    </span>
+                                </Link>
+                                <span className="options">{ICON_OPTIONS}</span>
+                            </li>)
+                        }
+                    })}
+                </ul>)
+                :
+                (<div className="empty-favorites">
+                    <img src={imgNoFavorites} alt="" />
+                    <span>No favorite boards yet</span>
+                    <p>"Star" any board so what you can 
+                        easily access it later
+                    </p>
+                </div>)
+            }
         </section>
     )
 }
