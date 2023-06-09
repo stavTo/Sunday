@@ -102,6 +102,8 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 					case 'timelinePicker':
 						cmpTitle = 'Timeline'
 						break
+					default:
+						cmpTitle = null
 				}
 
 				return (

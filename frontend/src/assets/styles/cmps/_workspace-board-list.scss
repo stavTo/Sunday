@@ -5,9 +5,31 @@
 
 	.workspace-title {
 		height: 34px;
-		margin-block-end: 10px;
+		margin-block: 15px 5px;
 		color: $clr1;
 		padding-inline-start: 16px;
+		display: flex;
+		gap: 6px;
+		align-items: center;
+
+		.workspace-icon {
+			font-size: rem(14px);
+			color: $clr0;
+			width: 20px;
+			height: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 6px;
+			background-color: #00ca71;
+			position: relative;
+
+			.house-icon {
+				position: absolute;
+				right: -5px;
+				bottom: -8px;
+			}
+		}
 	}
 
 	.searchbox-wrapper {
@@ -54,6 +76,7 @@
 	}
 
 	.board-title-preview {
+		font-size: rem(14px);
 		justify-content: space-between;
 		align-items: center;
 		padding: 0.5em;
@@ -61,11 +84,21 @@
 		gap: 0.5em;
 		color: $clr1;
 		border-radius: 0.4em;
-		// position: relative;
+		&:hover {
+			.delete-board-icon {
+				display: flex;
+				align-self: flex-end;
+			}
+		}
+
+		.board-name-container {
+			display: flex;
+			gap: 10px;
+		}
 
 		a {
 			display: flex;
-			align-items: center;
+			// align-items: center;
 			gap: rem(5px);
 			overflow: hidden;
 
@@ -81,17 +114,8 @@
 			}
 		}
 
-		.options {
+		.delete-board-icon {
 			display: none;
-		}
-
-		&:hover {
-			background-color: $bg-clr5;
-
-			.options {
-				display: flex;
-				align-self: flex-end;
-			}
 		}
 	}
 

@@ -4,7 +4,6 @@ import { ICON_ADD_GROUP, ICON_COPY_LINK, ICON_DUPLICATE, ICON_OPEN, ICON_TRASH }
 import { Link } from 'react-router-dom'
 import { duplicateTask, removeTask } from '../store/selected-board.actions'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { socketService, SOCKET_EMIT_SEND_BOARD } from '../services/socket.service'
 import { boardService } from '../services/board.service'
 
 export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) {

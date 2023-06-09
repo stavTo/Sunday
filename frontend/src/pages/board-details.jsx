@@ -5,7 +5,7 @@ import { GroupList } from '../cmps/group-list'
 import { useEffect } from 'react'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
-import { initialLoadBoard, loadBoard, saveBoard } from '../store/selected-board.actions'
+import { initialLoadBoard, loadBoard } from '../store/selected-board.actions'
 import { SideBar } from '../cmps/side-bar'
 import { BoardLoader } from '../cmps/board-loader'
 import { CheckedTasksMenu } from '../cmps/checked-tasks-menu'
@@ -20,6 +20,7 @@ export function BoardDetails() {
 
 	const navigate = useNavigate()
 	useEffect(() => {
+		console.log(boardId)
 		onLoadBoard(boardId, location.state)
 	}, [boardId])
 

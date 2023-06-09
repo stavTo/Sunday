@@ -3,16 +3,16 @@ import { httpService } from './http.service.js'
 import { SOCKET_EMIT_SEND_BOARD, socketService } from './socket.service.js'
 import { utilService } from './util.service.js'
 
-// import { DEFAULT_USER } from '../assets/icons/icons.js'
-// import stavImg from '../assets/img/stav-user.jpeg'
-// import idoImg from '../assets/img/ido-user.jpeg'
-// import roniImg from '../assets/img/roni-img.jpg'
+import { DEFAULT_USER } from '../assets/icons/icons.js'
 
-const STORAGE_KEY = 'board'
 const BASE_URL = 'board/'
 
 async function query(filterBy = { txt: '', price: 0 }) {
 	return httpService.get(BASE_URL, filterBy)
+}
+
+async function addBoard(board) {
+	return httpService.post(BASE_URL, board)
 }
 
 function getById(boardId, filter = {}) {
@@ -22,7 +22,6 @@ function getById(boardId, filter = {}) {
 async function remove(boardId) {
 	return httpService.delete(BASE_URL + boardId)
 }
-
 async function save(board) {
 	try {
 		let savedBoard
@@ -50,7 +49,6 @@ function getEmptyBoard() {
 		description: '',
 		archivedAt: null,
 		createdBy: { _id: '', fullname: '', imgUrl: '' },
-		style: {},
 		members: [],
 		groups: [],
 		cmpsOrder: [
@@ -63,16 +61,161 @@ function getEmptyBoard() {
 		],
 		statusLabels: [
 			{ id: 'sl100', title: 'Done', color: '#00C875' },
-			{ id: 'sl101', title: 'Working on it', color: '#fdab3d' },
-			{ id: 'sl102', title: 'Stuck', color: '#e2445c' },
-			{ id: 'sl103', title: 'Not Started', color: '#c4c4c4' },
+			{ id: 'sl101', title: 'Working on it', color: '#FDAB3D' },
+			{ id: 'sl102', title: 'Stuck', color: '#E2445C' },
+			{ id: 'sl103', title: 'Almost done', color: '#0086C0' },
+			{ id: 'sl104', title: '', color: '#C4C4C4' },
 		],
 		priorityLabels: [
 			{ id: 'pl100', title: 'Critical', color: '#333333' },
 			{ id: 'pl101', title: 'High', color: '#401694' },
-			{ id: 'pl102', title: 'Medium', color: '#5559df' },
-			{ id: 'pl103', title: 'Low', color: '#579bfc' },
-			{ id: 'pl104', title: '', color: '#c4c4c4' },
+			{ id: 'pl102', title: 'Medium', color: '#5559DF' },
+			{ id: 'pl103', title: 'Low', color: '#579BFC' },
+			{ id: 'pl104', title: '', color: '#C4C4C4' },
+		],
+		activities: [],
+	}
+}
+
+function getNewBoard() {
+	return {
+		title: 'New Board',
+		isStarred: false,
+		description: '',
+		archivedAt: null,
+		createdBy: { _id: '', fullname: '', imgUrl: '' },
+		members: [
+			{
+				_id: 'u101',
+				fullname: 'Ido Kadosh',
+				imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg',
+			},
+			{
+				_id: 'u102',
+				fullname: 'Roni Yerushalmi',
+				imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg',
+			},
+			{
+				_id: 'u103',
+				fullname: 'Stav Tohami',
+				imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg',
+			},
+			{ _id: 'u104', fullname: 'Eyal Golan', imgUrl: DEFAULT_USER },
+			{ _id: 'u105', fullname: 'Steve Jobs', imgUrl: DEFAULT_USER },
+		],
+		groups: [
+			{
+				id: 'g101',
+				title: 'Group Title',
+				archivedAt: null,
+				tasks: [
+					{
+						id: 'c101',
+						title: 'Item 1',
+						status: 'sl101',
+						owner: {},
+						collaborators: [],
+						timeline: {
+							startDate: null,
+							endDate: null,
+						},
+						dueDate: null,
+						comments: [],
+						priority: 'pl104',
+					},
+					{
+						id: 'c102',
+						title: 'Item 2',
+						status: 'sl103',
+						owner: {},
+						collaborators: [],
+						timeline: {
+							startDate: null,
+							endDate: null,
+						},
+						dueDate: null,
+						comments: [],
+						priority: 'pl104',
+					},
+					{
+						id: 'c103',
+						title: 'Item 3',
+						status: 'sl104',
+						owner: {},
+						collaborators: [],
+						timeline: {
+							startDate: null,
+							endDate: null,
+						},
+						dueDate: null,
+						comments: [],
+						priority: 'pl104',
+					},
+				],
+				style: {
+					color: '#579BFC',
+				},
+			},
+			{
+				id: 'g102',
+				title: 'Group Title',
+				archivedAt: null,
+				tasks: [
+					{
+						id: 'c104',
+						title: 'Item 4',
+						status: 'sl104',
+						owner: {},
+						collaborators: [],
+						timeline: {
+							startDate: null,
+							endDate: null,
+						},
+						dueDate: null,
+						comments: [],
+						priority: 'pl104',
+					},
+					{
+						id: 'c105',
+						title: 'Item 5',
+						status: 'sl104',
+						owner: {},
+						collaborators: [],
+						timeline: {
+							startDate: null,
+							endDate: null,
+						},
+						dueDate: null,
+						comments: [],
+						priority: 'pl104',
+					},
+				],
+				style: {
+					color: '#A25DDC',
+				},
+			},
+		],
+		cmpsOrder: [
+			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px', minWidth: '85px' },
+			{ id: utilService.makeId(), cmpName: 'statusPicker', defaultWidth: '150px', minWidth: '50px' },
+			{ id: utilService.makeId(), cmpName: 'priorityPicker', defaultWidth: '150px', minWidth: '50px' },
+			{ id: utilService.makeId(), cmpName: 'timelinePicker', defaultWidth: '150px', minWidth: '70px' },
+			{ id: utilService.makeId(), cmpName: 'collaboratorPicker', defaultWidth: '150px', minWidth: '100px' },
+			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px', minWidth: '50px' },
+		],
+		statusLabels: [
+			{ id: 'sl100', title: 'Done', color: '#00C875' },
+			{ id: 'sl101', title: 'Working on it', color: '#FDAB3D' },
+			{ id: 'sl102', title: 'Stuck', color: '#E2445C' },
+			{ id: 'sl103', title: 'Almost done', color: '#0086C0' },
+			{ id: 'sl104', title: '', color: '#C4C4C4' },
+		],
+		priorityLabels: [
+			{ id: 'pl100', title: 'Critical', color: '#333333' },
+			{ id: 'pl101', title: 'High', color: '#401694' },
+			{ id: 'pl102', title: 'Medium', color: '#5559DF' },
+			{ id: 'pl103', title: 'Low', color: '#579BFC' },
+			{ id: 'pl104', title: '', color: '#C4C4C4' },
 		],
 		activities: [],
 	}
@@ -409,6 +552,8 @@ export const boardService = {
 	groupHasDate,
 	getStatusLabelById,
 	getEmptyActivity,
+	getNewBoard,
+	addBoard,
 }
 
 // const activities = [

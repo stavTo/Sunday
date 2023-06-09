@@ -7,7 +7,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { TippyContainer } from '../tippy-container'
 import { TaskOptionsMenu } from '../task-options-menu'
-import { BoardLoader } from '../board-loader'
 
 export function KanbanTaskPreview({ task }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
