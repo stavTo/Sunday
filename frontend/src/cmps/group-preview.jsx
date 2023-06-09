@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { ICON_EXPAND_ARROW, ICON_OPTIONS } from '../assets/icons/icons'
 import { TaskList } from './task-list'
-import { updateGroup, removeGroup } from '../store/selected-board.actions'
+import { updateGroup, removeGroup, addGroup } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { TippyContainer } from './tippy-container'
@@ -10,7 +10,6 @@ import { ColorPicker } from './color-picker'
 import { GroupSummary } from './group-summary-cmps/group-summary'
 import { TaskListHeader } from './task-list-header'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
-import { socketService, SOCKET_EVENT_ADD_TASK } from '../services/socket.service'
 
 export function GroupPreview({ group, provided }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
@@ -55,7 +54,13 @@ export function GroupPreview({ group, provided }) {
 		setIsInputVisible(false)
 		const newGroup = { ...group, title: titleToChange }
 		try {
-			updateGroup(board._id, newGroup)
+			const action = {
+				description: group.title,
+				newGroupTitle: newGroup.title,
+				groupColor: board.groups[0].style.color,
+				type: 'Rename group',
+			}
+			updateGroup(board._id, newGroup, action)
 		} catch {
 			showErrorMsg('Cant update')
 		}
@@ -64,7 +69,13 @@ export function GroupPreview({ group, provided }) {
 	function setGroupStyle(newStyle) {
 		const newGroup = { ...group, style: newStyle }
 		try {
-			updateGroup(board._id, newGroup)
+			const action = {
+				description: group.title,
+				newGroupColor: newGroup.style.color,
+				groupColor: group.style.color,
+				type: 'Group color changed',
+			}
+			updateGroup(board._id, newGroup, action)
 		} catch {
 			showErrorMsg('Cant update style')
 		}
@@ -78,6 +89,10 @@ export function GroupPreview({ group, provided }) {
 	function onSetColorPickerClose(ev) {
 		if (ev.target.closest('.color-picker , .options-menu')) return
 		setIsColorPickerOpen(false)
+	}
+
+	function onAddGroup() {
+		addGroup(board._id, false)
 	}
 
 	async function onRemoveGroup() {
@@ -106,6 +121,7 @@ export function GroupPreview({ group, provided }) {
 					onRemoveGroup={onRemoveGroup}
 					openColorPicker={openColorPicker}
 					setIsOptionOpen={setIsOptionOpen}
+					onAddGroup={onAddGroup}
 				/>
 			)}
 			{isColorPickerOpen && (

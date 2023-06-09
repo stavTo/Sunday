@@ -23,11 +23,12 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 				const group = boardService.getGroupByTask(board, taskId)
 				const task = await boardService.getTaskById(board, group.id, taskId)
 				const action = {
-					description: 'Deleted Task',
+					// description: 'Deleted Task',
+					description: task.title,
 					groupTitle: group.title,
 					groupColor: group.style.color,
 					type: 'Deleted task',
-					taskTitle: task.title,
+					// taskTitle: task.title,
 				}
 				await removeTask(board._id, taskId, action)
 			} catch {

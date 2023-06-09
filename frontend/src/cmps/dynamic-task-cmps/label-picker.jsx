@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { cloneElement, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 import { EDIT_LABEL } from '../../assets/icons/icons'
@@ -61,10 +61,19 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 		ev.stopPropagation()
 		setIsPickerOpen(false)
 		const labelTaskName = labelsName === 'statusLabels' ? 'status' : 'priority'
+		const oldLabel = board[labelsName]?.find(l => l.id === task[labelTaskName])
 		const taskToEdit = { ...task }
 		taskToEdit[labelTaskName] = label.id
+		console.log("label:", label)
+		console.log("oldLabel:", oldLabel)
 		try {
-			await saveTask(board._id, groupId, taskToEdit, 'changed label')
+			const action = {
+				description: taskToEdit.title,
+				fromLabel: oldLabel, 
+				toLabel: label,
+				type: 'Label',
+			}
+			await saveTask(board._id, groupId, taskToEdit, action)
 			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 			setLabel(label)
 		} catch (err) {

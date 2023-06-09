@@ -65,7 +65,7 @@ export function saveBoardDebounced(timeout = 300) {
 	}
 }
 
-export async function addGroup(boardId, pushToTop = false, activity = '') {
+export async function addGroup(boardId, pushToTop = false) {
 	try {
 		const board = await boardService.addGroup(boardId, pushToTop)
 		store.dispatch({ type: SET_BOARD, board })
@@ -75,9 +75,9 @@ export async function addGroup(boardId, pushToTop = false, activity = '') {
 	}
 }
 
-export async function duplicateGroup(boardId, group, activity = '') {
+export async function duplicateGroup(boardId, group, action = {}) {
 	try {
-		const board = await boardService.duplicateGroup(boardId, group)
+		const board = await boardService.duplicateGroup(boardId, group, action)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant save task')
@@ -85,9 +85,9 @@ export async function duplicateGroup(boardId, group, activity = '') {
 	}
 }
 
-export async function duplicateTask(boardId, group, task, boolean) {
+export async function duplicateTask(boardId, group, task, boolean, action) {
 	try {
-		const board = await boardService.duplicateTask(boardId, group, task, boolean)
+		const board = await boardService.duplicateTask(boardId, group, task, boolean, action)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant save task')
@@ -95,9 +95,9 @@ export async function duplicateTask(boardId, group, task, boolean) {
 	}
 }
 
-export async function updateLabels(board, labelsName, labels) {
+export async function updateLabels(board, labelsName, labels, action) {
 	try {
-		const currBoard = await boardService.updateLabels(board, labelsName, labels)
+		const currBoard = await boardService.updateLabels(board, labelsName, labels, action)
 		store.dispatch({ type: SET_BOARD, board: currBoard })
 	} catch (err) {
 		console.log('cant add new label')
@@ -156,9 +156,9 @@ export async function updateLabelInTask(boardId, groupId, taskId, labelTaskName,
 	}
 }
 
-export async function updateGroup(boardId, group, activity = '') {
+export async function updateGroup(boardId, group, action = {}) {
 	try {
-		const board = await boardService.updateGroup(boardId, group)
+		const board = await boardService.updateGroup(boardId, group, action)
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant update group')

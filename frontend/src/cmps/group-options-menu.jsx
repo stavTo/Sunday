@@ -4,12 +4,18 @@ import { duplicateGroup } from "../store/selected-board.actions";
 import { useParams } from "react-router";
 import { ICON_ADD_GROUP, ICON_DUPLICATE, ICON_TRASH } from "../assets/icons/icons";
 
-export function GroupOptionsMenu({ onRemoveGroup, openColorPicker, group, setIsOptionOpen }) {
+export function GroupOptionsMenu({ onRemoveGroup, openColorPicker, group, setIsOptionOpen, onAddGroup }) {
     const { boardId } = useParams()
 
     async function onDuplicateGroup() {
         setIsOptionOpen(false)
-        duplicateGroup(boardId, group)
+        const action = {
+            description: 'Duplicate',
+            groupColor: group.style.color,
+            type: 'Group duplicated',
+            groupTitle: group.title
+        }
+        duplicateGroup(boardId, group, action)
     }
 
     return (
@@ -22,7 +28,7 @@ export function GroupOptionsMenu({ onRemoveGroup, openColorPicker, group, setIsO
                 <span className="option-group-icon icon-font-awesome"><FontAwesomeIcon icon={faSquareCheck} style={{ color: "#676879" }} /> </span>
                 <span className="title">Select all tasks</span>
             </div>
-            <div className="btn-primary">
+            <div className="btn-primary" onClick={onAddGroup}>
                 <span className="option-group-icon">{ICON_ADD_GROUP}</span>
                 <span className="title"> Add group</span>
             </div>

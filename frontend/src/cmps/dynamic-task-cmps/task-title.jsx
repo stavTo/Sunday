@@ -51,8 +51,8 @@ export function TaskTitle({ task, groupId }) {
 		setIsInputFocused(false)
 		try {
 			const action = {
-				description: 'Added Task',
-				type: 'Rename',
+				description: titleToChange,
+				type: 'Rename task',
 				oldTaskTitle: task.title,
 				nameTaskTitle: titleToChange,
 			}
