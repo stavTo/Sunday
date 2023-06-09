@@ -29,7 +29,6 @@ async function getById(boardId, filter) {
 					? group
 					: { ...group, tasks: group.tasks.filter(task => regex.test(task.title)) }
 			)
-			board.groups = board.groups.filter(group => group.tasks.length)
 		}
 		if (filter.memberId) {
 			board.groups = board.groups.map(group => ({
@@ -41,6 +40,7 @@ async function getById(boardId, filter) {
 				),
 			}))
 		}
+		if (filter && JSON.stringify(filter) !== '{}') board.groups = board.groups.filter(group => group.tasks.length)
 		// after filtering tasks, remove groups where no task matches.
 
 		return board

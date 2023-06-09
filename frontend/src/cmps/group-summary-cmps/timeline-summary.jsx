@@ -61,8 +61,9 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 	}
 
 	function getTimestampInDays() {
+		if (!timeline) return
 		const estTime = timeline.endDate - timeline.startDate
-		return millisecondsToDays(estTime)
+		return millisecondsToDays(estTime) || 1
 	}
 
 	function getTimelineRange() {
