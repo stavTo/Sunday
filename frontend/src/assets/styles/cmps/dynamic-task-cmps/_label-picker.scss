@@ -36,11 +36,30 @@
 		border-radius: 8px;
 		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.32);
 
+		.new-label-btn {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			color: $clr1;
+			font-weight: 400;
+			font-size: rem(14px);
+			height: rem(32px);
+			width: rem(152px);
+			padding: 4px;
+			margin-inline: auto;
+			margin-block-end: 8px;
+			border: 1px solid $border-clr;
+			background-color: inherit;
+			border-radius: 4px;
+
+		}
+
 		ul {
 			display: flex;
 			align-items: center;
 			flex-direction: column;
-			padding: em(16px) em(24px) em(8px) em(24px);
+			padding: em(16px) em(24px) em(0px) em(24px);
 
 			li {
 				border-radius: 2px;
@@ -60,6 +79,10 @@
 				&:active:not(.edit-label) {
 					scale: 0.95;
 
+				}
+
+				&:hover .remove-label-btn {
+					opacity: 1;
 				}
 			}
 		}
@@ -97,14 +120,18 @@
 	.input-container {
 		position: relative;
 
+		input {
+			color: $clr1;
+			height: rem(32px);
+			width: rem(152px);
+		}
+
 		.remove-label-btn {
 			position: absolute;
-			color: black;
-			right: -21px;
-
-			input {
-				color: $clr1;
-			}
+			color: $icon-color;
+			right: -20px;
+			top: 2px;
+			opacity: 0;
 		}
 	}
 }
