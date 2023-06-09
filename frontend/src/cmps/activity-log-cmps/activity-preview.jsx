@@ -87,9 +87,11 @@ export function DynamicCmp({ action }) {
                                 className="progress fs12 flex align-center justify-center"
                                 style={{ backgroundColor: action.groupColor, 'borderRadius': '5em', 'width': '80px', 'height': '20px' }}>
                                 <div className="timeline-wrapper">
-                                    <span class="span-color" style={{ 'color': '#fff' }}>
-                                        {utilService.getTimelineRange(action.fromTimeline)}
-                                    </span>
+                                    <TippyContainer txt={utilService.getTimelineRange(action.fromTimeline)}>
+                                        <span className="span-color" style={{ 'color': '#fff' }}>
+                                            {utilService.getTimelineRange(action.fromTimeline)}
+                                        </span>
+                                    </TippyContainer>
                                 </div>
                             </div>
                             <div className="arrow">
@@ -100,9 +102,11 @@ export function DynamicCmp({ action }) {
                                 className="progress fs12 flex align-center justify-center"
                                 style={{ backgroundColor: action.groupColor, 'borderRadius': '5em', 'width': '80px', 'height': '20px' }}>
                                 <div className="timeline-wrapper">
-                                    <span class="span-color" style={{ 'color': '#fff' }}>
-                                        {utilService.getTimelineRange(action.toTimeline)}
-                                    </span>
+                                    <TippyContainer txt={utilService.getTimelineRange(action.fromTimeline)}>
+                                        <span className="span-color" style={{ 'color': '#fff' }}>
+                                            {utilService.getTimelineRange(action.toTimeline)}
+                                        </span>
+                                    </TippyContainer>
                                 </div>
                             </div>
                             <span className="range-preview flex row justify-center">

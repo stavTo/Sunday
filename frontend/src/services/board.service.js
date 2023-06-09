@@ -163,7 +163,7 @@ async function duplicateGroup(boardId, group, action = {}) {
 		const board = await getById(boardId)
 		const idx = board.groups.findIndex(g => g.id === group.id)
 		board.groups.splice(idx, 0, newGroupChangeTaskId)
-		
+
 		const activity = getEmptyActivity(board, newGroup.id, action)
 		board.activities.unshift(activity)
 
@@ -338,6 +338,13 @@ async function removeGroup(boardId, groupId, action = {}) {
 	}
 }
 
+function getActivityFilter() {
+	return {
+		txt: '',
+		member: ''
+	}
+}
+
 function getDefaultFilter() {
 	return {
 		txt: '',
@@ -373,13 +380,24 @@ function getGroupDateSummary(group) {
 		if (dates.includes(dueDate)) return
 		dates.push(dueDate)
 	})
-	// console.log(dates)
 	const earliestDate = Math.min(...dates)
 	const latestDate = Math.max(...dates)
 	return {
 		earliestDate,
 		latestDate,
 	}
+}
+
+function loadActivities(board, filter = {}) {
+	let filteredActivities = board.activities
+	if (filter.txt) {
+		const regex = new RegExp(filter.txt, 'i')
+		filteredActivities = filteredActivities.filter(activity => regex.test(activity.action.description))
+	}
+	if (filter.member) {
+		filteredActivities = filteredActivities.filter(activity => activity.by.fullname !== filter.member)
+	}
+	return filteredActivities
 }
 
 export const boardService = {
@@ -410,24 +428,9 @@ export const boardService = {
 	groupHasDate,
 	getStatusLabelById,
 	getEmptyActivity,
+	loadActivities,
+	getActivityFilter,
 }
-
-// const activities = [
-// 	{
-// 		id: '1238a',
-// 		createdAt: '12328267658',
-// 		by: {
-// 			_id: '18D',
-// 			fullname: 'muki',
-// 			imgUrl: '../../assets...'
-// 		},
-// 		taskId: task.id,
-// 		actionType: 'label'
-// 		action: {
-// 			description,
-// 		},
-// 	}
-// ]
 
 // component types
 // timeSince | user | level | type | dynamic cmp
