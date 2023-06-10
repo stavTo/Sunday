@@ -10,7 +10,6 @@ import { useEffectUpdate } from '../customHooks/useEffectUpdate.js'
 export function TaskList({ tasks, group, setIsGroupSelected }) {
 	const [activeTask, setActiveTask] = useState('')
 	const checkedTaskIds = useSelector(({ selectedTaskModule }) => selectedTaskModule.checkedTaskIds)
-	// const [isGroupSelected, setIsGroupSelected] = useState(false)
 
 	useEffect(() => {
 		document.addEventListener('mousedown', unsetActiveTask)

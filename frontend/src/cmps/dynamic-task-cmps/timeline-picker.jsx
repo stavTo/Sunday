@@ -27,7 +27,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	const [toggle, setToggle] = useState(false)
 	const [isHovered, setIsHovered] = useState(false)
 	const [range, setRange] = useState()
-	// const [modalFooter, setModalFooter] = useState(<p>Please pick the first day.</p>)
 	const { timeline } = task
 
 	const [referenceElement, setReferenceElement] = useState(null)
@@ -60,8 +59,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		const endDate = new Date(range.to).getTime()
 		const timeline = { startDate, endDate }
 		const taskToEdit = { ...task, timeline }
-		// console.log("task.timeline:", task.timeline)
-		// console.log("timeline:", timeline)
+
 		try {
 			const action = {
 				description: taskToEdit.title,
@@ -78,7 +76,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 			}
 			console.log("action:", action)
 			await saveTask(board._id, groupId, taskToEdit, action)
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}
@@ -152,7 +149,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
 			// ! add activity
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}
@@ -236,7 +232,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 							mode="range"
 							defaultMonth={pastMonth}
 							selected={range}
-							// footer={modalFooter}
 							onSelect={setRange}
 							showOutsideDays
 							fixedWeeks

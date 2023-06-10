@@ -10,21 +10,21 @@
     grid-row-gap: 0px;
     grid-gap: 3em;
 
+    .user-img {
+        min-width: 30px;
+        min-height: 30px;
+        flex: 0;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+
     .timesince {
         grid-area: 1 / 1 / 2 / 2;
     }
 
     .activity-and-user {
         grid-area: 1 / 2 / 2 / 3;
-
-        .user-img {
-            min-width: 30px;
-            min-height: 30px;
-            flex: 0;
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-        }
     }
 
     .title {
@@ -45,7 +45,9 @@
     .dynamic-cmp {
         grid-area: 1 / 4 / 2 / 6;
         display: flex;
-        
+        justify-content: center;
+        align-items: center;
+
         span {
             text-overflow: ellipsis;
             overflow: hidden;

@@ -56,8 +56,13 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 		const timestamp = selected.getTime()
 		const taskToEdit = { ...task, dueDate: timestamp }
 		try {
-			await saveTask(board._id, groupId, taskToEdit, '')
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
+			const action = {
+				description: taskToEdit.title,
+				fromDate: task.dueDate,
+				toDate: taskToEdit.dueDate,
+				type: 'Date',
+			}
+			await saveTask(board._id, groupId, taskToEdit, action)
 		} catch {
 			showErrorMsg('Cant change date')
 		}
@@ -68,7 +73,6 @@ export function DatePicker({ task, groupId, defaultWidth }) {
 		setHasDate(taskToEdit.dueDate)
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Something went wrong')
 		}

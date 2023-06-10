@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { timeStampToDate, darkenHexColor, millisecondsToDays, isValidTimestamp } from '../../services/util.service'
 import { boardService } from '../../services/board.service'
-// import { getGroupDateSummary, groupHasDate } from '../../services/board.service'
 
 export function DateSummary({ defaultWidth, group, board }) {
 	const [isHovered, setIsHovered] = useState(false)

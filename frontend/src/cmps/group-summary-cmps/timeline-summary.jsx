@@ -7,13 +7,8 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 	const [timeline, setTimeline] = useState({})
 	
 	useEffect(() => {
-		// if (!group.timeline?.startDate) return
-		// if (!group.timeline?.endDate) return
 		setGroupHasTimeline(getGroupTimelines())
 		calculateGroupTimeline()
-		// if (timeline.startDate && timeline.endDate) {
-		//     calculateTimelineProgress()
-		// }
 	}, [board, group])
 
 	function getGroupTimelines() {
@@ -118,66 +113,3 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 		</div>
 	)
 }
-
-// return (
-//     <div
-//         className="timeline-picker flex align-center justify-center pointer"
-//         onMouseEnter={() => setIsHovered(true)}
-//         onMouseLeave={() => setIsHovered(false)}
-//         style={{ width: defaultWidth }}
-//     >
-//         <div className="timeline-container">
-//             {dates ? (
-//                 <div className="span-container flex align-center justify-center">
-//                     {/* {console.log("calculateDateProgress():", calculateDateProgress())} */}
-//                     <div
-//                         className="progress"
-//                         style={{
-//                             background: `linear-gradient(to right, ${
-//                                 isHovered ? darkenHexColor(group.style.color) : group.style.color
-//                             } ${calculateDateProgress()}, #333333 ${calculateDateProgress()})`,
-//                         }}
-//                     >
-//                         <span style={{ width: '50%' }}></span>
-//                     </div>
-//                     <span className="range-preview flex row justify-center">
-//                         {groupHasTimeline &&
-//                             (isHovered ? (
-//                                 <h3>{getTimestampInDays()}d</h3>
-//                             ) : (
-//                                 <span>
-//                                     {getTimelineRange(dates)}
-//                                     {console.log('getTimelineRange(dates):', getTimelineRange(dates))}
-//                                 </span>
-//                             ))}
-//                     </span>
-//                 </div>
-//             ) : (
-//                 groupHasTimeline && (
-//                     <div className="span-container flex align-center justify-center">
-//                         <div
-//                             className="progress"
-//                             style={{
-//                                 background: `linear-gradient(to right, ${
-//                                     isHovered ? darkenHexColor(group.style.color) : group.style.color
-//                                 } ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
-//                             }}
-//                         >
-//                             <span style={{ width: '50%' }}></span>
-//                         </div>
-//                         <span className="range-preview flex row justify-center">
-//                             {groupHasTimeline && isHovered ? (
-//                                 <span>{getTimestampInDays()}d</span>
-//                             ) : (
-//                                 <span>
-//                                     {/* Invalid date for some reason */}
-//                                     {getTimelineRange()}
-//                                 </span>
-//                             )}
-//                         </span>
-//                     </div>
-//                 )
-//             )}
-//         </div>
-//     </div>
-// )

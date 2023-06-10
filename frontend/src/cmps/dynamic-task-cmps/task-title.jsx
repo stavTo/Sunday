@@ -33,7 +33,6 @@ export function TaskTitle({ task, groupId }) {
 
 	useEffect(() => {
 		const element = titleRef.current.children[0]
-		// console.log(element)
 		if (!element) return
 		const isOverflowing = element.scrollWidth > element.clientWidth
 		setTitleHasEllipsis(isOverflowing)
@@ -67,7 +66,6 @@ export function TaskTitle({ task, groupId }) {
 				nameTaskTitle: titleToChange,
 			}
 			await saveTask(board._id, groupId, newTask, action)
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('Cant save task')
 		}

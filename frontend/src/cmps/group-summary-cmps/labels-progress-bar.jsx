@@ -17,12 +17,6 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 		}
 	}, [type])
 
-	// useEffectUpdate(() => {
-	// 	const labelId = type === 'statusPicker' ? task.status : task.priority
-	// 	const label = board[labelsName].find(l => l.id === labelId)
-	// 	setLabel(label)
-	// }, [labelsName])
-
 	function getLabelColor(labelName) {
 		const labels = board[labelsNameInBoard]
 		const label = labels.find(l => l.title === labelName)

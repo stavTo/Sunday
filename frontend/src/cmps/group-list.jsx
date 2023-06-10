@@ -24,8 +24,6 @@ export function GroupList({ groups }) {
 		const newBoard = structuredClone(board)
 		const groupToMove = newBoard.groups.splice(result.source.index, 1)[0]
 		newBoard.groups.splice(result.destination.index, 0, groupToMove)
-		// console.log(result)
-		// console.log(newBoard)
 		saveBoard(newBoard)
 	}
 

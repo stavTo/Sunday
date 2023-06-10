@@ -9,6 +9,9 @@ const DUPLICATE_TASK = 'Duplicated task'
 const RENAME_TASK = 'Rename task'
 const LABEL_TASK = 'Label'
 const TIMELINE_TASK = 'Timeline'
+const DATE_TASK = 'Date'
+const OWNER_TASK = 'Added owner'
+const COLLABORATOR_TASK = 'People'
 
 const CREATED_GROUP = 'Created group'
 const DELETED_GROUP = 'Deleted group'
@@ -20,6 +23,7 @@ const DUPLICATE_GROUP = 'Group duplicated'
 export function ActivityPreview({ activity, board }) {
     if (!activity.action.type) return
 
+    const { action } = activity
     return (
         <div className="activity-preview clean-list flex align-center fs14">
             <div className="timesince flex">
@@ -28,16 +32,16 @@ export function ActivityPreview({ activity, board }) {
             </div>
             <div className="activity-and-user flex align-center gap-1">
                 <img className="user-img" src={activity.by.imgUrl} />
-                {activity.action.type.toLowerCase().includes('group') ?
-                    <span style={{ 'color': activity.action.groupColor }}>{activity.action.description}</span>
+                {action.type.toLowerCase().includes('group') ?
+                    <span style={{ 'color': action.groupColor }}>{action.description}</span>
                     :
-                    <span>{activity.action.description}</span>
+                    <span>{action.description}</span>
                 }
             </div>
             <div className="action-type">
-                <span>{activity.action.type}</span>
+                <span>{action.type}</span>
             </div>
-            <DynamicCmp action={activity.action} />
+            <DynamicCmp action={action} />
         </div>
     )
 }
@@ -61,13 +65,14 @@ export function DynamicCmp({ action }) {
             )
         case DUPLICATE_TASK:
             return (
-                <div className="dynamic-cmp">Group: <span style={{ 'color': action.groupColor }}>{action.groupTitle}</span></div>
+                <div className="dynamic-cmp">
+                    Group: <span style={{ 'color': action.groupColor }}>{action.groupTitle}</span></div>
             )
         case LABEL_TASK:
             return (
                 <div className="dynamic-cmp flex align-center">
                     <TippyContainer txt={action.fromLabel.title}>
-                        <div className="old-label flex align-center" style={{ 'backgroundColor': action.fromLabel.color, 'color': '#fff' }}>
+                        <div className="old-label flex align-center justify-center" style={{ 'backgroundColor': action.fromLabel.color, 'color': '#fff' }}>
                             <span>{action.fromLabel.title}</span>
                         </div>
                     </TippyContainer>
@@ -75,7 +80,7 @@ export function DynamicCmp({ action }) {
                         {ICON_EXPAND_ARROW}
                     </div>
                     <TippyContainer txt={action.toLabel.title}>
-                        <div className="new-label flex align-center" style={{ 'backgroundColor': action.toLabel.color, 'color': '#fff' }}>
+                        <div className="new-label flex align-center justify-center" style={{ 'backgroundColor': action.toLabel.color, 'color': '#fff' }}>
                             <span>{action.toLabel.title}</span>
                         </div>
                     </TippyContainer>
@@ -116,6 +121,49 @@ export function DynamicCmp({ action }) {
                             <span className="range-preview flex row justify-center">
                             </span>
                         </div>
+                    </div>
+                </div>
+            )
+        case DATE_TASK:
+            return (
+                <div className="dynamic-cmp">
+                    {/* <div className="flex align-center justify-center"> */}
+                        <span>
+                            {new Date(action.fromDate).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                            })}
+                        </span>
+                        <div className="arrow">
+                            {ICON_EXPAND_ARROW}
+                        </div>
+                        <span>
+                            {new Date(action.toDate).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                            })}
+                        </span>
+                    {/* </div> */}
+                </div>
+            )
+        case OWNER_TASK:
+            return (
+                <div className="dynamic-cmp">
+                    <div className="flex align-center gap-1">
+                        {console.log("reached OWNER_TASK:", OWNER_TASK)}
+                        <img className="user-img pointer" src={action.member.imgUrl} />
+                        <span>{action.member.fullname}</span>
+                    </div>
+                </div>
+            )
+        case COLLABORATOR_TASK:
+            return (
+                <div className="dynamic-cmp">
+                    <div className="flex align-center gap-1">
+                        <span>Added</span>
+                        <TippyContainer txt={action.member.fullname}>
+                            <img className="user-img pointer" src={action.member.imgUrl} />
+                        </TippyContainer>
                     </div>
                 </div>
             )

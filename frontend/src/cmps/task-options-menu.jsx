@@ -29,7 +29,6 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 				type: 'Duplicated task',
 			}
 			await duplicateTask(boardId, group, newTask, boolean, action)
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('cant duplicate task')
 		}
@@ -39,16 +38,12 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 		setIsOptionOpen(false)
 		try {
 			const action = {
-				// description: 'Deleted Task',
 				description: task.title,
 				groupTitle: group.title,
 				groupColor: group.style.color,
 				type: 'Deleted task',
-				// taskTitle: task.title,
 			}
-
 			await removeTask(boardId, task.id, action)
-			// socketService.emit(SOCKET_EMIT_SEND_BOARD)
 		} catch {
 			showErrorMsg('cant delete task')
 		}

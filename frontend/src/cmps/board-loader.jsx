@@ -1,4 +1,3 @@
-// import loader from '../../assets/img/board-loader.gif'
 import loader from '../assets/img/board-loader.gif'
 export function BoardLoader() {
 	return (

@@ -752,7 +752,6 @@ const dummyBoard3 = {
 	],
 }
 
-const newLocal = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
+// const newLocal = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
 // localStorage.setItem(STORAGE_KEY, JSON.stringify(newLocal))
-
-console.log(JSON.stringify(_getDummyBoard()))
+// console.log(JSON.stringify(_getDummyBoard()))

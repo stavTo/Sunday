@@ -24,26 +24,15 @@ export function ActivityFilter({ onSetFilter, filter }) {
         onSetFilter(filterByToEdit)
     }, [filterByToEdit])
 
-    // async function onLoadActivities() {
-    //     try {
-    //         boardService.loadActivities(board, filter)
-    //         debouncedLoadBoard.current(board._id, filter)
-    //     } catch {
-    //         console.log('cant load board')
-    //     }
-    // }
-
     function handleSearch({ target }) {
         const field = target.name
         const value = target.value
-        // console.log("filterByToEdit:", filterByToEdit)
         setFilterByToEdit(prevFilterBy => ({ ...prevFilterBy, [field]: value }))
     }
 
     return (
         <div className="filter-activity flex align-center justify-start gap-1">
             <div className="input-container flex align-center">
-                {/* <input type="search" placeholder="Filter by name"></input> */}
                 <input
                     className="filter-search-input"
                     ref={elSearchInput}
