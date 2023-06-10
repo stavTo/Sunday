@@ -11,6 +11,7 @@ import { GroupSummary } from './group-summary-cmps/group-summary'
 import { TaskListHeader } from './task-list-header'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 import { usePopper } from 'react-popper'
+import { useLongPress } from '../customHooks/useLongPress'
 
 export function GroupPreview({ group, provided }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
@@ -118,6 +119,15 @@ export function GroupPreview({ group, provided }) {
 		setIsOptionOpen(false)
 		setIsColorPickerOpen(true)
 	}
+
+	function onLongPress() {
+		setIsOptionOpen(true)
+	}
+
+	const longPressEvent = useLongPress(onLongPress, () => {}, {
+		shouldPreventDefault: true,
+	})
+
 	return (
 		<>
 			<section className={`group-preview ${isCollapsed ? 'collapsed' : ''}`}>
@@ -126,7 +136,8 @@ export function GroupPreview({ group, provided }) {
 						className="popper-container"
 						ref={setPopperElement}
 						style={styles.popper}
-						{...attributes.popper}>
+						{...attributes.popper}
+					>
 						<GroupOptionsMenu
 							group={group}
 							onRemoveGroup={onRemoveGroup}
@@ -152,7 +163,7 @@ export function GroupPreview({ group, provided }) {
 				)}
 				<div className="group-sticky-background"></div>
 				<div className="group-sticky-container">
-					<div className="header-container">
+					<div className="header-container" {...longPressEvent}>
 						<div
 							{...provided.dragHandleProps}
 							className="group-header"
