@@ -349,9 +349,9 @@ async function updateLabels(board, labelsName, labels, action = {}) {
 	}
 }
 
-function getTaskById(board, groupId, taskId) {
+function getTaskById(board, taskId) {
 	const newBoard = structuredClone(board)
-	const group = newBoard.groups.find(g => g.id === groupId)
+	const group = newBoard.groups.find(g => g.tasks.find(t => t.id === taskId))
 	const task = group.tasks.find(t => t.id === taskId)
 	return task
 }
@@ -557,7 +557,7 @@ function loadActivities(board, filter = {}) {
 		const regex = new RegExp(filter.txt, 'i')
 		filteredActivities = filteredActivities.filter(activity => regex.test(activity.action.description))
 	}
-	
+
 	if (filter.member) {
 		filteredActivities = filteredActivities.filter(activity => activity.by.fullname !== filter.member)
 	}
@@ -565,7 +565,7 @@ function loadActivities(board, filter = {}) {
 	if (filter.taskId) {
 		// const currTask = getTaskById(filter.taskId)
 		filteredActivities = filteredActivities.filter(activity => activity.entityId === filter.taskId)
-		console.log("filteredActivities", filteredActivities)
+		console.log('filteredActivities', filteredActivities)
 	}
 	return filteredActivities
 }

@@ -21,7 +21,7 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 	async function onRemove() {
 		const actions = checkedTaskIds.map(taskId => {
 			const group = boardService.getGroupByTask(board, taskId)
-			const task = boardService.getTaskById(board, group.id, taskId)
+			const task = boardService.getTaskById(board, taskId)
 			return {
 				description: task.title,
 				groupTitle: group.title,
@@ -41,7 +41,7 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 		for (let taskId of checkedTaskIds) {
 			try {
 				const group = await boardService.getGroupByTask(board, taskId)
-				const task = await boardService.getTaskById(board, group.id, taskId)
+				const task = await boardService.getTaskById(board, taskId)
 				await duplicateTask(board._id, group, task, true)
 			} catch (err) {
 				showErrorMsg('Error duplicating tasks')

@@ -19,7 +19,7 @@
 		border-radius: 50%;
 	}
 
-	>* {
+	> * {
 		span {
 			text-overflow: ellipsis;
 			overflow: hidden;
@@ -48,7 +48,7 @@
 		overflow: hidden;
 		white-space: nowrap;
 
-		.type-icon{
+		.type-icon {
 			width: 14px;
 			height: 14px;
 		}
@@ -92,7 +92,6 @@
 		}
 
 		.timeline-container {
-
 			.timeline-wrapper {
 				overflow: hidden;
 				white-space: nowrap;
