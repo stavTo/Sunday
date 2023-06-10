@@ -20,7 +20,6 @@ export function BoardDetails() {
 
 	const navigate = useNavigate()
 	useEffect(() => {
-		console.log(boardId)
 		onLoadBoard(boardId, location.state)
 	}, [boardId])
 

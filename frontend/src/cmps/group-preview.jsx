@@ -126,8 +126,7 @@ export function GroupPreview({ group, provided }) {
 						className="popper-container"
 						ref={setPopperElement}
 						style={styles.popper}
-						{...attributes.popper}
-					>
+						{...attributes.popper}>
 						<GroupOptionsMenu
 							group={group}
 							onRemoveGroup={onRemoveGroup}

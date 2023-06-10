@@ -21,7 +21,7 @@ export function ActivityList({ board }) {
                 <ActivityFilter filter={filter} onSetFilter={onSetFilter} />
                 {activities.map(activity => {
                     return <li key={activity.id}>
-                        <ActivityPreview activity={activity} filter={filter} board={board} />
+                        <ActivityPreview activity={activity} filter={filter} />
                     </li>
                 })}
             </ul>
