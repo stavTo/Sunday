@@ -4,9 +4,9 @@ import { BoardFilter } from './board-filter-cmps/board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { TfiClose } from 'react-icons/tfi'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faTableList } from '@fortawesome/free-solid-svg-icons'
 import { TippyContainer } from './tippy-container'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { showErrorMsg } from '../services/event-bus.service'
 import { BoardInfo } from './board-info'
 import { Link } from 'react-router-dom'
@@ -16,6 +16,19 @@ export function BoardHeader({ board }) {
 	const [isInfoOpen, setIsInfoOpen] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(board.title)
 	const [isInputVisible, setIsInputVisible] = useState(false)
+	const [isAddGroupModalOpen, setIsAddGroupModalOpen] = useState(false)
+
+	useEffect(() => {
+		document.addEventListener('mousedown', onSetOptionClose)
+		return () => {
+			document.removeEventListener('mousedown', onSetOptionClose)
+		}
+	}, [])
+
+	function onSetOptionClose(ev) {
+		if (ev.target.closest('.add-group-modal')) return
+		setIsAddGroupModalOpen(false)
+	}
 
 	function onAddGroup() {
 		addGroup(board._id, false)
@@ -130,9 +143,10 @@ export function BoardHeader({ board }) {
 					<button className="btn-new-task btn-text" onClick={onAddTask}>
 						New Task
 					</button>
-					<button className="btn-new-task btn-icon" onClick={onAddGroup}>
+					<button className="btn-new-task btn-icon" onClick={() => setIsAddGroupModalOpen(prev => !prev)}>
 						<FontAwesomeIcon icon={faAngleDown} />
 					</button>
+					{isAddGroupModalOpen && <AddGroupModal onAddGroup={onAddGroup} />}
 					<BoardFilter board={board} />
 				</div>
 			</section>
@@ -159,5 +173,17 @@ export function BoardHeader({ board }) {
 			)}
 			{isInfoOpen && <BoardInfo board={board} setIsInfoOpen={setIsInfoOpen} />}
 		</>
+	)
+}
+
+function AddGroupModal({ onAddGroup }) {
+	return (
+		<section className="add-group-modal">
+			<span onClick={onAddGroup}
+				className="btn-primary">
+				<span className="icon"><FontAwesomeIcon icon={faTableList} style={{ color: "#676879", }} /></span>
+				<span className="title">New group of tasks</span>
+			</span>
+		</section>
 	)
 }
