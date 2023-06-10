@@ -126,8 +126,8 @@
 		}
 
 		.group-option-container {
-			width: $task-row-height;
-			height: $task-row-height;
+			width: var(--left-margin-size);
+			height: var(--left-margin-size);
 			color: $clr1;
 			opacity: 0;
 			background-color: $clr0;

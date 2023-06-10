@@ -1,20 +1,43 @@
 .activity-details {
-	display: grid;
-	grid-template-columns: 20px 1fr 20px;
-	grid-template-rows: 40px 60px 40px 1fr;
-	grid-auto-flow: row;
-	width: rem(650px);
-	height: 100vh;
-	overflow-y: auto;
-	overflow-x: hidden;
+	// display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	// grid-template-columns: 20px 1fr 20px;
+	// grid-template-rows: 40px 60px 40px 1fr;
+	// grid-auto-flow: row;
+	// width: 100%;
+	// height: 100%;
+	// overflow-y: auto;
+	// overflow-x: hidden;
 	background-color: $clr0;
 	position: absolute;
 	right: 0;
 	top: 0;
+	width: 100%;
 	z-index: 9999;
 	box-shadow: $default-box-shadow;
 
-	& > * {
+
+	.dynamic-cmp>* {
+		width: 100%;
+		justify-content: space-evenly;
+	}
+
+	@media screen and (min-width: $mobile-breakpoint) {
+		width: rem(650px);
+		height: 100vh;
+
+		display: grid;
+		grid-template-columns: 20px 1fr 20px;
+		grid-template-rows: 40px 60px 40px 1fr;
+		grid-auto-flow: row;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+	&>* {
 		grid-column: 2;
 	}
 

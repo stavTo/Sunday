@@ -24,7 +24,7 @@
 		height: $task-row-height;
 		display: flex;
 		position: sticky;
-		left: $task-row-height;
+		left: var(--left-margin-size);
 		background-color: $clr0;
 		border-block-end: 1px solid $border-clr;
 
@@ -57,8 +57,8 @@
 		position: sticky;
 		z-index: 30;
 		left: 0px;
-		height: $task-row-height;
-		width: $task-row-height;
+		height: var(--left-margin-size);
+		width: var(--left-margin-size);
 		justify-content: center;
 		align-items: center;
 		display: flex;
