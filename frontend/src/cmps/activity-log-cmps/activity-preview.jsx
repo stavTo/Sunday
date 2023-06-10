@@ -21,7 +21,7 @@ const CHANGE_COLOR_GROUP = 'Group color changed'
 const DUPLICATE_GROUP = 'Group duplicated'
 
 export function ActivityPreview({ activity, board }) {
-    if (!activity.action.type) return
+	if (!activity.action.type) return
 
     const { action } = activity
     return (
@@ -72,7 +72,7 @@ export function DynamicCmp({ action }) {
             return (
                 <div className="dynamic-cmp flex align-center">
                     <TippyContainer txt={action.fromLabel.title}>
-                        <div className="old-label flex align-center justify-center" style={{ 'backgroundColor': action.fromLabel.color, 'color': '#fff' }}>
+                        <div className="old-label flex align-center justify-center" style={{ 'backgroundColor': action.fromLabel.color }}>
                             <span>{action.fromLabel.title}</span>
                         </div>
                     </TippyContainer>
@@ -80,7 +80,7 @@ export function DynamicCmp({ action }) {
                         {ICON_EXPAND_ARROW}
                     </div>
                     <TippyContainer txt={action.toLabel.title}>
-                        <div className="new-label flex align-center justify-center" style={{ 'backgroundColor': action.toLabel.color, 'color': '#fff' }}>
+                        <div className="new-label flex align-center justify-center" style={{ 'backgroundColor': action.toLabel.color }}>
                             <span>{action.toLabel.title}</span>
                         </div>
                     </TippyContainer>

@@ -36,7 +36,7 @@ export function GroupList({ groups }) {
 		const boardToSave = structuredClone(board)
 
 		//if no changes were made, we exit.
-		if (sourceGroupId === destinationGroupId && sourceIdx == destinationIdx) return
+		if (sourceGroupId === destinationGroupId && sourceIdx === destinationIdx) return
 
 		// get the groups by ID
 		const destinationGroup = boardService.getGroupById(board, destinationGroupId)
@@ -97,8 +97,4 @@ export function GroupList({ groups }) {
 			</Droppable>
 		</DragDropContext>
 	)
-}
-
-function Handle() {
-	return <div style={{ width: '20px', height: '20px', backgroundColor: 'blue' }}></div>
 }

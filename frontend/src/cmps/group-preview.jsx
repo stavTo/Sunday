@@ -10,6 +10,7 @@ import { ColorPicker } from './color-picker'
 import { GroupSummary } from './group-summary-cmps/group-summary'
 import { TaskListHeader } from './task-list-header'
 import { useEffectUpdate } from '../customHooks/useEffectUpdate'
+import { usePopper } from 'react-popper'
 
 export function GroupPreview({ group, provided }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
@@ -20,6 +21,10 @@ export function GroupPreview({ group, provided }) {
 	const [isGroupSelected, setIsGroupSelected] = useState(false)
 	const checkedTaskIds = useSelector(({ selectedTaskModule }) => selectedTaskModule.checkedTaskIds)
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
+
+	const [referenceElement, setReferenceElement] = useState(null)
+	const [popperElement, setPopperElement] = useState(null)
+	const { styles, attributes } = usePopper(referenceElement, popperElement)
 
 	useEffect(() => {
 		document.addEventListener('mousedown', onSetOptionClose)
@@ -115,22 +120,36 @@ export function GroupPreview({ group, provided }) {
 	}
 	return (
 		<>
-			{isOptionOpen && (
-				<GroupOptionsMenu
-					group={group}
-					onRemoveGroup={onRemoveGroup}
-					openColorPicker={openColorPicker}
-					setIsOptionOpen={setIsOptionOpen}
-					onAddGroup={onAddGroup}
-				/>
-			)}
 			<section className={`group-preview ${isCollapsed ? 'collapsed' : ''}`}>
+				{isOptionOpen && (
+					<div
+						className="popper-container"
+						ref={setPopperElement}
+						style={styles.popper}
+						{...attributes.popper}
+					>
+						<GroupOptionsMenu
+							group={group}
+							onRemoveGroup={onRemoveGroup}
+							openColorPicker={openColorPicker}
+							setIsOptionOpen={setIsOptionOpen}
+							onAddGroup={onAddGroup}
+						/>
+					</div>
+				)}
 				{isColorPickerOpen && (
-					<ColorPicker
-						onSetColorPickerClose={onSetColorPickerClose}
-						setEntityStyle={setGroupStyle}
-						setIsColorPickerOpen={setIsColorPickerOpen}
-					/>
+					<div
+						className="popper-container"
+						ref={setPopperElement}
+						style={styles.popper}
+						{...attributes.popper}
+					>
+						<ColorPicker
+							onSetColorPickerClose={onSetColorPickerClose}
+							setEntityStyle={setGroupStyle}
+							setIsColorPickerOpen={setIsColorPickerOpen}
+						/>
+					</div>
 				)}
 				<div className="group-sticky-background"></div>
 				<div className="group-sticky-container">
@@ -140,7 +159,7 @@ export function GroupPreview({ group, provided }) {
 							className="group-header"
 							style={{ color: group.style.color }}
 						>
-							<div className="group-option-container flex align-center">
+							<div className="group-option-container flex align-center" ref={setReferenceElement}>
 								<div
 									className="group-option btn-primary flex align-center"
 									onClick={() => setIsOptionOpen(true)}

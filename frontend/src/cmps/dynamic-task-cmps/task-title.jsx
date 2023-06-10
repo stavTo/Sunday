@@ -6,10 +6,8 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons'
 import { ICON_CONVERSATION, ICON_CONVERSATION_EMPTY } from '../../assets/icons/icons'
-import { socketService, SOCKET_EMIT_SEND_BOARD } from '../../services/socket.service'
 
 import { TippyContainer } from '../tippy-container'
-import { boardService } from '../../services/board.service'
 
 export function TaskTitle({ task, groupId }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
@@ -72,7 +70,7 @@ export function TaskTitle({ task, groupId }) {
 	}
 
 	return (
-		<li className="task-title" style={{ width: '400px' }}>
+		<li className="task-title">
 			<div ref={titleRef} className="title-main-container">
 				{!isInputVisible && (
 					<TippyContainer txt={titleHasEllipsis ? task.title : ''}>

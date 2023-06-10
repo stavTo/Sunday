@@ -1,18 +1,21 @@
 import { useEffect } from 'react'
-import { loadBoards } from '../store/board.actions'
+import { addBoard, loadBoards, removeBoard } from '../store/board.actions'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import {
 	ICON_BOARD_LIST,
-	ICON_OPTIONS,
 	ICON_SEARCH_WORKSPACE,
 	ICON_FILTER_SEARCHBAR,
 	ICON_PLUS,
+	ICON_TRASH,
+	ICON_HOUSE_FILLED,
 } from '../assets/icons/icons'
+import { boardService } from '../services/board.service'
 
 export function WorkspaceBoardList() {
 	const boards = useSelector(({ boardModule }) => boardModule.boards)
+	const selectedBoard = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	useEffect(() => {
 		onLoadBoards()
@@ -26,10 +29,22 @@ export function WorkspaceBoardList() {
 		}
 	}
 
+	function onAddNewBoard() {
+		const board = boardService.getNewBoard()
+		addBoard(board)
+	}
+
+	function onDeleteBoard(boardId) {
+		removeBoard(boardId)
+	}
+
 	return (
 		<section className="workspace-board-list">
 			<div className="board-list-header flex column">
 				<div className="workspace-title flex align-center">
+					<span className="workspace-icon">
+						M <span className="house-icon">{ICON_HOUSE_FILLED}</span>
+					</span>
 					<h4>Main workspace</h4>
 				</div>
 				<div className="searchbox-container flex space-between stretch p-1em">
@@ -38,20 +53,29 @@ export function WorkspaceBoardList() {
 						<input autoFocus className="board-searchbox" placeholder="Search" type="text"></input>
 						{ICON_FILTER_SEARCHBAR}
 					</div>
-					<div className="add-btn">{ICON_PLUS}</div>
+					<div className="add-btn" onClick={onAddNewBoard}>
+						{ICON_PLUS}
+					</div>
 				</div>
 			</div>
 			<ul className="board-list clean-list flex column">
 				{boards.map(board => (
-					<li className="board-title-preview flex pointer" key={board._id}>
-						<Link to={`/boards/${board._id}`}>
-							{ICON_BOARD_LIST}
-							<span>
-								{board.title}
+					<Link key={board._id} to={`/boards/${board._id}`}>
+						<li
+							className={`board-title-preview flex pointer btn-primary ${
+								board._id === selectedBoard._id ? 'active' : ''
+							}`}
+						>
+							<div className="board-name-container">
+								{ICON_BOARD_LIST}
+								<span>{board.title}</span>
+							</div>
+
+							<span className="delete-board-icon" onClick={() => onDeleteBoard(board._id)}>
+								{ICON_TRASH}
 							</span>
-						</Link>
-						<span className="options">{ICON_OPTIONS}</span>
-					</li>
+						</li>
+					</Link>
 				))}
 			</ul>
 		</section>

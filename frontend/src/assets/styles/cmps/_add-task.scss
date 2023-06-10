@@ -11,8 +11,8 @@
 	.empty-option-container {
 		position: relative;
 		z-index: 2;
-		width: 35px;
-		height: 40px;
+		width: $task-row-height;
+		height: $task-row-height;
 		background-color: $clr0;
 	}
 
@@ -26,6 +26,7 @@
 			margin-block-end: -1px;
 			height: calc(100% + 1px);
 			width: 6px;
+			min-width: 6px;
 			border-end-start-radius: 4px;
 		}
 	}

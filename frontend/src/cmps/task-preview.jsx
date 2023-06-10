@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { TOGGLE_CHECKED_TASK } from '../store/selected-task.reducer'
 import { useEffect, useState } from 'react'
 import { TaskOptionsMenu } from './task-options-menu'
+import { usePopper } from 'react-popper'
 
 const STATUS_PICKER = 'statusPicker'
 const PRIORITY_PICKER = 'priorityPicker'
@@ -21,6 +22,10 @@ const COLLABORATOR_PICKER = 'collaboratorPicker'
 export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected, snapshot }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 	const [isOptionOpen, setIsOptionOpen] = useState(false)
+
+	const [referenceElement, setReferenceElement] = useState(null)
+	const [popperElement, setPopperElement] = useState(null)
+	const { styles, attributes } = usePopper(referenceElement, popperElement)
 
 	const dispatch = useDispatch()
 
@@ -43,9 +48,13 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected, s
 
 	return (
 		<>
-			{isOptionOpen && <TaskOptionsMenu task={task} group={group} setIsOptionOpen={setIsOptionOpen} />}
+			{isOptionOpen && (
+				<div className="popper-container" ref={setPopperElement} style={styles.popper} {...attributes.popper}>
+					<TaskOptionsMenu task={task} group={group} setIsOptionOpen={setIsOptionOpen} />
+				</div>
+			)}
 			<ul className="task-preview task-row clean-list">
-				<div className="task-option-container">
+				<div className="task-option-container" ref={setReferenceElement}>
 					<div onClick={() => setIsOptionOpen(prev => !prev)} className="task-option btn-primary">
 						{ICON_OPTIONS}
 					</div>

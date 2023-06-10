@@ -1,9 +1,6 @@
 import { useSelector } from 'react-redux'
-import { addGroup, saveBoard } from '../../store/selected-board.actions'
 import { KanbanGroupPreview } from './kanban-group-preview'
-import { ICON_ADD_GROUP } from '../../assets/icons/icons'
 import { boardService } from '../../services/board.service'
-import { showErrorMsg } from '../../services/event-bus.service'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useEffect, useState } from 'react'
 
@@ -46,7 +43,7 @@ export function KanbanGroupList({ groups }) {
 		const destinationIdx = result.destination.index
 		const sourceIdx = result.source.index
 		const boardToSave = structuredClone(board)
-		if (sourceGroupId === destinationGroupId && sourceIdx == destinationIdx) return
+		if (sourceGroupId === destinationGroupId && sourceIdx === destinationIdx) return
 	}
 
 	function onDragStart() {

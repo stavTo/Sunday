@@ -3,7 +3,7 @@
 	flex-direction: column;
 	position: relative;
 	height: 100vh;
-	color: #ffffff;
+	color: $clr0;
 	background-color: $bg-clr2;
 	width: 66px;
 	min-width: 66px;
@@ -20,7 +20,6 @@
 			align-items: center;
 
 			ul {
-
 				li:first-child:not(.work-management) {
 					img {
 						height: 2.5em;
@@ -117,7 +116,7 @@
 
 		hr {
 			width: rem(40px);
-			border-color: #595c6f;
+			border-color: $clr6;
 			border-block-start: none;
 		}
 	}

@@ -6,20 +6,14 @@ import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 import { useSelector } from 'react-redux'
 import { usePopper } from 'react-popper'
 import { DayPicker, useNavigation } from 'react-day-picker'
-import { addDays, format } from 'date-fns'
-import { ICON_CLOSE } from '../../assets/icons/icons'
+import { format } from 'date-fns'
 import 'react-day-picker/dist/style.css'
+import { ICON_CLOSE } from '../../assets/icons/icons'
 import { NEXT_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
 import { PREV_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
 import { showErrorMsg } from '../../services/event-bus.service'
-import { socketService, SOCKET_EMIT_SEND_BOARD } from '../../services/socket.service'
 
-const pastMonth = new Date() // Define your past month date here
-
-const defaultSelected = {
-	from: pastMonth,
-	to: addDays(pastMonth, 4),
-}
+// const pastMonth = new Date() // Define your past month date here
 
 export function TimelinePicker({ task, groupId, defaultWidth }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
@@ -59,22 +53,21 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		const endDate = new Date(range.to).getTime()
 		const timeline = { startDate, endDate }
 		const taskToEdit = { ...task, timeline }
-
 		try {
 			const action = {
 				description: taskToEdit.title,
 				fromTimeline: {
-					startDate: timeStampToDate(task.timeline.startDate),
-					endDate: timeStampToDate(task.timeline.endDate)
+					startDate: timeStampToDate(task?.timeline?.startDate),
+					endDate: timeStampToDate(task?.timeline?.endDate),
 				},
 				toTimeline: {
-					startDate: timeStampToDate(timeline.startDate),
-					endDate: timeStampToDate(timeline.endDate)
+					startDate: timeStampToDate(timeline?.startDate),
+					endDate: timeStampToDate(timeline?.endDate),
 				},
 				groupColor,
 				type: 'Timeline',
 			}
-			console.log("action:", action)
+			console.log('action:', action)
 			await saveTask(board._id, groupId, taskToEdit, action)
 		} catch {
 			showErrorMsg('Something went wrong')
@@ -161,7 +154,8 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 				<span
 					className="month-btn-prev"
 					disabled={!previousMonth}
-					onClick={() => previousMonth && goToMonth(previousMonth)}>
+					onClick={() => previousMonth && goToMonth(previousMonth)}
+				>
 					{PREV_BTN}
 				</span>
 
@@ -194,9 +188,10 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 							!timeline || !timeline.startDate || !timeline.endDate
 								? { backgroundColor: '#ABABAB' }
 								: {
-									background: `linear-gradient(to right, ${isHovered ? darkenHexColor(groupColor) : groupColor
+										background: `linear-gradient(to right, ${
+											isHovered ? darkenHexColor(groupColor) : groupColor
 										} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})`,
-								}
+								  }
 						}
 					>
 						<span></span>
@@ -230,7 +225,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 						<DayPicker
 							numberOfMonths={2}
 							mode="range"
-							defaultMonth={pastMonth}
+							defaultMonth={new Date()}
 							selected={range}
 							onSelect={setRange}
 							showOutsideDays

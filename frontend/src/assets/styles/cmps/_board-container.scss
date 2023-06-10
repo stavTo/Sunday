@@ -4,17 +4,4 @@
 	overflow: auto;
 	display: flex;
 	flex-direction: column;
-
-	&::-webkit-scrollbar {
-		width: 10px;
-		height: 15px;
-	}
-
-	&::-webkit-scrollbar-track {
-		background: inherit;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background: #b2b2b2;
-	}
 }

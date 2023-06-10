@@ -1,13 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { boardService } from '../services/board.service'
 import { addTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { TaskSelection } from './task-selection'
-import { ICON_CHECKBOX } from '../assets/icons/icons'
 import { utilService } from '../services/util.service'
-
-import { socketService, SOCKET_EMIT_SEND_BOARD } from '../services/socket.service'
 
 export function AddTask({ group }) {
 	const [taskToAdd, setTaskToAdd] = useState(boardService.getEmptyTask())

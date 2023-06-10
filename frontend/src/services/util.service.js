@@ -19,7 +19,7 @@ export const utilService = {
 }
 
 function getTimelineRange(timeline) {
-	// Used by activity-preview, unlike "getTimelineRange" at timeline-summary. 
+	// Used by activity-preview, unlike "getTimelineRange" at timeline-summary.
 	const startMonth = timeStampToDate(timeline.startDate).slice(0, 3)
 	const endMonth = timeStampToDate(timeline.endDate).slice(0, 3)
 
@@ -34,24 +34,27 @@ function getTimelineRange(timeline) {
 }
 
 function timeSince(timeStamp) {
-    let now = new Date(),
-        secondsPast = (now.getTime() - timeStamp) / 1000
-    if (secondsPast < 60) {
-        return parseInt(secondsPast) + 's'
-    }
-    if (secondsPast < 3600) {
-        return parseInt(secondsPast / 60) + 'm'
-    }
-    if (secondsPast <= 86400) {
-        return parseInt(secondsPast / 3600) + 'h'
-    }
-    if (secondsPast > 86400) {
-        const date = new Date(timeStamp)
-        const day = date.getDate()
-        const month = date.toDateString().match(/ [a-zA-Z]*/)[0].replace(" ", "")
-        const year = date.getFullYear() == now.getFullYear() ? "" : " " + timeStamp.getFullYear()
-        return day + " " + month + year
-    }
+	let now = new Date(),
+		secondsPast = (now.getTime() - timeStamp) / 1000
+	if (secondsPast < 60) {
+		return parseInt(secondsPast) + 's'
+	}
+	if (secondsPast < 3600) {
+		return parseInt(secondsPast / 60) + 'm'
+	}
+	if (secondsPast <= 86400) {
+		return parseInt(secondsPast / 3600) + 'h'
+	}
+	if (secondsPast > 86400) {
+		const date = new Date(timeStamp)
+		const day = date.getDate()
+		const month = date
+			.toDateString()
+			.match(/ [a-zA-Z]*/)[0]
+			.replace(' ', '')
+		const year = date.getFullYear() === now.getFullYear() ? '' : ' ' + timeStamp.getFullYear()
+		return day + ' ' + month + year
+	}
 }
 
 function makeId(length = 6) {
@@ -116,7 +119,7 @@ function getRandomIntInclusive(min, max) {
 
 function randomPastTime() {
 	const HOUR = 1000 * 60 * 60
-	const DAY = 1000 * 60 * 60 * 24
+	// const DAY = 1000 * 60 * 60 * 24
 	const WEEK = 1000 * 60 * 60 * 24 * 7
 
 	const pastTime = getRandomIntInclusive(HOUR, WEEK)
@@ -165,7 +168,7 @@ function hexToRgba(hex, alpha = 1) {
 }
 
 export function isValidTimestamp(timestamp) {
-	return (!isNaN(new Date(timestamp).getTime()))
+	return !isNaN(new Date(timestamp).getTime())
 }
 
 export function timeStampToDate(timeStamp) {
@@ -182,7 +185,7 @@ export function millisecondsToDays(ms) {
 }
 
 export function getBlessingByTime() {
-	const date = new Date
+	const date = new Date()
 	const currentHour = date.getHours()
 
 	if (currentHour >= 5 && currentHour < 12) {
@@ -216,6 +219,8 @@ export function darkenHexColor(color) {
 	const darkerBlue = Math.floor(blue * 0.8)
 
 	// Convert the darker RGB values back to a hex color
-	const darkerHexColor = `#${darkerRed.toString(16).padStart(2, '0')}${darkerGreen.toString(16).padStart(2, '0')}${darkerBlue.toString(16).padStart(2, '0')}`
+	const darkerHexColor = `#${darkerRed.toString(16).padStart(2, '0')}${darkerGreen
+		.toString(16)
+		.padStart(2, '0')}${darkerBlue.toString(16).padStart(2, '0')}`
 	return darkerHexColor
 }

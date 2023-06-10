@@ -1,7 +1,7 @@
 .task-selection {
-	min-width: 36px;
+	min-width: $task-row-height;
 	height: 100%;
-	width: 36px;
+	width: $task-row-height;
 	display: flex;
 	justify-content: center;
 	align-items: center;

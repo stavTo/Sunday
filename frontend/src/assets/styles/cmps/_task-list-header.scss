@@ -6,8 +6,8 @@
 	border-block: 1px solid $border-clr;
 
 	.empty-option-container {
-		width: 35px;
-		height: 40px;
+		width: $task-row-height;
+		height: $task-row-height + 4px;
 		background-color: $clr0;
 	}
 
@@ -23,6 +23,7 @@
 		margin-block: -1px;
 		height: calc(100% + 2px);
 		width: 6px;
+		min-width: 6px;
 		border-start-start-radius: 4px;
 	}
 
@@ -43,6 +44,7 @@
 	}
 
 	.task-title-header {
+		width: var(--left-side-width);
 		user-select: none;
 		height: $task-row-height;
 		display: flex;
