@@ -328,7 +328,6 @@ async function duplicateTask(boardId, group, task, boolean, action = {}) {
 
 		const activity = getEmptyActivity(board, newTask.id, action)
 		board.activities.unshift(activity)
-
 		await save(board)
 		return board
 	} catch (err) {
@@ -408,6 +407,29 @@ async function removeTask(boardId, taskId, action = {}) {
 
 		const activity = getEmptyActivity(board, taskId, action)
 		board.activities.unshift(activity)
+
+		await save(board)
+		return board
+	} catch (err) {
+		throw err
+	}
+}
+
+async function removeBatchTasks(boardId, taskIds, actions = []) {
+	console.log(actions)
+	try {
+		const board = await getById(boardId)
+		board.groups = board.groups.map(group => ({
+			...group,
+			tasks: group.tasks.filter(t => {
+				const keepTask = !taskIds.includes(t.id)
+				if (!keepTask) {
+					const activity = getEmptyActivity(board, t.id, actions.splice(0, 1)[0]) // splice first item, and send it to getEmptyActivity
+					board.activities.unshift(activity)
+				}
+				return keepTask
+			}),
+		}))
 
 		await save(board)
 		return board
@@ -572,6 +594,7 @@ export const boardService = {
 	addBoard,
 	loadActivities,
 	getActivityFilter,
+	removeBatchTasks,
 }
 
 // component types

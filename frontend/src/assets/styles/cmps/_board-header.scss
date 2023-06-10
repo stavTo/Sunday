@@ -9,20 +9,30 @@
 	.board-header-top {
 		height: 48px;
 		display: flex;
-		justify-content: space-between;
+		justify-content: center;
+		@media screen and (min-width: $narrow-breakpoint) {
+			justify-content: space-between;
+		}
 
 		.board-header-top-left {
 			display: flex;
 			align-items: center;
 
+			overflow: hidden;
 			.title-input {
 				font-family: $title-font;
 			}
 			.board-name {
-				font-size: em(32px);
+				font-size: rem(32px);
 				font-weight: 500;
 				margin-inline-end: 8px;
+				max-width: 200px;
 
+				div {
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
 				&:hover {
 					outline: 1px solid $input-hover-border-clr;
 					border-radius: 4px;
@@ -44,10 +54,7 @@
 
 		.board-header-top-right {
 			font-size: em(14px);
-			display: flex;
-			gap: 8px;
-			align-self: center;
-			align-items: center;
+			display: none;
 
 			& > * {
 				height: 32px;
@@ -82,6 +89,13 @@
 				justify-content: center;
 				height: 40px;
 				width: 32px;
+			}
+
+			@media screen and (min-width: $narrow-breakpoint) {
+				display: flex;
+				gap: 8px;
+				align-self: center;
+				align-items: center;
 			}
 		}
 

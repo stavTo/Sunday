@@ -55,3 +55,9 @@ video,
 object {
 	max-width: 100%;
 }
+
+@media screen and (min-width: $narrow-breakpoint) {
+	:root {
+		--left-side-width: 400px;
+	}
+}

@@ -12,6 +12,7 @@ import {
 	ICON_HOUSE_FILLED,
 } from '../assets/icons/icons'
 import { boardService } from '../services/board.service'
+import { showErrorMsg } from '../services/event-bus.service'
 
 export function WorkspaceBoardList() {
 	const boards = useSelector(({ boardModule }) => boardModule.boards)
@@ -34,7 +35,10 @@ export function WorkspaceBoardList() {
 		addBoard(board)
 	}
 
-	function onDeleteBoard(boardId) {
+	function onDeleteBoard(ev, boardId) {
+		ev.preventDefault() //stops opening link when deleting
+		if (boards.length === 1) return showErrorMsg('Cant delete last board')
+		if (boardId === selectedBoard._id) return showErrorMsg('Cant delete opened board')
 		removeBoard(boardId)
 	}
 
@@ -71,7 +75,7 @@ export function WorkspaceBoardList() {
 								<span>{board.title}</span>
 							</div>
 
-							<span className="delete-board-icon" onClick={() => onDeleteBoard(board._id)}>
+							<span className="delete-board-icon" onClick={ev => onDeleteBoard(ev, board._id)}>
 								{ICON_TRASH}
 							</span>
 						</li>

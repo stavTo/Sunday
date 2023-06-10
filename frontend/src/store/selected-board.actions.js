@@ -2,7 +2,7 @@ import { boardService } from '../services/board.service'
 import { showErrorMsg } from '../services/event-bus.service'
 import { UPDATE_BOARD } from './board.reducer'
 import { SET_BOARD, SET_IS_LOADING, UNDO_SET_BOARD } from './selected-board.reducer'
-import { REMOVE_CHECKED_TASK } from './selected-task.reducer'
+import { REMOVE_CHECKED_TASK, REMOVE_CHECKED_TASKS } from './selected-task.reducer'
 import { store } from './store'
 
 export async function loadBoard(boardId, filter = {}) {
@@ -139,6 +139,17 @@ export async function removeTask(boardId, taskId, action = {}) {
 	try {
 		const board = await boardService.removeTask(boardId, taskId, action)
 		store.dispatch({ type: REMOVE_CHECKED_TASK, taskId })
+		store.dispatch({ type: SET_BOARD, board })
+	} catch (err) {
+		console.log('cant remove task')
+		throw err
+	}
+}
+
+export async function removeBatchTasks(boardId, taskIds, actions = []) {
+	try {
+		const board = await boardService.removeBatchTasks(boardId, taskIds, actions)
+		store.dispatch({ type: REMOVE_CHECKED_TASKS, taskIds })
 		store.dispatch({ type: SET_BOARD, board })
 	} catch (err) {
 		console.log('cant remove task')
