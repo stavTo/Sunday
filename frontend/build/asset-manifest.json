@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ace46a47.css",
+    "main.js": "/static/js/main.0c559f84.js",
+    "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/empty-inbox.svg": "/static/media/empty-inbox.2a02a6e40e9e0b38cc34c4bf53e6b0a8.svg",
+    "static/media/HP_asset_white_bg.avif": "/static/media/HP_asset_white_bg.11ccb1e3349dd77d8b67.avif",
+    "static/media/favorites-no-bg.gif": "/static/media/favorites-no-bg.0e40a19c997b4718bf54.gif",
+    "service-worker.js": "/service-worker.js",
+    "static/media/board-loader.gif": "/static/media/board-loader.d6c93cb5fa96729c6046.gif",
+    "static/media/pulse-page-empty-state.svg": "/static/media/pulse-page-empty-state.f5f9c287d70b7ebf1279f364464ca1db.svg",
+    "static/media/guest.png": "/static/media/guest.0d14c6999b4a5c8e86a7.png",
+    "static/media/templates-banner.png": "/static/media/templates-banner.c84b7a0cfa8898cf311d.png",
+    "static/media/quick_search_recent_board.svg": "/static/media/quick_search_recent_board.9d0e5319b91c3a83aa4e04ffb0aaa65d.svg",
+    "static/media/header-background.svg": "/static/media/header-background.9967ce8a4a6348e4b69fef932045df88.svg",
+    "static/media/lionsgate.avif": "/static/media/lionsgate.1a920581bcb607d0be08.avif",
+    "static/media/HoltCat.avif": "/static/media/HoltCat.bf370453bd821a7f911a.avif",
+    "static/media/get-started.svg": "/static/media/get-started.2711242f16ec130e8d5c6a921865f7cd.svg",
+    "static/media/help-center.svg": "/static/media/help-center.747825195b603d950acdba04d997c93d.svg",
+    "static/media/webinars.svg": "/static/media/webinars.6b7819da0ef0ab2efc7de371edc5b5b0.svg",
+    "index.html": "/index.html",
+    "main.ace46a47.css.map": "/static/css/main.ace46a47.css.map",
+    "main.0c559f84.js.map": "/static/js/main.0c559f84.js.map",
+    "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ace46a47.css",
+    "static/js/main.0c559f84.js"
+  ]
+}
