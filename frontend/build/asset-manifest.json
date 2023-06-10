@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ace46a47.css",
-    "main.js": "/static/js/main.0c559f84.js",
+    "main.css": "/static/css/main.16807a17.css",
+    "main.js": "/static/js/main.87d14b70.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/empty-inbox.svg": "/static/media/empty-inbox.2a02a6e40e9e0b38cc34c4bf53e6b0a8.svg",
     "static/media/HP_asset_white_bg.avif": "/static/media/HP_asset_white_bg.11ccb1e3349dd77d8b67.avif",
@@ -19,12 +19,12 @@
     "static/media/help-center.svg": "/static/media/help-center.747825195b603d950acdba04d997c93d.svg",
     "static/media/webinars.svg": "/static/media/webinars.6b7819da0ef0ab2efc7de371edc5b5b0.svg",
     "index.html": "/index.html",
-    "main.ace46a47.css.map": "/static/css/main.ace46a47.css.map",
-    "main.0c559f84.js.map": "/static/js/main.0c559f84.js.map",
+    "main.16807a17.css.map": "/static/css/main.16807a17.css.map",
+    "main.87d14b70.js.map": "/static/js/main.87d14b70.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ace46a47.css",
-    "static/js/main.0c559f84.js"
+    "static/css/main.16807a17.css",
+    "static/js/main.87d14b70.js"
   ]
 }

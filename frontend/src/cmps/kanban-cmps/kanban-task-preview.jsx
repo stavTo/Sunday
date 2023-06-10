@@ -1,6 +1,12 @@
 import { useSelector } from 'react-redux'
 import { MemberPicker } from '../dynamic-task-cmps/member-picker'
-import { FILTER_PERSON, ICON_CONVERSATION, ICON_CONVERSATION_EMPTY, ICON_OPTIONS } from '../../assets/icons/icons'
+import {
+	FILTER_PERSON,
+	ICON_CONVERSATION,
+	ICON_CONVERSATION_EMPTY,
+	ICON_OPTIONS,
+	ICON_PRIORITY,
+} from '../../assets/icons/icons'
 import { boardService } from '../../services/board.service'
 import { LabelPicker } from '../dynamic-task-cmps/label-picker'
 import { useEffect, useState } from 'react'
@@ -66,7 +72,7 @@ export function KanbanTaskPreview({ task }) {
 				<li className="kanban-row-title">{FILTER_PERSON}Owner</li>
 				<MemberPicker groupId={group.id} type="ownerPicker" task={task} defaultWidth="140px" />
 
-				<li className="kanban-row-title">{FILTER_PERSON}Priority</li>
+				<li className="kanban-row-title">{ICON_PRIORITY}Priority</li>
 				<LabelPicker type="priorityPicker" task={task} groupId={group.id} defaultWidth="140px" />
 			</ul>
 		</div>
