@@ -478,10 +478,11 @@ async function removeGroup(boardId, groupId, action = {}) {
 	}
 }
 
-function getActivityFilter() {
+function getActivityFilter(taskId = '') {
 	return {
 		txt: '',
 		member: '',
+		taskId,
 	}
 }
 
@@ -534,8 +535,15 @@ function loadActivities(board, filter = {}) {
 		const regex = new RegExp(filter.txt, 'i')
 		filteredActivities = filteredActivities.filter(activity => regex.test(activity.action.description))
 	}
+	
 	if (filter.member) {
 		filteredActivities = filteredActivities.filter(activity => activity.by.fullname !== filter.member)
+	}
+
+	if (filter.taskId) {
+		// const currTask = getTaskById(filter.taskId)
+		filteredActivities = filteredActivities.filter(activity => activity.entityId === filter.taskId)
+		console.log("filteredActivities", filteredActivities)
 	}
 	return filteredActivities
 }
