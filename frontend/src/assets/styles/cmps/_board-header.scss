@@ -87,6 +87,10 @@
 			display: flex;
 			justify-content: center;
 
+			@media screen and (min-width: $mobile-breakpoint) {
+				display: none;
+			}
+
 			svg {
 				align-self: center;
 			}
