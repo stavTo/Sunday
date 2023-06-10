@@ -26,7 +26,7 @@ export function ExpandableSidebar({
 				{ICON_EXPAND_ARROW}
 			</div>
 			<div
-				className={`${isHovered && !isFixed ? 'workspace-container shadow' : 'workspace-container'}`}
+				className="workspace-container"
 				onMouseEnter={() => debouncedSetIsHovered(true)}
 				onMouseLeave={() => debouncedSetIsHovered(false)}
 			>

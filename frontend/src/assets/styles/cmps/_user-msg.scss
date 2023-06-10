@@ -2,33 +2,30 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: white;
-	background-color: black;
+	position: fixed;
+	color: $clr0;
+	background-color: grey;
+	margin-inline: auto;
+	margin-block-start: 25px;
 	padding: 10px;
 	min-width: 200px;
-	margin-block-start: 25px;
 	max-width: max-content;
 	border-radius: 4px;
 	height: 50px;
 	font-size: rem(14px);
-	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
-	margin-inline: auto;
-	display: flex;
 	z-index: 99999;
-	background-color: grey;
 
 	&.success {
-		background-color: rgb(41, 189, 73);
+		background-color: $success-color;
 	}
 	&.error {
-		background-color: #e44258;
+		background-color: $error-color;
 	}
 
 	button {
-		// font-size: rem(16px);
 		color: inherit;
 		background-color: inherit;
 		margin-inline-start: 25px;

@@ -1,8 +1,5 @@
-.group-options-menu {
-	left: 0px;
-	top: 35px;
-	// z-index: 99;
-	position: absolute;
+.popper-container {
+	z-index: 999;
 }
 
 .group-preview {
@@ -18,11 +15,8 @@
 	}
 
 	.color-picker {
-		position: absolute;
-		top: 40px;
-		left: 70px;
-		width: em(135px);
-		height: em(115px);
+		width: rem(125px);
+		// height: rem(135px);
 		background-color: $clr0;
 		border: 1px $input-hover-border-clr solid;
 		border-radius: 4px;
@@ -59,6 +53,7 @@
 		position: sticky;
 		left: 0;
 		// max-width: max-content;
+		z-index: 30;
 		display: flex;
 		align-items: center;
 		.group-title-container {
@@ -131,8 +126,8 @@
 		}
 
 		.group-option-container {
-			width: 35px;
-			height: 35px;
+			width: $task-row-height;
+			height: $task-row-height;
 			color: $clr1;
 			opacity: 0;
 			background-color: $clr0;

@@ -10,7 +10,7 @@
 		top: 4px;
 		background-color: $button-hover-bgc;
 		border-radius: 4px;
-		color: #000000;
+		color: $clr1;
 		width: 15px;
 	}
 
@@ -61,7 +61,7 @@
 		top: 4px;
 		background-color: $button-hover-bgc;
 		border-radius: 4px;
-		color: #000000;
+		color: $clr1;
 		width: 15px;
 	}
 
@@ -176,7 +176,7 @@ Today .rdp-day_today {
 
 // Middle days (range)
 .rdp-day_range_middle {
-	background-color: #cce5ff;
+	background-color: $button-clicked-bgc;
 	color: $clr1;
 }
 

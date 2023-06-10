@@ -125,8 +125,6 @@
 }
 
 .home-main {
-	// min-height: calc(100vh - em(72px));
-
 	.titles-container {
 		display: flex;
 		width: em(754px);
@@ -222,7 +220,6 @@
 
 		span {
 			font-size: rem(13px);
-			font-style: normal;
 			font-weight: 300;
 			font-family: $title-font;
 			color: $icon-color;

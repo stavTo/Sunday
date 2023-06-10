@@ -53,7 +53,7 @@ export function BoardDetails() {
 		<section className="board-details">
 			<SideBar />
 			{/* <WorkspaceBoardList /> */}
-			<section className="board-container">
+			<section className="board-container default-scroll">
 				<BoardHeader board={board} />
 				<GroupList groups={board.groups} />
 			</section>

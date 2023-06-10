@@ -13,7 +13,6 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 	async function onDuplicateTask(boolean) {
 		setIsOptionOpen(false)
 		let newTask
-		console.log('kanbanStatus:', kanbanStatus)
 		if (kanbanStatus) {
 			boolean = true
 			newTask = boardService.getEmptyTask('New Task', kanbanStatus)
@@ -66,7 +65,11 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 	return (
 		<section className="task-options-menu">
 			<section className="options-menu">
-				<Link className="btn-primary" to={location.pathname + `/tasks/${task.id}`}>
+				<Link
+					onClick={() => setIsOptionOpen(false)}
+					className="btn-primary"
+					to={location.pathname + `/tasks/${task.id}`}
+				>
 					<span className="option-group-icon">{ICON_OPEN}</span>
 					<span className="title">Open</span>
 				</Link>

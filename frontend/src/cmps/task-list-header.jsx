@@ -74,9 +74,7 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 				{!isCollapsed && (
 					<>
 						<TaskSelection isChecked={isGroupSelected} onCheck={toggleGroupChecked} />
-						<li style={{ width: '400px' }} className="task-title-header">
-							Task
-						</li>
+						<li className="task-title-header">Task</li>
 					</>
 				)}
 			</div>

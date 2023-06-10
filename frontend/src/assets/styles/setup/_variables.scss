@@ -5,13 +5,13 @@ $clr2: #d1d5e5;
 $clr3: #797a7d;
 $clr4: #d6dae8;
 $clr5: #3080c6;
-$clr11: #6c6cff;
 $clr6: #666666;
 $clr7: #535768;
 $clr8: #f0f3ff;
 $clr9: #c5c7d0;
-
 $clr10: #777777;
+$clr11: #6c6cff;
+
 $bg-clr1: #0073ea;
 $bg-clr1-darker: #0060b9;
 $bg-clr2: #292f4c; //side-bar
@@ -21,12 +21,14 @@ $bg-clr5: #dcdfec;
 $bg-clr6: #333333;
 $bg-clr7: #f3f5f8;
 $bg-clr8: #e6e9ef;
+
 // Progress-bar colors:
-$timeline-value-remains: #333333;
+// $timeline-value-remains: #333333;
 
 // Shadow variables
 $index-layout-shadow: 0px 0px 40px 0px rgba(214, 214, 214, 0.4);
 $card-hover-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+$default-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.32);
 
 // Timeline Picker
 $range-bgclr: #cce5ff;
@@ -42,6 +44,8 @@ $button-hover-bgc: #dcdfec;
 $button-clicked-bgc: #cce5ff;
 $icon-color: #676879;
 $link-color: #1f76c2;
+$success-color: #29bd49;
+$error-color: #e44258;
 $transparent-overlay-clr: rgba(41, 47, 76, 0.5);
 
 // Breakpoints
@@ -57,4 +61,7 @@ $title-font: Poppins, Roboto, Rubik, sans-serif;
 // Sizes
 $task-row-height: 36px;
 
-$default-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.32);
+// css variables
+:root {
+	--left-side-width: 400px;
+}
