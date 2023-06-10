@@ -1,21 +1,22 @@
 {
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon server.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server:prod": "set NODE_ENV=production&&node server.mjs"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.2",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "mongodb": "^3.2.7",
-    "socket.io": "^4.2.0"
-  }
+	"name": "backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "nodemon server.mjs",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"server:prod": "set NODE_ENV=production&&node server.mjs",
+		"prod": "node server.mjs"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.2",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"mongodb": "^3.2.7",
+		"socket.io": "^4.2.0"
+	}
 }
