@@ -1,7 +1,6 @@
 .side-bar {
 	display: none;
 
-
 	@media (min-width: $mobile-breakpoint) {
 		display: flex;
 		flex-direction: column;
@@ -11,6 +10,7 @@
 		background-color: $bg-clr2;
 		width: 66px;
 		min-width: 66px;
+		z-index: 9999;
 	}
 
 	.nav-container {

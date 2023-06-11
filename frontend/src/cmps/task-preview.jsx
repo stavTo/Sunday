@@ -52,7 +52,7 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected, s
 	}
 
 	const longPressEvent = useLongPress(onLongPress, () => {}, {
-		shouldPreventDefault: true,
+		shouldPreventDefault: false,
 	})
 
 	return (
