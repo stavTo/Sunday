@@ -60,64 +60,65 @@
 		&.scrolled {
 			box-shadow: 0px 4px 4px rgba(29, 140, 242, 0.078);
 		}
-	}
 
-	.main-nav {
-		justify-content: space-between;
-		align-items: center;
 
-		.logo {
-			width: rem(168.5px);
-			height: rem(42px);
-		}
-
-		ul {
+		.main-nav {
+			justify-content: space-between;
 			align-items: center;
-			height: em(72px);
 
-			li:not(:last-child) {
-				width: auto;
-				padding: 0.6em;
+			.logo {
+				width: rem(168.5px);
+				height: rem(42px);
 			}
 
-			button {
-				height: em(40px);
-				display: flex;
+			ul {
 				align-items: center;
-				padding: 8px 14px 8px 16px;
+				height: em(72px);
 
-				.btn-title {
-					padding-inline-end: 8px;
+				li:not(:last-child) {
+					width: auto;
+					padding: 0.6em;
 				}
 
-				.btn-title,
-				.btn-arrow {
-					font-size: rem(13px);
-					color: $clr0;
+				button {
+					height: em(40px);
+					display: flex;
+					align-items: center;
+					padding: 8px 14px 8px 16px;
+
+					.btn-title {
+						padding-inline-end: 8px;
+					}
+
+					.btn-title,
+					.btn-arrow {
+						font-size: rem(13px);
+						color: $clr0;
+						font-family: $title-font;
+						font-weight: 300;
+						transition: padding 0.4s;
+					}
+
+					&:hover .btn-arrow {
+						padding-inline-start: 0.8em;
+					}
+				}
+
+				a {
+					text-decoration: none;
+					color: black;
+					padding: 8px 10px;
+					font-size: rem(14px);
 					font-family: $title-font;
 					font-weight: 300;
-					transition: padding 0.4s;
-				}
+					color: $clr7;
+					cursor: pointer;
 
-				&:hover .btn-arrow {
-					padding-inline-start: 0.8em;
-				}
-			}
-
-			a {
-				text-decoration: none;
-				color: black;
-				padding: 8px 10px;
-				font-size: rem(14px);
-				font-family: $title-font;
-				font-weight: 300;
-				color: $clr7;
-				cursor: pointer;
-
-				&:hover {
-					color: #5034ff;
-					background-color: $clr8;
-					border-radius: 8px;
+					&:hover {
+						color: #5034ff;
+						background-color: $clr8;
+						border-radius: 8px;
+					}
 				}
 			}
 		}
