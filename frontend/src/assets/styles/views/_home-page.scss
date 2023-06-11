@@ -2,7 +2,6 @@
 	.img-container {
 		grid-column: 1 /-1;
 		padding-block-start: em(30px);
-
 		min-height: fit-content;
 
 		img {
@@ -35,10 +34,11 @@
 			font-weight: 400;
 			font-family: $title-font;
 			color: $bg-clr6;
-			
+
 			@media(min-width: $mobile-breakpoint) {
-			padding-block-end: 2em;		
-		}
+				padding-block-end: 2em;
+			}
+
 
 		}
 
@@ -78,37 +78,38 @@
 		&.scrolled {
 			box-shadow: 0px 4px 4px rgba(29, 140, 242, 0.078);
 		}
+	}
 
+	.main-nav {
+		justify-content: space-between;
+		align-items: center;
 
-		.main-nav {
-			justify-content: space-between;
+		.logo {
+			width: rem(168.5px);
+			height: rem(42px);
+		}
+
+		ul {
 			align-items: center;
+			height: em(72px);
 
-			.logo {
-				width: rem(168.5px);
-				height: rem(42px);
+			li:not(:last-child) {
+				width: auto;
+				padding: 0.6em;
 			}
-
-			ul {
-				align-items: center;
-				height: em(72px);
-
-				li:not(:last-child) {
-					width: auto;
-					padding: 0.6em;
-				}
 
 			button {
 				height: em(40px);
 				display: none;
 				padding: 8px 14px 8px 16px;
 
-					.btn-title {
-						padding-inline-end: 8px;
-					}
+				.btn-title {
+					padding-inline-end: 8px;
+				}
 
 				.btn-title,
 				.btn-arrow {
+					display: flex;
 					font-size: rem(13px);
 					color: $clr0;
 					font-family: $title-font;
@@ -119,23 +120,29 @@
 				&:hover .btn-arrow {
 					padding-inline-start: 0.8em;
 				}
+
+				@media(min-width: $mobile-breakpoint) {
+					display: flex;
+					align-items: center;
+				}
+
+
 			}
 
-				a {
-					text-decoration: none;
-					color: black;
-					padding: 8px 10px;
-					font-size: rem(14px);
-					font-family: $title-font;
-					font-weight: 300;
-					color: $clr7;
-					cursor: pointer;
+			a {
+				text-decoration: none;
+				color: black;
+				padding: 8px 10px;
+				font-size: rem(14px);
+				font-family: $title-font;
+				font-weight: 300;
+				color: $clr7;
+				cursor: pointer;
 
-					&:hover {
-						color: #5034ff;
-						background-color: $clr8;
-						border-radius: 8px;
-					}
+				&:hover {
+					color: #5034ff;
+					background-color: $clr8;
+					border-radius: 8px;
 				}
 			}
 		}
@@ -153,7 +160,7 @@
 		font-family: $title-font;
 		padding-block-start: 2em;
 		color: $bg-clr6;
-		
+
 		@media(min-width: $mobile-breakpoint) {
 			max-width: em(754px);
 			padding-block-start: 4em;
