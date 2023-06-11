@@ -3,34 +3,6 @@ import path from 'path'
 import cors from 'cors'
 import express from 'express'
 import cookieParser from 'cookie-parser'
-// import { config } from "dotenv"
-// import readline from "readline"
-
-// config()
-
-// const openai = new OpenAIApi(new Configuration({
-//     apiKey: process.env.API_KEY
-// }))
-
-// const userInterface = readline.createInterface({
-//     input: process.stdin,
-//     output: process.stdout
-// })
-// const gptAnswers = []
-
-// userInterface.prompt()
-// userInterface.on("line", async input => {
-//     const res = await openai.createChatCompletion({
-//         model: "gpt-3.5-turbo",
-//         max_tokens: 300,
-//         temperature: 0.3,
-//         messages: [{ "role": "system", "content": "You are an AI assistant helping with the creation of project management templates for a project management app. Please provide in your response ONLY an object that includes the board name, groups, and tasks based on the given user input. the tasks and the division of groups must be realted to the subject of the theme that the user has entered. You MUST not reply in any other way that is not according to the following format: {boardName: 'Board Name', groups: [{groupName: Group Name, tasks: [Task description1, Task description2, Task description3]}]" },]
-//     })
-//     console.log(res.data.choices[0].message.content)
-//     gptAnswers.push(res.data.choices[0].message.content)
-// })
-
-// console.log("gptAnswers", gptAnswers)
 
 const app = express()
 const server = http.createServer(app)
@@ -56,14 +28,15 @@ if (process.env.NODE_ENV === 'production') {
 
 import { userRoutes } from './api/user/user.routes.mjs'
 import { boardRoutes } from './api/board/board.routes.mjs'
+import { authRoutes } from './api/auth/auth.routes.mjs'
 import { setupSocketAPI } from './services/socket.service.mjs'
-// import { setupAsyncLocalStorage } from './middlewares/setupAls.middleware.mjs'
 
 // routes
-// app.all('*', setupAsyncLocalStorage)
 
 app.use('/api/user', userRoutes)
 app.use('/api/board', boardRoutes)
+app.use('/api/auth', authRoutes)
+
 setupSocketAPI(server)
 
 // Make every server-side-route to match the index.html
@@ -75,7 +48,6 @@ app.get('/**', (req, res) => {
 
 
 import { logger } from './services/logger.service.mjs'
-import { Configuration, OpenAIApi } from 'openai'
 const port = process.env.PORT || 3030
 server.listen(port, () => {
     logger.info('Server is running on port: ' + port)

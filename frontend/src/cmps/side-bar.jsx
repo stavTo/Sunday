@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { ICON_WORK_MANAGEMENT, ICON_MY_WORK, ICON_FAVORITES } from '../assets/icons/icons'
 
@@ -8,11 +8,14 @@ import { ExpandableSidebar } from '../cmps/expandable-sidebar.jsx'
 import { TippyContainer } from './tippy-container'
 import { useState } from 'react'
 import { utilService } from '../services/util.service'
+import { useSelector } from 'react-redux'
 
 export function SideBar({ isExpandable = true }) {
 	const [isFavoritesOpen, setIsFavoritesOpen] = useState(false)
 	const [isFixed, setIsFixed] = useState(false)
 	const [isHovered, setIsHovered] = useState(false)
+	const navigate = useNavigate()
+	const user = useSelector(storeState => storeState.userModule.user)
 
 	const debouncedSetIsHovered = utilService.debounce(setIsHovered, 200)
 
@@ -21,6 +24,11 @@ export function SideBar({ isExpandable = true }) {
 		setIsFavoritesOpen(prev => !prev)
 		if (isFixed) return
 		setIsFixed(prev => !prev)
+	}
+
+	function onOpenUserProfile() {
+		if (!user?._id) navigate('/auth/login')
+		else navigate(`/users/${user._id}/personal_info`)
 	}
 
 	return (
@@ -55,8 +63,9 @@ export function SideBar({ isExpandable = true }) {
 					<li className="bottom-navigation-area">
 						<ul className="clean-list flex column align-center">
 							<TippyContainer txt={'Profile'} placement="right" offset={[0, 20]}>
-								<li className="flex profile ">
-									<img src={guest} data-tippy-content="guest" />
+								<li className="flex profile"
+									onClick={onOpenUserProfile}>
+									<img src={user?.imgUrl || guest} data-tippy-content="guest" />
 								</li>
 							</TippyContainer>
 						</ul>
