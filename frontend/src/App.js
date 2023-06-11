@@ -27,7 +27,7 @@ function App() {
 								<Route path="tasks/:taskId" element={<TaskDetails />} />
 							</Route>
 							<Route path="/users/:userId" element={<UserDetails />}></Route>
-							<Route path="/index" element={<BoardIndex />}></Route>
+							<Route path="/boards" element={<BoardIndex />}></Route>
 						</Routes>
 					</main>
 					<UserMsg />

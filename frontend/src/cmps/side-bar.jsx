@@ -30,7 +30,7 @@ export function SideBar({ isExpandable = true }) {
 					<li className="top-navigation-area">
 						<ul className="clean-list flex column align-center">
 							<li className="flex" data-tippy-content="home page">
-								<Link to="/index">
+								<Link to="/boards">
 									<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="" />
 								</Link>
 							</li>
