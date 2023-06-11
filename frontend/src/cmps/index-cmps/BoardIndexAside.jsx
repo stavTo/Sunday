@@ -3,13 +3,14 @@ import getStarted from '../../assets/img/board-index/get-started.svg'
 import helpCenter from '../../assets/img/board-index/help-center.svg'
 import webinar from '../../assets/img/board-index/webinars.svg'
 
-export function BoardIndexAside() {
+export function BoardIndexAside({setToggleInputModal}) {
+
     return (
         <aside className="right-panel flex column gap-1">
             <div className="explore-templates flex column">
                 <img src={template} />
                 <span>Boost you workflow in minutes with ready-made templates</span>
-                <button className="btn-primary p-half-em">Explore templates</button>
+                <button className="btn-primary p-half-em" onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}>Explore templates</button>
             </div>
             <div className="learn flex column gap-1">
                 <span>Learn and get inspired</span>

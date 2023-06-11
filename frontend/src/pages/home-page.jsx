@@ -84,7 +84,7 @@ export function HomePage() {
 					<span className="secondary-title">What would you like to manage with sunday.com Work OS?</span>
 				</div>
 				<section className="card-container full">
-					<div className="cards-section flex justify-center">
+					<div className="cards-section">
 						<div className="card">
 							<div className="icon-container">
 								<img src={designIcon} alt="" />

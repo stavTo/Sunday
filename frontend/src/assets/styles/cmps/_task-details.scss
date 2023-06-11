@@ -1,9 +1,10 @@
 .task-details {
 	display: grid;
-	grid-template-columns: 20px 530px 20px;
+	grid-template-columns: 20px 1fr 20px;
+	// grid-template-columns: 20px 530px 20px;
 	grid-template-rows: 40px 60px 40px 1fr;
 	max-width: 100vw;
-	width: em(570px);
+	width: em(650px);
 	height: 100vh;
 	overflow-y: auto;
 	overflow-x: hidden;

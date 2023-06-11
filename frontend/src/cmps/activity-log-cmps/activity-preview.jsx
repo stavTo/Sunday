@@ -171,7 +171,7 @@ function DynamicCmp({ action }) {
             return (
                 <div className="dynamic-cmp">
                     <div className="timeline-container">
-                        <div className="span-container flex align-center justify-center">
+                        <div className="span-container flex align-center space-between">
                             {/*  From timeline ---> */}
                             <div
                                 className="progress fs12 flex align-center justify-center"
