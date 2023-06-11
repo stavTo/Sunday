@@ -1,5 +1,6 @@
 .board-index {
     display: flex;
+    // position: relative;
 
     .index-container {
         display: grid;
@@ -17,11 +18,26 @@
     }
 
     .index-body {
+        position: relative;
         width: 100%;
         height: 100vh;
         overflow-y: auto;
         overflow-x: hidden;
         background-color: $bg-clr7;
+
+        .template-modal {
+            margin: 0;
+            position: absolute;
+            background: red;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 200px;
+            z-index: 2;
+        }
+    
     }
 
     .boards-list {
@@ -32,6 +48,7 @@
     .inbox-container {
         border: 1px solid $border-clr;
         border-radius: 8px;
+
         .empty-inbox {
             width: 320px;
             height: 320px;
@@ -72,10 +89,7 @@
             .help-card {
                 background-color: $clr0;
                 border-radius: rem(5px);
-
-                &:hover {
-                    box-shadow: $card-hover-shadow;
-                }
+                box-shadow: $card-hover-shadow;
             }
 
             img {

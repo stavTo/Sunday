@@ -18,8 +18,13 @@
 
 	@include for-narrow-layout {
 		grid-template-columns:
-			minmax(20px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
+			$mobile-breakpoint;
 	}
+
+	// @include for-narrow-layout {
+	// 	grid-template-columns:
+	// 		minmax(20px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
+	// }
 
 	@include for-normal-layout {
 		grid-template-columns:

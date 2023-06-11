@@ -1,11 +1,18 @@
 .home-page {
 	.img-container {
 		grid-column: 1 /-1;
-		padding-block-start: em(20px);
-		min-height: em(411px);
+		padding-block-start: em(30px);
+
+		min-height: fit-content;
 
 		img {
 			width: 100%;
+		}
+
+		@media(min-width: $mobile-breakpoint) {
+			padding-block-start: em(20px);
+			min-height: em(411px);
+			align-items: center;
 		}
 	}
 
@@ -15,15 +22,24 @@
 		flex-direction: column;
 		justify-content: center;
 		margin-inline: auto;
-		padding-block-start: em(70px);
+		padding-block-start: em(30px);
+
+		@media(min-width: $mobile-breakpoint) {
+			padding-block-start: em(70px);
+		}
 
 		h2 {
 			text-align: center;
 			font-size: rem(22px);
-			padding-block-end: 2em;
+			padding-block-end: .5em;
 			font-weight: 400;
 			font-family: $title-font;
 			color: $bg-clr6;
+			
+			@media(min-width: $mobile-breakpoint) {
+			padding-block-end: 2em;		
+		}
+
 		}
 
 		.sponsers-list {
@@ -36,6 +52,8 @@
 			li {
 				width: em(150px);
 				padding-block: 1.5em;
+				display: flex;
+				justify-content: center;
 
 				img {
 					width: em(110px);
@@ -80,29 +98,28 @@
 					padding: 0.6em;
 				}
 
-				button {
-					height: em(40px);
-					display: flex;
-					align-items: center;
-					padding: 8px 14px 8px 16px;
+			button {
+				height: em(40px);
+				display: none;
+				padding: 8px 14px 8px 16px;
 
 					.btn-title {
 						padding-inline-end: 8px;
 					}
 
-					.btn-title,
-					.btn-arrow {
-						font-size: rem(13px);
-						color: $clr0;
-						font-family: $title-font;
-						font-weight: 300;
-						transition: padding 0.4s;
-					}
-
-					&:hover .btn-arrow {
-						padding-inline-start: 0.8em;
-					}
+				.btn-title,
+				.btn-arrow {
+					font-size: rem(13px);
+					color: $clr0;
+					font-family: $title-font;
+					font-weight: 300;
+					transition: padding 0.4s;
 				}
+
+				&:hover .btn-arrow {
+					padding-inline-start: 0.8em;
+				}
+			}
 
 				a {
 					text-decoration: none;
@@ -128,19 +145,29 @@
 .home-main {
 	.titles-container {
 		display: flex;
-		width: em(754px);
+		max-width: rem(375px);
 		flex-direction: column;
 		align-items: center;
 		margin-inline: auto;
 		text-align: center;
 		font-family: $title-font;
-		padding-block-start: 4em;
+		padding-block-start: 2em;
 		color: $bg-clr6;
+		
+		@media(min-width: $mobile-breakpoint) {
+			max-width: em(754px);
+			padding-block-start: 4em;
+
+		}
 
 		span.main-title {
-			font-size: 4.4rem;
+			font-size: rem(44px);
 			font-weight: 600;
 			padding-block-end: 0.55em;
+
+			@media (min-width :$mobile-breakpoint) {
+				font-size: 4.4rem;
+			}
 		}
 
 		span.secondary-title {
@@ -152,6 +179,18 @@
 	.card-container {
 		margin-block: em(56px);
 		width: 100%;
+
+		.cards-section {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 1em;
+
+			@media (min-width :$mobile-breakpoint) {
+				display: flex;
+				justify-content: center;
+			}
+		}
 
 		img {
 			height: em(40px);

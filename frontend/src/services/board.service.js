@@ -328,7 +328,6 @@ async function duplicateTask(boardId, group, task, boolean, action = {}) {
 
 		const activity = getEmptyActivity(board, newTask.id, action)
 		board.activities.unshift(activity)
-
 		await save(board)
 		return board
 	} catch (err) {
@@ -350,9 +349,9 @@ async function updateLabels(board, labelsName, labels, action = {}) {
 	}
 }
 
-function getTaskById(board, groupId, taskId) {
+function getTaskById(board, taskId) {
 	const newBoard = structuredClone(board)
-	const group = newBoard.groups.find(g => g.id === groupId)
+	const group = newBoard.groups.find(g => g.tasks.find(t => t.id === taskId))
 	const task = group.tasks.find(t => t.id === taskId)
 	return task
 }
@@ -408,6 +407,29 @@ async function removeTask(boardId, taskId, action = {}) {
 
 		const activity = getEmptyActivity(board, taskId, action)
 		board.activities.unshift(activity)
+
+		await save(board)
+		return board
+	} catch (err) {
+		throw err
+	}
+}
+
+async function removeBatchTasks(boardId, taskIds, actions = []) {
+	console.log(actions)
+	try {
+		const board = await getById(boardId)
+		board.groups = board.groups.map(group => ({
+			...group,
+			tasks: group.tasks.filter(t => {
+				const keepTask = !taskIds.includes(t.id)
+				if (!keepTask) {
+					const activity = getEmptyActivity(board, t.id, actions.splice(0, 1)[0]) // splice first item, and send it to getEmptyActivity
+					board.activities.unshift(activity)
+				}
+				return keepTask
+			}),
+		}))
 
 		await save(board)
 		return board
@@ -478,10 +500,11 @@ async function removeGroup(boardId, groupId, action = {}) {
 	}
 }
 
-function getActivityFilter() {
+function getActivityFilter(taskId = '') {
 	return {
 		txt: '',
 		member: '',
+		taskId,
 	}
 }
 
@@ -534,8 +557,15 @@ function loadActivities(board, filter = {}) {
 		const regex = new RegExp(filter.txt, 'i')
 		filteredActivities = filteredActivities.filter(activity => regex.test(activity.action.description))
 	}
+
 	if (filter.member) {
 		filteredActivities = filteredActivities.filter(activity => activity.by.fullname !== filter.member)
+	}
+
+	if (filter.taskId) {
+		// const currTask = getTaskById(filter.taskId)
+		filteredActivities = filteredActivities.filter(activity => activity.entityId === filter.taskId)
+		console.log('filteredActivities', filteredActivities)
 	}
 	return filteredActivities
 }
@@ -572,6 +602,7 @@ export const boardService = {
 	addBoard,
 	loadActivities,
 	getActivityFilter,
+	removeBatchTasks,
 }
 
 // component types

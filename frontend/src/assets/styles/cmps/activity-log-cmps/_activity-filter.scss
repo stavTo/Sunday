@@ -3,12 +3,19 @@
     // margin-block: rem(12px);
     margin-block-end: rem(16px);
     justify-content: flex-start;
+    // justify-content: space-between;
     
     .input-container {
         height: 2em;
         border: 1px solid $input-border;
         border-radius: 4px;
-        width: rem(150px);
+        width: rem(200px);
+        
+                
+    
+            @media screen and (min-width: $mobile-breakpoint) {
+                width: rem(150px);
+            }
 
         input[type="search"] {
             all: unset;

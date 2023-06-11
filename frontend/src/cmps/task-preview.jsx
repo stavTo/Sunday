@@ -11,6 +11,7 @@ import { TOGGLE_CHECKED_TASK } from '../store/selected-task.reducer'
 import { useEffect, useState } from 'react'
 import { TaskOptionsMenu } from './task-options-menu'
 import { usePopper } from 'react-popper'
+import { useLongPress } from '../customHooks/useLongPress'
 
 const STATUS_PICKER = 'statusPicker'
 const PRIORITY_PICKER = 'priorityPicker'
@@ -46,6 +47,14 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected, s
 		setIsOptionOpen(false)
 	}
 
+	function onLongPress() {
+		setIsOptionOpen(true)
+	}
+
+	const longPressEvent = useLongPress(onLongPress, () => {}, {
+		shouldPreventDefault: false,
+	})
+
 	return (
 		<>
 			{isOptionOpen && (
@@ -53,7 +62,7 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected, s
 					<TaskOptionsMenu task={task} group={group} setIsOptionOpen={setIsOptionOpen} />
 				</div>
 			)}
-			<ul className="task-preview task-row clean-list">
+			<ul className="task-preview task-row clean-list" {...longPressEvent}>
 				<div className="task-option-container" ref={setReferenceElement}>
 					<div onClick={() => setIsOptionOpen(prev => !prev)} className="task-option btn-primary">
 						{ICON_OPTIONS}

@@ -15,8 +15,8 @@ export function GroupList({ groups }) {
 
 	async function handleDrag(result) {
 		if (!result.destination) return //if moved outside of containers, we exit.
-		if (result.type === 'group') handleGroupDrag(result)
-		else handleTaskDrag(result)
+		if (result.type === 'group') await handleGroupDrag(result)
+		else await handleTaskDrag(result)
 		setIsDragDisabled(false)
 	}
 
@@ -44,13 +44,9 @@ export function GroupList({ groups }) {
 
 		//if group is the same, we use only source group. else, we use both groups.
 		//TODO make this code DRY
-		if (sourceGroupId === destinationGroupId) {
-			const [task] = sourceGroup.tasks.splice(sourceIdx, 1)
-			sourceGroup.tasks.splice(destinationIdx, 0, task)
-		} else {
-			const [task] = sourceGroup.tasks.splice(sourceIdx, 1)
-			destinationGroup.tasks.splice(destinationIdx, 0, task)
-		}
+		const [task] = sourceGroup.tasks.splice(sourceIdx, 1)
+		const groupToAppend = sourceGroupId === destinationGroupId ? sourceGroup : destinationGroup
+		groupToAppend.tasks.splice(destinationIdx, 0, task)
 
 		// save changed groups to board. Source first, so if the change was made in source, we exit.
 		boardToSave.groups = boardToSave.groups.map(g => {

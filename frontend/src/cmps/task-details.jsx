@@ -9,6 +9,8 @@ import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { utilService } from '../services/util.service'
 import imgEmptyPage from '../assets/img/img/pulse-page-empty-state.svg'
+import { ActivityFilter } from './activity-log-cmps/activity-filter'
+import { ActivityPreview } from './activity-log-cmps/activity-preview'
 
 export function TaskDetails() {
 	const { taskId, boardId } = useParams()
@@ -39,7 +41,7 @@ export function TaskDetails() {
 	async function loadGroup() {
 		try {
 			const newGroup = boardService.getGroupByTask(board, taskId)
-			const currTask = boardService.getTaskById(board, newGroup.id, taskId)
+			const currTask = boardService.getTaskById(board, taskId)
 			setTitleToChange(currTask.title)
 			setTask(currTask)
 		} catch (err) {
@@ -136,49 +138,76 @@ export function TaskDetails() {
 						</li>
 					</ul>
 				</div>
-
-				<section className="editor-container ">
-					{isEditorOpen ? (
-						<>
-							<div className="new-post editor text-cursor">
-								<ReactQuillWrapper setCommentToEdit={setCommentToEdit} />
-							</div>
-							<div className="update-btn pointer" onClick={onSaveComment}>
-								Update
-							</div>
-						</>
-					) : (
-						<div className="new-post" onClick={() => setIsEditorOpen(true)}>
-							Write an update...
-						</div>
-					)}
-
-					<section className="comments-container">
-						<ul className="clean-list">
-							{!!task.comments.length ? (
-								task.comments.map(comment => (
-									<li className="comment" key={comment.id}>
-										<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>
-									</li>
-								))
-							) : (
-								<div className="no-comments">
-									<div className="img-container">
-										<img src={imgEmptyPage} alt="" />
-									</div>
-									<div className="titles-container">
-										<h2>No updates yet for this item</h2>
-										<p>
-											Be the first one to update about progress, mention someone or upload files
-											to share with your team members
-										</p>
-									</div>
+				{/* Condition rendering starts here */}
+				{activeTab === 'updates' ? (
+					<section className="editor-container ">
+						{isEditorOpen ? (
+							<>
+								<div className="new-post editor text-cursor">
+									<ReactQuillWrapper setCommentToEdit={setCommentToEdit} />
 								</div>
-							)}
-						</ul>
+								<div className="update-btn pointer" onClick={onSaveComment}>
+									Update
+								</div>
+							</>
+						) : (
+							<div className="new-post" onClick={() => setIsEditorOpen(true)}>
+								Write an update...
+							</div>
+						)}
+
+						<section className="comments-container">
+							<ul className="clean-list">
+								{!!task.comments.length ? (
+									task.comments.map(comment => (
+										<li className="comment" key={comment.id}>
+											<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>
+										</li>
+									))
+								) : (
+									<div className="no-comments">
+										<div className="img-container">
+											<img src={imgEmptyPage} alt="" />
+										</div>
+										<div className="titles-container">
+											<h2>No updates yet for this item</h2>
+											<p>
+												Be the first one to update about progress, mention someone or upload
+												files to share with your team members
+											</p>
+										</div>
+									</div>
+								)}
+							</ul>
+						</section>
 					</section>
-				</section>
+				) : (
+					<TaskActivityLog board={board} taskId={taskId} />
+				)}
 			</section>
 		</>
+	)
+}
+
+function TaskActivityLog({ board, taskId }) {
+	const [activities, setActivities] = useState([])
+	const [filter, setFilter] = useState(boardService.getActivityFilter(taskId))
+
+	useEffect(() => {
+		setActivities(boardService.loadActivities(board, filter))
+	}, [filter, board])
+
+	return (
+		<div className="activity-list">
+			<ul className="clean-list">
+				{activities.map(activity => {
+					return (
+						<li key={activity.id}>
+							<ActivityPreview activity={activity} filter={filter} />
+						</li>
+					)
+				})}
+			</ul>
+		</div>
 	)
 }

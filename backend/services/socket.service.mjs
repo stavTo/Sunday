@@ -16,7 +16,7 @@ export function setupSocketAPI(server) {
         })
 
         socket.on('task-set-topic', topic => {
-            console.log("topic", topic)
+            // console.log("topic", topic)
             if (socket.myTopic === topic) return
             if (socket.myTopic) {
                 socket.leave(socket.myTopic)
@@ -27,21 +27,14 @@ export function setupSocketAPI(server) {
         })
 
         socket.on('task-send-msg', msg => {
-            console.log("msg, socket.myTask", msg, socket.myTopic)
+            // console.log("msg, socket.myTask", msg, socket.myTopic)
             logger.info(`New task msg from socket [id: ${socket.id}], emitting to task ${socket.myTopic}`)
-            // emits to all sockets:
-            // gIo.emit('task-add-msg', msg)
-            // emits only to sockets in the same room
-            // so.cket.to(socket.myTask).emit('task-add-msg', msg)
-            // socket.broadcast.to(socket.myTask).emit('task-add-msg', msg)
-            console.log("msg", msg)
-            // gIo.broadcast.to(socket.myTopic).emit('task-add-msg', msg)
+            // console.log("msg", msg)
             socket.broadcast.to(socket.myTopic).emit('task-add-msg', msg)
         })
         
         socket.on('send-board', board => {
             logger.info(`New task added socket [id: ${socket.id}]`)
-            // console.log("board", board)
             socket.broadcast.emit('load-board')
         })
 

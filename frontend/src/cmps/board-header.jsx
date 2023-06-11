@@ -1,5 +1,5 @@
 import { addGroup, addTaskToFirstGroup, saveBoard } from '../store/selected-board.actions'
-import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_STAR_STARRED } from '../assets/icons/icons'
+import { ICON_INFO, ICON_STAR, ICON_INVITE_MEMBERS, ICON_STAR_STARRED, ICON_OPTIONS } from '../assets/icons/icons'
 import { BoardFilter } from './board-filter-cmps/board-filter'
 import { BoardToolbar } from './board-toolbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -17,6 +17,8 @@ export function BoardHeader({ board }) {
 	const [titleToChange, setTitleToChange] = useState(board.title)
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [isAddGroupModalOpen, setIsAddGroupModalOpen] = useState(false)
+
+	const [isMenuToggle, setIsMenuToggle] = useState(false)
 
 	useEffect(() => {
 		document.addEventListener('mousedown', onSetOptionClose)
@@ -125,7 +127,8 @@ export function BoardHeader({ board }) {
 							</TippyContainer>
 						)}
 					</div>
-					<div className="board-header-top-right">
+					<div className="menu-btn btn-primary" onClick={() => setIsMenuToggle(prev => !prev)}>{ICON_OPTIONS}</div>
+					<div className={`board-header-top-right  ${isMenuToggle ? 'open-menu' : ''}`}>
 						<div className="activity-container btn-primary">
 							<Link className="open-task-details" to={`/boards/${board._id}/activity_log/`}>
 								Activity
@@ -149,7 +152,7 @@ export function BoardHeader({ board }) {
 					{isAddGroupModalOpen && <AddGroupModal onAddGroup={onAddGroup} />}
 					<BoardFilter board={board} />
 				</div>
-			</section>
+			</section >
 			{isInviteOpen && (
 				<>
 					<div className="invite-members-modal">
@@ -170,7 +173,8 @@ export function BoardHeader({ board }) {
 					</div>
 					<div className="modal-overlay" onClick={() => setIsInviteOpen(false)}></div>
 				</>
-			)}
+			)
+			}
 			{isInfoOpen && <BoardInfo board={board} setIsInfoOpen={setIsInfoOpen} />}
 		</>
 	)

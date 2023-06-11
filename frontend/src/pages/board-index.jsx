@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { SideBar } from '../cmps/side-bar'
 import { loadBoards } from '../store/board.actions'
 import { useSelector } from 'react-redux'
@@ -11,6 +11,7 @@ import { IndexInbox } from '../cmps/index-cmps/IndexInbox.jsx'
 
 export function BoardIndex() {
 	const boards = useSelector(({ boardModule }) => boardModule.boards)
+	const [toggleInputModal, setToggleInputModal] = useState(false)
 
 	document.title = 'My Boards'
 
@@ -40,8 +41,14 @@ export function BoardIndex() {
 						<BoardList boards={boards} />
 						<IndexInbox />
 					</section>
-					<BoardIndexAside />
+					<BoardIndexAside setToggleInputModal={setToggleInputModal} toggleInputModal={toggleInputModal} />
 				</section>
+				{toggleInputModal &&
+					<div className="template-modal" style={{ 'width': '400px', 'height': '400px', backgroundColor: 'white' }}>
+						<h1>To create a new board with a ready-made template, please insert your desired template</h1>
+						<input type="text"></input>
+					</div>
+				}
 			</section>
 		</section>
 	)

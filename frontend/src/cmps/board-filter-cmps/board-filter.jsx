@@ -89,7 +89,7 @@ export function BoardFilter({ board }) {
 					{active === 'member' && <MemberFilter setFilter={setFilter} board={board}></MemberFilter>}
 				</div>
 			</TippyContainer>
-			<TippyContainer txt={'Filter by anything'} offset={[0, 15]} delay={[0, 0]}>
+			{/* <TippyContainer txt={'Filter by anything'} offset={[0, 15]} delay={[0, 0]}>
 				<div
 					className={`filter-container btn-primary ${active === 'filter' && 'active'}`}
 					onClick={ev => onSetActive(ev, 'filter')}
@@ -97,8 +97,8 @@ export function BoardFilter({ board }) {
 					<span className="filter-icon">{FILTER_FILTER}</span>
 					<span className="filter-text">Filter</span>
 				</div>
-			</TippyContainer>
-			<TippyContainer txt={'Sort by any  column'} offset={[0, 15]} delay={[0, 0]}>
+			</TippyContainer> */}
+			{/* <TippyContainer txt={'Sort by any  column'} offset={[0, 15]} delay={[0, 0]}>
 				<div
 					className={`sort-container btn-primary ${active === 'sort' && 'active'}`}
 					onClick={ev => onSetActive(ev, 'sort')}
@@ -106,8 +106,8 @@ export function BoardFilter({ board }) {
 					<span className="filter-icon">{FILTER_SORT}</span>
 					<span className="filter-text">Sort</span>
 				</div>
-			</TippyContainer>
-			<TippyContainer txt={'Hidden columns'} offset={[0, 15]} delay={[0, 0]}>
+			</TippyContainer> */}
+			{/* <TippyContainer txt={'Hidden columns'} offset={[0, 15]} delay={[0, 0]}>
 				<div
 					className={`hide-container btn-primary ${active === 'hide' && 'active'}`}
 					onClick={ev => onSetActive(ev, 'hide')}
@@ -115,7 +115,7 @@ export function BoardFilter({ board }) {
 					<span className="filter-icon">{FILTER_HIDE}</span>
 					<span className="filter-text">Hide</span>
 				</div>
-			</TippyContainer>
+			</TippyContainer> */}
 		</section>
 	)
 }

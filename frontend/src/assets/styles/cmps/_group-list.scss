@@ -1,10 +1,15 @@
 .group-list {
-	padding: 18px 0px 40px;
+	padding: 0px 0px 40px;
 	width: 100%;
+	
+	@media (min-width: $mobile-breakpoint) {
+		padding: 18px 0px 40px;
+	}
 
 	min-width: 1100px;
 	.add-group-btn {
 		position: sticky;
+		// Ignore in regards to mq
 		left: $task-row-height;
 		border: 1px solid rgb(195, 198, 212);
 		border-radius: 4px;

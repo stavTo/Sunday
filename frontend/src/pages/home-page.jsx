@@ -51,8 +51,9 @@ export function HomePage() {
 	}
 
 	function onNavigate() {
-		if (boards[0]) navigate(`/boards/${boards[0]._id}`)
-		else navigate(`/boards/${boards._id}`)
+		// if (boards[0]) navigate(`/boards/${boards[0]._id}`)
+		// else navigate(`/boards/${boards._id}`)
+		navigate('/boards')
 	}
 
 	return (
@@ -84,7 +85,7 @@ export function HomePage() {
 					<span className="secondary-title">What would you like to manage with sunday.com Work OS?</span>
 				</div>
 				<section className="card-container full">
-					<div className="cards-section flex justify-center">
+					<div className="cards-section">
 						<div className="card">
 							<div className="icon-container">
 								<img src={designIcon} alt="" />

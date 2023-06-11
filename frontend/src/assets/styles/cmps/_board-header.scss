@@ -4,7 +4,11 @@
 	left: 0;
 	background-color: $clr0;
 	z-index: 70;
-	padding: 16px 30px 0px 38px;
+	padding: 16px 30px 0px 5px;
+
+	@media (min-width: $mobile-breakpoint) {
+		padding: 16px 30px 0px 38px;
+	}
 
 	.add-group-modal {
 		position: absolute;
@@ -36,6 +40,12 @@
 		height: 48px;
 		display: flex;
 		justify-content: space-between;
+		margin-inline-start: 10px;
+		align-items: center;
+
+		@media screen and (min-width: $mobile-breakpoint) {
+			margin-inline-start: 0px;
+		}
 
 		.board-header-top-left {
 			display: flex;
@@ -46,7 +56,7 @@
 			}
 
 			.board-name {
-				font-size: em(32px);
+				font-size: rem(32px);
 				font-weight: 500;
 				margin-inline-end: 8px;
 
@@ -69,14 +79,56 @@
 			}
 		}
 
+		.menu-btn {
+			max-height: max-content;
+			height: 22px;
+			width: 22px;
+			display: flex;
+			justify-content: center;
+
+			@media screen and (min-width: $mobile-breakpoint) {
+				display: none;
+			}
+
+			svg {
+				align-self: center;
+			}
+		}
+
 		.board-header-top-right {
 			font-size: em(14px);
-			display: flex;
-			gap: 8px;
-			align-self: center;
-			align-items: center;
+			display: none;
 
-			&>* {
+			&.open-menu {
+				position: absolute;
+				z-index: 5;
+				right: 2.5em;
+				display: flex;
+				flex-direction: column;
+				gap: 0.5em;
+				background: $clr0;
+				box-shadow: $default-box-shadow;
+				padding: 1em;
+				border-radius: 8px;
+				top: 4.5em;
+
+				.activity-container {
+					justify-content: center;
+					cursor: pointer;
+					border: 1px solid #c3c6d4;
+					border-radius: 4px;
+				}
+
+				.menu-btn {
+					position: absolute;
+					right: 0;
+					max-height: max-content;
+					height: 22px;
+					width: 22px;
+				}
+			}
+
+			& > * {
 				height: 32px;
 				cursor: pointer;
 			}
@@ -109,6 +161,13 @@
 				justify-content: center;
 				height: 40px;
 				width: 32px;
+			}
+
+			@media screen and (min-width: $mobile-breakpoint) {
+				display: flex;
+				gap: 8px;
+				align-self: center;
+				align-items: center;
 			}
 		}
 
@@ -152,6 +211,7 @@
 	flex-direction: column;
 	top: 50%;
 	left: 50%;
+	max-width: 100vw;
 	transform: translate(-50%, -50%);
 
 	img {

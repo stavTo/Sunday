@@ -4,7 +4,7 @@ import { SET_CHECKED_TASKS } from '../store/selected-task.reducer'
 import { HiOutlineArrowRightCircle } from 'react-icons/hi2'
 import { VscTrash } from 'react-icons/vsc'
 import { IoDocumentsOutline } from 'react-icons/io5'
-import { duplicateTask, removeTask } from '../store/selected-board.actions'
+import { duplicateTask, removeBatchTasks, removeTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { boardService } from '../services/board.service'
@@ -17,21 +17,22 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 	}
 
 	//TODO send one call to server and delete batch
+
 	async function onRemove() {
-		for (let taskId of checkedTaskIds) {
-			try {
-				const group = boardService.getGroupByTask(board, taskId)
-				const task = await boardService.getTaskById(board, group.id, taskId)
-				const action = {
-					description: task.title,
-					groupTitle: group.title,
-					groupColor: group.style.color,
-					type: 'Deleted task',
-				}
-				await removeTask(board._id, taskId, action)
-			} catch {
-				showErrorMsg('Error deleting tasks')
+		const actions = checkedTaskIds.map(taskId => {
+			const group = boardService.getGroupByTask(board, taskId)
+			const task = boardService.getTaskById(board, taskId)
+			return {
+				description: task.title,
+				groupTitle: group.title,
+				groupColor: group.style.color,
+				type: 'Deleted task',
 			}
+		})
+		try {
+			await removeBatchTasks(board._id, checkedTaskIds, actions)
+		} catch {
+			showErrorMsg('Error deleting tasks')
 		}
 	}
 
@@ -40,7 +41,7 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 		for (let taskId of checkedTaskIds) {
 			try {
 				const group = await boardService.getGroupByTask(board, taskId)
-				const task = await boardService.getTaskById(board, group.id, taskId)
+				const task = await boardService.getTaskById(board, taskId)
 				await duplicateTask(board._id, group, task, true)
 			} catch (err) {
 				showErrorMsg('Error duplicating tasks')

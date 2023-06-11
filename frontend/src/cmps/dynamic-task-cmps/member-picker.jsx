@@ -118,7 +118,7 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 			newTask = { ...task, collaborators: [...task.collaborators, member] }
 			action.description = newTask.title
 			action.member = member
-			action.type = 'People'
+			action.type = 'Collaborator'
 		}
 		try {
 			await saveTask(board._id, groupId, newTask, action)

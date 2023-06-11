@@ -7,6 +7,7 @@ html {
 	font-family: Figtree, Roboto, Rubik, sans-serif;
 	line-height: 1.15;
 	color: $clr1;
+	font-size: 14px;
 }
 
 body,
@@ -54,4 +55,21 @@ embed,
 video,
 object {
 	max-width: 100%;
+}
+
+@media screen and (min-width: $mobile-breakpoint) {
+	:root {
+		--left-side-width: 400px;
+		--left-margin-size: 36px;
+		font-size: 16px;
+	}
+}
+
+@media screen and (max-width: $mobile-breakpoint) {
+	* {
+		::-webkit-scrollbar {
+			display: none;
+			-webkit-appearance: none;
+		}
+	}
 }
