@@ -51,8 +51,9 @@ export function HomePage() {
 	}
 
 	function onNavigate() {
-		if (boards[0]) navigate(`/boards/${boards[0]._id}`)
-		else navigate(`/boards/${boards._id}`)
+		// if (boards[0]) navigate(`/boards/${boards[0]._id}`)
+		// else navigate(`/boards/${boards._id}`)
+		navigate('/boards')
 	}
 
 	return (
