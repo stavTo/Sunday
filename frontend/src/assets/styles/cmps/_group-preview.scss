@@ -21,7 +21,6 @@
 
 	.color-picker {
 		width: rem(125px);
-		// height: rem(135px);
 		background-color: $clr0;
 		border: 1px $input-hover-border-clr solid;
 		border-radius: 4px;
@@ -93,7 +92,6 @@
 	.group-header {
 		position: sticky;
 		left: 0;
-		// max-width: max-content;
 		z-index: 30;
 		display: flex;
 		align-items: center;
@@ -184,8 +182,8 @@
 			.group-option {
 				opacity: 0;
 				svg {
-					width: 22px;
-					height: 22px;
+					width: var(--options-size);
+					height: var(--options-size);
 				}
 			}
 		}

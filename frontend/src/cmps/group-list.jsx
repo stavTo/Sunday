@@ -64,19 +64,19 @@ export function GroupList({ groups }) {
 		}
 	}
 
-	function onBeforeDragStart() {
-		setAllGroupsCollapsed(true)
+	function onDragStart(ev) {
+		if (ev.type === 'group') {
+			setAllGroupsCollapsed(true)
+		}
 		setIsDragDisabled(true)
 	}
-
-	function onBeforeCapture(beforeCapture) {}
 
 	if (!board._id) return
 	return (
 		<DragDropContext
-			onBeforeCapture={onBeforeCapture}
 			onDragEnd={handleDrag}
-			onBeforeDragStart={onBeforeDragStart}
+			onDragStart={onDragStart}
+			onBeforeDragStart={onDragStart}
 			disableDraggingDuringDrag={isDragDisabled}
 		>
 			<Droppable droppableId={board._id} type="group">

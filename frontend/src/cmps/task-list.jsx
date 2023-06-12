@@ -19,7 +19,6 @@ export function TaskList({ tasks, group, setIsGroupSelected }) {
 	function unsetActiveTask() {
 		setActiveTask('')
 	}
-
 	return (
 		<Droppable droppableId={group.id}>
 			{(provided, snapshot) => (

@@ -77,8 +77,8 @@
 		opacity: 0;
 
 		svg {
-			height: 22px;
-			width: 22px;
+			height: var(--options-size);
+			width: var(--options-size);
 		}
 	}
 

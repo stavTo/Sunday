@@ -128,7 +128,7 @@ export function GroupPreview({ group, provided, isGroupCollapsed }) {
 	}
 
 	const longPressEvent = useLongPress(onLongPress, () => {}, {
-		shouldPreventDefault: true,
+		shouldPreventDefault: false,
 	})
 
 	return (
