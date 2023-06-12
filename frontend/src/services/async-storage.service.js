@@ -20,7 +20,6 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
-	// console.log("newEntity", newEntity)
 	newEntity = JSON.parse(JSON.stringify(newEntity))
 	newEntity._id = _makeId()
 	return query(entityType).then(entities => {
