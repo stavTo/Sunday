@@ -49,9 +49,6 @@ export function SideBar({ isExpandable = true }) {
 										{ICON_WORK_MANAGEMENT}
 									</li>
 								</TippyContainer>
-								<TippyContainer txt={'My Work'} placement="right" offset={[0, 20]}>
-									<li className="flex my-work">{ICON_MY_WORK}</li>
-								</TippyContainer>
 								<TippyContainer txt={'Favorites'} placement="right" offset={[0, 20]}>
 									<li className="flex favorites" onClick={onToggleFavorites}>
 										{ICON_FAVORITES}
