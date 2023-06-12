@@ -10,7 +10,7 @@ import { BoardIndexAside } from '../cmps/index-cmps/BoardIndexAside'
 import { IndexInbox } from '../cmps/index-cmps/IndexInbox.jsx'
 import { ICON_CLOSE } from '../assets/icons/icons'
 // import { config } from 'dotenv'
-import { Configuration, OpenAIApi } from 'openai'
+// import { Configuration, OpenAIApi } from 'openai'
 import { boardService } from '../services/board.service'
 import { utilService } from '../services/util.service'
 
@@ -21,7 +21,7 @@ export function BoardIndex() {
 	const [toggleInputModal, setToggleInputModal] = useState(false)
 	const [aiQuery, setAiQuery] = useState('')
 	const gptAnswers = []
-
+	console.log("boards:", boards)
 	document.title = 'My Boards'
 
 	useEffect(() => {
@@ -43,7 +43,7 @@ export function BoardIndex() {
 	function handleSubmit(ev) {
 		ev.preventDefault();
 		// sendToGpt()
-		createNewBoard()
+		// createNewBoard()
 	}
 
 	// const openai = new OpenAIApi(new Configuration({
@@ -63,22 +63,22 @@ export function BoardIndex() {
 		{ "role": "user", "content": `My projects theme is: ${aiQuery}` }]
 	}
 
-	async function sendToGpt() {
-		const res = await openai.createChatCompletion({
-			model: "gpt-3.5-turbo",
-			max_tokens: 1000,
-			temperature: 0.3,
-			messages: getAiInstructions()
-		})
-		const result = res.data.choices[0].message.content
-		handleGptInstructions(result)
-	}
+	// async function sendToGpt() {
+	// 	const res = await openai.createChatCompletion({
+	// 		model: "gpt-3.5-turbo",
+	// 		max_tokens: 1000,
+	// 		temperature: 0.3,
+	// 		messages: getAiInstructions()
+	// 	})
+	// 	const result = res.data.choices[0].message.content
+	// 	handleGptInstructions(result)
+	// }
 
-	function handleGptInstructions(result) {
-		console.log("JSON.parse(result):", JSON.parse(result))
-		const res = JSON.parse(result)
-		createNewBoard(res)
-	}
+	// function handleGptInstructions(result) {
+	// 	console.log("JSON.parse(result):", JSON.parse(result))
+	// 	const res = JSON.parse(result)
+	// 	createNewBoard(res)
+	// }
 
 	async function createNewBoard(aiBoard) {
 		addBoard(boardService.getEmptyBoard())
@@ -124,18 +124,6 @@ export function BoardIndex() {
 	// 	})
 	// 	addBoard(board)
 	// }
-
-	const Obj = {
-		boardName: 'Board Name',
-		groups: [
-			{
-				groupName: 'Group Name',
-				tasks: [
-					'Task description1',
-					'Task description2',
-					'Task description3']
-			}]
-	}
 
 	if (!boards) return <BoardLoader />
 
