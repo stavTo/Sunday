@@ -25,7 +25,6 @@ function getUsers() {
 
 async function getById(userId) {
 	return httpService.get(BASE_URL + userId)
-
 }
 
 function remove(userId) {
@@ -62,7 +61,7 @@ function saveLocalUser(user) {
 		title: user.title || '',
 		phone: user.phone || '',
 		skype: user.skype || '',
-		location: user.location || ''
+		location: user.location || '',
 	}
 	sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
 	return user
@@ -85,9 +84,8 @@ function getEmptyCredentials(fullname = '', email = '', password = '') {
 	return {
 		fullname,
 		email,
-		password
+		password,
 	}
-
 }
 
 async function changePassword(credentials) {
@@ -98,11 +96,10 @@ function getDefaultModalData() {
 	const user = getLoggedInUser()
 
 	return {
-		title: user.title,
-		email: user.email,
-		phone: user.phone,
-		skype: user.skype,
-		location: user.location,
+		title: user.title || '',
+		email: user.email || '',
+		phone: user.phone || '',
+		skype: user.skype || '',
+		location: user.location || '',
 	}
 }
-
