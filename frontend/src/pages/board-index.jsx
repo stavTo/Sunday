@@ -12,7 +12,6 @@ import { ICON_CLOSE } from '../assets/icons/icons'
 // import { config } from 'dotenv'
 // import { Configuration, OpenAIApi } from 'openai'
 import { boardService } from '../services/board.service'
-import { utilService } from '../services/util.service'
 
 // config()
 
@@ -21,10 +20,10 @@ export function BoardIndex() {
 	const [toggleInputModal, setToggleInputModal] = useState(false)
 	const [aiQuery, setAiQuery] = useState('')
 	const gptAnswers = []
-	document.title = 'My Boards'
 
 	useEffect(() => {
 		onLoadBoards()
+		document.title = 'My Boards'
 	}, [])
 
 	async function onLoadBoards() {
@@ -60,7 +59,7 @@ export function BoardIndex() {
 			{
 				role: 'system',
 				content: `
-		You are an AI assistant helping with the creation of project management templates for a project management app. Please provide in your response ONLY a valid JSON string that can be parsed back to an object that includes the board name, groups, and tasks based on the given user input. the tasks and the division of groups must be realted to the subject of the theme that the user has entered. You MUST not reply in any other way that is not according to the following format: "{boardName:\"Board Name\",groups:[{title:\"Group Name\",tasks:[{title:\"Task description1\"},{title:\"Task description2\"},{title:\"Task description3\"}]}]}". You MUST send it in a valid JSON format, without redundant quotes or curly brackets/ regular brackets, so it will be possible to JSON.parse your response. DO NOT forget to wrap ALL keys and their values with apostrophes.`,
+		You are an AI assistant helping with the creation of project management templates for a project management app. Please provide in your response ONLY a valid JSON string that can be parsed back to an object that includes the board name, groups, and tasks based on the given user input. the tasks and the division of groups must be realted to the subject of the theme that the user has entered. You MUST not reply in any other way that is not according to the following format: "{boardName:"Board Name",groups:[{title:"Group Name",tasks:[{title:"Task description1"},{title:"Task description2"},{title:"Task description3"}]}]}". You MUST send it in a valid JSON format, without redundant quotes or curly brackets/ regular brackets, so it will be possible to JSON.parse your response. DO NOT forget to wrap ALL keys and their values with apostrophes.`,
 			},
 			{ role: 'user', content: `My projects theme is: ${aiQuery}` },
 		]
@@ -85,15 +84,13 @@ export function BoardIndex() {
 
 	async function createNewBoard(aiBoard) {
 		addBoard(boardService.getEmptyBoard())
-		console.log('aiBoard:', aiBoard)
 		const lastBoard = await boardService.getLastBoard()
-		console.log('lastBoard:', lastBoard)
 
 		lastBoard.title = aiBoard.boardName
 
-		aiBoard.groups.map(aiGroup => {
+		aiBoard.groups.forEach(aiGroup => {
 			boardService.addGroup(lastBoard._id, true, aiGroup.title)
-			aiGroup.tasks.map(aiTask => {
+			aiGroup.tasks.forEach(aiTask => {
 				boardService.addTask(lastBoard._id)
 				// boardId, groupId, task, action = {}
 			})

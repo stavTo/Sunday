@@ -16,7 +16,6 @@ export function BoardInfo({ board, setIsInfoOpen }) {
 
 	function handleInfoChange({ target }) {
 		const value = target.value
-		console.log(value)
 		setDescriptionToEdit(value)
 	}
 

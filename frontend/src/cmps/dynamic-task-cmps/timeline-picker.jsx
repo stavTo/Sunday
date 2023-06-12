@@ -67,7 +67,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 				groupColor,
 				type: 'Timeline',
 			}
-			console.log('action:', action)
 			await saveTask(board._id, groupId, taskToEdit, action)
 		} catch {
 			showErrorMsg('Something went wrong')

@@ -5,10 +5,11 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 	const [isHovered, setIsHovered] = useState(false)
 	const [groupHasTimeline, setGroupHasTimeline] = useState(getGroupTimelines())
 	const [timeline, setTimeline] = useState({})
-	
+
 	useEffect(() => {
 		setGroupHasTimeline(getGroupTimelines())
 		calculateGroupTimeline()
+		// eslint-disable-next-line
 	}, [board, group])
 
 	function getGroupTimelines() {

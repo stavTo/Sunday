@@ -26,7 +26,7 @@ export function WorkspaceBoardList() {
 		try {
 			await loadBoards()
 		} catch {
-			console.log("couldn't load boards")
+			showErrorMsg('Cant load boards')
 		}
 	}
 

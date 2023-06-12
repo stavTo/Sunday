@@ -46,7 +46,6 @@ export function TaskDetails() {
 			setTitleToChange(currTask.title)
 			setTask(currTask)
 		} catch (err) {
-			console.log(err)
 			showErrorMsg('Had issue loading group')
 		}
 	}
@@ -94,7 +93,7 @@ export function TaskDetails() {
 			await saveTask(boardId, group.id, newTask, 'saved new comment')
 			setIsEditorOpen(false)
 		} catch (err) {
-			console.log('Cant remove comment')
+			showErrorMsg("Can't remove comment")
 		}
 	}
 

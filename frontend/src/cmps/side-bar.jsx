@@ -39,7 +39,7 @@ export function SideBar({ isExpandable = true }) {
 						<ul className="clean-list flex column align-center">
 							<li className="flex" data-tippy-content="home page">
 								<Link to="/boards">
-									<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="" />
+									<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="logo" />
 								</Link>
 							</li>
 							<hr></hr>
@@ -61,7 +61,7 @@ export function SideBar({ isExpandable = true }) {
 						<ul className="clean-list flex column align-center">
 							<TippyContainer txt={'Profile'} placement="right" offset={[0, 20]}>
 								<li className="flex profile" onClick={onOpenUserProfile}>
-									<img src={user?.imgUrl || guest} data-tippy-content="guest" />
+									<img src={user?.imgUrl || guest} alt="profile" />
 								</li>
 							</TippyContainer>
 						</ul>

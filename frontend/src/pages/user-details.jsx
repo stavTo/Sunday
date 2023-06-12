@@ -21,11 +21,10 @@ export function UserDetails() {
 	async function onChangeImg(imgUrl) {
 		try {
 			const userToSave = { ...user, imgUrl }
-			console.log(userToSave)
 			updateUser(userToSave)
 			showSuccessMsg('Image profile has changed')
 		} catch (err) {
-			console.log(err)
+			showErrorMsg('Something went wrong')
 		}
 	}
 

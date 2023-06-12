@@ -50,7 +50,6 @@ export function BoardDetails() {
 			navigate('/')
 		}
 	}
-	console.log(board.groups)
 	if (isLoading || !board) return <BoardLoader />
 	return (
 		<section className="board-details">

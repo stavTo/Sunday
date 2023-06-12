@@ -9,7 +9,6 @@ export function ActivityFilter({ onSetFilter, filter }) {
 	const [active, setActive] = useState('')
 
 	function onSetActive(ev, state) {
-		console.log('hey:', state)
 		ev.stopPropagation()
 		if (state === active) return setActive('')
 		setActive(state)

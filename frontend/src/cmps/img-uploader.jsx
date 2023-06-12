@@ -27,7 +27,9 @@ export function ImgUploader({ onUploaded = null, onChangeImg }) {
 		<>
 			<label className="upload-label" htmlFor="imgUpload"></label>
 			<div className="upload-preview">
-				{imgData.imgUrl && <img src={imgData.imgUrl} style={{ maxWidth: '200px', float: 'right' }} />}
+				{imgData.imgUrl && (
+					<img src={imgData.imgUrl} alt="uploaded" style={{ maxWidth: '200px', float: 'right' }} />
+				)}
 
 				<input type="file" onChange={uploadImg} accept="img/*" id="imgUpload" />
 			</div>

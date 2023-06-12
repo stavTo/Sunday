@@ -298,7 +298,6 @@ async function removeTask(boardId, taskId, activity = {}) {
 	// PUT /api/board/b123/task/t678
 	board.groups = board.groups.map(group => ({ ...group, tasks: group.tasks.filter(t => t.id !== taskId) }))
 	// board.board.activities.unshift(activity)
-	console.log(board)
 	await save(board)
 	return board
 }
@@ -599,7 +598,6 @@ function _getDummyBoard(boardNum) {
 // if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify([_getDummyBoard(1)]))
 
 // const boardsToSave = [_getDummyBoard(1), _getDummyBoard(1), _getDummyBoard(1), _getDummyBoard(1)]
-// console.log("getDummyBoards()", getDummyBoards())
 
 const dummyBoard1 = getEmptyBoard()
 const dummyBoard2 = {
@@ -758,7 +756,3 @@ const dummyBoard3 = {
 		},
 	],
 }
-
-// const newLocal = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
-// localStorage.setItem(STORAGE_KEY, JSON.stringify(newLocal))
-// console.log(JSON.stringify(_getDummyBoard()))

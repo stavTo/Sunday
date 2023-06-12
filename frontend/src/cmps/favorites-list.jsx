@@ -20,7 +20,7 @@ export function FavoritesList() {
 		try {
 			await loadBoards()
 		} catch {
-			console.log("couldn't load boards")
+			showErrorMsg("Can't Load Boards")
 		}
 	}
 
@@ -65,6 +65,7 @@ export function FavoritesList() {
 								</Link>
 							)
 						}
+						return
 					})}
 				</ul>
 			) : (

@@ -172,7 +172,6 @@ export function isValidTimestamp(timestamp) {
 }
 
 export function timeStampToDate(timeStamp) {
-	// console.log("timeStamp", timeStamp)
 	const timelineToSave = new Date(timeStamp).toLocaleDateString('en-US', {
 		month: 'short',
 		day: 'numeric',

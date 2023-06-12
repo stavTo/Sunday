@@ -8,6 +8,7 @@ import { loadBoard } from '../../store/selected-board.actions'
 import { TippyContainer } from '../tippy-container'
 import { utilService } from '../../services/util.service'
 import { MemberFilter } from './member-filter'
+import { showErrorMsg } from '../../services/event-bus.service'
 
 export function BoardFilter({ board }) {
 	const [filter, setFilter] = useState(boardService.getDefaultFilter())
@@ -40,7 +41,7 @@ export function BoardFilter({ board }) {
 		try {
 			debouncedLoadBoard.current(board._id, filter)
 		} catch {
-			console.log('cant load board')
+			showErrorMsg("Can't load board")
 		}
 	}
 

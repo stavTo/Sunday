@@ -42,7 +42,7 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 			setMemberList(boardUsers)
 			fullMemberList.current = boardUsers
 		} catch {
-			console.log('err')
+			showErrorMsg('Error loading members')
 		}
 	}
 
