@@ -10,23 +10,45 @@ import { showErrorMsg, showSuccessMsg, showUserMsg } from '../services/event-bus
 import { userService } from '../services/user.service'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 import { ICON_CLOSE } from '../assets/icons/icons'
+import { updateUser } from '../store/user.actions'
+import { ImgUploader } from '../cmps/img-uploader'
 
 export function UserDetails() {
 	const navigate = useNavigate()
 	const user = useSelector(storeState => storeState.userModule.user)
+
+	async function onChangeImg(imgUrl) {
+		try {
+			const userToSave = { ...user, imgUrl }
+			console.log(userToSave)
+			updateUser(userToSave)
+			showSuccessMsg('Image profile has changed')
+		} catch (err) {
+			console.log(err)
+		}
+	}
+
+
 	if (!user) return <h1>Please login</h1>
+	console.log(user)
 	return (
 		<section className="user-details">
 			<RiArrowGoBackFill className="back-icon" onClick={() => navigate('/boards')} />
 			<header className="main-header">
-				<img src={user.imgUrl} alt="User image" />
+				<div className="img-container">
+					<img src={user.imgUrl} alt="User image" />
+					<div className="change-img-profile"	>
+						<span><BsPersonFill /></span>
+						<span>Change profile picture</span>
+					</div>
+					<ImgUploader onChangeImg={onChangeImg} />
+				</div>
 				<h1>{user.fullname}</h1>
 
 				<nav className="main-nav">
 					<ul className="clean-list flex">
 						<li>
-							{' '}
-							<NavLink to="personal_info">Personal info</NavLink>{' '}
+							<NavLink to="personal_info">Personal info</NavLink>
 						</li>
 						<li>
 							<NavLink to="password">Password</NavLink>
@@ -43,7 +65,6 @@ export function PersonalInfo() {
 	const [currModalOpen, setCurrModalOpen] = useState('')
 	const [modalData, setModalData] = useState(userService.getDefaultModalData())
 	const user = useSelector(storeState => storeState.userModule.user)
-	const navigate = useNavigate()
 
 	function handleChange({ target }) {
 		const field = target.name
@@ -51,7 +72,12 @@ export function PersonalInfo() {
 		setModalData(prev => ({ ...prev, [field]: value }))
 	}
 
-	console.log(user)
+	async function onChangeData() {
+		const userToSave = { ...user, ...modalData }
+		updateUser(userToSave)
+		setCurrModalOpen('')
+	}
+
 	if (!user)
 		return (
 			<div>
@@ -111,7 +137,7 @@ export function PersonalInfo() {
 
 			{currModalOpen && (
 				<div className="modal">
-					<span className="icon-close">{ICON_CLOSE}</span>
+					<span className="icon-close" onClick={() => setCurrModalOpen('')}>{ICON_CLOSE}</span>
 					<form className="modal-form">
 						<DynamicModal
 							modalData={modalData}
@@ -120,7 +146,9 @@ export function PersonalInfo() {
 							handleChange={handleChange}
 						/>
 						<div className="btn-container">
-							<button>Save</button>
+							<button onClick={onChangeData}>
+								Save
+							</button>
 						</div>
 					</form>
 				</div>

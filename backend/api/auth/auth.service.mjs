@@ -71,7 +71,6 @@ async function changePassword(userId, newPass) {
         user.password = hash
         delete user._id
 
-        console.log('user', user)
         await collection.updateOne({ _id: ObjectId(userId) }, { $set: user })
 
     } catch (err) {
