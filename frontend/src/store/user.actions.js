@@ -62,5 +62,19 @@ export async function logout() {
     }
 }
 
-
+export async function updateUser(userToSave) {
+    try {
+        const user = await userService.updateUser(userToSave)
+       userService.saveLocalUser(user)
+        console.log('user', user)
+        store.dispatch({
+            type: SET_USER,
+            user
+        })
+        return user
+    } catch (err) {
+        console.log('Cannot signup', err)
+        throw err
+    }
+}
 

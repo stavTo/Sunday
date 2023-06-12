@@ -20,12 +20,50 @@
         padding-block-start: 70px;
         box-shadow: 0 4px 8px -1px rgba(0, 0, 0, .2);
 
-        img {
-            height: 136px;
-            width: 136px;
-            border-radius: 50%;
-            margin-block-end: 25px;
+        .img-container {
+            position: relative;
+            height: 150px;
+            width: 150px;
+
+
+            &:hover .change-img-profile {
+                opacity: 1;
+            }
+
+            img {
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+                margin-block-end: 25px;
+            }
+
+            .change-img-profile {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                background-color: $transparent-overlay-clr;
+                border-radius: 50%;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                cursor: pointer;
+
+                transition: opacity 0.3s;
+
+                svg {
+                    font-size: rem(56px);
+                }
+
+                span {
+                    font-size: rem(13px);
+                }
+            }
         }
+
+
 
         h1 {
             font-size: rem(30px);
@@ -212,8 +250,8 @@
     .icon-close {
         position: absolute;
         cursor: pointer;
-        top:10px;
-        right:10px;
+        top: 10px;
+        right: 10px;
 
         svg {
             width: 25px;
@@ -245,7 +283,7 @@
         display: flex;
         width: 100%;
         flex-direction: column;
-        
+
         button {
             align-self: flex-end;
             font-size: rem(16px);

@@ -17,6 +17,7 @@ export const userService = {
 	getEmptyCredentials,
 	changePassword,
 	getDefaultModalData,
+	updateUser,
 }
 
 function getUsers() {
@@ -47,6 +48,7 @@ async function signup(userCred) {
 	const user = await httpService.post('auth/signup', userCred)
 	return saveLocalUser(user)
 }
+
 async function logout() {
 	sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 	return await httpService.post('auth/logout')
@@ -102,4 +104,8 @@ function getDefaultModalData() {
 		skype: user.skype || '',
 		location: user.location || '',
 	}
+}
+
+async function updateUser(userToSave) {
+	return httpService.put(BASE_URL + 'update', userToSave)
 }
