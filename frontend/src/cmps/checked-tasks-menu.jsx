@@ -8,15 +8,24 @@ import { duplicateTask, removeBatchTasks, removeTask } from '../store/selected-b
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { boardService } from '../services/board.service'
+import { useEffect, useState } from 'react'
 export function CheckedTasksMenu({ checkedTaskIds }) {
 	const dispatch = useDispatch()
+	const [groupColors, setGroupColors] = useState([])
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	function onCloseModal() {
 		dispatch({ type: SET_CHECKED_TASKS, taskIds: [] })
 	}
 
-	//TODO send one call to server and delete batch
+	useEffect(() => {
+		getAllTaskColors()
+	}, [checkedTaskIds])
+
+	function getAllTaskColors() {
+		const colors = checkedTaskIds.map(taskId => boardService.getGroupByTask(board, taskId).style.color)
+		setGroupColors(colors)
+	}
 
 	async function onRemove() {
 		const actions = checkedTaskIds.map(taskId => {
@@ -36,8 +45,9 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 		}
 	}
 
+	async function onMoveTo() {}
+
 	async function onDuplicate() {
-		//TODO send one call to server and duplicate batch
 		for (let taskId of checkedTaskIds) {
 			try {
 				const group = await boardService.getGroupByTask(board, taskId)
@@ -57,7 +67,11 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 			<div className="main-checked-container">
 				<div className="title-section">
 					<span className="title">Tasks Selected</span>
-					<span>Dots here soon</span>
+					<span className="dots">
+						{groupColors.map((color, idx) => (
+							<div key={idx} className="dot" style={{ backgroundColor: color }}></div>
+						))}
+					</span>
 				</div>
 				<div className="actions-container">
 					<span className="action-item" onClick={onDuplicate}>

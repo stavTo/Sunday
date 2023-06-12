@@ -45,6 +45,18 @@
 			padding-inline-start: 20px;
 			justify-content: center;
 
+			.dots {
+				max-width: 200px;
+				display: flex;
+				overflow: hidden;
+				gap: 4px;
+				.dot {
+					width: 7px;
+					min-width: 7px;
+					height: 7px;
+					border-radius: 50%;
+				}
+			}
 			.title {
 				min-width: max-content;
 				font-size: 24px;

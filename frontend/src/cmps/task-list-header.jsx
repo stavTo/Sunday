@@ -67,8 +67,8 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 	}
 
 	return (
-		<ul className="task-list-header task-row clean-list">
-			<div className="sticky-container">
+		<ul className={`task-list-header task-row clean-list ${isCollapsed ? 'collapsed' : ''}`}>
+			<div className={`sticky-container ${isCollapsed ? 'collapsed' : ''}`}>
 				<div className="empty-option-container"></div>
 				<div className="colored-border" style={{ backgroundColor: group.style.color }}></div>
 				{!isCollapsed && (

@@ -3,9 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { duplicateGroup } from '../store/selected-board.actions'
 import { useParams } from 'react-router'
 import { ICON_ADD_GROUP, ICON_DUPLICATE, ICON_TRASH } from '../assets/icons/icons'
+import { ADD_CHECKED_TASKS, REMOVE_CHECKED_TASKS } from '../store/selected-task.reducer'
+import { useDispatch } from 'react-redux'
 
-export function GroupOptionsMenu({ onRemoveGroup, openColorPicker, group, setIsOptionOpen, onAddGroup }) {
+export function GroupOptionsMenu({
+	onRemoveGroup,
+	openColorPicker,
+	group,
+	setIsOptionOpen,
+	onAddGroup,
+	setIsCollapsed,
+	setIsGroupSelected,
+	isGroupSelected,
+}) {
 	const { boardId } = useParams()
+	const dispatch = useDispatch()
 
 	async function onDuplicateGroup() {
 		setIsOptionOpen(false)
@@ -18,9 +30,26 @@ export function GroupOptionsMenu({ onRemoveGroup, openColorPicker, group, setIsO
 		duplicateGroup(boardId, group, action)
 	}
 
+	function onCollapseGroup() {
+		setIsCollapsed(prev => !prev)
+		setIsOptionOpen(false)
+	}
+
+	function onSelectGroup() {
+		const taskIds = group.tasks.map(task => task.id)
+		if (isGroupSelected) {
+			setIsGroupSelected(false)
+			dispatch({ type: REMOVE_CHECKED_TASKS, taskIds })
+		} else {
+			setIsGroupSelected(true)
+			dispatch({ type: ADD_CHECKED_TASKS, taskIds })
+		}
+		setIsOptionOpen(false)
+	}
+
 	return (
 		<section className="options-menu group-options-menu">
-			<div className="btn-primary">
+			<div onClick={onCollapseGroup} className="btn-primary">
 				<span className="option-group-icon icon-font-awesome">
 					<FontAwesomeIcon
 						icon={faDownLeftAndUpRightToCenter}
@@ -29,7 +58,7 @@ export function GroupOptionsMenu({ onRemoveGroup, openColorPicker, group, setIsO
 				</span>
 				<span className="title">Collapse group</span>
 			</div>
-			<div className="btn-primary">
+			<div onClick={onSelectGroup} className="btn-primary">
 				<span className="option-group-icon icon-font-awesome">
 					<FontAwesomeIcon icon={faSquareCheck} style={{ color: '#676879' }} />{' '}
 				</span>

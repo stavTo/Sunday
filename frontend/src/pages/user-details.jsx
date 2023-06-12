@@ -25,7 +25,6 @@ export function UserDetails() {
 				<nav className="main-nav">
 					<ul className="clean-list flex">
 						<li>
-							{' '}
 							<NavLink to="personal_info">Personal info</NavLink>{' '}
 						</li>
 						<li>
