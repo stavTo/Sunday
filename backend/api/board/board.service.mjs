@@ -1,6 +1,6 @@
 import { dbService } from '../../services/db.service.mjs'
 import { logger } from '../../services/logger.service.mjs'
-import { utilService } from '../../services/util.service.mjs'
+
 import mongodb from 'mongodb'
 const { ObjectId } = mongodb
 
@@ -12,6 +12,18 @@ async function query(filterBy = { txt: '' }) {
 		return boards
 	} catch (err) {
 		logger.error('cannot find boards', err)
+		throw err
+	}
+}
+
+async function getLastCollection() {
+	try {
+		const collection = await dbService.getCollection('board')
+		const lastBoard = await collection.findOne({}, { sort: { createdAt: -1 } })
+		console.log("lastBoard", lastBoard)
+		return lastBoard
+	} catch (err) {
+		logger.error('cannot find last board', err)
 		throw err
 	}
 }
@@ -91,4 +103,5 @@ export const boardService = {
 	getById,
 	add,
 	update,
+	getLastCollection,
 }

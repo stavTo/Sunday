@@ -27,6 +27,18 @@ export async function getBoardById(req, res) {
 	}
 }
 
+export async function getLastBoard(req, res) {
+	console.log("reached here")
+	try {
+		const board = await boardService.getLastCollection()
+		if (board) res.json(board)
+		else throw new Error('Failed to get last board')
+	} catch (err) {
+		logger.error('Failed to catch the board in collection', err)
+		res.status(400).send({ err: 'Failed to catch the board in collection' })
+	}
+}
+
 export async function addBoard(req, res) {
 	try {
 		const board = req.body

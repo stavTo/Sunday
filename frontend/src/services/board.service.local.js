@@ -354,8 +354,8 @@ function _getDummyBoard(boardNum) {
 			{ _id: 'u101', fullname: 'Ido Kadosh', imgUrl: idoImg },
 			{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
 			{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
-			{ _id: 'u104', fullname: 'Eyal Golan', imgUrl: DEFAULT_USER },
-			{ _id: 'u105', fullname: 'Steve Jobs', imgUrl: DEFAULT_USER },
+			{ _id: 'u104', fullname: 'Eyal Golan', imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686569628/T04KZK1LY91-U04LDGEGC69-1eb084051222-512_us6hkn.png' },
+			{ _id: 'u105', fullname: 'Steve Jobs', imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686569639/T04KZK1LY91-U04LV444SP3-da137a7e0138-512_d6oeqi.png' },
 		],
 		groups: [
 			{

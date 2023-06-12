@@ -23,6 +23,7 @@ export async function removeBoard(boardId) {
 }
 
 export async function addBoard(board) {
+	console.log("board from addBoard", board)
 	try {
 		const newBoard = await boardService.addBoard(board)
 		store.dispatch({ type: ADD_BOARD, board: newBoard })
