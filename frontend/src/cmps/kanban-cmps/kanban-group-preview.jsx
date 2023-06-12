@@ -12,7 +12,7 @@ export function KanbanGroupPreview({ group, statusLabel, isDragDisabled }) {
 					<ul
 						className="kanban-task-list clean-list"
 						style={{
-							backgroundColor: snapshot.isDraggingOver ? '#e6e9ef' : '',
+							backgroundColor: snapshot.isDraggingOver ? '#dcdfec' : '',
 						}}
 						{...provided.droppableProps}
 						ref={provided.innerRef}

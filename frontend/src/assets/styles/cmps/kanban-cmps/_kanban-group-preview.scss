@@ -3,7 +3,7 @@
 	width: 260px;
 	border-start-start-radius: 8px;
 	border-start-end-radius: 8px;
-	height: 80%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 
@@ -20,13 +20,31 @@
 	}
 
 	.kanban-task-list {
-		&:hover {
-			background-color: $bg-clr8;
-		}
 		flex: 1;
-		padding-block-start: 10px;
+		max-height: 100%;
+		overflow: auto;
+		overflow-x: hidden;
+		padding-block: 10px;
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+
+		&::-webkit-scrollbar {
+			width: 4px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: transparent;
+
+			border-radius: 4px;
+			transition: background 0.2s ease;
+		}
+
+		&:hover {
+			&::-webkit-scrollbar-thumb {
+				background: $input-hover-border-clr;
+			}
+			background-color: $bg-clr5;
+		}
 	}
 }

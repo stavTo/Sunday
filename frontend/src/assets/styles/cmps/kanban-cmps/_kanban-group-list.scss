@@ -1,7 +1,7 @@
 .kanban-group-list {
-	margin-inline: 38px;
+	padding-inline: 38px;
 	width: 100%;
 	display: flex;
 	gap: 20px;
-	flex: 1;
+	max-height: calc(100vh - 250px);
 }

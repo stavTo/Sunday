@@ -1,5 +1,5 @@
 .workspace-container {
-	z-index: 9999;
+	z-index: 6500;
 	position: relative;
 	height: 100vh;
 	background-color: $bg-clr3;
@@ -55,7 +55,7 @@
 		height: 25px;
 		width: 25px;
 		background-color: $clr0;
-		z-index: 10000;
+		z-index: 6999;
 		position: absolute;
 		left: calc(100% - 14px);
 		top: 20px;
