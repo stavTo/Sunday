@@ -5,9 +5,11 @@
 	position: relative;
 	border-block: 1px solid $border-clr;
 
+	&.collapsed {
+		border: none;
+	}
+
 	.empty-option-container {
-		// width: $task-row-height;
-		// height: $task-row-height + 4px;
 		width: var(--left-margin-size);
 		height: calc(var(--left-margin-size) + 4px);
 		background-color: $clr0;
@@ -19,10 +21,14 @@
 		background-color: $clr0;
 		z-index: 2;
 		border-start-start-radius: 4px;
+
+		&.collapsed {
+			border: none;
+		}
 	}
 
 	.colored-border {
-		margin-block: -1px;
+		margin-block: -2px;
 		height: calc(100% + 2px);
 		width: 6px;
 		min-width: 6px;

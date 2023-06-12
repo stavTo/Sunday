@@ -10,8 +10,7 @@
 	z-index: 9999;
 	box-shadow: $default-box-shadow;
 
-
-	.dynamic-cmp>* {
+	.dynamic-cmp > * {
 		width: 100%;
 		justify-content: space-evenly;
 	}
@@ -29,7 +28,7 @@
 		overflow-x: hidden;
 	}
 
-	&>* {
+	& > * {
 		grid-column: 2;
 	}
 
@@ -91,6 +90,6 @@
 	top: 0;
 	left: 0;
 	background-color: $transparent-overlay-clr;
-	z-index: 100;
+	z-index: 7000;
 	visibility: hidden;
 }

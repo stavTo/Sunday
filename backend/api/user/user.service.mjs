@@ -1,12 +1,12 @@
-import {dbService} from '../../services/db.service.mjs'
-import {logger} from '../../services/logger.service.mjs'
+import { dbService } from '../../services/db.service.mjs'
+import { logger } from '../../services/logger.service.mjs'
 import mongodb from 'mongodb'
-const {ObjectId} = mongodb
+const { ObjectId } = mongodb
 
 export const userService = {
     query,
     getById,
-    getByUsername,
+    getByEmail,
     remove,
     update,
     add
@@ -36,14 +36,7 @@ async function getById(userId) {
     try {
         const collection = await dbService.getCollection('user')
         const user = await collection.findOne({ _id: ObjectId(userId) })
-        delete user.password
-
-        user.givenReviews = await reviewService.query({ byUserId: ObjectId(user._id) })
-        user.givenReviews = user.givenReviews.map(review => {
-            delete review.byUser
-            return review
-        })
-
+        // delete user.password
         return user
     } catch (err) {
         logger.error(`while finding user by id: ${userId}`, err)
@@ -51,13 +44,13 @@ async function getById(userId) {
     }
 }
 
-async function getByUsername(username) {
+async function getByEmail(email) {
     try {
         const collection = await dbService.getCollection('user')
-        const user = await collection.findOne({ username })
+        const user = await collection.findOne({ email })
         return user
     } catch (err) {
-        logger.error(`while finding user by username: ${username}`, err)
+        logger.error(`while finding user by email: ${email}`, err)
         throw err
     }
 }
@@ -74,14 +67,12 @@ async function remove(userId) {
 
 async function update(user) {
     try {
-        // peek only updatable properties
-        const userToSave = {
-            _id: ObjectId(user._id), // needed for the returnd obj
-            fullname: user.fullname,
-            score: user.score,
-        }
+        const userId = ObjectId(user._id)
+        const userToSave = { ...user }
+        delete userToSave._id
         const collection = await dbService.getCollection('user')
-        await collection.updateOne({ _id: userToSave._id }, { $set: userToSave })
+        await collection.updateOne({ _id: userId }, { $set: userToSave })
+        userToSave._id = userId
         return userToSave
     } catch (err) {
         logger.error(`cannot update user ${user._id}`, err)
@@ -91,13 +82,11 @@ async function update(user) {
 
 async function add(user) {
     try {
-        // peek only updatable fields!
         const userToAdd = {
-            username: user.username,
+            email: user.email,
             password: user.password,
             fullname: user.fullname,
             imgUrl: user.imgUrl,
-            score: 100
         }
         const collection = await dbService.getCollection('user')
         await collection.insertOne(userToAdd)
@@ -114,15 +103,12 @@ function _buildCriteria(filterBy) {
         const txtCriteria = { $regex: filterBy.txt, $options: 'i' }
         criteria.$or = [
             {
-                username: txtCriteria
+                email: txtCriteria
             },
             {
                 fullname: txtCriteria
             }
         ]
-    }
-    if (filterBy.minBalance) {
-        criteria.score = { $gte: filterBy.minBalance }
     }
     return criteria
 }

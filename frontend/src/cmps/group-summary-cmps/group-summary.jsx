@@ -11,12 +11,20 @@ const TIMELINE_PICKER = 'timelinePicker'
 const OWNER_PICKER = 'ownerPicker'
 const COLLABORATOR_PICKER = 'collaboratorPicker'
 
-export function GroupSummary({ group, isCollapsed }) {
+export function GroupSummary({ group, isCollapsed, provided }) {
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 
 	return (
 		<div className={`group-summary flex ${isCollapsed ? 'collapsed' : ''}`}>
-			<div className="empty-margin-footer"></div>
+			{isCollapsed ? (
+				<div className="sticky-collapsed">
+					<div className="collapsed-empty-margin"></div>
+					<div className="collapsed-colored-border" style={{ backgroundColor: group.style.color }}></div>
+					<div className="empty-margin-footer" {...provided.dragHandleProps}></div>
+				</div>
+			) : (
+				<div className="empty-margin-footer"></div>
+			)}
 			<div className="summary-data-container">
 				{isCollapsed && <div className="colored-border" style={{ backgroundColor: group.style.color }}></div>}
 				{board.cmpsOrder.map(cmp => {
@@ -49,7 +57,11 @@ export function GroupSummary({ group, isCollapsed }) {
 							)
 						case DATE_PICKER:
 							return (
-								<div key={cmp.id} className="group-summary-data flex align-center">
+								<div
+									style={{ width: cmp.defaultWidth }}
+									key={cmp.id}
+									className="group-summary-data flex align-center"
+								>
 									<div style={{ width: cmp.defaultWidth }}>
 										<DateSummary defaultWidth={cmp.defaultWidth} group={group} board={board} />
 									</div>
@@ -58,7 +70,9 @@ export function GroupSummary({ group, isCollapsed }) {
 						case COLLABORATOR_PICKER:
 							return (
 								<div
-									style={{ width: cmp.defaultWidth, maxWidth: cmp.defaultWidth }}
+									style={{
+										width: cmp.defaultWidth,
+									}}
 									key={cmp.id}
 									className="group-summary-data"
 								>

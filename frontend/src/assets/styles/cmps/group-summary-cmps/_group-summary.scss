@@ -8,18 +8,50 @@
 		display: flex;
 	}
 
+	&.collapsed {
+		border: none;
+		max-width: max-content;
+
+		.collapsed-empty-margin {
+			width: var(--left-margin-size);
+			height: 40px;
+			background-color: $clr0;
+		}
+
+		.collapsed-colored-border {
+			width: 6px;
+			height: calc(100% + 1px);
+			margin-block-end: -1px;
+			border-end-start-radius: 4px;
+		}
+
+		.empty-margin-footer {
+			width: 438px;
+		}
+		.sticky-collapsed {
+			display: flex;
+			position: sticky;
+			z-index: 2;
+			left: 0;
+		}
+	}
+
+	.colored-border {
+		width: 6px;
+		border-end-start-radius: 4px;
+	}
+
 	.empty-margin-footer {
 		position: sticky;
 		z-index: 2;
 		left: 0px;
-		width: 478px;
+		width: 480px;
 		background-color: $clr0;
 		height: $task-row-height;
 		border-inline-end: 1px solid $border-clr;
 	}
 
 	.group-summary-data {
-		// border-block-end: 1px solid $border-clr;
 		display: flex;
 		flex-shrink: 0;
 		justify-content: center;

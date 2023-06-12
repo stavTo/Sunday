@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router'
 import { useLocation } from 'react-router-dom'
 import { boardService } from '../services/board.service'
 import { ReactQuillWrapper } from './dynamic-task-cmps/react-quill-wrapper'
-import { ICON_CLOSE, ICON_HOUSE } from '../assets/icons/icons'
+import { DEFAULT_USER, ICON_CLOCK, ICON_CLOSE, ICON_HOUSE, ICON_TRASH } from '../assets/icons/icons'
 import { saveTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
@@ -11,6 +11,7 @@ import { utilService } from '../services/util.service'
 import imgEmptyPage from '../assets/img/img/pulse-page-empty-state.svg'
 import { ActivityFilter } from './activity-log-cmps/activity-filter'
 import { ActivityPreview } from './activity-log-cmps/activity-preview'
+import { userService } from '../services/user.service'
 
 export function TaskDetails() {
 	const { taskId, boardId } = useParams()
@@ -22,6 +23,7 @@ export function TaskDetails() {
 	const [activeTab, setActiveTab] = useState('updates')
 	const location = useLocation()
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
+	const user = useSelector(storeState => storeState.userModule.user)
 	const navigate = useNavigate()
 
 	useEffect(() => {
@@ -46,7 +48,7 @@ export function TaskDetails() {
 			setTask(currTask)
 		} catch (err) {
 			console.log(err)
-			console.log('had issue in load-group')
+			showErrorMsg('Had issue loading group')
 		}
 	}
 
@@ -62,7 +64,7 @@ export function TaskDetails() {
 	}
 
 	async function onSaveComment() {
-		const newComment = { txt: commentToEdit, id: utilService.makeId() }
+		const newComment = { txt: commentToEdit, id: utilService.makeId(), by: user, createdAt: Date.now() }
 		const newTask = { ...task, comments: [newComment, ...task.comments] }
 		try {
 			const group = boardService.getGroupByTask(board, taskId)
@@ -70,7 +72,18 @@ export function TaskDetails() {
 			setCommentToEdit('')
 			setIsEditorOpen(false)
 		} catch (err) {
-			console.log('Cant save comment')
+			showErrorMsg('Cant save comment')
+		}
+	}
+
+	async function onDeleteComment(commentId) {
+		const newTask = { ...task, comments: task.comments.filter(c => c.id !== commentId) }
+		try {
+			const group = boardService.getGroupByTask(board, taskId)
+			await saveTask(boardId, group.id, newTask, 'saved new comment')
+			setIsEditorOpen(false)
+		} catch (err) {
+			console.log('Cant remove comment')
 		}
 	}
 
@@ -161,6 +174,24 @@ export function TaskDetails() {
 								{!!task.comments.length ? (
 									task.comments.map(comment => (
 										<li className="comment" key={comment.id}>
+											<div className="top-container">
+												<div className="userinfo">
+													<img src={comment?.by?.imgUrl || DEFAULT_USER} alt="user img" />
+													<span className="user">{comment.by.fullname}</span>
+												</div>
+												<div className="comment-toolbar">
+													<span
+														onClick={() => onDeleteComment(comment.id)}
+														className="trash-container btn-primary"
+													>
+														{ICON_TRASH}
+													</span>
+													<span className="time-since">
+														{ICON_CLOCK}
+														<span>{utilService.timeSince(comment.createdAt)}</span>
+													</span>
+												</div>
+											</div>
 											<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>
 										</li>
 									))

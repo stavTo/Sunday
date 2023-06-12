@@ -2,7 +2,6 @@
 	.img-container {
 		grid-column: 1 /-1;
 		padding-block-start: em(30px);
-
 		min-height: fit-content;
 
 		img {
@@ -35,10 +34,11 @@
 			font-weight: 400;
 			font-family: $title-font;
 			color: $bg-clr6;
-			
+
 			@media(min-width: $mobile-breakpoint) {
-			padding-block-end: 2em;		
-		}
+				padding-block-end: 2em;
+			}
+
 
 		}
 
@@ -126,6 +126,7 @@
 					align-items: center;
 				}
 
+
 			}
 
 			a {
@@ -159,7 +160,7 @@
 		font-family: $title-font;
 		padding-block-start: 2em;
 		color: $bg-clr6;
-		
+
 		@media(min-width: $mobile-breakpoint) {
 			max-width: em(754px);
 			padding-block-start: 4em;
