@@ -4,12 +4,14 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { store } from './store/store'
 import { HomePage } from './pages/home-page'
 import { BoardDetails } from './pages/board-details'
-import { UserDetails } from './pages/user-details'
+import { ChangePassword, PersonalInfo, UserDetails } from './pages/user-details'
 import { TaskDetails } from './cmps/task-details'
 import { UserMsg } from './cmps/user-msg'
 import { BoardIndex } from './pages/board-index'
 import { Kanban } from './pages/kanban'
 import { ActivityDetails } from './cmps/activity-log-cmps/activity-details'
+import { SignUp } from './pages/sign-up'
+import { LoginSignUp } from './pages/login-signup'
 
 function App() {
 	return (
@@ -26,8 +28,15 @@ function App() {
 							<Route path="/boards/:boardId/views/kanban" element={<Kanban />}>
 								<Route path="tasks/:taskId" element={<TaskDetails />} />
 							</Route>
-							<Route path="/users/:userId" element={<UserDetails />}></Route>
-							<Route path="/boards" element={<BoardIndex />}></Route>
+							<Route path="/users/:userId" element={<UserDetails />} >
+								<Route path="personal_info" element={<PersonalInfo />} />
+								<Route path="password" element={<ChangePassword />} />
+							</Route>
+							<Route path="/boards" element={<BoardIndex />} />
+							<Route path="/auth" >
+								<Route path="login" element={< LoginSignUp />} />
+								<Route path="sign-up" element={< LoginSignUp />} />
+							</Route>
 						</Routes>
 					</main>
 					<UserMsg />

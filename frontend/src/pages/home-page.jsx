@@ -27,10 +27,10 @@ import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 import logo from '../assets/img/logo.png'
 import { showErrorMsg } from '../services/event-bus.service'
+import { Link } from 'react-router-dom'
 
 export function HomePage() {
 	const navigate = useNavigate()
-	const boards = useSelector(({ boardModule }) => boardModule.boards)
 	const [scrolled, setScrolled] = useState(false)
 
 	useEffect(() => {
@@ -51,8 +51,6 @@ export function HomePage() {
 	}
 
 	function onNavigate() {
-		// if (boards[0]) navigate(`/boards/${boards[0]._id}`)
-		// else navigate(`/boards/${boards._id}`)
 		navigate('/boards')
 	}
 
@@ -68,7 +66,7 @@ export function HomePage() {
 							<a href="">About</a>
 						</li>
 						<li>
-							<a href="">Log in</a>
+							<Link to="/auth/login">Log in</Link>
 						</li>
 						<li>
 							<button className="btn-get-started btn-arrow" onClick={onNavigate}>
@@ -85,7 +83,7 @@ export function HomePage() {
 					<span className="secondary-title">What would you like to manage with sunday.com Work OS?</span>
 				</div>
 				<section className="card-container full">
-					<div className="cards-section flex justify-center">
+					<div className="cards-section">
 						<div className="card">
 							<div className="icon-container">
 								<img src={designIcon} alt="" />

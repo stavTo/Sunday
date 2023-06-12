@@ -24,6 +24,11 @@
 		width: fit-content;
 		gap: 1em;
 
+		.timesince {
+			gap: 3px;
+			align-items: start;
+		}
+
 		@media (min-width: $mobile-breakpoint) {
 			gap: 0;
 			flex-direction: row;
@@ -94,8 +99,16 @@
 
 	.dynamic-cmp {
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: space-between;
 		align-items: center;
+
+		.timeline-container {
+			width: 100%;
+
+			.span-container {
+				width: 100%;
+			}
+		}
 
 		.old-label,
 		.new-label {

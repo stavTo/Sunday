@@ -2,6 +2,7 @@
 	"name": "backend",
 	"version": "1.0.0",
 	"description": "",
+	"type": "module",
 	"main": "index.js",
 	"scripts": {
 		"start": "nodemon server.mjs",
@@ -13,10 +14,14 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"express": "^4.18.2",
+		"bcrypt": "^5.1.0",
 		"cookie-parser": "^1.4.6",
 		"cors": "^2.8.5",
+		"cryptr": "^6.2.0",
+		"dotenv": "^16.1.4",
+		"express": "^4.18.2",
 		"mongodb": "^3.2.7",
+		"openai": "^3.2.1",
 		"socket.io": "^4.2.0"
 	}
 }

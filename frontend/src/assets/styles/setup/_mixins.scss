@@ -1,5 +1,11 @@
+// @mixin for-mobile-layout {
+// 	@media (max-width: $small-mobile-breakpoint) {
+// 		@content;
+// 	}
+// }
+
 @mixin for-mobile-layout {
-	@media (max-width: calc($mobile-breakpoint + 40px)) {
+	@media (max-width: calc($mobile-breakpoint)) {
 		@content;
 	}
 }
