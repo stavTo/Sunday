@@ -56,7 +56,7 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 					const labelId = Object.keys(val)[0]
 					const label = board[labelsNameInBoard].find(l => l.id === labelId)
 					const widthFraction = val[labelId]
-					const widthPercent = utilService.fractionToPercent(widthFraction).toFixed(1)
+					const widthPercent = utilService.fractionToPercent(widthFraction).toFixed()
 					return (
 						<TippyContainer key={idx} txt={`${label.title} ${widthFraction} ${widthPercent}%`}>
 							<li
