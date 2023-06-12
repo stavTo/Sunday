@@ -13,16 +13,15 @@ import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 import { usePopper } from 'react-popper'
 import { useLongPress } from '../customHooks/useLongPress'
 
-export function GroupPreview({ group, provided }) {
+export function GroupPreview({ group, provided, isGroupCollapsed }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [isOptionOpen, setIsOptionOpen] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(group.title)
 	const [isColorPickerOpen, setIsColorPickerOpen] = useState(false)
-	const [isCollapsed, setIsCollapsed] = useState(false)
+	const [isCollapsed, setIsCollapsed] = useState(isGroupCollapsed)
 	const [isGroupSelected, setIsGroupSelected] = useState(false)
 	const checkedTaskIds = useSelector(({ selectedTaskModule }) => selectedTaskModule.checkedTaskIds)
 	const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
-
 	const [referenceElement, setReferenceElement] = useState(null)
 	const [popperElement, setPopperElement] = useState(null)
 	const { styles, attributes } = usePopper(referenceElement, popperElement)
@@ -33,6 +32,10 @@ export function GroupPreview({ group, provided }) {
 			document.removeEventListener('mousedown', onSetOptionClose)
 		}
 	}, [])
+
+	useEffect(() => {
+		setIsCollapsed(isGroupCollapsed)
+	}, [isGroupCollapsed])
 
 	function handleKeyPressed(key) {
 		if (key.key === 'Enter') setGroupTitle()
@@ -125,7 +128,7 @@ export function GroupPreview({ group, provided }) {
 	}
 
 	const longPressEvent = useLongPress(onLongPress, () => {}, {
-		shouldPreventDefault: true,
+		shouldPreventDefault: false,
 	})
 
 	return (
@@ -139,6 +142,9 @@ export function GroupPreview({ group, provided }) {
 						{...attributes.popper}
 					>
 						<GroupOptionsMenu
+							isGroupSelected={isGroupSelected}
+							setIsGroupSelected={setIsGroupSelected}
+							setIsCollapsed={setIsCollapsed}
 							group={group}
 							onRemoveGroup={onRemoveGroup}
 							openColorPicker={openColorPicker}
@@ -177,32 +183,39 @@ export function GroupPreview({ group, provided }) {
 									{ICON_OPTIONS}
 								</div>
 							</div>
-
+							{isCollapsed && (
+								<div
+									className="collapsed-colored-border-top"
+									style={{ backgroundColor: group.style.color }}
+								></div>
+							)}
 							<div
 								onClick={() => setIsCollapsed(prev => !prev)}
 								className={`expand-arrow-container ${isCollapsed ? 'collapsed' : ''}`}
 							>
 								{ICON_EXPAND_ARROW}
 							</div>
-							<div className="group-title-container" onClick={handleTitleClick}>
-								{!isInputVisible && (
-									<TippyContainer txt="Click to Edit" offset={[0, 5]}>
-										<h4 className="group-title">{group.title}</h4>
-									</TippyContainer>
-								)}
-								{isInputVisible && (
-									<input
-										className="group-title-input"
-										onKeyDown={handleKeyPressed}
-										autoFocus
-										type="text"
-										value={titleToChange}
-										onChange={handleChange}
-										onBlur={setGroupTitle}
-									></input>
-								)}
+							<div className="title-count-container">
+								<div className="group-title-container" onClick={handleTitleClick}>
+									{!isInputVisible && (
+										<TippyContainer txt="Click to Edit" offset={[0, 5]}>
+											<h4 className="group-title">{group.title}</h4>
+										</TippyContainer>
+									)}
+									{isInputVisible && (
+										<input
+											className="group-title-input"
+											onKeyDown={handleKeyPressed}
+											autoFocus
+											type="text"
+											value={titleToChange}
+											onChange={handleChange}
+											onBlur={setGroupTitle}
+										></input>
+									)}
+								</div>
+								<div className="task-count">{group.tasks?.length} Tasks</div>
 							</div>
-							<div className="task-count">{group.tasks?.length} Tasks</div>
 						</div>
 						<div className="drag-handle" {...provided.dragHandleProps}></div>
 					</div>
@@ -217,7 +230,7 @@ export function GroupPreview({ group, provided }) {
 				</div>
 				{!isCollapsed && <TaskList group={group} tasks={group.tasks} setIsGroupSelected={setIsGroupSelected} />}
 
-				<GroupSummary group={group} isCollapsed={isCollapsed} />
+				<GroupSummary provided={provided} group={group} isCollapsed={isCollapsed} />
 			</section>
 		</>
 	)

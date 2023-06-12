@@ -28,16 +28,43 @@
         .template-modal {
             margin: 0;
             position: absolute;
-            background: red;
+            background: $clr0;
             top: 50%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-            width: 400px;
+            width: 500px;
             height: 200px;
-            z-index: 2;
+            padding: 1em;
+            box-shadow: $card-hover-shadow;
+
+            h1 {
+                padding-block-start: 2em;
+                margin: 0 auto;
+            }
+
+            input {
+                width: 350px;
+                margin: 0 auto;
+            }
+
+            button {
+                position: absolute;
+                border: none;
+                padding: .4em;
+            }
+
+            .close-btn {
+                top: 5px;
+                right: 5px;
+            }
+
+            .submit-btn {
+                bottom: 5px;
+                right: 5px;
+            }
         }
-    
+
     }
 
     .boards-list {

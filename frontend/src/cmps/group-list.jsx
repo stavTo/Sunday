@@ -9,6 +9,7 @@ import { useState } from 'react'
 export function GroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [isDragDisabled, setIsDragDisabled] = useState(false)
+	const [allGroupsCollapsed, setAllGroupsCollapsed] = useState(false)
 	function onAddGroup() {
 		addGroup(board._id, true)
 	}
@@ -18,6 +19,7 @@ export function GroupList({ groups }) {
 		if (result.type === 'group') await handleGroupDrag(result)
 		else await handleTaskDrag(result)
 		setIsDragDisabled(false)
+		setAllGroupsCollapsed(false)
 	}
 
 	async function handleGroupDrag(result) {
@@ -62,12 +64,21 @@ export function GroupList({ groups }) {
 		}
 	}
 
-	function onDragStart() {
+	function onDragStart(ev) {
+		if (ev.type === 'group') {
+			setAllGroupsCollapsed(true)
+		}
 		setIsDragDisabled(true)
 	}
+
 	if (!board._id) return
 	return (
-		<DragDropContext onDragEnd={handleDrag} onDragStart={onDragStart} disableDraggingDuringDrag={isDragDisabled}>
+		<DragDropContext
+			onDragEnd={handleDrag}
+			onDragStart={onDragStart}
+			onBeforeDragStart={onDragStart}
+			disableDraggingDuringDrag={isDragDisabled}
+		>
 			<Droppable droppableId={board._id} type="group">
 				{provided => (
 					<section {...provided.droppableProps} ref={provided.innerRef} className="group-list">
@@ -76,7 +87,11 @@ export function GroupList({ groups }) {
 								<Draggable key={group.id} draggableId={group.id} index={idx}>
 									{provided => (
 										<li {...provided.draggableProps} ref={provided.innerRef}>
-											<GroupPreview group={group} provided={provided} />
+											<GroupPreview
+												isGroupCollapsed={allGroupsCollapsed}
+												group={group}
+												provided={provided}
+											/>
 										</li>
 									)}
 								</Draggable>

@@ -28,7 +28,6 @@ export function UserDetails() {
 		}
 	}
 
-
 	if (!user) return <h1>Please login</h1>
 	console.log(user)
 	return (
@@ -37,8 +36,10 @@ export function UserDetails() {
 			<header className="main-header">
 				<div className="img-container">
 					<img src={user.imgUrl} alt="User image" />
-					<div className="change-img-profile"	>
-						<span><BsPersonFill /></span>
+					<div className="change-img-profile">
+						<span>
+							<BsPersonFill />
+						</span>
 						<span>Change profile picture</span>
 					</div>
 					<ImgUploader onChangeImg={onChangeImg} />
@@ -137,7 +138,9 @@ export function PersonalInfo() {
 
 			{currModalOpen && (
 				<div className="modal">
-					<span className="icon-close" onClick={() => setCurrModalOpen('')}>{ICON_CLOSE}</span>
+					<span className="icon-close" onClick={() => setCurrModalOpen('')}>
+						{ICON_CLOSE}
+					</span>
 					<form className="modal-form">
 						<DynamicModal
 							modalData={modalData}
@@ -146,9 +149,7 @@ export function PersonalInfo() {
 							handleChange={handleChange}
 						/>
 						<div className="btn-container">
-							<button onClick={onChangeData}>
-								Save
-							</button>
+							<button onClick={onChangeData}>Save</button>
 						</div>
 					</form>
 				</div>

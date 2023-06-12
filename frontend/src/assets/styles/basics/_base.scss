@@ -59,6 +59,7 @@ object {
 
 @media screen and (min-width: $mobile-breakpoint) {
 	:root {
+		--options-size: 22px;
 		--left-side-width: 400px;
 		--left-margin-size: 36px;
 		font-size: 16px;

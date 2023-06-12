@@ -150,7 +150,7 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 	function NavButtons(props) {
 		const { goToMonth, nextMonth, previousMonth } = useNavigation()
 		return (
-			<div className="nav-buttons-container flex align-center space-evenly">
+			<div className="nav-buttons-container flex align-center space-between pi-10">
 				<span
 					className="month-btn-prev"
 					disabled={!previousMonth}
