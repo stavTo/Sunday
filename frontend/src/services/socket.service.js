@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import { userService } from './user.service'
+// import { userService } from './user.service'
 
 // BOARD
 export const SOCKET_EVENT_LOAD_BOARD = 'load-board'
@@ -13,7 +13,6 @@ export const SOCKET_EMIT_SET_TASK = 'task-set-topic'
 // Add task
 // export const SOCKET_EVENT_ADD_TASK = 'group-add-task'
 export const SOCKET_EMIT_SET_GROUP = 'set-group'
-
 
 export const SOCKET_EMIT_USER_WATCH = 'user-watch'
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated'
@@ -37,7 +36,7 @@ function createSocketService() {
 	const socketService = {
 		setup() {
 			socket = io(baseUrl)
-			const user = userService.getLoggedInUser()
+			// const user = userService.getLoggedInUser()
 			// if (user) this.login(user._id)
 		},
 		on(eventName, cb) {

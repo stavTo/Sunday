@@ -10,8 +10,9 @@ import { showErrorMsg, showSuccessMsg, showUserMsg } from '../services/event-bus
 import { userService } from '../services/user.service'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 import { ICON_CLOSE } from '../assets/icons/icons'
-import { updateUser } from '../store/user.actions'
+import { logout, updateUser } from '../store/user.actions'
 import { ImgUploader } from '../cmps/img-uploader'
+import { GrLogout } from 'react-icons/gr'
 
 export function UserDetails() {
 	const navigate = useNavigate()
@@ -28,11 +29,24 @@ export function UserDetails() {
 		}
 	}
 
+	function onLogout() {
+		try {
+			logout()
+			showSuccessMsg('Logged out!')
+			navigate('/')
+		} catch {
+			showErrorMsg("Whoops! Can't log out!")
+		}
+	}
+
 	if (!user) return <h1>Please login</h1>
-	console.log(user)
 	return (
 		<section className="user-details">
 			<RiArrowGoBackFill className="back-icon" onClick={() => navigate('/boards')} />
+			<div className="logout-icon" onClick={onLogout}>
+				<GrLogout />
+				<span>Logout</span>
+			</div>
 			<header className="main-header">
 				<div className="img-container">
 					<img src={user.imgUrl} alt="User image" />

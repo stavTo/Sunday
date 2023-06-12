@@ -1,17 +1,13 @@
 .kanban-task-preview {
 	width: 236px;
-	height: 130px;
+	// min-height: 130px;
 	background-color: $clr0;
+	padding-block-end: 8px;
 	margin: auto;
 	border-radius: 4px;
 	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 	font-size: rem(13px);
 
-	// .kanban-row {
-	// 	height: $task-row-height;
-	// 	display: flex;
-	// 	justify-content: space-around;
-	// 	align-items: center;
 	.kanban-row-title {
 		display: flex;
 		align-items: center;
@@ -23,7 +19,6 @@
 			height: 16px;
 		}
 	}
-	// }
 
 	.kanban-body-container {
 		display: grid;
@@ -31,8 +26,6 @@
 		grid-template-rows: repeat(2, $task-row-height);
 		align-items: center;
 		margin-inline: 5px;
-		// column-gap: 5px;
-		// justify-items: center;
 	}
 
 	.kanban-task-header {

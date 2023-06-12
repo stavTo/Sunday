@@ -42,7 +42,6 @@ export function TaskDetails() {
 
 	async function loadGroup() {
 		try {
-			const newGroup = boardService.getGroupByTask(board, taskId)
 			const currTask = boardService.getTaskById(board, taskId)
 			setTitleToChange(currTask.title)
 			setTask(currTask)
@@ -64,7 +63,19 @@ export function TaskDetails() {
 	}
 
 	async function onSaveComment() {
-		const newComment = { txt: commentToEdit, id: utilService.makeId(), by: user, createdAt: Date.now() }
+		const newComment = {
+			txt: commentToEdit,
+			id: utilService.makeId(),
+			by:
+				user ||
+				userService.getEmptyUser(
+					'qwe23',
+					'Stav Tohami',
+					'https://res.cloudinary.com/diyikz4gq/image/upload/v1686577125/nb9ei638achmm1nsvhr6.jpg',
+					'tohami2014@gmail.com'
+				),
+			createdAt: Date.now(),
+		}
 		const newTask = { ...task, comments: [newComment, ...task.comments] }
 		try {
 			const group = boardService.getGroupByTask(board, taskId)
