@@ -37,7 +37,7 @@ export function LoginSignUp() {
 	return (
 		<section className="login">
 			<header className="main-header">
-				<img src={logo} onClick={() => navigate('/')} />
+				<img src={logo} alt="logo" onClick={() => navigate('/')} />
 			</header>
 
 			<h1>Log in to your account</h1>

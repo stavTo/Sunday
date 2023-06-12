@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { TippyContainer } from '../tippy-container'
 import { utilService } from '../../services/util.service'
-import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 
 export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 	const [labelsName, setLabelsName] = useState('')

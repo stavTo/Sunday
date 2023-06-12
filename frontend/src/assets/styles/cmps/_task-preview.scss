@@ -10,11 +10,10 @@
 	background-color: $clr0;
 	z-index: 2;
 	border-block-end: 1px solid $border-clr;
-
 	.main-preview-container {
 		display: flex;
 		min-width: max-content;
-		& > * {
+		& > *:not(.line-end) {
 			border-inline-end: 1px solid $border-clr;
 		}
 	}

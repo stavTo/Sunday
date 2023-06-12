@@ -116,6 +116,7 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 					)
 				)
 			})}
+			<li className="line-end"></li>
 		</ul>
 	)
 }

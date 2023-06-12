@@ -45,7 +45,7 @@ export function ActivityPreview({ activity }) {
 				</div>
 				<div className="activity-and-user flex align-center gap-1">
 					<TippyContainer txt={activity.by?.fullname}>
-						<img className="user-img" src={activity.by?.imgUrl} />
+						<img className="user-img" src={activity.by?.imgUrl} alt="user" />
 					</TippyContainer>
 				</div>
 			</div>
@@ -96,6 +96,8 @@ function DynamicSVG({ type }) {
 		case DELETED_GROUP:
 		case DELETED_TASK:
 			return <FontAwesomeIcon icon={faTrashCan} />
+		default:
+			return
 	}
 }
 
@@ -245,7 +247,7 @@ function DynamicCmp({ action }) {
 			return (
 				<div className="dynamic-cmp">
 					<div className="flex align-center gap-1">
-						<img className="user-img pointer" src={member.imgUrl} />
+						<img className="user-img pointer" src={member.imgUrl} alt="user" />
 						<span>{member.fullname}</span>
 					</div>
 				</div>
@@ -256,7 +258,7 @@ function DynamicCmp({ action }) {
 					<div className="collabortor flex align-center gap-1 space-between">
 						<span>Added</span>
 						<TippyContainer txt={member.fullname}>
-							<img className="user-img pointer" src={member.imgUrl} />
+							<img className="user-img pointer" src={member.imgUrl} alt="user" />
 						</TippyContainer>
 					</div>
 				</div>
@@ -293,5 +295,7 @@ function DynamicCmp({ action }) {
 					</div>
 				</div>
 			)
+		default:
+			return
 	}
 }

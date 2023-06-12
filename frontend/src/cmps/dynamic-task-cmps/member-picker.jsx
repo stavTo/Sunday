@@ -33,6 +33,7 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 		return () => {
 			document.removeEventListener('mousedown', onClosePicker)
 		}
+		// eslint-disable-next-line
 	}, [])
 
 	async function loadUsers() {
@@ -143,16 +144,15 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 
 	function getRemainingCollaboratorNames(idx) {
 		let names = []
-		{
-			for (let i = idx; i < task.collaborators.length; i++) {
-				names.push(
-					<span key={task.collaborators[i]._id}>
-						{task.collaborators[i].fullname}
-						{!!(task.collaborators.length - 1 - i) && ','}
-						<br />
-					</span>
-				)
-			}
+
+		for (let i = idx; i < task.collaborators.length; i++) {
+			names.push(
+				<span key={task.collaborators[i]._id}>
+					{task.collaborators[i].fullname}
+					{!!(task.collaborators.length - 1 - i) && ','}
+					<br />
+				</span>
+			)
 		}
 
 		return names
@@ -179,14 +179,15 @@ export function MemberPicker({ groupId, type, task, defaultWidth }) {
 								</TippyContainer>
 							)
 						}
+						return
 					})}
 				</div>
 			)}
 			{/* if not any of the above, show default image. */}
 			{((type === 'ownerPicker' && !task?.owner?._id) ||
 				(type === 'collaboratorPicker' && !task.collaborators?.length)) && (
-					<img src={EMPTY_MEMBER} alt="member img" />
-				)}
+				<img src={EMPTY_MEMBER} alt="member img" />
+			)}
 			{isPickerOpen && (
 				<div
 					className="member-picker-modal"

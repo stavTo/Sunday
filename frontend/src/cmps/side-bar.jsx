@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 
-import { ICON_WORK_MANAGEMENT, ICON_MY_WORK, ICON_FAVORITES } from '../assets/icons/icons'
+import { ICON_WORK_MANAGEMENT, ICON_FAVORITES } from '../assets/icons/icons'
 
 import guest from '../assets/img/guest.png'
 
@@ -60,8 +60,7 @@ export function SideBar({ isExpandable = true }) {
 					<li className="bottom-navigation-area">
 						<ul className="clean-list flex column align-center">
 							<TippyContainer txt={'Profile'} placement="right" offset={[0, 20]}>
-								<li className="flex profile"
-									onClick={onOpenUserProfile}>
+								<li className="flex profile" onClick={onOpenUserProfile}>
 									<img src={user?.imgUrl || guest} data-tippy-content="guest" />
 								</li>
 							</TippyContainer>

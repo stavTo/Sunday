@@ -127,7 +127,9 @@ export function BoardHeader({ board }) {
 							</TippyContainer>
 						)}
 					</div>
-					<div className="menu-btn btn-primary" onClick={() => setIsMenuToggle(prev => !prev)}>{ICON_OPTIONS}</div>
+					<div className="menu-btn btn-primary" onClick={() => setIsMenuToggle(prev => !prev)}>
+						{ICON_OPTIONS}
+					</div>
 					<div className={`board-header-top-right  ${isMenuToggle ? 'open-menu' : ''}`}>
 						<div className="activity-container btn-primary">
 							<Link className="open-task-details" to={`/boards/${board._id}/activity_log/`}>
@@ -141,6 +143,9 @@ export function BoardHeader({ board }) {
 						</div>
 					</div>
 				</div>
+				<div className="board-info">
+					<span>{board.description}</span>
+				</div>
 				<BoardToolbar />
 				<div className="board-header-bottom">
 					<button className="btn-new-task btn-text" onClick={onAddTask}>
@@ -152,7 +157,7 @@ export function BoardHeader({ board }) {
 					{isAddGroupModalOpen && <AddGroupModal onAddGroup={onAddGroup} />}
 					<BoardFilter board={board} />
 				</div>
-			</section >
+			</section>
 			{isInviteOpen && (
 				<>
 					<div className="invite-members-modal">
@@ -173,8 +178,7 @@ export function BoardHeader({ board }) {
 					</div>
 					<div className="modal-overlay" onClick={() => setIsInviteOpen(false)}></div>
 				</>
-			)
-			}
+			)}
 			{isInfoOpen && <BoardInfo board={board} setIsInfoOpen={setIsInfoOpen} />}
 		</>
 	)
@@ -183,9 +187,10 @@ export function BoardHeader({ board }) {
 function AddGroupModal({ onAddGroup }) {
 	return (
 		<section className="add-group-modal">
-			<span onClick={onAddGroup}
-				className="btn-primary">
-				<span className="icon"><FontAwesomeIcon icon={faTableList} style={{ color: "#676879", }} /></span>
+			<span onClick={onAddGroup} className="btn-primary">
+				<span className="icon">
+					<FontAwesomeIcon icon={faTableList} style={{ color: '#676879' }} />
+				</span>
 				<span className="title">New group of tasks</span>
 			</span>
 		</section>

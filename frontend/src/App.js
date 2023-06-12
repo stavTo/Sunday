@@ -10,7 +10,6 @@ import { UserMsg } from './cmps/user-msg'
 import { BoardIndex } from './pages/board-index'
 import { Kanban } from './pages/kanban'
 import { ActivityDetails } from './cmps/activity-log-cmps/activity-details'
-import { SignUp } from './pages/sign-up'
 import { LoginSignUp } from './pages/login-signup'
 
 function App() {
@@ -28,14 +27,14 @@ function App() {
 							<Route path="/boards/:boardId/views/kanban" element={<Kanban />}>
 								<Route path="tasks/:taskId" element={<TaskDetails />} />
 							</Route>
-							<Route path="/users/:userId" element={<UserDetails />} >
+							<Route path="/users/:userId" element={<UserDetails />}>
 								<Route path="personal_info" element={<PersonalInfo />} />
 								<Route path="password" element={<ChangePassword />} />
 							</Route>
 							<Route path="/boards" element={<BoardIndex />} />
-							<Route path="/auth" >
-								<Route path="login" element={< LoginSignUp />} />
-								<Route path="sign-up" element={< LoginSignUp />} />
+							<Route path="/auth">
+								<Route path="login" element={<LoginSignUp />} />
+								<Route path="sign-up" element={<LoginSignUp />} />
 							</Route>
 						</Routes>
 					</main>

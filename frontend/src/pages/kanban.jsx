@@ -19,7 +19,8 @@ export function Kanban() {
 
 	useEffect(() => {
 		if (boardId) onLoadBoard(boardId, location.state)
-	}, [boardId])
+		// eslint-disable-next-line
+	}, [boardId, location])
 
 	useEffect(() => {
 		socketService.on(SOCKET_EVENT_LOAD_BOARD, onSetBoard)
@@ -27,6 +28,7 @@ export function Kanban() {
 		return () => {
 			socketService.off(SOCKET_EVENT_LOAD_BOARD, onSetBoard)
 		}
+		// eslint-disable-next-line
 	}, [])
 
 	useEffect(() => {

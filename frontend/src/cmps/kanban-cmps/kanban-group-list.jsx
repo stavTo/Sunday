@@ -2,28 +2,13 @@ import { useSelector } from 'react-redux'
 import { KanbanGroupPreview } from './kanban-group-preview'
 import { boardService } from '../../services/board.service'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { saveBoard, saveTask } from '../../store/selected-board.actions'
 import { showErrorMsg } from '../../services/event-bus.service'
 
 export function KanbanGroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [isDragDisabled, setIsDragDisabled] = useState(false)
-	// const [groupsByLabels, setGroupsByLabels] = useState()
-	// console.log('render')
-
-	// useEffect(() => {
-	// 	onSetGroupsByLabels()
-	// }, [board])
-
-	// function onSetGroupsByLabels() {
-	// 	const groupsByLabels = board.statusLabels.reduce((acc, status, idx) => {
-	// 		const tasks = groups.flatMap(group => group.tasks.filter(task => task.status === status.id))
-	// 		acc.push({ status: status.id, tasks })
-	// 		return acc
-	// 	}, [])
-	// 	setGroupsByLabels(groupsByLabels)
-	// }
 
 	const groupsByLabels = useMemo(() => {
 		return board.statusLabels.reduce((acc, status, idx) => {
@@ -82,7 +67,6 @@ export function KanbanGroupList({ groups }) {
 	}
 
 	if (!board._id || !groupsByLabels) return
-	// console.log(groupsByLabels)
 	return (
 		<DragDropContext onDragEnd={handleDrag} onDragStart={onDragStart} disableDraggingDuringDrag={isDragDisabled}>
 			<Droppable droppableId={board._id} direction="horizontal" type="group">

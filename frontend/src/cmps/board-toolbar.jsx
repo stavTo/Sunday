@@ -1,6 +1,5 @@
-import { useState } from 'react'
 import { ICON_HOUSE } from '../assets/icons/icons'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 export function BoardToolbar() {

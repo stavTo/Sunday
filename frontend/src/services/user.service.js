@@ -1,7 +1,5 @@
 import { httpService } from './http.service'
 import { DEFAULT_USER } from '../assets/icons/icons'
-import { boardService } from './board.service'
-import { utilService } from './util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedInUser'
 const BASE_URL = 'user/'

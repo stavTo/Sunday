@@ -230,26 +230,6 @@ function getNewBoard() {
 	}
 }
 
-const obj = {
-	boardName: 'Board Name',
-	groups: [
-		{
-			title: 'Group Name',
-			tasks: [
-				{
-					title: 'Task description1',
-				},
-				{
-					title: 'Task description2',
-				},
-				{
-					title: 'Task description3',
-				},
-			],
-		},
-	],
-}
-
 function getEmptyTask(title = '', status = 'sl104') {
 	return {
 		id: '',

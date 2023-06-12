@@ -17,9 +17,9 @@ export function BoardFilter({ board }) {
 	const debouncedLoadBoard = useRef(utilService.debounce(loadBoard))
 
 	useEffect(() => {
-		document.addEventListener('click', unsetActive)
+		document.addEventListener('mousedown', unsetActive)
 		return () => {
-			document.removeEventListener('click', unsetActive)
+			document.removeEventListener('mousedown', unsetActive)
 		}
 	}, [])
 
@@ -44,7 +44,9 @@ export function BoardFilter({ board }) {
 		}
 	}
 
-	function unsetActive() {
+	function unsetActive(ev) {
+		if (ev.target.closest('.empty-search-icon, .member-filter')) return
+		if (!elSearchInput.current.value) setInputFocused(false)
 		setActive('')
 	}
 
@@ -54,10 +56,25 @@ export function BoardFilter({ board }) {
 		setActive(state)
 	}
 
+	function emptyMemberFilter(ev) {
+		ev.stopPropagation()
+		setFilter(prev => ({ ...prev, memberId: '' }))
+	}
+
+	function emptySearchFilter(ev) {
+		ev.stopPropagation()
+		setFilter(prev => ({ ...prev, txt: '' }))
+	}
+
 	const inputFocusedClass = inputFocused ? 'focused' : ''
 	return (
 		<section className="board-filter">
-			<div className={`search-container btn-primary ${inputFocusedClass}`} onClick={() => onSetInputFocus(true)}>
+			<div
+				className={`search-container btn-primary ${
+					elSearchInput.current.value ? 'active' : ''
+				} ${inputFocusedClass}`}
+				onClick={() => onSetInputFocus(true)}
+			>
 				<span className="filter-icon">
 					<FontAwesomeIcon icon={faMagnifyingGlass} />
 				</span>
@@ -68,21 +85,22 @@ export function BoardFilter({ board }) {
 					placeholder="Search"
 					value={filter.txt}
 					onChange={handleSearch}
-					onBlur={() => setInputFocused(false)}
 				/>
+				{filter.txt && (
+					<span className="empty-search-icon btn-primary" onClick={emptySearchFilter}>
+						{ICON_CLOSE}
+					</span>
+				)}
 			</div>
 			<TippyContainer txt={'Filter by person'} offset={[0, 15]} delay={[0, 0]}>
 				<div
-					className={`member-container btn-primary ${active === 'member' && 'active'}`}
+					className={`member-container btn-primary ${(active === 'member' || filter.memberId) && 'active'}`}
 					onClick={ev => onSetActive(ev, 'member')}
 				>
 					<span className="filter-icon">{FILTER_PERSON}</span>
 					<span className="filter-text">Person</span>
 					{filter.memberId && (
-						<span
-							className="empty-filter-btn"
-							onClick={() => setFilter(prev => ({ ...prev, memberId: '' }))}
-						>
+						<span className="empty-filter-btn" onClick={emptyMemberFilter}>
 							{ICON_CLOSE}
 						</span>
 					)}

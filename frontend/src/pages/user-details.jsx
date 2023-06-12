@@ -6,7 +6,7 @@ import { TfiEmail } from 'react-icons/tfi'
 import { BsPersonFill } from 'react-icons/bs'
 import { SlLocationPin } from 'react-icons/sl'
 import { useState } from 'react'
-import { showErrorMsg, showSuccessMsg, showUserMsg } from '../services/event-bus.service'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { userService } from '../services/user.service'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 import { ICON_CLOSE } from '../assets/icons/icons'
@@ -49,7 +49,7 @@ export function UserDetails() {
 			</div>
 			<header className="main-header">
 				<div className="img-container">
-					<img src={user.imgUrl} alt="User image" />
+					<img src={user.imgUrl} alt="user" />
 					<div className="change-img-profile">
 						<span>
 							<BsPersonFill />
