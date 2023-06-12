@@ -1,10 +1,11 @@
 import express from 'express'
 import { log } from '../../middlewares/logger.middleware.mjs'
-import { getBoards, getBoardById, addBoard, updateBoard, removeBoard } from './board.controller.mjs'
+import { getBoards, getBoardById, addBoard, updateBoard, removeBoard, getLastBoard } from './board.controller.mjs'
 
 const router = express.Router()
 
 router.get('/', log, getBoards)
+router.get('/lastBoard', getLastBoard)
 router.get('/:id', getBoardById)
 router.post('/', addBoard)
 router.put('/:id', updateBoard)

@@ -37,6 +37,14 @@ async function save(board) {
 	}
 }
 
+async function getLastBoard() {
+	try {
+		return await httpService.get(BASE_URL + 'lastBoard')
+	} catch (err) {
+		throw err
+	}
+}
+
 // async function addBoardMsg(boardId, txt) {
 // 	const savedMsg = await httpService.post(`board/${boardId}/msg`, { txt })
 // 	return savedMsg
@@ -100,8 +108,8 @@ function getNewBoard() {
 				fullname: 'Stav Tohami',
 				imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/stav-img_bfayq4.jpg',
 			},
-			{ _id: 'u104', fullname: 'Eyal Golan', imgUrl: DEFAULT_USER },
-			{ _id: 'u105', fullname: 'Steve Jobs', imgUrl: DEFAULT_USER },
+			{ _id: 'u104', fullname: 'Elon Barazani', imgUrl: DEFAULT_USER },
+			{ _id: 'u105', fullname: 'Risan Benichou', imgUrl: DEFAULT_USER },
 		],
 		groups: [
 			{
@@ -221,6 +229,25 @@ function getNewBoard() {
 	}
 }
 
+const obj = {
+	boardName: "Board Name",
+	groups: [
+		{
+			title: "Group Name",
+			tasks: [{
+				title: "Task description1"
+			},
+			{
+				title: "Task description2"
+			},
+			{
+				title: "Task description3"
+			}
+			]
+		}
+	]
+}
+
 function getEmptyTask(title = '', status = 'sl104') {
 	return {
 		id: '',
@@ -271,8 +298,10 @@ function getBoardMembers(board, filter = '') {
 	return members.filter(member => regex.test(member.fullname))
 }
 
-async function addGroup(boardId, pushToTop) {
-	const newGroup = getEmptyGroup()
+async function addGroup(boardId, pushToTop, title = '') {
+	const hasTitle = title ? getEmptyGroup(title) : getEmptyGroup()  
+	const newGroup = hasTitle
+	// const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	try {
 		const action = {
@@ -603,16 +632,5 @@ export const boardService = {
 	loadActivities,
 	getActivityFilter,
 	removeBatchTasks,
+	getLastBoard,
 }
-
-// component types
-// timeSince | user | level | type | dynamic cmp
-// group: group | type (no cmp to render) // (delete/ add)
-// group color change: group | type | from clf1 -> clr2
-// task: task | type | related group  // (add/ delete)
-// label: task | type | from label x -> to label y
-// name: task | type | from name1 -> name2
-// timeline: task | type | from 01/09 -> 02/09
-// date: from Jun 6 -> Jun 14
-// person: task | person | added | user img
-// owner: task | 'added owner' | (person)

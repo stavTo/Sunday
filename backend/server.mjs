@@ -3,8 +3,8 @@ import path from 'path'
 import cors from 'cors'
 import express from 'express'
 import cookieParser from 'cookie-parser'
-// import { config } from "dotenv"
-// import readline from "readline"
+import { config } from "dotenv"
+import readline from "readline"
 
 // config()
 
@@ -75,7 +75,6 @@ app.get('/**', (req, res) => {
 
 
 import { logger } from './services/logger.service.mjs'
-import { Configuration, OpenAIApi } from 'openai'
 const port = process.env.PORT || 3030
 server.listen(port, () => {
     logger.info('Server is running on port: ' + port)
