@@ -28,6 +28,7 @@ export function BoardIndex() {
 
 	useEffect(() => {
 		onLoadBoards()
+		document.title = 'My Boards'
 	}, [])
 
 	useEffect(() => {
@@ -47,7 +48,7 @@ export function BoardIndex() {
 	}
 
 	function handleSubmit(ev) {
-		ev.preventDefault();
+		ev.preventDefault()
 		// sendToGpt()
 		navigateToAIBoard()
 	}
@@ -241,8 +242,14 @@ export function BoardIndex() {
 							{isLoading &&
 								<img className="ai-load" src={boardLoader} alt="Loader" />}
 							<button className="submit-btn btn-primary pointer" type="submit">Submit</button>
+							<button className="submit-btn btn-primary pointer" type="submit">
+								Submit
+							</button>
 						</form>
-						<button className="close-btn btn-primary flex pointer" onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}>
+						<button
+							className="close-btn btn-primary flex pointer"
+							onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}
+						>
 							{ICON_CLOSE}
 						</button>
 					</div>

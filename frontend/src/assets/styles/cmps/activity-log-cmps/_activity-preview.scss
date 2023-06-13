@@ -1,6 +1,6 @@
 .activity-preview {
 	// height: rem(70px);
-	padding-block: .7em;
+	padding-block: 0.7em;
 	border-block-end: 1px solid #c4cad9;
 	justify-content: space-around;
 	display: grid;
@@ -10,7 +10,7 @@
 	grid-gap: 1.1em;
 	width: 100%;
 
-	@media (min-width :$mobile-breakpoint) {
+	@media (min-width: $mobile-breakpoint) {
 		height: rem(56px);
 		width: rem(600px);
 		grid-template-columns: rem(102px) rem(240px) rem(200px);
@@ -26,7 +26,7 @@
 
 		.timesince {
 			gap: 3px;
-			align-items: start;
+			align-items: flex-start;
 		}
 
 		@media (min-width: $mobile-breakpoint) {
@@ -61,9 +61,8 @@
 			}
 		}
 
-
 		.action-type {
-			justify-content: start;
+			justify-content: flex-start;
 		}
 	}
 
@@ -76,7 +75,7 @@
 		border-radius: 50%;
 	}
 
-	>* span {
+	> * span {
 		text-overflow: ellipsis;
 		overflow: hidden;
 		white-space: nowrap;

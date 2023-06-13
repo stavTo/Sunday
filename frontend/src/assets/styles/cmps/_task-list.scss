@@ -3,6 +3,10 @@
 	border-top-left-radius: 4px;
 
 	& > li {
+		min-width: max-content;
+		ul {
+			min-width: max-content;
+		}
 		&:focus {
 			ul {
 				background-color: $button-clicked-bgc;

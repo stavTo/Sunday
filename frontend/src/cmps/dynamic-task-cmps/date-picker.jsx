@@ -10,7 +10,6 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { ICON_CLOSE, ICON_ADD_DATE } from '../../assets/icons/icons'
 import 'react-day-picker/dist/style.css'
 import { showErrorMsg } from '../../services/event-bus.service'
-import { socketService, SOCKET_EMIT_SEND_BOARD } from '../../services/socket.service'
 
 export function DatePicker({ task, groupId, defaultWidth }) {
 	const [selected, setSelected] = useState()

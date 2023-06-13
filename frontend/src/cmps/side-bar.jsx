@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom'
 
-import { ICON_WORK_MANAGEMENT, ICON_MY_WORK, ICON_FAVORITES } from '../assets/icons/icons'
+import { ICON_WORK_MANAGEMENT, ICON_FAVORITES } from '../assets/icons/icons'
 
 import guest from '../assets/img/guest.png'
 
@@ -39,22 +39,21 @@ export function SideBar({ isExpandable = true }) {
 						<ul className="clean-list flex column align-center">
 							<li className="flex" data-tippy-content="home page">
 								<Link to="/boards">
-									<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="" />
+									<img src="https://cdn.monday.com/images/logos/monday_logo_icon.png" alt="logo" />
 								</Link>
 							</li>
 							<hr></hr>
 							<div className="flex column gap-1">
 								<TippyContainer txt={'Work management'} placement="right" offset={[0, 20]}>
-									<li className="flex work-management" onClick={() => setIsFavoritesOpen(false)}>
+									<li className={`flex work-management`} onClick={() => setIsFavoritesOpen(false)}>
 										{ICON_WORK_MANAGEMENT}
+										{(!isFavoritesOpen && isFixed) && <div className="active"></div>}
 									</li>
 								</TippyContainer>
-								<TippyContainer txt={'My Work'} placement="right" offset={[0, 20]}>
-									<li className="flex my-work">{ICON_MY_WORK}</li>
-								</TippyContainer>
 								<TippyContainer txt={'Favorites'} placement="right" offset={[0, 20]}>
-									<li className="flex favorites" onClick={onToggleFavorites}>
+									<li className={`flex favorites`} onClick={onToggleFavorites}>
 										{ICON_FAVORITES}
+										{(isFavoritesOpen && isFixed) && <div className="active"></div>}
 									</li>
 								</TippyContainer>
 							</div>
@@ -63,9 +62,8 @@ export function SideBar({ isExpandable = true }) {
 					<li className="bottom-navigation-area">
 						<ul className="clean-list flex column align-center">
 							<TippyContainer txt={'Profile'} placement="right" offset={[0, 20]}>
-								<li className="flex profile"
-									onClick={onOpenUserProfile}>
-									<img src={user?.imgUrl || guest} data-tippy-content="guest" />
+								<li className="flex profile" onClick={onOpenUserProfile}>
+									<img src={user?.imgUrl || guest} alt="profile" />
 								</li>
 							</TippyContainer>
 						</ul>

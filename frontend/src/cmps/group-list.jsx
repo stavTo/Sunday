@@ -8,8 +8,10 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useState } from 'react'
 export function GroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
-	const [isDragDisabled, setIsDragDisabled] = useState(false)
+	const [isDragDisabled, setIsDragDisabled] = useState(true)
+	const [isDragging, setIsDragging] = useState(false)
 	const [allGroupsCollapsed, setAllGroupsCollapsed] = useState(false)
+
 	function onAddGroup() {
 		addGroup(board._id, true)
 	}
@@ -45,7 +47,6 @@ export function GroupList({ groups }) {
 		const sourceGroup = boardService.getGroupById(board, sourceGroupId)
 
 		//if group is the same, we use only source group. else, we use both groups.
-		//TODO make this code DRY
 		const [task] = sourceGroup.tasks.splice(sourceIdx, 1)
 		const groupToAppend = sourceGroupId === destinationGroupId ? sourceGroup : destinationGroup
 		groupToAppend.tasks.splice(destinationIdx, 0, task)
@@ -65,17 +66,17 @@ export function GroupList({ groups }) {
 	}
 
 	function onDragStart(ev) {
+		setIsDragDisabled(true)
 		if (ev.type === 'group') {
 			setAllGroupsCollapsed(true)
 		}
-		setIsDragDisabled(true)
 	}
 
 	if (!board._id) return
 	return (
 		<DragDropContext
 			onDragEnd={handleDrag}
-			onDragStart={onDragStart}
+			// onDragStart={onDragStart}
 			onBeforeDragStart={onDragStart}
 			disableDraggingDuringDrag={isDragDisabled}
 		>
@@ -85,9 +86,10 @@ export function GroupList({ groups }) {
 						<ul className="clean-list">
 							{groups.map((group, idx) => (
 								<Draggable key={group.id} draggableId={group.id} index={idx}>
-									{provided => (
+									{(provided, snapshot) => (
 										<li {...provided.draggableProps} ref={provided.innerRef}>
 											<GroupPreview
+												setAllGroupsCollapsed={setAllGroupsCollapsed}
 												isGroupCollapsed={allGroupsCollapsed}
 												group={group}
 												provided={provided}

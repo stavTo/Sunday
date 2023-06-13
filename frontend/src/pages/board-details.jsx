@@ -10,6 +10,7 @@ import { SideBar } from '../cmps/side-bar'
 import { BoardLoader } from '../cmps/board-loader'
 import { CheckedTasksMenu } from '../cmps/checked-tasks-menu'
 import { socketService, SOCKET_EVENT_LOAD_BOARD } from '../services/socket.service'
+import searchEmpty from '../assets/img/search_empty.svg'
 
 export function BoardDetails() {
 	const { boardId } = useParams()
@@ -21,6 +22,8 @@ export function BoardDetails() {
 	const navigate = useNavigate()
 	useEffect(() => {
 		onLoadBoard(boardId, location.state)
+		//DONT PUT LOCATION IN DEPENDENCY ARRAY
+		// eslint-disable-next-line
 	}, [boardId])
 
 	useEffect(() => {
@@ -29,6 +32,7 @@ export function BoardDetails() {
 		return () => {
 			socketService.off(SOCKET_EVENT_LOAD_BOARD, onSetBoard)
 		}
+		// eslint-disable-next-line
 	}, [])
 
 	function onSetBoard() {
@@ -47,14 +51,21 @@ export function BoardDetails() {
 			navigate('/')
 		}
 	}
-	if (isLoading || !board) return <BoardLoader />
+	if (isLoading || !board?._id) return <BoardLoader />
 	return (
 		<section className="board-details">
 			<SideBar />
 			{/* <WorkspaceBoardList /> */}
 			<section className="board-container default-scroll">
 				<BoardHeader board={board} />
-				<GroupList groups={board.groups} />
+				{!board.groups.length && (
+					<div className="search-result-empty">
+						<img className="src-empty-img" src={searchEmpty} alt="search-empty"></img>
+						<span>No results found</span>
+						<p>Try using a different search term or configuring the search options</p>
+					</div>
+				)}
+				{!!board.groups.length && <GroupList groups={board.groups} />}
 			</section>
 			<Outlet />
 			{!!checkedTaskIds.length && <CheckedTasksMenu checkedTaskIds={checkedTaskIds} />}

@@ -6,12 +6,13 @@ import { TfiEmail } from 'react-icons/tfi'
 import { BsPersonFill } from 'react-icons/bs'
 import { SlLocationPin } from 'react-icons/sl'
 import { useState } from 'react'
-import { showErrorMsg, showSuccessMsg, showUserMsg } from '../services/event-bus.service'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { userService } from '../services/user.service'
 import { RiArrowGoBackFill } from 'react-icons/ri'
 import { ICON_CLOSE } from '../assets/icons/icons'
-import { updateUser } from '../store/user.actions'
+import { logout, updateUser } from '../store/user.actions'
 import { ImgUploader } from '../cmps/img-uploader'
+import { GrLogout } from 'react-icons/gr'
 
 export function UserDetails() {
 	const navigate = useNavigate()
@@ -20,22 +21,34 @@ export function UserDetails() {
 	async function onChangeImg(imgUrl) {
 		try {
 			const userToSave = { ...user, imgUrl }
-			console.log(userToSave)
 			updateUser(userToSave)
 			showSuccessMsg('Image profile has changed')
 		} catch (err) {
-			console.log(err)
+			showErrorMsg('Something went wrong')
+		}
+	}
+
+	function onLogout() {
+		try {
+			logout()
+			showSuccessMsg('Logged out!')
+			navigate('/')
+		} catch {
+			showErrorMsg("Whoops! Can't log out!")
 		}
 	}
 
 	if (!user) return <h1>Please login</h1>
-	console.log(user)
 	return (
 		<section className="user-details">
 			<RiArrowGoBackFill className="back-icon" onClick={() => navigate('/boards')} />
+			<div className="logout-icon" onClick={onLogout}>
+				<GrLogout />
+				<span>Logout</span>
+			</div>
 			<header className="main-header">
 				<div className="img-container">
-					<img src={user.imgUrl} alt="User image" />
+					<img src={user.imgUrl} alt="user" />
 					<div className="change-img-profile">
 						<span>
 							<BsPersonFill />

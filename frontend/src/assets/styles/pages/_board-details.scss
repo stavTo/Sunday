@@ -1,0 +1,19 @@
+.board-details {
+	display: flex;
+}
+
+.search-result-empty {
+	display: flex;
+	flex-direction: column;
+	margin-inline: auto;
+	text-align: center;
+	padding-block-start: 72px;
+	.src-empty-img {
+		height: 191px;
+	}
+	span {
+		font-size: rem(18px);
+		font-weight: 500;
+		color: $icon-color;
+	}
+}

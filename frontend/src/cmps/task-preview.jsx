@@ -121,6 +121,7 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected, s
 								return null
 						}
 					})}
+					<div className="line-end"></div>
 				</div>
 			</ul>
 		</>

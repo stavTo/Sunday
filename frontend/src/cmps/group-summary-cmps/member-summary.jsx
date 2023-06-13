@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { TippyContainer } from '../tippy-container'
 
@@ -8,7 +7,8 @@ export function MemberSummary({ defaultWidth, group }) {
 
 	useEffect(() => {
 		setAllGroupCollaborators(getAllGroupCollaborators())
-	}, [])
+		// eslint-disable-next-line
+	}, [group])
 
 	function getAllGroupCollaborators() {
 		const collaborators = group.tasks.reduce((acc, task) => {

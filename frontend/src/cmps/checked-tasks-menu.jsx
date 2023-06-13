@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux'
-import { ICON_CLOSE, ICON_DUPLICATE, ICON_TRASH } from '../assets/icons/icons'
+import { ICON_CLOSE } from '../assets/icons/icons'
 import { SET_CHECKED_TASKS } from '../store/selected-task.reducer'
 import { HiOutlineArrowRightCircle } from 'react-icons/hi2'
 import { VscTrash } from 'react-icons/vsc'
 import { IoDocumentsOutline } from 'react-icons/io5'
-import { duplicateTask, removeBatchTasks, removeTask } from '../store/selected-board.actions'
+import { duplicateTask, removeBatchTasks } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { boardService } from '../services/board.service'
@@ -20,6 +20,7 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 
 	useEffect(() => {
 		getAllTaskColors()
+		// eslint-disable-next-line
 	}, [checkedTaskIds])
 
 	function getAllTaskColors() {

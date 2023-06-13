@@ -13,7 +13,7 @@ import { useEffectUpdate } from '../customHooks/useEffectUpdate'
 import { usePopper } from 'react-popper'
 import { useLongPress } from '../customHooks/useLongPress'
 
-export function GroupPreview({ group, provided, isGroupCollapsed }) {
+export function GroupPreview({ group, provided, isGroupCollapsed, setAllGroupsCollapsed }) {
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [isOptionOpen, setIsOptionOpen] = useState(false)
 	const [titleToChange, setTitleToChange] = useState(group.title)
@@ -217,7 +217,12 @@ export function GroupPreview({ group, provided, isGroupCollapsed }) {
 								<div className="task-count">{group.tasks?.length} Tasks</div>
 							</div>
 						</div>
-						<div className="drag-handle" {...provided.dragHandleProps}></div>
+						<div
+							className="drag-handle"
+							onMouseDown={() => setAllGroupsCollapsed(true)}
+							onMouseUp={() => setAllGroupsCollapsed(false)}
+							{...provided.dragHandleProps}
+						></div>
 					</div>
 
 					<TaskListHeader

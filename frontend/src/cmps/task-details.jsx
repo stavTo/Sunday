@@ -8,8 +8,7 @@ import { saveTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { utilService } from '../services/util.service'
-import imgEmptyPage from '../assets/img/img/pulse-page-empty-state.svg'
-import { ActivityFilter } from './activity-log-cmps/activity-filter'
+import imgEmptyPage from '../assets/img/pulse-page-empty-state.svg'
 import { ActivityPreview } from './activity-log-cmps/activity-preview'
 import { userService } from '../services/user.service'
 
@@ -28,6 +27,7 @@ export function TaskDetails() {
 
 	useEffect(() => {
 		if (taskId && board._id) loadGroup()
+		// eslint-disable-next-line
 	}, [taskId, board])
 
 	function handleKeyPressed(key) {
@@ -42,21 +42,19 @@ export function TaskDetails() {
 
 	async function loadGroup() {
 		try {
-			const newGroup = boardService.getGroupByTask(board, taskId)
 			const currTask = boardService.getTaskById(board, taskId)
 			setTitleToChange(currTask.title)
 			setTask(currTask)
 		} catch (err) {
-			console.log(err)
 			showErrorMsg('Had issue loading group')
 		}
 	}
 
-	function onCloseEditor(ev) {
-		if (ev.target.closest('.editor , .update-btn , .new-post, input')) return
-		setIsEditorOpen(false)
-		setIsInputVisible(false)
-	}
+	// function onCloseEditor(ev) {
+	// 	if (ev.target.closest('.editor , .update-btn , .new-post, input')) return
+	// 	setIsEditorOpen(false)
+	// 	setIsInputVisible(false)
+	// }
 
 	async function onCloseModal() {
 		if (location.pathname.includes('kanban')) navigate(`/boards/${boardId}/views/kanban`)
@@ -64,7 +62,19 @@ export function TaskDetails() {
 	}
 
 	async function onSaveComment() {
-		const newComment = { txt: commentToEdit, id: utilService.makeId(), by: user, createdAt: Date.now() }
+		const newComment = {
+			txt: commentToEdit,
+			id: utilService.makeId(),
+			by:
+				user ||
+				userService.getEmptyUser(
+					'qwe23',
+					'Stav Tohami',
+					'https://res.cloudinary.com/diyikz4gq/image/upload/v1686577125/nb9ei638achmm1nsvhr6.jpg',
+					'tohami2014@gmail.com'
+				),
+			createdAt: Date.now(),
+		}
 		const newTask = { ...task, comments: [newComment, ...task.comments] }
 		try {
 			const group = boardService.getGroupByTask(board, taskId)
@@ -83,7 +93,7 @@ export function TaskDetails() {
 			await saveTask(boardId, group.id, newTask, 'saved new comment')
 			setIsEditorOpen(false)
 		} catch (err) {
-			console.log('Cant remove comment')
+			showErrorMsg("Can't remove comment")
 		}
 	}
 
@@ -131,26 +141,26 @@ export function TaskDetails() {
 						></input>
 					)}
 				</div>
-				<div>
-					<ul className="clean-list flex board-nav-bar">
-						<li
-							onClick={() => setActiveTab('updates')}
-							className={`${activeTab === 'updates' ? 'active' : ''}`}
-						>
-							<div className="btn-primary">
-								<span href="#">{ICON_HOUSE} Updates</span>
-							</div>
-						</li>
-						<li
-							onClick={() => setActiveTab('activity')}
-							className={`${activeTab === 'activity' ? 'active' : ''}`}
-						>
-							<div className="btn-primary">
-								<span href="#">Activity Log</span>
-							</div>
-						</li>
-					</ul>
-				</div>
+
+				<ul className="clean-list flex board-nav-bar">
+					<li
+						onClick={() => setActiveTab('updates')}
+						className={`${activeTab === 'updates' ? 'active' : ''}`}
+					>
+						<div className="btn-primary">
+							<span href="#">{ICON_HOUSE} Updates</span>
+						</div>
+					</li>
+					<li
+						onClick={() => setActiveTab('activity')}
+						className={`${activeTab === 'activity' ? 'active' : ''}`}
+					>
+						<div className="btn-primary">
+							<span href="#">Activity Log</span>
+						</div>
+					</li>
+				</ul>
+
 				{/* Condition rendering starts here */}
 				{activeTab === 'updates' ? (
 					<section className="editor-container ">
@@ -192,7 +202,11 @@ export function TaskDetails() {
 													</span>
 												</div>
 											</div>
-											<div dangerouslySetInnerHTML={{ __html: comment.txt }}></div>
+											<div
+												className="txt-container"
+												dangerouslySetInnerHTML={{ __html: comment.txt }}
+											></div>
+											{/* <div className="seen-container"></div> */}
 										</li>
 									))
 								) : (

@@ -4,6 +4,7 @@ import { SOCKET_EMIT_SEND_BOARD, socketService } from './socket.service.js'
 import { utilService } from './util.service.js'
 
 import { DEFAULT_USER } from '../assets/icons/icons.js'
+import { userService } from './user.service.js'
 
 const BASE_URL = 'board/'
 
@@ -229,25 +230,6 @@ function getNewBoard() {
 	}
 }
 
-const obj = {
-	boardName: "Board Name",
-	groups: [
-		{
-			title: "Group Name",
-			tasks: [{
-				title: "Task description1"
-			},
-			{
-				title: "Task description2"
-			},
-			{
-				title: "Task description3"
-			}
-			]
-		}
-	]
-}
-
 function getEmptyTask(title = '', status = 'sl104') {
 	return {
 		id: '',
@@ -299,7 +281,7 @@ function getBoardMembers(board, filter = '') {
 }
 
 async function addGroup(boardId, pushToTop, title = '') {
-	const hasTitle = title ? getEmptyGroup(title) : getEmptyGroup()  
+	const hasTitle = title ? getEmptyGroup(title) : getEmptyGroup()
 	const newGroup = hasTitle
 	// const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
@@ -445,7 +427,6 @@ async function removeTask(boardId, taskId, action = {}) {
 }
 
 async function removeBatchTasks(boardId, taskIds, actions = []) {
-	console.log(actions)
 	try {
 		const board = await getById(boardId)
 		board.groups = board.groups.map(group => ({
@@ -468,8 +449,11 @@ async function removeBatchTasks(boardId, taskIds, actions = []) {
 }
 
 function getEmptyActivity(board, entityId = '', action = {}) {
-	const users = getBoardMembers(board)
-	const user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
+	let user = userService.getLoggedInUser()
+	if (!user) {
+		const users = getBoardMembers(board)
+		user = users[utilService.getRandomIntInclusive(0, users.length - 1)]
+	}
 
 	return {
 		id: utilService.makeId(),
@@ -500,7 +484,6 @@ async function addTaskToFirstGroup(boardId, action = {}) {
 
 async function updateGroup(boardId, group, action) {
 	try {
-		console.log('action', action)
 		const board = await getById(boardId)
 		board.groups = board.groups.map(g => (g.id === group.id ? group : g))
 
@@ -594,7 +577,6 @@ function loadActivities(board, filter = {}) {
 	if (filter.taskId) {
 		// const currTask = getTaskById(filter.taskId)
 		filteredActivities = filteredActivities.filter(activity => activity.entityId === filter.taskId)
-		console.log('filteredActivities', filteredActivities)
 	}
 	return filteredActivities
 }

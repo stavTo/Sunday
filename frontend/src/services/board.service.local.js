@@ -54,17 +54,16 @@ export function getGroupDateSummary(group) {
 
 		if (!dueDate) return
 		if (dates.includes(dueDate)) return
-		dates.push(dueDate);
+		dates.push(dueDate)
 	})
 
 	const earliestDate = Math.min(...dates)
 	const latestDate = Math.max(...dates)
 	return {
 		startDate: earliestDate,
-		endDate: latestDate
+		endDate: latestDate,
 	}
 }
-
 
 async function query(filter = {}) {
 	let boards = await storageService.query(STORAGE_KEY)
@@ -299,7 +298,6 @@ async function removeTask(boardId, taskId, activity = {}) {
 	// PUT /api/board/b123/task/t678
 	board.groups = board.groups.map(group => ({ ...group, tasks: group.tasks.filter(t => t.id !== taskId) }))
 	// board.board.activities.unshift(activity)
-	console.log(board)
 	await save(board)
 	return board
 }
@@ -354,8 +352,16 @@ function _getDummyBoard(boardNum) {
 			{ _id: 'u101', fullname: 'Ido Kadosh', imgUrl: idoImg },
 			{ _id: 'u102', fullname: 'Roni Yerushalmi', imgUrl: roniImg },
 			{ _id: 'u103', fullname: 'Stav Tohami', imgUrl: stavImg },
-			{ _id: 'u104', fullname: 'Eyal Golan', imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686569628/T04KZK1LY91-U04LDGEGC69-1eb084051222-512_us6hkn.png' },
-			{ _id: 'u105', fullname: 'Steve Jobs', imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686569639/T04KZK1LY91-U04LV444SP3-da137a7e0138-512_d6oeqi.png' },
+			{
+				_id: 'u104',
+				fullname: 'Eyal Golan',
+				imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686569628/T04KZK1LY91-U04LDGEGC69-1eb084051222-512_us6hkn.png',
+			},
+			{
+				_id: 'u105',
+				fullname: 'Steve Jobs',
+				imgUrl: 'https://res.cloudinary.com/diyikz4gq/image/upload/v1686569639/T04KZK1LY91-U04LV444SP3-da137a7e0138-512_d6oeqi.png',
+			},
 		],
 		groups: [
 			{
@@ -592,7 +598,6 @@ function _getDummyBoard(boardNum) {
 // if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, JSON.stringify([_getDummyBoard(1)]))
 
 // const boardsToSave = [_getDummyBoard(1), _getDummyBoard(1), _getDummyBoard(1), _getDummyBoard(1)]
-// console.log("getDummyBoards()", getDummyBoards())
 
 const dummyBoard1 = getEmptyBoard()
 const dummyBoard2 = {
@@ -751,7 +756,3 @@ const dummyBoard3 = {
 		},
 	],
 }
-
-// const newLocal = [_getDummyBoard(1), dummyBoard2, dummyBoard3]
-// localStorage.setItem(STORAGE_KEY, JSON.stringify(newLocal))
-// console.log(JSON.stringify(_getDummyBoard()))

@@ -56,22 +56,30 @@
 
 	.search-container {
 		padding-inline-start: 5px;
+
 		width: 92px;
 		transition: outline 0.1s;
 		transition: width 0.1s;
+		position: relative;
 
 		&.focused,
 		&:has(:focus) {
-			&:hover {
+			&:not(.active):hover {
 				background-color: inherit;
 			}
-
+			margin-inline-end: 10px;
 			cursor: text;
 			width: 235px;
 
 			outline: 1px solid $bg-clr1;
 			height: 100%;
 			border-radius: 4px;
+		}
+		.empty-search-icon {
+			display: flex;
+			font-size: rem(12px);
+			position: absolute;
+			right: 5px;
 		}
 	}
 

@@ -1,4 +1,4 @@
-import { eventBus, showSuccessMsg } from '../services/event-bus.service.js'
+import { eventBus } from '../services/event-bus.service.js'
 import { useState, useEffect, useRef } from 'react'
 import { socketService, SOCKET_EVENT_REVIEW_ABOUT_YOU } from '../services/socket.service.js'
 import { ICON_CLOSE, ICON_ERROR } from '../assets/icons/icons.js'
@@ -9,7 +9,6 @@ export function UserMsg() {
 
 	useEffect(() => {
 		const unsubscribe = eventBus.on('show-msg', msg => {
-			console.log('got msg', msg)
 			setMsg(msg)
 			window.scrollTo({ top: 0, behavior: 'smooth' })
 			if (timeoutIdRef.current) {

@@ -2,28 +2,13 @@ import { useSelector } from 'react-redux'
 import { KanbanGroupPreview } from './kanban-group-preview'
 import { boardService } from '../../services/board.service'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
-import { useEffect, useMemo, useState } from 'react'
-import { saveBoard, saveTask } from '../../store/selected-board.actions'
+import { useMemo, useState } from 'react'
+import { saveBoard } from '../../store/selected-board.actions'
 import { showErrorMsg } from '../../services/event-bus.service'
 
 export function KanbanGroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [isDragDisabled, setIsDragDisabled] = useState(false)
-	// const [groupsByLabels, setGroupsByLabels] = useState()
-	// console.log('render')
-
-	// useEffect(() => {
-	// 	onSetGroupsByLabels()
-	// }, [board])
-
-	// function onSetGroupsByLabels() {
-	// 	const groupsByLabels = board.statusLabels.reduce((acc, status, idx) => {
-	// 		const tasks = groups.flatMap(group => group.tasks.filter(task => task.status === status.id))
-	// 		acc.push({ status: status.id, tasks })
-	// 		return acc
-	// 	}, [])
-	// 	setGroupsByLabels(groupsByLabels)
-	// }
 
 	const groupsByLabels = useMemo(() => {
 		return board.statusLabels.reduce((acc, status, idx) => {
@@ -31,6 +16,7 @@ export function KanbanGroupList({ groups }) {
 			acc.push({ status: status.id, tasks })
 			return acc
 		}, [])
+		// eslint-disable-next-line
 	}, [board])
 
 	async function handleDrag(result) {
@@ -65,12 +51,17 @@ export function KanbanGroupList({ groups }) {
 		}
 		// change task label
 		else {
+			// saving task locally first, to not await for server response
+			// then using saveBoard (which is optimistic) we save.
 			const task = boardService.getTaskById(board, taskId)
 			const group = boardService.getGroupByTask(board, taskId)
 			task.status = destinationStatus
-
+			let newBoard = structuredClone(board)
+			newBoard.groups = newBoard.groups.map(g =>
+				g.id !== group.id ? g : { ...g, tasks: g.tasks.map(t => (t.id === task.id ? task : t)) }
+			)
 			try {
-				await saveTask(board._id, group.id, task)
+				await saveBoard(newBoard)
 			} catch {
 				showErrorMsg('Something went wrong')
 			}
@@ -82,9 +73,12 @@ export function KanbanGroupList({ groups }) {
 	}
 
 	if (!board._id || !groupsByLabels) return
-	// console.log(groupsByLabels)
 	return (
-		<DragDropContext onDragEnd={handleDrag} onDragStart={onDragStart} disableDraggingDuringDrag={isDragDisabled}>
+		<DragDropContext
+			onDragEnd={handleDrag}
+			onBeforeDragStart={onDragStart}
+			disableDraggingDuringDrag={isDragDisabled}
+		>
 			<Droppable droppableId={board._id} direction="horizontal" type="group">
 				{provided => (
 					<ul
@@ -101,7 +95,6 @@ export function KanbanGroupList({ groups }) {
 										ref={provided.innerRef}
 									>
 										<KanbanGroupPreview
-											isDragDisabled={isDragDisabled}
 											statusLabel={boardService.getStatusLabelById(board, group.status)}
 											group={group.tasks}
 										/>

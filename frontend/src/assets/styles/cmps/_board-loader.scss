@@ -4,14 +4,18 @@
 	display: flex;
 
 	.sidebar-loader {
-		display: flex;
-		flex-direction: column;
-		position: relative;
-		height: 100vh;
-		color: $clr0;
-		background-color: $bg-clr2;
-		width: 66px;
-		min-width: 66px;
+		display: none;
+
+		@media screen and (min-width: $mobile-breakpoint) {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+			height: 100vh;
+			color: $clr0;
+			background-color: $bg-clr2;
+			width: 66px;
+			min-width: 66px;
+		}
 	}
 
 	.main-loader-container {

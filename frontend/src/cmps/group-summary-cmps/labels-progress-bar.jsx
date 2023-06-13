@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { TippyContainer } from '../tippy-container'
 import { utilService } from '../../services/util.service'
-import { useEffectUpdate } from '../../customHooks/useEffectUpdate'
 
 export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 	const [labelsName, setLabelsName] = useState('')
@@ -29,7 +28,7 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 		const values = Object.values(mapCount)
 		const sum = values.reduce((acc, val) => acc + val, 0)
 		const valuesPercent = values.map(val => {
-			if (val === 0) return
+			if (val === 0) return null
 			return `${val}/${sum}`
 		})
 
@@ -56,7 +55,7 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 					const labelId = Object.keys(val)[0]
 					const label = board[labelsNameInBoard].find(l => l.id === labelId)
 					const widthFraction = val[labelId]
-					const widthPercent = utilService.fractionToPercent(widthFraction).toFixed(1)
+					const widthPercent = utilService.fractionToPercent(widthFraction).toFixed()
 					return (
 						<TippyContainer key={idx} txt={`${label.title} ${widthFraction} ${widthPercent}%`}>
 							<li

@@ -127,19 +127,27 @@ export function BoardHeader({ board }) {
 							</TippyContainer>
 						)}
 					</div>
-					<div className="menu-btn btn-primary" onClick={() => setIsMenuToggle(prev => !prev)}>{ICON_OPTIONS}</div>
+					<div className="menu-btn btn-primary" onClick={() => setIsMenuToggle(prev => !prev)}>
+						{ICON_OPTIONS}
+					</div>
 					<div className={`board-header-top-right  ${isMenuToggle ? 'open-menu' : ''}`}>
-						<div className="activity-container btn-primary">
-							<Link className="open-task-details" to={`/boards/${board._id}/activity_log/`}>
+						<Link
+							className="open-task-details activity-container btn-primary"
+							to={`/boards/${board._id}/activity_log/`}
+						>
+							<div>
 								Activity
-							</Link>
-							<div className="user-img-container"></div>
-						</div>
+								<div className="user-img-container"></div>
+							</div>
+						</Link>
 						<div onClick={() => setIsInviteOpen(prev => !prev)} className="invite-container btn-primary">
 							{ICON_INVITE_MEMBERS}
-							Invite / 3
+							Invite / 5
 						</div>
 					</div>
+				</div>
+				<div className="board-info">
+					<span>{board.description}</span>
 				</div>
 				<BoardToolbar />
 				<div className="board-header-bottom">
@@ -152,7 +160,7 @@ export function BoardHeader({ board }) {
 					{isAddGroupModalOpen && <AddGroupModal onAddGroup={onAddGroup} />}
 					<BoardFilter board={board} />
 				</div>
-			</section >
+			</section>
 			{isInviteOpen && (
 				<>
 					<div className="invite-members-modal">
@@ -173,8 +181,7 @@ export function BoardHeader({ board }) {
 					</div>
 					<div className="modal-overlay" onClick={() => setIsInviteOpen(false)}></div>
 				</>
-			)
-			}
+			)}
 			{isInfoOpen && <BoardInfo board={board} setIsInfoOpen={setIsInfoOpen} />}
 		</>
 	)
@@ -183,9 +190,10 @@ export function BoardHeader({ board }) {
 function AddGroupModal({ onAddGroup }) {
 	return (
 		<section className="add-group-modal">
-			<span onClick={onAddGroup}
-				className="btn-primary">
-				<span className="icon"><FontAwesomeIcon icon={faTableList} style={{ color: "#676879", }} /></span>
+			<span onClick={onAddGroup} className="btn-primary">
+				<span className="icon">
+					<FontAwesomeIcon icon={faTableList} style={{ color: '#676879' }} />
+				</span>
 				<span className="title">New group of tasks</span>
 			</span>
 		</section>

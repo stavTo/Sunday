@@ -53,7 +53,7 @@ export function TaskOptionsMenu({ task, group, setIsOptionOpen, kanbanStatus }) 
 			await navigator.clipboard.writeText(window.location.href + `/tasks/${task.id}`)
 			showSuccessMsg('Link copied')
 		} catch (err) {
-			console.log('Failed to copy URL to clipboard')
+			showErrorMsg('Failed to copy URL to clipboard')
 		}
 	}
 

@@ -23,16 +23,16 @@ import universalSponser from '../assets/img/img-sponser/universal.png'
 
 import { BTN_ARROW } from '../assets/icons/icons'
 import { loadBoards } from '../store/board.actions'
-import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 import logo from '../assets/img/logo.png'
 import { showErrorMsg } from '../services/event-bus.service'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export function HomePage() {
 	const navigate = useNavigate()
 	const [scrolled, setScrolled] = useState(false)
-
+	const { boards } = useSelector(({ boardModule }) => boardModule)
 	useEffect(() => {
 		onLoadBoards()
 	}, [])
@@ -51,7 +51,7 @@ export function HomePage() {
 	}
 
 	function onNavigate() {
-		navigate('/boards')
+		navigate(`/boards/${boards[0]._id}`)
 	}
 
 	return (
@@ -59,12 +59,9 @@ export function HomePage() {
 			<header className={`home-header main-layout full ${`${scrolled ? 'scrolled' : ''}`}`}>
 				<nav className="main-nav flex">
 					<div className="logo">
-						<img src={logo} />
+						<img src={logo} alt="logo" />
 					</div>
 					<ul className="clean-list flex">
-						<li>
-							<a href="">About</a>
-						</li>
 						<li>
 							<Link to="/auth/login">Log in</Link>
 						</li>
@@ -86,55 +83,55 @@ export function HomePage() {
 					<div className="cards-section">
 						<div className="card">
 							<div className="icon-container">
-								<img src={designIcon} alt="" />
+								<img src={designIcon} alt="design" />
 							</div>
 							<span>Creative & design</span>
 						</div>
 						<div className="card">
 							<div className="icon-container">
-								<img src={devIcon} alt="" />
+								<img src={devIcon} alt="card" />
 							</div>
 							<span>Software development</span>
 						</div>
 						<div className="card">
 							<div className="icon-container">
-								<img src={marketingIcon} alt="" />
+								<img src={marketingIcon} alt="card" />
 							</div>
 							<span>Marketing</span>
 						</div>
 						<div className="card">
 							<div className="icon-container">
-								<img src={pmoIcon} alt="" />
+								<img src={pmoIcon} alt="card" />
 							</div>
 							<span>Project management</span>
 						</div>
 						<div className="card">
 							<div className="icon-container">
-								<img src={crmIcon} alt="" />
+								<img src={crmIcon} alt="card" />
 							</div>
 							<span>Sales & CRM</span>
 						</div>
 						<div className="card">
 							<div className="icon-container">
-								<img src={taskIcon} alt="" />
+								<img src={taskIcon} alt="card" />
 							</div>
 							<span>Task management</span>
 						</div>
 						<div className="card">
 							<div className="icon-container">
-								<img src={hrIcon} alt="" />
+								<img src={hrIcon} alt="card" />
 							</div>
 							<span>HR</span>
 						</div>
 						<div className="card">
 							<div className="icon-container">
-								<img src={operationIcon} alt="" />
+								<img src={operationIcon} alt="card" />
 							</div>
 							<span>Operations</span>
 						</div>
 						<div className="card">
 							<div className="icon-container">
-								<img src={workflowsIcon} alt="" />
+								<img src={workflowsIcon} alt="card" />
 							</div>
 							<span>More workflows</span>
 						</div>
@@ -150,37 +147,37 @@ export function HomePage() {
 			</main>
 
 			<section className="img-container">
-				<img src={HP_asset_white_bg} alt="" />
+				<img src={HP_asset_white_bg} alt="hp" />
 			</section>
 			<section className="sponsers">
 				<h2>Trusted by 180,000+ customers worldwide</h2>
 				<ul className="sponsers-list clean-list">
 					<li>
-						<img src={bdSponser} alt="" />
+						<img src={bdSponser} alt="bd" />
 					</li>
 					<li>
-						<img src={canvaSponser} alt="" />
+						<img src={canvaSponser} alt="canva" />
 					</li>
 					<li>
-						<img src={cocaColaSponser} alt="" />
+						<img src={cocaColaSponser} alt="coca cola" />
 					</li>
 					<li>
-						<img src={glossierSponser} alt="" />
+						<img src={glossierSponser} alt="glossier" />
 					</li>
 					<li>
-						<img src={holtCatSponser} alt="" />
+						<img src={holtCatSponser} alt="holt cat" />
 					</li>
 					<li>
-						<img src={huluSponser} alt="" />
+						<img src={huluSponser} alt="hulu" />
 					</li>
 					<li>
-						<img src={lionsgateSponser} alt="" />
+						<img src={lionsgateSponser} alt="lionsgate" />
 					</li>
 					<li>
-						<img src={oxySponser} alt="" />
+						<img src={oxySponser} alt="oxy" />
 					</li>
 					<li>
-						<img src={universalSponser} alt="" />
+						<img src={universalSponser} alt="universal" />
 					</li>
 				</ul>
 			</section>

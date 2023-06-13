@@ -10,7 +10,6 @@ export function BoardIndexAside({}) {
             <div className="explore-templates flex column">
                 <img src={template} />
                 <span>Boost you workflow in minutes with ready-made templates</span>
-                {/* <button className="btn-primary p-half-em" onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}>Explore templates</button> */}
             </div>
             <div className="learn flex column gap-1">
                 <span>Learn and get inspired</span>

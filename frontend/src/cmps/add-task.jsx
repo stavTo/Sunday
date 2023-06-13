@@ -29,7 +29,6 @@ export function AddTask({ group }) {
 			await addTask(board._id, group.id, taskToAdd, action)
 			setTaskToAdd(prevTask => ({ ...prevTask, title: '' }))
 		} catch (err) {
-			console.log(err)
 			showErrorMsg("Can't add task")
 		}
 	}

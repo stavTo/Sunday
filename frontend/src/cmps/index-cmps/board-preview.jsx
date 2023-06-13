@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { saveBoard } from '../../store/selected-board.actions'
 import { TippyContainer } from '../tippy-container'
 import img from '../../assets/img/quick_search_recent_board.svg'
-import {
-    ICON_BOARD_LIST,
-    ICON_STAR,
-    ICON_WORK_MANAGEMENT,
-    ICON_STAR_STARRED
-} from '../../assets/icons/icons'
+import { ICON_BOARD_LIST, ICON_STAR, ICON_WORK_MANAGEMENT, ICON_STAR_STARRED } from '../../assets/icons/icons'
 export function BoardPreview({ board }) {
+	function onToggleStarState() {
+		const isStarred = board.isStarred
+		const newBoard = { ...board, isStarred: !isStarred }
+		saveBoard(newBoard)
+	}
 
     function onToggleStarState() {
         const isStarred = board.isStarred
