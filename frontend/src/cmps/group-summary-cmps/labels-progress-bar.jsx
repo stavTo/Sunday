@@ -28,7 +28,7 @@ export function LabelsProgressBar({ board, group, type, defaultWidth }) {
 		const values = Object.values(mapCount)
 		const sum = values.reduce((acc, val) => acc + val, 0)
 		const valuesPercent = values.map(val => {
-			if (val === 0) return
+			if (val === 0) return null
 			return `${val}/${sum}`
 		})
 

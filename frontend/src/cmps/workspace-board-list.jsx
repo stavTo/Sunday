@@ -72,7 +72,7 @@ export function WorkspaceBoardList() {
 						>
 							<div className="board-name-container">
 								{ICON_BOARD_LIST}
-								<span>{board.title}</span>
+								<div className="board-name">{board.title}</div>
 							</div>
 
 							<span className="delete-board-icon" onClick={ev => onDeleteBoard(ev, board._id)}>

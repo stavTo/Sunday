@@ -27,11 +27,12 @@ import { useNavigate } from 'react-router'
 import logo from '../assets/img/logo.png'
 import { showErrorMsg } from '../services/event-bus.service'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export function HomePage() {
 	const navigate = useNavigate()
 	const [scrolled, setScrolled] = useState(false)
-
+	const { boards } = useSelector(({ boardModule }) => boardModule)
 	useEffect(() => {
 		onLoadBoards()
 	}, [])
@@ -50,7 +51,7 @@ export function HomePage() {
 	}
 
 	function onNavigate() {
-		navigate('/boards')
+		navigate(`/boards/${boards[0]._id}`)
 	}
 
 	return (

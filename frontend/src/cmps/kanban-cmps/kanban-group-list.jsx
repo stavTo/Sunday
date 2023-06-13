@@ -3,7 +3,7 @@ import { KanbanGroupPreview } from './kanban-group-preview'
 import { boardService } from '../../services/board.service'
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useMemo, useState } from 'react'
-import { saveBoard, saveTask } from '../../store/selected-board.actions'
+import { saveBoard } from '../../store/selected-board.actions'
 import { showErrorMsg } from '../../services/event-bus.service'
 
 export function KanbanGroupList({ groups }) {
@@ -16,6 +16,7 @@ export function KanbanGroupList({ groups }) {
 			acc.push({ status: status.id, tasks })
 			return acc
 		}, [])
+		// eslint-disable-next-line
 	}, [board])
 
 	async function handleDrag(result) {

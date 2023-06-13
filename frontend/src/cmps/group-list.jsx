@@ -68,13 +68,6 @@ export function GroupList({ groups }) {
 	function onDragStart(ev) {
 		setIsDragDisabled(true)
 		if (ev.type === 'group') {
-			console.log('hi')
-			setAllGroupsCollapsed(true)
-		}
-	}
-
-	function setGroupsCollapsed() {
-		if (isDragging) {
 			setAllGroupsCollapsed(true)
 		}
 	}
