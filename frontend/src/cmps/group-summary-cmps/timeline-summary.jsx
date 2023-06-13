@@ -20,16 +20,16 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 		let startDates = []
 		let endDates = []
 		if (!groupHasTimeline) return
-		else {
-			group.tasks.forEach(task => {
-				const { timeline } = task
-				if (!timeline) return
-				if (startDates.includes(timeline.startDate)) return
-				startDates.push(timeline.startDate)
-				if (endDates.includes(timeline.endDate)) return
-				endDates.push(timeline.endDate)
-			})
-		}
+
+		group.tasks.forEach(task => {
+			const { timeline } = task
+			if (!timeline || !timeline.startDate || !timeline.endDate) return
+			if (startDates.includes(timeline.startDate)) return
+			startDates.push(timeline.startDate)
+			if (endDates.includes(timeline.endDate)) return
+			endDates.push(timeline.endDate)
+		})
+		console.log(startDates, endDates)
 		if (!startDates.length || !endDates.length) return
 		const earliestDate = Math.min(...startDates)
 		const latestDate = Math.max(...endDates)

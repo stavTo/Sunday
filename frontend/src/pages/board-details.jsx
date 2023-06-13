@@ -22,8 +22,9 @@ export function BoardDetails() {
 	const navigate = useNavigate()
 	useEffect(() => {
 		onLoadBoard(boardId, location.state)
+		//DONT PUT LOCATION IN DEPENDENCY ARRAY
 		// eslint-disable-next-line
-	}, [boardId, location])
+	}, [boardId])
 
 	useEffect(() => {
 		socketService.on(SOCKET_EVENT_LOAD_BOARD, onSetBoard)
@@ -50,7 +51,7 @@ export function BoardDetails() {
 			navigate('/')
 		}
 	}
-	if (isLoading || !board) return <BoardLoader />
+	if (isLoading || !board?._id) return <BoardLoader />
 	return (
 		<section className="board-details">
 			<SideBar />

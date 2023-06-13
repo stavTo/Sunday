@@ -50,12 +50,17 @@ export function KanbanGroupList({ groups }) {
 		}
 		// change task label
 		else {
+			// saving task locally first, to not await for server response
+			// then using saveBoard (which is optimistic) we save.
 			const task = boardService.getTaskById(board, taskId)
 			const group = boardService.getGroupByTask(board, taskId)
 			task.status = destinationStatus
-
+			let newBoard = structuredClone(board)
+			newBoard.groups = newBoard.groups.map(g =>
+				g.id !== group.id ? g : { ...g, tasks: g.tasks.map(t => (t.id === task.id ? task : t)) }
+			)
 			try {
-				await saveTask(board._id, group.id, task)
+				await saveBoard(newBoard)
 			} catch {
 				showErrorMsg('Something went wrong')
 			}
@@ -68,7 +73,11 @@ export function KanbanGroupList({ groups }) {
 
 	if (!board._id || !groupsByLabels) return
 	return (
-		<DragDropContext onDragEnd={handleDrag} onDragStart={onDragStart} disableDraggingDuringDrag={isDragDisabled}>
+		<DragDropContext
+			onDragEnd={handleDrag}
+			onBeforeDragStart={onDragStart}
+			disableDraggingDuringDrag={isDragDisabled}
+		>
 			<Droppable droppableId={board._id} direction="horizontal" type="group">
 				{provided => (
 					<ul
@@ -85,7 +94,6 @@ export function KanbanGroupList({ groups }) {
 										ref={provided.innerRef}
 									>
 										<KanbanGroupPreview
-											isDragDisabled={isDragDisabled}
 											statusLabel={boardService.getStatusLabelById(board, group.status)}
 											group={group.tasks}
 										/>

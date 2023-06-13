@@ -8,8 +8,9 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useState } from 'react'
 export function GroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
-	const [isDragDisabled, setIsDragDisabled] = useState(false)
+	const [isDragDisabled, setIsDragDisabled] = useState(true)
 	const [allGroupsCollapsed, setAllGroupsCollapsed] = useState(false)
+
 	function onAddGroup() {
 		addGroup(board._id, true)
 	}
@@ -18,7 +19,7 @@ export function GroupList({ groups }) {
 		if (!result.destination) return //if moved outside of containers, we exit.
 		if (result.type === 'group') await handleGroupDrag(result)
 		else await handleTaskDrag(result)
-		setIsDragDisabled(false)
+		// setIsDragDisabled(false)
 		setAllGroupsCollapsed(false)
 	}
 
@@ -65,17 +66,17 @@ export function GroupList({ groups }) {
 	}
 
 	function onDragStart(ev) {
+		setIsDragDisabled(true)
 		if (ev.type === 'group') {
 			setAllGroupsCollapsed(true)
 		}
-		setIsDragDisabled(true)
 	}
 
 	if (!board._id) return
 	return (
 		<DragDropContext
 			onDragEnd={handleDrag}
-			onDragStart={onDragStart}
+			// onDragStart={onDragStart}
 			onBeforeDragStart={onDragStart}
 			disableDraggingDuringDrag={isDragDisabled}
 		>

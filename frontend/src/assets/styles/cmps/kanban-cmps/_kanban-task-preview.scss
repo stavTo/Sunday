@@ -36,6 +36,8 @@
 		.kanban-task-title {
 			// font-size: rem(13px);
 			line-height: 18px;
+			overflow: hidden;
+			text-overflow: ellipsis;
 			white-space: break-spaces;
 		}
 

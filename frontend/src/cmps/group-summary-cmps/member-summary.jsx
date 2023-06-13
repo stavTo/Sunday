@@ -8,7 +8,7 @@ export function MemberSummary({ defaultWidth, group }) {
 
 	useEffect(() => {
 		setAllGroupCollaborators(getAllGroupCollaborators())
-	}, [])
+	}, [group])
 
 	function getAllGroupCollaborators() {
 		const collaborators = group.tasks.reduce((acc, task) => {
