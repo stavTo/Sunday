@@ -3,7 +3,7 @@
     border-radius: 5px;
     padding: .5em;
 
-    width: fit-content;
+    // width: fit-content;
 
     &:hover {
         border: 1px solid $clr0;
@@ -12,6 +12,7 @@
 
     img {
         border-radius: 4px;
+        width: 100%;
     }
 
     .preview-header {
@@ -19,9 +20,16 @@
             padding: .2em;
         }
 
+        a:first-child {
+            overflow: hidden;
+        }
+
         span {
             font-size: 16px;
             font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         svg {
@@ -41,16 +49,38 @@
         gap: .3em;
     }
 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
     .preview-footer {
+        margin-block-start: 4px;
         align-self: flex-start;
         display: flex;
         align-items: center;
         gap: .5em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
 
-        span {
-            color: $icon-color;
-            font-size: 14px;
+        .span-container {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+            overflow-y: hidden;
+
+            span {
+                color: $icon-color;
+                font-size: 14px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                overflow-x: hidden;
+                overflow-y: hidden;
+            }
         }
+
 
         svg {
             width: 17.5px;

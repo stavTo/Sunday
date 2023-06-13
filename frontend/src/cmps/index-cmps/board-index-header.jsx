@@ -2,8 +2,9 @@ import { getBlessingByTime } from '../../services/util.service'
 import headerBackground from '../../assets/img/board-index/header-background.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt } from '@fortawesome/free-solid-svg-icons'
+import { TippyContainer } from '../tippy-container'
 
-export function BoardIndexHeader() {
+export function BoardIndexHeader({ setToggleInputModal }) {
     return (
         <section className="header flex row align-center space-between">
             <div className="titles-container flex row">
@@ -13,11 +14,14 @@ export function BoardIndexHeader() {
                 </div>
                 <img src={headerBackground} />
             </div>
-            <button type="submit" className="quick-search-button btn-primary flex space-evenly align-center">
-                <i className="icon icon-v2-bolt-switch"></i>
-                <FontAwesomeIcon icon={faBolt} style={{ color: "#ffffff" }} />
-                Quick Search
-            </button>
+            <div className="flex row gap-1">
+                <TippyContainer txt="Generate AI templates">
+                    <button className="ai-btn btn-primary p-half-em" onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}>
+                        <FontAwesomeIcon icon={faBolt} style={{ color: "#ffffff" }} />
+                        Generate AI templates
+                    </button>
+                </TippyContainer>
+            </div>
         </section>
     )
 }

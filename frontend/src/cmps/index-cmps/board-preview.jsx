@@ -49,7 +49,9 @@ export function BoardPreview({ board }) {
                 </div>
                 <div className="preview-footer">
                     {ICON_WORK_MANAGEMENT}
-                    <span>Work management > Main workspace</span>
+                    <div className="span-container">
+                        <span>Work management {'>'} Main workspace</span>
+                    </div>
                 </div>
             </div>
         </div>
