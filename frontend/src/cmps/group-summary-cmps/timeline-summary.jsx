@@ -29,7 +29,6 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 			if (endDates.includes(timeline.endDate)) return
 			endDates.push(timeline.endDate)
 		})
-		console.log(startDates, endDates)
 		if (!startDates.length || !endDates.length) return
 		const earliestDate = Math.min(...startDates)
 		const latestDate = Math.max(...endDates)

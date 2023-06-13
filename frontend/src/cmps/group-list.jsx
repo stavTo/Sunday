@@ -9,6 +9,7 @@ import { useState } from 'react'
 export function GroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [isDragDisabled, setIsDragDisabled] = useState(true)
+	const [isDragging, setIsDragging] = useState(false)
 	const [allGroupsCollapsed, setAllGroupsCollapsed] = useState(false)
 
 	function onAddGroup() {
@@ -19,7 +20,7 @@ export function GroupList({ groups }) {
 		if (!result.destination) return //if moved outside of containers, we exit.
 		if (result.type === 'group') await handleGroupDrag(result)
 		else await handleTaskDrag(result)
-		// setIsDragDisabled(false)
+		setIsDragDisabled(false)
 		setAllGroupsCollapsed(false)
 	}
 
@@ -46,7 +47,6 @@ export function GroupList({ groups }) {
 		const sourceGroup = boardService.getGroupById(board, sourceGroupId)
 
 		//if group is the same, we use only source group. else, we use both groups.
-		//TODO make this code DRY
 		const [task] = sourceGroup.tasks.splice(sourceIdx, 1)
 		const groupToAppend = sourceGroupId === destinationGroupId ? sourceGroup : destinationGroup
 		groupToAppend.tasks.splice(destinationIdx, 0, task)
@@ -68,6 +68,13 @@ export function GroupList({ groups }) {
 	function onDragStart(ev) {
 		setIsDragDisabled(true)
 		if (ev.type === 'group') {
+			console.log('hi')
+			setAllGroupsCollapsed(true)
+		}
+	}
+
+	function setGroupsCollapsed() {
+		if (isDragging) {
 			setAllGroupsCollapsed(true)
 		}
 	}
@@ -86,9 +93,10 @@ export function GroupList({ groups }) {
 						<ul className="clean-list">
 							{groups.map((group, idx) => (
 								<Draggable key={group.id} draggableId={group.id} index={idx}>
-									{provided => (
+									{(provided, snapshot) => (
 										<li {...provided.draggableProps} ref={provided.innerRef}>
 											<GroupPreview
+												setAllGroupsCollapsed={setAllGroupsCollapsed}
 												isGroupCollapsed={allGroupsCollapsed}
 												group={group}
 												provided={provided}
