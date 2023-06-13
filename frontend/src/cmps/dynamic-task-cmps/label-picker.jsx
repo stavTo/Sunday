@@ -83,9 +83,11 @@ export function LabelPicker({ type, task, groupId, defaultWidth }) {
 			style={{ backgroundColor: label?.color || '#C4C4C4', width: defaultWidth }}
 			className="label-picker"
 			ref={setReferenceElement}
-			onClick={handleClick}
-		>
-			<span>{label?.title || ''}</span>
+			onClick={handleClick}>
+
+			<span>{label?.title || ''}
+
+			</span>
 			<div className="corner-fold"></div>
 			{isPickerOpen &&
 				(isEditor ? (
