@@ -17,7 +17,7 @@
 		&:hover:after {
 			visibility: hidden;
 		}
-		&:after {
+		&:not(:last-child)::after {
 			content: '';
 			position: absolute;
 			top: 8px;

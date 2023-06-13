@@ -146,12 +146,11 @@ function loadFromStorage(key) {
 }
 
 function getRandomColor() {
-	let letters = '0123456789ABCDEF'
-	let color = '#'
-	for (let i = 0; i < 6; i++) {
-		color += letters[Math.floor(Math.random() * 16)]
-	}
-	return color
+	const colors = ['#037f4c', '#00c875', '#9cd326', '#cab641', '#ffcb00', '#784bd1', '#a25ddc', '#0086c0', '#66ccff',
+		'#bb3354', '#e2445c', '#ff158a', '#ff5ac4', '#ff642e', '#fdab3d',
+		'#7f5347', '#c4c4c4', '#808080']
+	return colors[getRandomIntInclusive(0, colors.length - 1)]
+
 }
 
 function hexToRgba(hex, alpha = 1) {

@@ -45,13 +45,15 @@ export function SideBar({ isExpandable = true }) {
 							<hr></hr>
 							<div className="flex column gap-1">
 								<TippyContainer txt={'Work management'} placement="right" offset={[0, 20]}>
-									<li className="flex work-management" onClick={() => setIsFavoritesOpen(false)}>
+									<li className={`flex work-management`} onClick={() => setIsFavoritesOpen(false)}>
 										{ICON_WORK_MANAGEMENT}
+										{(!isFavoritesOpen && isFixed) && <div className="active"></div>}
 									</li>
 								</TippyContainer>
 								<TippyContainer txt={'Favorites'} placement="right" offset={[0, 20]}>
-									<li className="flex favorites" onClick={onToggleFavorites}>
+									<li className={`flex favorites`} onClick={onToggleFavorites}>
 										{ICON_FAVORITES}
+										{(isFavoritesOpen && isFixed) && <div className="active"></div>}
 									</li>
 								</TippyContainer>
 							</div>
