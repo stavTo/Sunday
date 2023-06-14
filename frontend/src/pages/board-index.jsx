@@ -12,7 +12,6 @@ import { ICON_CLOSE } from '../assets/icons/icons'
 import { Configuration, OpenAIApi } from 'openai'
 import { boardService } from '../services/board.service'
 import { utilService } from '../services/util.service'
-import { Dna } from 'react-loader-spinner'
 import boardLoader from '../assets/img/board-loader.gif'
 import { useNavigate } from 'react-router-dom'
 
@@ -53,34 +52,42 @@ export function BoardIndex() {
 		navigateToAIBoard()
 	}
 
-
-	const openai = new OpenAIApi(new Configuration({
-		apiKey: process.env.REACT_APP_OPENAI_API_KEY
-	}))
+	const openai = new OpenAIApi(
+		new Configuration({
+			apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+		})
+	)
 
 	function getAiInstructions() {
-		return [{
-			"role": "system", "content": `
-		You are an AI assistant helping with the creation of project management templates for a project management app. Please provide in your response ONLY a valid JSON string that can be parsed back to an object that includes the board name, groups, and tasks based on the given user input. the tasks and the division of groups must be realted to the subject of the theme that the user has entered. You MUST not reply in any other way that is not according to the following format: "{"title":\"Board Name\","groups":[{"title":\"Group Name\","tasks":[{"title":\"Task description1\"},{"title":\"Task description2\"},{"title":\"Task description3\"}]}]}". You MUST send it in a valid JSON format, DO NOT forget to wrap ALL keys and their values with apostrophes (i.e ").`},
-		{ "role": "user", "content": `My projects theme is: ${aiQuery}` }]
+		return [
+			{
+				role: 'system',
+				content: `
+		You are an AI assistant helping with the creation of project management templates for a project management app. Please provide in your response ONLY a valid JSON string that can be parsed back to an object that includes the board name, groups, and tasks based on the given user input. the tasks and the division of groups must be realted to the subject of the theme that the user has entered. You MUST not reply in any other way that is not according to the following format: "{"title":\"Board Name\","groups":[{"title":\"Group Name\","tasks":[{"title":\"Task description1\"},{"title":\"Task description2\"},{"title":\"Task description3\"}]}]}". You MUST send it in a valid JSON format, DO NOT forget to wrap ALL keys and their values with apostrophes (i.e ").`,
+			},
+			{ role: 'user', content: `My projects theme is: ${aiQuery}` },
+		]
 	}
 
 	async function sendToGpt() {
 		setIsLoading(prevIsLoading => !prevIsLoading)
-		console.log("isLoading:", isLoading)
+		console.log('isLoading:', isLoading)
 		try {
 			const res = await openai.createChatCompletion({
-				model: "gpt-3.5-turbo",
+				model: 'gpt-3.5-turbo',
 				max_tokens: 1000,
 				temperature: 0.5,
-				messages: getAiInstructions()
+				messages: getAiInstructions(),
 			})
 			const response = res.data.choices[0].message.content
 			const aiBoard = JSON.parse(response)
 			createAiBoard(aiBoard)
-			await setInterval(setIsLoading(prevIsLoading => !prevIsLoading), 1000)
+			await setInterval(
+				setIsLoading(prevIsLoading => !prevIsLoading),
+				1000
+			)
 		} catch (err) {
-			console.log("err:", err)
+			console.log('err:', err)
 		} finally {
 			setIsLoading(false)
 		}
@@ -91,79 +98,79 @@ export function BoardIndex() {
 
 		setTimeout(() => {
 			const aiBoard = {
-				title: "Amusement Park Project",
+				title: 'Amusement Park Project',
 				groups: [
 					{
-						title: "Planning",
+						title: 'Planning',
 						tasks: [
 							{
-								title: "Research amusement park design trends"
+								title: 'Research amusement park design trends',
 							},
 							{
-								title: "Determine budget for amusement park"
+								title: 'Determine budget for amusement park',
 							},
 							{
-								title: "Create a list of potential rides and attractions"
+								title: 'Create a list of potential rides and attractions',
 							},
 							{
-								title: "Select a location for the amusement park"
-							}
-						]
+								title: 'Select a location for the amusement park',
+							},
+						],
 					},
 					{
-						title: "Construction",
+						title: 'Construction',
 						tasks: [
 							{
-								title: "Hire a construction company"
+								title: 'Hire a construction company',
 							},
 							{
-								title: "Design the layout of the amusement park"
+								title: 'Design the layout of the amusement park',
 							},
 							{
-								title: "Build the rides and attractions"
+								title: 'Build the rides and attractions',
 							},
 							{
-								title: "Install utilities such as electricity and plumbing"
-							}
-						]
+								title: 'Install utilities such as electricity and plumbing',
+							},
+						],
 					},
 					{
-						title: "Marketing",
+						title: 'Marketing',
 						tasks: [
 							{
-								title: "Develop a marketing plan"
+								title: 'Develop a marketing plan',
 							},
 							{
-								title: "Create a website for the amusement park"
+								title: 'Create a website for the amusement park',
 							},
 							{
-								title: "Advertise the amusement park on social media"
+								title: 'Advertise the amusement park on social media',
 							},
 							{
-								title: "Partner with local businesses to promote the amusement park"
-							}
-						]
+								title: 'Partner with local businesses to promote the amusement park',
+							},
+						],
 					},
 					{
-						title: "Operations",
+						title: 'Operations',
 						tasks: [
 							{
-								title: "Hire staff for the amusement park"
+								title: 'Hire staff for the amusement park',
 							},
 							{
-								title: "Train staff on safety procedures"
+								title: 'Train staff on safety procedures',
 							},
 							{
-								title: "Create a schedule for staff"
+								title: 'Create a schedule for staff',
 							},
 							{
-								title: "Purchase food and supplies for the amusement park"
-							}
-						]
-					}
-				]
+								title: 'Purchase food and supplies for the amusement park',
+							},
+						],
+					},
+				],
 			}
-			console.log("aiBoard:", aiBoard)
+			console.log('aiBoard:', aiBoard)
 
 			const board = boardService.getEmptyBoard()
 			const task = boardService.getEmptyTask()
@@ -174,13 +181,13 @@ export function BoardIndex() {
 				const group = {
 					...aiGroup,
 					id: utilService.makeId(),
-					style: { color: utilService.getRandomColor() }
+					style: { color: utilService.getRandomColor() },
 				}
 
 				const aiTasks = group.tasks.map(aiTask => ({
 					...task,
 					...aiTask,
-					id: utilService.makeId()
+					id: utilService.makeId(),
 				}))
 
 				group.tasks = aiTasks
@@ -189,7 +196,6 @@ export function BoardIndex() {
 
 			board.groups.push(...aiGroups)
 			addBoard(board)
-
 
 			setIsLoading(prevIsLoading => !prevIsLoading)
 			generateTimeout.current = true
@@ -226,10 +232,17 @@ export function BoardIndex() {
 					</section>
 					<BoardIndexAside setToggleInputModal={setToggleInputModal} toggleInputModal={toggleInputModal} />
 				</section>
-				{toggleInputModal &&
-					<div className={`${isLoading ? 'expanded template-modal flex column' : 'template-modal flex column'}`}>
+				{toggleInputModal && (
+					<div
+						className={`${
+							isLoading ? 'expanded template-modal flex column' : 'template-modal flex column'
+						}`}
+					>
 						<form onSubmit={handleSubmit} className="flex column justify-center ai-form">
-							<h1>To create a new board with a powerful template, enter a few details regarding your project</h1>
+							<h1>
+								To create a new board with a powerful template, enter a few details regarding your
+								project
+							</h1>
 							<input
 								autoComplete="off"
 								className="filter-search-input"
@@ -239,9 +252,10 @@ export function BoardIndex() {
 								value={aiQuery}
 								onChange={handleChange}
 							/>
-							{isLoading &&
-								<img className="ai-load" src={boardLoader} alt="Loader" />}
-							<button className="submit-btn btn-primary pointer" type="submit">Submit</button>
+							{isLoading && <img className="ai-load" src={boardLoader} alt="Loader" />}
+							<button className="submit-btn btn-primary pointer" type="submit">
+								Submit
+							</button>
 							<button className="submit-btn btn-primary pointer" type="submit">
 								Submit
 							</button>
@@ -253,7 +267,7 @@ export function BoardIndex() {
 							{ICON_CLOSE}
 						</button>
 					</div>
-				}
+				)}
 			</section>
 		</section>
 	)

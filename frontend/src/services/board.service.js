@@ -1,4 +1,3 @@
-// import { storageService } from './async-storage.service.js'
 import { httpService } from './http.service.js'
 import { SOCKET_EMIT_SEND_BOARD, socketService } from './socket.service.js'
 import { utilService } from './util.service.js'
@@ -46,11 +45,6 @@ async function getLastBoard() {
 	}
 }
 
-// async function addBoardMsg(boardId, txt) {
-// 	const savedMsg = await httpService.post(`board/${boardId}/msg`, { txt })
-// 	return savedMsg
-// }
-
 function getEmptyBoard() {
 	return {
 		title: '',
@@ -61,12 +55,36 @@ function getEmptyBoard() {
 		members: [],
 		groups: [],
 		cmpsOrder: [
-			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px', minWidth: '85px' },
-			{ id: utilService.makeId(), cmpName: 'statusPicker', defaultWidth: '150px', minWidth: '50px' },
-			{ id: utilService.makeId(), cmpName: 'priorityPicker', defaultWidth: '150px', minWidth: '50px' },
-			{ id: utilService.makeId(), cmpName: 'timelinePicker', defaultWidth: '150px', minWidth: '70px' },
-			{ id: utilService.makeId(), cmpName: 'collaboratorPicker', defaultWidth: '150px', minWidth: '100px' },
-			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px', minWidth: '50px' },
+			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px', minWidth: '85px', isShown: true },
+			{
+				id: utilService.makeId(),
+				cmpName: 'statusPicker',
+				defaultWidth: '150px',
+				minWidth: '50px',
+				isShown: true,
+			},
+			{
+				id: utilService.makeId(),
+				cmpName: 'priorityPicker',
+				defaultWidth: '150px',
+				minWidth: '50px',
+				isShown: true,
+			},
+			{
+				id: utilService.makeId(),
+				cmpName: 'timelinePicker',
+				defaultWidth: '150px',
+				minWidth: '70px',
+				isShown: true,
+			},
+			{
+				id: utilService.makeId(),
+				cmpName: 'collaboratorPicker',
+				defaultWidth: '150px',
+				minWidth: '100px',
+				isShown: true,
+			},
+			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px', minWidth: '50px', isShown: true },
 		],
 		statusLabels: [
 			{ id: 'sl100', title: 'Done', color: '#00C875' },
@@ -205,12 +223,36 @@ function getNewBoard() {
 			},
 		],
 		cmpsOrder: [
-			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px', minWidth: '85px' },
-			{ id: utilService.makeId(), cmpName: 'statusPicker', defaultWidth: '150px', minWidth: '50px' },
-			{ id: utilService.makeId(), cmpName: 'priorityPicker', defaultWidth: '150px', minWidth: '50px' },
-			{ id: utilService.makeId(), cmpName: 'timelinePicker', defaultWidth: '150px', minWidth: '70px' },
-			{ id: utilService.makeId(), cmpName: 'collaboratorPicker', defaultWidth: '150px', minWidth: '100px' },
-			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px', minWidth: '50px' },
+			{ id: utilService.makeId(), cmpName: 'ownerPicker', defaultWidth: '85px', minWidth: '85px', isShown: true },
+			{
+				id: utilService.makeId(),
+				cmpName: 'statusPicker',
+				defaultWidth: '150px',
+				minWidth: '50px',
+				isShown: true,
+			},
+			{
+				id: utilService.makeId(),
+				cmpName: 'priorityPicker',
+				defaultWidth: '150px',
+				minWidth: '50px',
+				isShown: true,
+			},
+			{
+				id: utilService.makeId(),
+				cmpName: 'timelinePicker',
+				defaultWidth: '150px',
+				minWidth: '70px',
+				isShown: true,
+			},
+			{
+				id: utilService.makeId(),
+				cmpName: 'collaboratorPicker',
+				defaultWidth: '150px',
+				minWidth: '100px',
+				isShown: true,
+			},
+			{ id: utilService.makeId(), cmpName: 'datePicker', defaultWidth: '100px', minWidth: '50px', isShown: true },
 		],
 		statusLabels: [
 			{ id: 'sl100', title: 'Done', color: '#00C875' },
@@ -247,7 +289,6 @@ function getEmptyTask(title = '', status = 'sl104') {
 			_id: '',
 			username: '',
 			fullname: '',
-			// imgUrl: 'https://asset.cloudinary.com/diyikz4gq/3a419ce071a927e482ec39a775a4677d',
 			imgUrl: '',
 		},
 	}
@@ -283,7 +324,6 @@ function getBoardMembers(board, filter = '') {
 async function addGroup(boardId, pushToTop, title = '') {
 	const hasTitle = title ? getEmptyGroup(title) : getEmptyGroup()
 	const newGroup = hasTitle
-	// const newGroup = getEmptyGroup()
 	newGroup.id = utilService.makeId()
 	try {
 		const action = {
@@ -575,7 +615,6 @@ function loadActivities(board, filter = {}) {
 	}
 
 	if (filter.taskId) {
-		// const currTask = getTaskById(filter.taskId)
 		filteredActivities = filteredActivities.filter(activity => activity.entityId === filter.taskId)
 	}
 	return filteredActivities

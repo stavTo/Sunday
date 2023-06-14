@@ -1,5 +1,4 @@
 .kanban-group-preview {
-	// background-color: $bg-clr3;
 	width: 260px;
 	border-start-start-radius: 8px;
 	border-start-end-radius: 8px;
@@ -50,7 +49,7 @@
 			&::-webkit-scrollbar-thumb {
 				background: $input-hover-border-clr;
 			}
-			background-color: $bg-clr5;
+			background-color: $button-hover-bgc;
 		}
 	}
 }

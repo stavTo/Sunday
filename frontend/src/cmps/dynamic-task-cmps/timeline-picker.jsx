@@ -13,8 +13,6 @@ import { NEXT_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
 import { PREV_BTN } from '../../assets/icons/daypicker/timeline-btns.js'
 import { showErrorMsg } from '../../services/event-bus.service'
 
-// const pastMonth = new Date() // Define your past month date here
-
 export function TimelinePicker({ task, groupId, defaultWidth }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
 	const [groupColor, setGroupColor] = useState(boardService.getGroupById(board, groupId).style.color)
@@ -140,7 +138,6 @@ export function TimelinePicker({ task, groupId, defaultWidth }) {
 		setRange()
 		try {
 			await saveTask(board._id, groupId, taskToEdit, '')
-			// ! add activity
 		} catch {
 			showErrorMsg('Something went wrong')
 		}

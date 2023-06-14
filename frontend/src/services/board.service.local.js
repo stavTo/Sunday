@@ -67,7 +67,6 @@ export function getGroupDateSummary(group) {
 
 async function query(filter = {}) {
 	let boards = await storageService.query(STORAGE_KEY)
-	//TODO MOVE FILTER TO BACKEND
 	if (filter.txt) {
 		const regex = new RegExp(filter.txt, 'i')
 		boards = boards.filter(board => regex.test(board.title))
@@ -82,7 +81,6 @@ async function getById(boardId, filter = {}) {
 	} catch (err) {
 		throw err
 	}
-	//TODO MOVE FILTER TO BACKEND
 	if (filter.txt) {
 		const regex = new RegExp(filter.txt, 'i')
 
@@ -108,7 +106,6 @@ async function save(board) {
 		savedBoard = await storageService.put(STORAGE_KEY, board)
 	} else {
 		// Later, owner is set by the backend
-		// board.owner = userService.getLoggedInUser()
 		savedBoard = await storageService.post(STORAGE_KEY, board)
 	}
 	return savedBoard

@@ -1,90 +1,87 @@
 .board-preview {
-    border: 1px solid $border-clr;
-    border-radius: 5px;
-    padding: .5em;
+	border: 1px solid $border-clr;
+	border-radius: 5px;
+	padding: 0.5em;
 
-    // width: fit-content;
+	&:hover {
+		border: 1px solid $clr0;
+		box-shadow: $card-hover-shadow;
+	}
 
-    &:hover {
-        border: 1px solid $clr0;
-        box-shadow: $card-hover-shadow;
-    }
+	img {
+		border-radius: 4px;
+		width: 100%;
+	}
 
-    img {
-        border-radius: 4px;
-        width: 100%;
-    }
+	.preview-header {
+		.btn-primary {
+			padding: 0.2em;
+		}
 
-    .preview-header {
-        .btn-primary {
-            padding: .2em;
-        }
+		a:first-child {
+			overflow: hidden;
+		}
 
-        a:first-child {
-            overflow: hidden;
-        }
+		span {
+			font-size: 16px;
+			font-weight: 700;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 
-        span {
-            font-size: 16px;
-            font-weight: 700;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
+		svg {
+			color: $icon-color;
+		}
 
-        svg {
-            color: $icon-color;
-        }
+		.header-icon {
+			&.starred {
+				svg {
+					color: gold;
+				}
+			}
+		}
+	}
 
-        .header-icon {
-            &.starred {
-                svg {
-                    color: gold;
-                }
-            }
-        }
-    }
+	.title {
+		gap: 0.3em;
+	}
 
-    .title {
-        gap: .3em;
-    }
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+	.preview-footer {
+		margin-block-start: 4px;
+		align-self: flex-start;
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
 
-    .preview-footer {
-        margin-block-start: 4px;
-        align-self: flex-start;
-        display: flex;
-        align-items: center;
-        gap: .5em;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
+		.span-container {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			overflow-x: hidden;
+			overflow-y: hidden;
 
-        .span-container {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            overflow-x: hidden;
-            overflow-y: hidden;
+			span {
+				color: $icon-color;
+				font-size: 14px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+		}
 
-            span {
-                color: $icon-color;
-                font-size: 14px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                overflow-x: hidden;
-                overflow-y: hidden;
-            }
-        }
-
-
-        svg {
-            width: 17.5px;
-            height: 17.5px;
-        }
-    }
+		svg {
+			width: 17.5px;
+			height: 17.5px;
+		}
+	}
 }

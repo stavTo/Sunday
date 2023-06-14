@@ -1,6 +1,5 @@
 .task-preview {
 	display: flex;
-	// position: relative;
 	height: $task-row-height;
 	background-color: $clr0;
 	z-index: 2;
@@ -26,8 +25,6 @@
 		position: sticky;
 		left: var(--left-margin-size);
 		background-color: $clr0;
-		// border-block-end: 1px solid $border-clr;
-
 		&:hover {
 			background-color: $task-hover-bgc;
 		}

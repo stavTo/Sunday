@@ -47,7 +47,6 @@ export function KanbanGroupList({ groups }) {
 
 		if (sourceStatus === destinationStatus) {
 			const groupToChange = groupsByLabels.find(group => group.status === destinationStatus)
-			console.log(groupToChange)
 			const taskToMove = groupToChange.tasks.splice(sourceIdx, 1)[0]
 			groupToChange.tasks.splice(destinationIdx, 0, taskToMove)
 		}

@@ -7,21 +7,13 @@ export function ImgUploader({ onUploaded = null, onChangeImg }) {
 		height: 500,
 		width: 500,
 	})
-	// const [isUploading, setIsUploading] = useState(false)
 
 	async function uploadImg(ev) {
-		// setIsUploading(true)
 		const { secure_url, height, width } = await uploadService.uploadImg(ev)
 		onChangeImg(secure_url)
 		setImgData({ imgUrl: secure_url, width, height })
-		// setIsUploading(false)
 		onUploaded && onUploaded(secure_url)
 	}
-
-	// function getUploadLabel() {
-	// 	if (imgData.imgUrl) return 'Upload Another?'
-	// 	return isUploading ? 'Uploading....' : 'Upload Image'
-	// }
 
 	return (
 		<>

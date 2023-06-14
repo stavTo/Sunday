@@ -98,7 +98,7 @@
 	color: $clr1;
 
 	&:not(.rdp-day_range_end):hover {
-		background-color: $bg-clr5;
+		background-color: $button-hover-bgc;
 		color: $clr1;
 	}
 }
@@ -167,7 +167,6 @@ Today .rdp-day_today {
 
 // Start day
 .rdp:not([dir='rtl']) .rdp-day_range_start:not(.rdp-day_range_end) {
-	// border-radius: 50%;
 	color: $clr0;
 	font-weight: 300;
 
@@ -184,7 +183,6 @@ Today .rdp-day_today {
 
 // End day
 .rdp:not([dir='rtl']) .rdp-day_range_end:not(.rdp-day_range_start) {
-	// border-radius: 50%;
 	color: $clr0;
 	font-weight: 300;
 

@@ -1,5 +1,4 @@
 import { Outlet, useNavigate, useParams, useLocation } from 'react-router-dom'
-// import { WorkspaceBoardList } from '../cmps/board-list'
 import { BoardHeader } from '../cmps/board-header'
 import { GroupList } from '../cmps/group-list'
 import { useEffect } from 'react'
@@ -55,7 +54,6 @@ export function BoardDetails() {
 	return (
 		<section className="board-details">
 			<SideBar />
-			{/* <WorkspaceBoardList /> */}
 			<section className="board-container default-scroll">
 				<BoardHeader board={board} />
 				{!board.groups.length && (

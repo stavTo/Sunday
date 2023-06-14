@@ -34,10 +34,7 @@ export function useLongPress(onLongPress, onClick, { shouldPreventDefault = true
 	)
 
 	return {
-		// onMouseDown: e => start(e),
 		onTouchStart: e => start(e),
-		// onMouseUp: e => clear(e),
-		// onMouseLeave: e => clear(e, false),
 		onTouchMove: e => clear(e, false),
 		onTouchEnd: e => clear(e),
 	}
@@ -47,10 +44,6 @@ function isTouchEvent(ev) {
 	return 'touches' in ev
 }
 
-// const isTouchEvent = event => {
-// 	return 'touches' in event
-// }
-
 function preventDefault(ev) {
 	if (!isTouchEvent(ev)) return
 
@@ -58,11 +51,3 @@ function preventDefault(ev) {
 		ev.preventDefault()
 	}
 }
-
-// const preventDefault = event => {
-// 	if (!isTouchEvent(event)) return
-
-// 	if (event.touches.length < 2 && event.preventDefault) {
-// 		event.preventDefault()
-// 	}
-// }

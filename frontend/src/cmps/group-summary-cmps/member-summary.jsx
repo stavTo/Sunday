@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { TippyContainer } from '../tippy-container'
 
 export function MemberSummary({ defaultWidth, group }) {
-	// const board = useSelector(storeState => storeState.selectedBoardModule.selectedBoard)
 	const [allGroupCollaborators, setAllGroupCollaborators] = useState()
 
 	useEffect(() => {
