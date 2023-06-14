@@ -8,7 +8,7 @@ import { saveTask } from '../store/selected-board.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 import { useSelector } from 'react-redux'
 import { utilService } from '../services/util.service'
-import imgEmptyPage from '../assets/img/img/pulse-page-empty-state.svg'
+import imgEmptyPage from '../assets/img/pulse-page-empty-state.svg'
 import { ActivityPreview } from './activity-log-cmps/activity-preview'
 import { userService } from '../services/user.service'
 

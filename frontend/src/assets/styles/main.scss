@@ -8,21 +8,19 @@
 @import 'basics/helpers';
 @import 'basics/layout';
 @import 'basics/base';
-@import 'basics/links';
 @import 'basics/forms';
 @import 'basics/popper-arrow';
 @import 'basics/tippy';
 @import 'basics/board-navbar';
 
-// Views
-@import 'views/board-details';
-@import 'views/home-page';
-@import 'views/board-index';
-@import 'views/kanban';
-@import 'views/login-signup';
-@import 'views/user-details';
-// @import "views/ReviewIndex";
-// @import "views/UserDetails";
+// Pages
+@import 'pages/board-details';
+@import 'pages/home-page';
+@import 'pages/board-index';
+@import 'pages/kanban';
+@import 'pages/login-signup';
+@import 'pages/user-details';
+@import 'pages/page-not-found';
 
 // Components
 @import 'cmps/workspace-board-list';

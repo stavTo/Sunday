@@ -131,15 +131,18 @@ export function BoardHeader({ board }) {
 						{ICON_OPTIONS}
 					</div>
 					<div className={`board-header-top-right  ${isMenuToggle ? 'open-menu' : ''}`}>
-						<div className="activity-container btn-primary">
-							<Link className="open-task-details" to={`/boards/${board._id}/activity_log/`}>
+						<Link
+							className="open-task-details activity-container btn-primary"
+							to={`/boards/${board._id}/activity_log/`}
+						>
+							<div>
 								Activity
-							</Link>
-							<div className="user-img-container"></div>
-						</div>
+								<div className="user-img-container"></div>
+							</div>
+						</Link>
 						<div onClick={() => setIsInviteOpen(prev => !prev)} className="invite-container btn-primary">
 							{ICON_INVITE_MEMBERS}
-							Invite / 3
+							Invite / 5
 						</div>
 					</div>
 				</div>

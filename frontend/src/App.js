@@ -11,6 +11,7 @@ import { BoardIndex } from './pages/board-index'
 import { Kanban } from './pages/kanban'
 import { ActivityDetails } from './cmps/activity-log-cmps/activity-details'
 import { LoginSignUp } from './pages/login-signup'
+import { PageNotFound } from './pages/page-not-found'
 
 function App() {
 	return (
@@ -36,6 +37,7 @@ function App() {
 								<Route path="login" element={<LoginSignUp />} />
 								<Route path="sign-up" element={<LoginSignUp />} />
 							</Route>
+							<Route path="*" element={<PageNotFound />} />
 						</Routes>
 					</main>
 					<UserMsg />
