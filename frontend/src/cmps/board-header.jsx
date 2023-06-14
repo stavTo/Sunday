@@ -17,7 +17,6 @@ export function BoardHeader({ board }) {
 	const [titleToChange, setTitleToChange] = useState(board.title)
 	const [isInputVisible, setIsInputVisible] = useState(false)
 	const [isAddGroupModalOpen, setIsAddGroupModalOpen] = useState(false)
-
 	const [isMenuToggle, setIsMenuToggle] = useState(false)
 
 	useEffect(() => {
@@ -135,10 +134,14 @@ export function BoardHeader({ board }) {
 							className="open-task-details activity-container btn-primary"
 							to={`/boards/${board._id}/activity_log/`}
 						>
-							<div>
-								Activity
-								<div className="user-img-container"></div>
+							Activity
+							<div className="img-container">
+								<img src="https://res.cloudinary.com/diyikz4gq/image/upload/v1686151189/ido-img_ryaaxn.jpg" alt="user" />
+								<img src="https://res.cloudinary.com/diyikz4gq/image/upload/v1686151190/roni-img_rvqeda.jpg" alt="user" />
 							</div>
+
+							<div className="user-img-container"></div>
+
 						</Link>
 						<div onClick={() => setIsInviteOpen(prev => !prev)} className="invite-container btn-primary">
 							{ICON_INVITE_MEMBERS}

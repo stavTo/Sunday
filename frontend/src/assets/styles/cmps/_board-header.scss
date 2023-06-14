@@ -50,6 +50,7 @@
 			display: flex;
 			align-items: center;
 			overflow: hidden;
+
 			.title-input {
 				font-family: $title-font;
 			}
@@ -106,7 +107,25 @@
 			font-size: em(14px);
 			display: none;
 
+			.img-container {
+				display: flex;
+				align-items: center;
+				img {
+					width: 24px;
+					height: 24px;
+					border-radius: 50%;
+					border: 1px solid $clr0;
+
+					&:not(:first-child) {
+						margin-inline-start: -5px;
+					}
+
+				}
+			}
+
+
 			@media screen and (max-width: $mobile-breakpoint) {
+
 				&.open-menu {
 					position: absolute;
 					z-index: 5;
@@ -137,7 +156,7 @@
 				}
 			}
 
-			& > * {
+			&>* {
 				height: 32px;
 				cursor: pointer;
 			}
@@ -145,6 +164,8 @@
 			.activity-container {
 				display: flex;
 				align-items: center;
+				gap: 4px;
+				padding: 4px 2px 4px 6px;
 			}
 
 			.invite-container {
