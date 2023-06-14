@@ -193,7 +193,8 @@
 	.board-info {
 		color: $icon-color;
 		font-size: rem(14px);
-		padding: 2px;
+		padding: 3px ;
+		margin-block-end: 10px;
 	}
 
 	.btn-new-task {

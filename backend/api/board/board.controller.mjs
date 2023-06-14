@@ -28,7 +28,6 @@ export async function getBoardById(req, res) {
 }
 
 export async function getLastBoard(req, res) {
-	console.log("reached here")
 	try {
 		const board = await boardService.getLastCollection()
 		if (board) res.json(board)

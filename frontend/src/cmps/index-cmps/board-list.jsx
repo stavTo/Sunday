@@ -14,7 +14,8 @@ export function BoardList({ boards }) {
                 </div>Recently visited
             </h1>
             {toggleView &&
-                <ul className="clean-list flex row gap-1">
+                // <ul className="board-list-noder clean-list flex wrap row gap-1">
+                <ul className="board-list-noder clean-list">
                     {boards && boards.map(board => {
                         return <li key={board._id}>
                             <BoardPreview board={board} />

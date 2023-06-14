@@ -8298,13 +8298,12 @@
 		{ "id": "sl103", "title": "Almost done", "color": "#0086C0" },
 		{ "id": "sl101", "title": "Working on it", "color": "#FDAB3D" },
 		{ "id": "sl100", "title": "Done", "color": "#00C875" },
-		{ "id": "sl104", "title": "Needs testing", "color": "#ff158a" },
+		{ "id": "sl104", "title": "", "color": "#C4C4C4" },
+		{ "id": "sl105", "title": "Needs testing", "color": "#ff158a" },
 		{ "id": "Lg3XgI", "title": "Backlog", "color": "#66ccff" },
 		{ "id": "JjZXmo", "title": "Waiting for Feedback", "color": "#7f5347" },
 		{ "id": "tO3N1C", "title": "Waiting for Feedback", "color": "#a25ddc" },
-		{ "id": "CLTUmw", "title": "Pending Deployment", "color": "#ff642e" },
-		{ "id": "vfpl5R", "title": "", "color": "#c4c4c4" },
-		{ "id": "9ZpNpo", "title": "", "color": "#c4c4c4" }
+		{ "id": "CLTUmw", "title": "Pending Deployment", "color": "#ff642e" }
 	],
 	"priorityLabels": [
 		{ "id": "pl100", "title": "Critical", "color": "#333333" },

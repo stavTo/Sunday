@@ -3,9 +3,9 @@ import { useEffect } from "react"
 export function ColorPicker({ onSetColorPickerClose, setEntityStyle , setIsColorPickerOpen }) {
 
     useEffect(() => {
-        document.addEventListener('click', onSetColorPickerClose)
+        document.addEventListener('mousedown', onSetColorPickerClose)
         return () => {
-            document.removeEventListener('click', onSetColorPickerClose)
+            document.removeEventListener('mousedown', onSetColorPickerClose)
         }
     }, [])
 

@@ -26,20 +26,31 @@
         background-color: $bg-clr7;
 
         .template-modal {
+            text-align: center;
             margin: 0;
             position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             background: $clr0;
             top: 50%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             width: 500px;
-            height: 200px;
+            height: 150px;
+            overflow: hidden;
+            transition: height 0.5s, transform 0.26s ease;
             padding: 1em;
             box-shadow: $card-hover-shadow;
 
+            &.expanded {
+                height: 300px;
+            }
+
             h1 {
-                padding-block-start: 2em;
+                padding-block-start: 1em;
                 margin: 0 auto;
             }
 
@@ -63,8 +74,24 @@
                 bottom: 5px;
                 right: 5px;
             }
-        }
 
+            .ai-load {
+                margin-inline: auto;
+                padding-block: 2em;
+                img {
+                    width: 90px;
+                    height: 90px;
+                }
+
+
+                display: flex;
+                align-self: center;
+            }
+
+            .ai-form {
+                gap: 1em;
+            }
+        }
     }
 
     .boards-list {

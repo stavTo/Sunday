@@ -31,12 +31,12 @@
 	font-family: $title-font;
 }
 
-.wght-700 {
+.wght-400 {
 	font-weight: 400;
 }
 
-.wght-400 {
-	font-weight: 400;
+.wght-700 {
+	font-weight: 700;
 }
 
 .btn-primary {
@@ -62,7 +62,7 @@
 .flex {
 	display: flex;
 
-	> *.full {
+	>*.full {
 		flex: 1;
 	}
 
@@ -98,6 +98,10 @@
 		align-items: stretch;
 	}
 
+	&.wrap {
+		flex-wrap: wrap;
+	}
+
 	&.gap-half {
 		gap: 0.5em;
 	}
@@ -105,6 +109,7 @@
 	&.gap-1 {
 		gap: 1em;
 	}
+
 	&.gap-3 {
 		gap: 3em;
 	}
