@@ -1,6 +1,5 @@
 .kanban-task-preview {
 	width: 236px;
-	// min-height: 130px;
 	background-color: $clr0;
 	padding-block-end: 8px;
 	margin: auto;
@@ -34,7 +33,6 @@
 		justify-content: space-between;
 
 		.kanban-task-title {
-			// font-size: rem(13px);
 			line-height: 18px;
 			overflow: hidden;
 			text-overflow: ellipsis;
@@ -64,7 +62,6 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
-					// padding-inline: 16px;
 					padding-inline-end: 8px;
 
 					.updates-count {

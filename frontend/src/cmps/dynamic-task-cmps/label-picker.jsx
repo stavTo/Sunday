@@ -154,10 +154,6 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 	const [labelToEdit, setLabelToEdit] = useState({})
 
 	useEffect(() => {
-		setBoardLabels(board[labelsName])
-	}, [board])
-
-	useEffect(() => {
 		document.addEventListener('mousedown', onEditorClose)
 		return () => {
 			document.removeEventListener('mousedown', onEditorClose)
@@ -176,7 +172,6 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 		const value = target.value
 		const newLabels = boardLabels.map(l => (l.id !== field ? l : { ...l, title: value }))
 		setBoardLabels(newLabels)
-
 	}
 
 	function onAddNewLabel() {
@@ -194,7 +189,6 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 
 	async function onSaveLabels() {
 		try {
-			console.log(boardLabels)
 			await updateLabels(board, labelsName, boardLabels)
 		} catch (err) {
 			showErrorMsg('Cant edit label')
@@ -229,7 +223,13 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 
 	return (
 		<div className="label-picker-popup" style={styles.popper} {...attributes.popper} ref={popperRef}>
-			{isPalleteOpen && <ColorPicker onSetColorPickerClose={onSetColorPickerClose} setIsColorPickerOpen={setIsPalleteOpen} setEntityStyle={setLabelStyle} />}
+			{isPalleteOpen && (
+				<ColorPicker
+					onSetColorPickerClose={onSetColorPickerClose}
+					setIsColorPickerOpen={setIsPalleteOpen}
+					setEntityStyle={setLabelStyle}
+				/>
+			)}
 			<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 			<ul className="labels-input-list clean-list">
 				{boardLabels.map(label => {
@@ -242,15 +242,11 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 								<span
 									className="icon-color-bucket"
 									style={{ backgroundColor: label.color }}
-									onClick={() => onSetLabelStyle(label)}>
+									onClick={() => onSetLabelStyle(label)}
+								>
 									{ICON_COLOR_BUCKET}
 								</span>
-								<input
-									type="text"
-									value={label.title}
-									name={label.id}
-									onChange={handleChange}>
-								</input>
+								<input type="text" value={label.title} name={label.id} onChange={handleChange}></input>
 							</div>
 						</li>
 					)

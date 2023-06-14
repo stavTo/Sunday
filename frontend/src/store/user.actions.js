@@ -43,7 +43,6 @@ export async function signup(credentials) {
 		})
 		return user
 	} catch (err) {
-		console.log('Cannot signup', err)
 		throw err
 	}
 }
@@ -56,7 +55,6 @@ export async function logout() {
 			user: null,
 		})
 	} catch (err) {
-		console.log('Cannot logout', err)
 		throw err
 	}
 }
@@ -72,7 +70,6 @@ export async function updateUser(userToSave) {
 		})
 		return user
 	} catch (err) {
-		console.log('Cannot signup', err)
 		throw err
 	}
 }

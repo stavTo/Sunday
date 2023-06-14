@@ -29,9 +29,9 @@ export function BoardIndex() {
 	const navigate = useNavigate()
 	const generateTimeout = useRef(false)
 	const inputRef = useRef('')
-	const modalRef = useRef(null);
-	const box1Ref = useRef(null);
-	const box2Ref = useRef(null);
+	const modalRef = useRef(null)
+	const box1Ref = useRef(null)
+	const box2Ref = useRef(null)
 
 	useEffect(() => {
 		onLoadBoards()
@@ -55,13 +55,13 @@ export function BoardIndex() {
 					box.style.transform = `translateX(${x}px) translateY(${y}px)`
 				}
 
-				document.addEventListener("mousemove", (e) => {
+				document.addEventListener('mousemove', e => {
 					boxMove(e, box1, 2)
 					boxMove(e, box2, 2)
-				});
+				})
 
 				return () => {
-					document.removeEventListener("mousemove", (e) => {
+					document.removeEventListener('mousemove', e => {
 						boxMove(e, box1, 2)
 						boxMove(e, box2, 2)
 					})
@@ -89,29 +89,34 @@ export function BoardIndex() {
 		setAiQuery(inputRef.current.value)
 	}
 
-
 	function _getAiInstructions() {
-		return [{
-			"role": "system", "content": `
-		You are an AI assistant helping with the creation of project management templates for a project management app. Please provide in your response ONLY a valid JSON string that can be parsed back to an object that includes the board name, groups, and tasks based on the given user input. the tasks and the division of groups must be realted to the subject of the theme that the user has entered. You MUST not reply in any other way that is not according to the following format: "{"title":\"Board Name\","groups":[{"title":\"Group Name\","tasks":[{"title":\"Task description1\"},{"title":\"Task description2\"},{"title":\"Task description3\"}]}]}". You MUST send it in a valid JSON format, DO NOT forget to wrap ALL keys and their values with apostrophes (i.e ").`},
-		{ "role": "user", "content": `My projects theme is: ${aiQuery}` }]
+		return [
+			{
+				role: 'system',
+				content: `
+		You are an AI assistant helping with the creation of project management templates for a project management app. Please provide in your response ONLY a valid JSON string that can be parsed back to an object that includes the board name, groups, and tasks based on the given user input. the tasks and the division of groups must be realted to the subject of the theme that the user has entered. You MUST not reply in any other way that is not according to the following format: "{"title":\"Board Name\","groups":[{"title":\"Group Name\","tasks":[{"title":\"Task description1\"},{"title":\"Task description2\"},{"title":\"Task description3\"}]}]}". You MUST send it in a valid JSON format, DO NOT forget to wrap ALL keys and their values with apostrophes (i.e ").`,
+			},
+			{ role: 'user', content: `My projects theme is: ${aiQuery}` },
+		]
 	}
 
 	async function getBoardFromAI() {
-		const openai = new OpenAIApi(new Configuration({
-			apiKey: process.env.REACT_APP_OPENAI_API_KEY
-		}))
+		const openai = new OpenAIApi(
+			new Configuration({
+				apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+			})
+		)
 		setIsLoading(true)
 		try {
 			const res = await openai.createChatCompletion({
-				model: "gpt-3.5-turbo",
+				model: 'gpt-3.5-turbo',
 				max_tokens: 2000,
 				temperature: 1,
-				messages: _getAiInstructions()
+				messages: _getAiInstructions(),
 			})
 
 			const response = res.data.choices[0].message.content
-			console.log("response:", response)
+			console.log('response:', response)
 			const aiBoard = JSON.parse(response)
 
 			createAiBoard(aiBoard)
@@ -131,40 +136,40 @@ export function BoardIndex() {
 				title: "Mommy's 50th Birthday Board",
 				groups: [
 					{
-						title: "Venue",
+						title: 'Venue',
 						tasks: [
-							{ title: "Book the event hall" },
-							{ title: "Decide on the party decorations" },
-							{ title: "Hire a caterer" },
-							{ title: "Select a cake" },
-							{ title: "Purchase party favors" }
-						]
+							{ title: 'Book the event hall' },
+							{ title: 'Decide on the party decorations' },
+							{ title: 'Hire a caterer' },
+							{ title: 'Select a cake' },
+							{ title: 'Purchase party favors' },
+						],
 					},
 					{
-						title: "Guest List",
+						title: 'Guest List',
 						tasks: [
-							{ title: "Finalize invite list" },
-							{ title: "Create and send out invitations" },
-							{ title: "Follow up with RSVPs" }
-						]
+							{ title: 'Finalize invite list' },
+							{ title: 'Create and send out invitations' },
+							{ title: 'Follow up with RSVPs' },
+						],
 					},
 					{
-						title: "Entertainment",
+						title: 'Entertainment',
 						tasks: [
-							{ title: "Choose the music playlist" },
-							{ title: "Hire a DJ or a band" },
-							{ title: "Plan party games and activities" }
-						]
+							{ title: 'Choose the music playlist' },
+							{ title: 'Hire a DJ or a band' },
+							{ title: 'Plan party games and activities' },
+						],
 					},
 					{
-						title: "Speeches and Toasts",
+						title: 'Speeches and Toasts',
 						tasks: [
-							{ title: "Decide who will give speeches or toasts" },
-							{ title: "Write a speech" },
-							{ title: "Practice speeches and toasts" }
-						]
-					}
-				]
+							{ title: 'Decide who will give speeches or toasts' },
+							{ title: 'Write a speech' },
+							{ title: 'Practice speeches and toasts' },
+						],
+					},
+				],
 			}
 
 			const board = boardService.getEmptyBoard()
@@ -176,13 +181,13 @@ export function BoardIndex() {
 				const group = {
 					...aiGroup,
 					id: utilService.makeId(),
-					style: { color: utilService.getRandomColor() }
+					style: { color: utilService.getRandomColor() },
 				}
 
 				const aiTasks = group.tasks.map(aiTask => ({
 					...task,
 					...aiTask,
-					id: utilService.makeId()
+					id: utilService.makeId(),
 				}))
 
 				group.tasks = aiTasks
@@ -191,7 +196,6 @@ export function BoardIndex() {
 
 			board.groups.push(...aiGroups)
 			addBoard(board)
-
 
 			setIsLoading(prevIsLoading => !prevIsLoading)
 			generateTimeout.current = true
@@ -209,8 +213,7 @@ export function BoardIndex() {
 		<>
 			{toggleInputModal && <div className="index-back-panel"></div>}
 			<section className="board-index">
-				{toggleInputModal &&
-					<ParticleContainer />}
+				{toggleInputModal && <ParticleContainer />}
 				<SideBar />
 				<section className="index-body">
 					<section className="index-container">
@@ -221,9 +224,12 @@ export function BoardIndex() {
 							<BoardList boards={boards} />
 							<IndexInbox />
 						</section>
-						<BoardIndexAside setToggleInputModal={setToggleInputModal} toggleInputModal={toggleInputModal} />
+						<BoardIndexAside
+							setToggleInputModal={setToggleInputModal}
+							toggleInputModal={toggleInputModal}
+						/>
 					</section>
-					{toggleInputModal &&
+					{toggleInputModal && (
 						<div className={`template-modal flex column ${isLoading ? 'expanded' : ''}`} ref={modalRef}>
 							<form onSubmit={handleSubmit} className="flex column justify-center ai-form">
 								<h2>Generate new boards with powerful AI templates</h2>
@@ -249,7 +255,7 @@ export function BoardIndex() {
 							<div className="box-1" ref={box1Ref}></div>
 							<div className="box-2" ref={box2Ref}></div>
 						</div>
-					}
+					)}
 				</section>
 			</section>
 		</>

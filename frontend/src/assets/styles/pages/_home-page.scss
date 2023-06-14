@@ -8,7 +8,7 @@
 			width: 100%;
 		}
 
-		@media(min-width: $mobile-breakpoint) {
+		@media (min-width: $mobile-breakpoint) {
 			padding-block-start: em(20px);
 			min-height: em(411px);
 			align-items: center;
@@ -23,23 +23,21 @@
 		margin-inline: auto;
 		padding-block-start: em(30px);
 
-		@media(min-width: $mobile-breakpoint) {
+		@media (min-width: $mobile-breakpoint) {
 			padding-block-start: em(70px);
 		}
 
 		h2 {
 			text-align: center;
 			font-size: rem(22px);
-			padding-block-end: .5em;
+			padding-block-end: 0.5em;
 			font-weight: 400;
 			font-family: $title-font;
 			color: $bg-clr6;
 
-			@media(min-width: $mobile-breakpoint) {
+			@media (min-width: $mobile-breakpoint) {
 				padding-block-end: 2em;
 			}
-
-
 		}
 
 		.sponsers-list {
@@ -121,12 +119,10 @@
 					padding-inline-start: 0.8em;
 				}
 
-				@media(min-width: $mobile-breakpoint) {
+				@media (min-width: $mobile-breakpoint) {
 					display: flex;
 					align-items: center;
 				}
-
-
 			}
 
 			a {
@@ -161,10 +157,9 @@
 		padding-block-start: 2em;
 		color: $bg-clr6;
 
-		@media(min-width: $mobile-breakpoint) {
+		@media (min-width: $mobile-breakpoint) {
 			max-width: em(754px);
 			padding-block-start: 4em;
-
 		}
 
 		span.main-title {
@@ -172,7 +167,7 @@
 			font-weight: 600;
 			padding-block-end: 0.55em;
 
-			@media (min-width :$mobile-breakpoint) {
+			@media (min-width: $mobile-breakpoint) {
 				font-size: 4.4rem;
 			}
 		}
@@ -193,7 +188,7 @@
 			justify-content: center;
 			gap: 1em;
 
-			@media (min-width :$mobile-breakpoint) {
+			@media (min-width: $mobile-breakpoint) {
 				display: flex;
 				justify-content: center;
 			}
@@ -224,7 +219,6 @@
 			}
 
 			span {
-				// justify-self: center;
 				flex-grow: 1;
 				display: flex;
 				align-items: flex-start;

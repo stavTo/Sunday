@@ -88,6 +88,9 @@
 			.hide-columns-list {
 				margin: 8px;
 				.column-item {
+					input {
+						all: revert;
+					}
 					.icon-name-container {
 						display: flex;
 						gap: 8px;

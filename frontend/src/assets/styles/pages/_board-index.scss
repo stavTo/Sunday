@@ -1,240 +1,204 @@
 .board-index {
-    display: flex;
-
-    .index-container {
-        display: grid;
-        grid-template-columns: rem(75px) minmax(auto, 1fr) rem(300px) rem(75px);
-
-        >* {
-            grid-column: 2;
-        }
-    }
-
-    .header-wrapper {
-        width: 100%;
-        grid-column: 1 / -1;
-        grid-row: 1;
-    }
-
-    .index-body {
-        position: relative;
-        width: 100%;
-        height: 100vh;
-        overflow-y: auto;
-        overflow-x: hidden;
-        background-color: $bg-clr7;
-
-        .template-modal {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-block-start: 2em;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 200px;
-            transition: height 0.5s, transform 0.26s ease;
-            z-index: 99999;
-
-            &::before {
-                content: '';
-                position: absolute;
-                z-index: -1;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                padding: 2em;
-                background-color: rgba(255, 255, 255, 0.6);
-                backdrop-filter: blur(3px);
-                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-                -webkit-backdrop-filter: blur(3px);
-                border-radius: 10px;
-                background-clip: padding-box;
-            }
-
-            .box-1 {
-                position: absolute;
-                z-index: 999999;
-                left: -50px;
-                top: -50px;
-                width: 100px;
-                height: 100px;
-                border-radius: 10px;
-
-                background-color: rgba(255, 255, 255, 0.3);
-                backdrop-filter: blur(3px);
-                -webkit-backdrop-filter: blur(3px);
-                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-                border: 2px solid transparent;
-            }
-
-            .box-2 {
-                position: absolute;
-                z-index: 999999;
-                right: -30px;
-                bottom: -30px;
-                width: 70px;
-                height: 70px;
-                border-radius: 10px;
-                background-color: rgba(255, 255, 255, 0.3);
-                backdrop-filter: blur(3px);
-                -webkit-backdrop-filter: blur(3px);
-                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-                border: 2px solid transparent;
-            }
-
-            &.expanded {
-                height: 300px;
-            }
-
-            h2 {
-                text-align: center;
-                font-weight: 300;
-            }
-
-            .input-container {
-                position: relative;
-            }
-
-            input {
-                width: 600px;
-                margin: 0 auto;
-                padding: .7em;
-                color: $clr3;
-                text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-                border: 0;
-                border-radius: 10px;
-                background-color: rgba(255, 255, 255, 0.25);
-                backdrop-filter: blur(5px);
-                -webkit-backdrop-filter: blur(5px);
-                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-                outline: none;
-
-                &::placeholder {
-                    color: rgba(73, 73, 73, 0.5);
-                    transition: .3s;
-                }
-
-                &:focus::placeholder {
-                    opacity: 0;
-                }
-            }
-
-            button {
-                all: unset;
-                position: absolute;
-                border: none;
-                padding: .4em;
-            }
-
-            .close-btn {
-                top: 5px;
-                right: 5px;
-            }
-
-            .submit-btn {
-                right: 10px;
-                top: 5px;
-                transition: .3s ease-in-out;
-                cursor: pointer;
-            }
-
-            .ai-load {
-                margin-inline: auto;
-                padding-block: 2em;
-
-                img {
-                    width: 90px;
-                    height: 90px;
-                }
-
-                display: flex;
-                align-self: center;
-            }
-
-            .ai-form {
-                gap: 1em;
-                padding-inline: 2em;
-            }
-        }
-    }
-
-    .boards-list {
-        width: initial;
-        padding-inline-end: 2em;
-    }
-
-    .inbox-container {
-        border: 1px solid $border-clr;
-        border-radius: 8px;
-
-        .empty-inbox {
-            width: 320px;
-            height: 320px;
-            align-self: center;
-        }
-    }
-
-    .inbox-preview {
-        text-align: center;
-    }
-
-
-
-    .right-panel {
-        margin-block-start: 1em;
-        margin-inline: 0 auto;
-        grid-column: 3;
-
-        .explore-templates {
-            border-radius: 8px;
-            background: $clr0;
-            width: fit-content;
-            padding: 1em;
-            box-shadow: $index-layout-shadow;
-            gap: 1em;
-
-            .btn-primary {
-                border: 1px solid $border-clr;
-                background-color: inherit;
-                font-size: rem(16px);
-                font-family: Figtree;
-
-                &:hover {
-                    background-color: $button-hover-bgc;
-                }
-            }
-        }
-
-        .cards-container {
-            .help-card {
-                background-color: $clr0;
-                border-radius: rem(5px);
-                box-shadow: $card-hover-shadow;
-            }
-
-            img {
-                width: rem(48px);
-                height: rem(48px);
-            }
-        }
-    }
+	display: flex;
+	.index-container {
+		display: grid;
+		grid-template-columns: rem(75px) minmax(auto, 1fr) rem(300px) rem(75px);
+		> * {
+			grid-column: 2;
+		}
+	}
+	.header-wrapper {
+		width: 100%;
+		grid-column: 1 / -1;
+		grid-row: 1;
+	}
+	.index-body {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		overflow-y: auto;
+		overflow-x: hidden;
+		background-color: $bg-clr7;
+		.template-modal {
+			position: absolute;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-block-start: 2em;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 800px;
+			height: 200px;
+			transition: height 0.5s, transform 0.26s ease;
+			z-index: 99999;
+			&::before {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				padding: 2em;
+				background-color: rgba(255, 255, 255, 0.6);
+				backdrop-filter: blur(3px);
+				box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+				-webkit-backdrop-filter: blur(3px);
+				border-radius: 10px;
+				background-clip: padding-box;
+			}
+			.box-1 {
+				position: absolute;
+				z-index: 999999;
+				left: -50px;
+				top: -50px;
+				width: 100px;
+				height: 100px;
+				border-radius: 10px;
+				background-color: rgba(255, 255, 255, 0.3);
+				backdrop-filter: blur(3px);
+				-webkit-backdrop-filter: blur(3px);
+				box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+				border: 2px solid transparent;
+			}
+			.box-2 {
+				position: absolute;
+				z-index: 999999;
+				right: -30px;
+				bottom: -30px;
+				width: 70px;
+				height: 70px;
+				border-radius: 10px;
+				background-color: rgba(255, 255, 255, 0.3);
+				backdrop-filter: blur(3px);
+				-webkit-backdrop-filter: blur(3px);
+				box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+				border: 2px solid transparent;
+			}
+			&.expanded {
+				height: 300px;
+			}
+			h2 {
+				text-align: center;
+				font-weight: 300;
+			}
+			.input-container {
+				position: relative;
+			}
+			input {
+				width: 600px;
+				margin: 0 auto;
+				padding: 0.7em;
+				color: $clr3;
+				text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+				border: 0;
+				border-radius: 10px;
+				background-color: rgba(255, 255, 255, 0.25);
+				backdrop-filter: blur(5px);
+				-webkit-backdrop-filter: blur(5px);
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+				outline: none;
+				&::placeholder {
+					color: rgba(73, 73, 73, 0.5);
+					transition: 0.3s;
+				}
+				&:focus::placeholder {
+					opacity: 0;
+				}
+			}
+			button {
+				all: unset;
+				position: absolute;
+				border: none;
+				padding: 0.4em;
+			}
+			.close-btn {
+				top: 5px;
+				right: 5px;
+			}
+			.submit-btn {
+				right: 10px;
+				top: 5px;
+				transition: 0.3s ease-in-out;
+				cursor: pointer;
+			}
+			.ai-load {
+				margin-inline: auto;
+				padding-block: 2em;
+				img {
+					width: 90px;
+					height: 90px;
+				}
+				display: flex;
+				align-self: center;
+			}
+			.ai-form {
+				gap: 1em;
+				padding-inline: 2em;
+			}
+		}
+	}
+	.boards-list {
+		width: initial;
+		padding-inline-end: 2em;
+	}
+	.inbox-container {
+		border: 1px solid $border-clr;
+		border-radius: 8px;
+		.empty-inbox {
+			width: 320px;
+			height: 320px;
+			align-self: center;
+		}
+	}
+	.inbox-preview {
+		text-align: center;
+	}
+	.right-panel {
+		margin-block-start: 1em;
+		margin-inline: 0 auto;
+		grid-column: 3;
+		.explore-templates {
+			border-radius: 8px;
+			background: $clr0;
+			width: fit-content;
+			padding: 1em;
+			box-shadow: $index-layout-shadow;
+			gap: 1em;
+			.btn-primary {
+				border: 1px solid $border-clr;
+				background-color: inherit;
+				font-size: rem(16px);
+				font-family: Figtree;
+				&:hover {
+					background-color: $button-hover-bgc;
+				}
+			}
+		}
+		.cards-container {
+			.help-card {
+				background-color: $clr0;
+				border-radius: rem(5px);
+				box-shadow: $card-hover-shadow;
+			}
+			img {
+				width: rem(48px);
+				height: rem(48px);
+			}
+		}
+	}
 }
-
 .index-back-panel {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: $transparent-overlay-clr;
-    z-index: 9999;
-    visibility: visible;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: $transparent-overlay-clr;
+	z-index: 9999;
+	visibility: visible;
 }
-
 #ai-particles {
-    z-index: 9999;
+	z-index: 9999;
 }

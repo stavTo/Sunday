@@ -1,51 +1,49 @@
 .boards-list {
-    background-color: $clr0;
-    margin-block-start: 1em;
-    margin-inline-end: 1em;
-    color: $clr1;
-    border-radius: 8px;
-    box-shadow: $index-layout-shadow;
-    height: fit-content;
+	background-color: $clr0;
+	margin-block-start: 1em;
+	margin-inline-end: 1em;
+	color: $clr1;
+	border-radius: 8px;
+	box-shadow: $index-layout-shadow;
+	height: fit-content;
 
-    .expand-arrow-container {
-        transform: rotate(270deg);
-        width: min-content;
-        transition: transform .4s;
-    }
+	.expand-arrow-container {
+		transform: rotate(270deg);
+		width: min-content;
+		transition: transform 0.4s;
+	}
 
-    .close-arrow-container {
-        transform: rotate(180deg);
-        transition: transform .4s;
+	.close-arrow-container {
+		transform: rotate(180deg);
+	}
 
-    }
-
-    .board-list-noder {
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        grid-gap: 20px;
-        padding: 16px 16px 24px 16px;
-    }
+	.index-board-list {
+		display: grid;
+		grid-template-rows: auto;
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		grid-gap: 20px;
+		padding: 16px 16px 24px 16px;
+	}
 }
 
 .list-wrapper {
-    padding: 1em;
+	padding: 1em;
 
-    a {
-        color: inherit;
-    }
+	a {
+		color: inherit;
+	}
 }
 
 .inbox {
-    .inbox-indication {
-        background-color: $bg-clr1;
-        color: $clr0;
-        border-radius: 50%;
-        width: rem(24px);
-        height: rem(24px);
+	.inbox-indication {
+		background-color: $bg-clr1;
+		color: $clr0;
+		border-radius: 50%;
+		width: rem(24px);
+		height: rem(24px);
 
-        span {
-            font-weight: 400;
-        }
-    }
+		span {
+			font-weight: 400;
+		}
+	}
 }

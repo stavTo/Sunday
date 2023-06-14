@@ -1,15 +1,12 @@
-import { faBarsStaggered, faCalendarDays, faCircleUser, faCrown, faTags } from '@fortawesome/free-solid-svg-icons'
-import { showErrorMsg } from '../../services/event-bus.service'
-import { saveBoard } from '../../store/selected-board.actions'
+import { faBarsStaggered, faCalendarDays, faCircleUser, faCrown } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ICON_PRIORITY, ICON_STATUS } from '../../assets/icons/icons'
 import { useDispatch } from 'react-redux'
 import { SET_BOARD } from '../../store/selected-board.reducer'
-export function HideColumns({ setFilter, board }) {
+export function HideColumns({ board }) {
 	const dispatch = useDispatch()
 
-	async function onSetHiddenColumn(ev, cmp) {
-		// ev.stopPropagation()
+	async function onSetHiddenColumn(cmp) {
 		const newCmp = { ...cmp, isShown: !cmp.isShown }
 		const boardCmps = board.cmpsOrder.map(cmp => (cmp.id === newCmp.id ? newCmp : cmp))
 		const newBoard = structuredClone(board)
@@ -50,11 +47,7 @@ export function HideColumns({ setFilter, board }) {
 
 					return (
 						cmpTitle && (
-							<li
-								onClick={ev => onSetHiddenColumn(ev, cmp)}
-								className="column-item btn-primary"
-								key={cmp.id}
-							>
+							<li onClick={() => onSetHiddenColumn(cmp)} className="column-item btn-primary" key={cmp.id}>
 								<span className="icon-name-container">
 									<DynamicSVG type={cmp.cmpName} />
 									<span>{cmpTitle}</span>

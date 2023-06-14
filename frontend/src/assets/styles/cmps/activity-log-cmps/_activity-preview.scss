@@ -1,10 +1,8 @@
 .activity-preview {
-	// height: rem(70px);
 	padding-block: 0.7em;
 	border-block-end: 1px solid #c4cad9;
 	justify-content: space-around;
 	display: grid;
-	// grid-template-columns: repeat(3, rem(125px));
 	grid-template-columns: rem(40px) rem(145px) rem(190px);
 	grid-template-rows: 1fr;
 	grid-gap: 1.1em;

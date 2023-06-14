@@ -52,13 +52,11 @@ export function Kanban() {
 	return (
 		<section className="kanban">
 			<SideBar />
-			{/* <WorkspaceBoardList /> */}
 			<section className="board-container default-scroll">
 				<BoardHeader board={board} />
 				<KanbanGroupList groups={board.groups} />
 			</section>
 			<Outlet />
-			{/* {!!checkedTaskIds.length && <CheckedTasksMenu checkedTaskIds={checkedTaskIds} />} */}
 		</section>
 	)
 }
