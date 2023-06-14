@@ -50,12 +50,6 @@ export function TaskDetails() {
 		}
 	}
 
-	// function onCloseEditor(ev) {
-	// 	if (ev.target.closest('.editor , .update-btn , .new-post, input')) return
-	// 	setIsEditorOpen(false)
-	// 	setIsInputVisible(false)
-	// }
-
 	async function onCloseModal() {
 		if (location.pathname.includes('kanban')) navigate(`/boards/${boardId}/views/kanban`)
 		else navigate(`/boards/${boardId}`)
@@ -206,7 +200,6 @@ export function TaskDetails() {
 												className="txt-container"
 												dangerouslySetInnerHTML={{ __html: comment.txt }}
 											></div>
-											{/* <div className="seen-container"></div> */}
 										</li>
 									))
 								) : (

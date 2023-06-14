@@ -1,10 +1,8 @@
-import Particles from "react-particles";
-import { useCallback } from "react";
-import { loadFull } from "tsparticles";
+import Particles from 'react-particles'
+import { useCallback } from 'react'
+import { loadFull } from 'tsparticles'
 
 export function ParticleContainer() {
-
-
   const particleOptions = {
     "background": {
       "color": {
@@ -12,17 +10,6 @@ export function ParticleContainer() {
       }
     },
     "particles": {
-      // "shadow": {
-      //   "blur": 20,
-      //   "color": {
-      //     "value": "#fff"
-      //   },
-      //   "enable": true,
-      //   "offset": {
-      //     "x": 0,
-      //     "y": 0
-      //   }
-      // },
       "number": {
         "value": 150
       },

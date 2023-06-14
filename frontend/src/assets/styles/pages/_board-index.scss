@@ -230,18 +230,16 @@
         }
     }
 }
-
 .index-back-panel {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    background-color: $transparent-overlay-clr;
-    z-index: 9999;
-    visibility: visible;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: $transparent-overlay-clr;
+	z-index: 9999;
+	visibility: visible;
 }
-
 #ai-particles {
-    z-index: 9999;
+	z-index: 9999;
 }

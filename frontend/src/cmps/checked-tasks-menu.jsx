@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { ICON_CLOSE } from '../assets/icons/icons'
 import { SET_CHECKED_TASKS } from '../store/selected-task.reducer'
-import { HiOutlineArrowRightCircle } from 'react-icons/hi2'
 import { VscTrash } from 'react-icons/vsc'
 import { IoDocumentsOutline } from 'react-icons/io5'
 import { duplicateTask, removeBatchTasks } from '../store/selected-board.actions'
@@ -46,8 +45,6 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 		}
 	}
 
-	async function onMoveTo() {}
-
 	async function onDuplicate() {
 		for (let taskId of checkedTaskIds) {
 			try {
@@ -81,9 +78,9 @@ export function CheckedTasksMenu({ checkedTaskIds }) {
 					<span className="action-item" onClick={onRemove}>
 						<VscTrash /> Delete
 					</span>
-					<span className="action-item">
+					{/* <span className="action-item">
 						<HiOutlineArrowRightCircle /> Move to
-					</span>
+					</span> */}
 				</div>
 			</div>
 			<div className="close-checked-modal" onClick={onCloseModal}>

@@ -97,12 +97,10 @@
 				width: 4px;
 			}
 
-			/* Track */
 			&::-webkit-scrollbar-track {
 				background: inherit;
 			}
 
-			/* Handle */
 			&::-webkit-scrollbar-thumb {
 				background: $input-hover-border-clr;
 				border-radius: 4px;
@@ -168,7 +166,6 @@
 			color: $icon-color;
 			line-height: 24px;
 			height: calc($task-row-height + 8px);
-			// padding-block-start: 8px;
 			position: sticky;
 			top: 0;
 			span {

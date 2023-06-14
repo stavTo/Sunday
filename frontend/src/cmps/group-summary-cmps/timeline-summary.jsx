@@ -92,21 +92,12 @@ export function TimelineSummary({ board, group, defaultWidth }) {
 								: { backgroundColor: '#ABABAB' }
 						}
 					>
-						{/* <div className={`${isHovered ?  'progress darken' : 'progress'}`} style={{ background: `linear-gradient(to right, ${group.style.color} ${calculateTimelineProgress()}, #333333 ${calculateTimelineProgress()})` }} > */}
 						<span style={{ width: '50%' }}></span>
 					</div>
 					<span className="range-preview flex row justify-center">
-						{/* <span>{getTimelineRange()}d</span> */}
 						{!groupHasTimeline && <span>-</span>}
 						{groupHasTimeline &&
-							(isHovered ? (
-								<span>{getTimestampInDays()}d</span>
-							) : (
-								<span>
-									{/* Invalid date for some reason */}
-									{getTimelineRange()}
-								</span>
-							))}
+							(isHovered ? <span>{getTimestampInDays()}d</span> : <span>{getTimelineRange()}</span>)}
 					</span>
 				</div>
 			</div>

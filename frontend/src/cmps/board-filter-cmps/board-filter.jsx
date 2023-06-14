@@ -1,4 +1,4 @@
-import { FILTER_PERSON, FILTER_FILTER, FILTER_SORT, FILTER_HIDE, ICON_CLOSE } from '../../assets/icons/icons'
+import { FILTER_PERSON, FILTER_HIDE, ICON_CLOSE } from '../../assets/icons/icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useRef, useState } from 'react'
@@ -10,6 +10,7 @@ import { utilService } from '../../services/util.service'
 import { MemberFilter } from './member-filter'
 import { showErrorMsg } from '../../services/event-bus.service'
 import { HideColumns } from './hide-columns'
+import { useLocation } from 'react-router'
 
 export function BoardFilter({ board }) {
 	const [filter, setFilter] = useState(boardService.getDefaultFilter())
@@ -17,6 +18,7 @@ export function BoardFilter({ board }) {
 	const [active, setActive] = useState('')
 	const elSearchInput = useRef('')
 	const debouncedLoadBoard = useRef(utilService.debounce(loadBoard))
+	const location = useLocation()
 
 	useEffect(() => {
 		document.addEventListener('mousedown', unsetActive)
@@ -109,34 +111,18 @@ export function BoardFilter({ board }) {
 					{active === 'member' && <MemberFilter setFilter={setFilter} board={board}></MemberFilter>}
 				</div>
 			</TippyContainer>
-			{/* <TippyContainer txt={'Filter by anything'} offset={[0, 15]} delay={[0, 0]}>
-				<div
-					className={`filter-container btn-primary ${active === 'filter' && 'active'}`}
-					onClick={ev => onSetActive(ev, 'filter')}
-				>
-					<span className="filter-icon">{FILTER_FILTER}</span>
-					<span className="filter-text">Filter</span>
-				</div>
-			</TippyContainer> */}
-			{/* <TippyContainer txt={'Sort by any  column'} offset={[0, 15]} delay={[0, 0]}>
-				<div
-					className={`sort-container btn-primary ${active === 'sort' && 'active'}`}
-					onClick={ev => onSetActive(ev, 'sort')}
-				>
-					<span className="filter-icon">{FILTER_SORT}</span>
-					<span className="filter-text">Sort</span>
-				</div>
-			</TippyContainer> */}
-			<TippyContainer txt={'Hidden columns'} offset={[0, 15]} delay={[0, 0]}>
-				<div className={`hide-container btn-primary ${active === 'hide' && 'active'}`}>
-					<div className="hide-button" onClick={ev => onSetActive(ev, 'hide')}>
-						<span className="filter-icon">{FILTER_HIDE}</span>
-						<span className="filter-text">Hide</span>
-					</div>
+			{!location.pathname.includes('kanban') && (
+				<TippyContainer txt={'Hidden columns'} offset={[0, 15]} delay={[0, 0]}>
+					<div className={`hide-container btn-primary ${active === 'hide' && 'active'}`}>
+						<div className="hide-button" onClick={ev => onSetActive(ev, 'hide')}>
+							<span className="filter-icon">{FILTER_HIDE}</span>
+							<span className="filter-text">Hide</span>
+						</div>
 
-					{active === 'hide' && <HideColumns setFilter={setFilter} board={board}></HideColumns>}
-				</div>
-			</TippyContainer>
+						{active === 'hide' && <HideColumns setFilter={setFilter} board={board}></HideColumns>}
+					</div>
+				</TippyContainer>
+			)}
 		</section>
 	)
 }
