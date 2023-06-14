@@ -1,15 +1,16 @@
 .task-preview {
 	display: flex;
 	// position: relative;
+	height: $task-row-height;
+	background-color: $clr0;
+	z-index: 2;
+	border-block-end: 1px solid $border-clr;
 	&:hover {
 		.sticky-container {
 			background-color: $task-hover-bgc;
 		}
 	}
-	height: $task-row-height;
-	background-color: $clr0;
-	z-index: 2;
-	border-block-end: 1px solid $border-clr;
+
 	.main-preview-container {
 		display: flex;
 		min-width: max-content;
@@ -20,12 +21,12 @@
 
 	.sticky-container {
 		z-index: 2;
-		height: $task-row-height;
+		height: calc($task-row-height - 1px);
 		display: flex;
 		position: sticky;
 		left: var(--left-margin-size);
 		background-color: $clr0;
-		border-block-end: 1px solid $border-clr;
+		// border-block-end: 1px solid $border-clr;
 
 		&:hover {
 			background-color: $task-hover-bgc;
@@ -56,7 +57,7 @@
 		position: sticky;
 		z-index: 30;
 		left: 0px;
-		height: var(--left-margin-size);
+		height: 40px;
 		width: var(--left-margin-size);
 		justify-content: center;
 		align-items: center;

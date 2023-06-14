@@ -105,7 +105,8 @@ export function TaskListHeader({ task, group, isGroupSelected, setIsGroupSelecte
 				}
 
 				return (
-					cmpTitle && (
+					cmpTitle &&
+					cmp.isShown && (
 						<li key={cmp.id} style={{ width: cmp.defaultWidth }}>
 							{cmpTitle}
 							<div

@@ -1,4 +1,4 @@
-input {
+input:not([type='checkbox']) {
 	all: unset;
 	font-family: Figtree, Roboto, Rubik, sans-serif;
 

@@ -75,6 +75,7 @@ export function TaskPreview({ task, group, checkedTaskIds, setIsGroupSelected, s
 						<TaskTitle groupId={group.id} task={task} />
 					</div>
 					{board.cmpsOrder.map(cmp => {
+						if (!cmp.isShown) return
 						switch (cmp.cmpName) {
 							case STATUS_PICKER:
 							case PRIORITY_PICKER:

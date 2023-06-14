@@ -8280,31 +8280,30 @@
 		}
 	],
 	"cmpsOrder": [
-		{ "id": "3yilg2", "cmpName": "ownerPicker", "defaultWidth": "85px", "minWidth": "85px" },
-		{ "id": "zrizws", "cmpName": "statusPicker", "defaultWidth": "150px", "minWidth": "50px" },
-		{ "id": "nDe7DS", "cmpName": "priorityPicker", "defaultWidth": "150px", "minWidth": "50px" },
-		{ "id": "Hkl2N9", "cmpName": "timelinePicker", "defaultWidth": "145px", "minWidth": "50px" },
-		{ "id": "ukbmwt", "cmpName": "collaboratorPicker", "defaultWidth": "150px", "minWidth": "100px" },
-		{ "id": "0QJ3BC", "cmpName": "datePicker", "defaultWidth": "124px", "minWidth": "50px" }
+		{ "id": "3yilg2", "cmpName": "ownerPicker", "defaultWidth": "85px", "minWidth": "85px", "isShown": true },
+		{ "id": "zrizws", "cmpName": "statusPicker", "defaultWidth": "150px", "minWidth": "50px", "isShown": true },
+		{ "id": "nDe7DS", "cmpName": "priorityPicker", "defaultWidth": "150px", "minWidth": "50px", "isShown": true },
+		{ "id": "Hkl2N9", "cmpName": "timelinePicker", "defaultWidth": "145px", "minWidth": "50px", "isShown": true },
+		{
+			"id": "ukbmwt",
+			"cmpName": "collaboratorPicker",
+			"defaultWidth": "150px",
+			"minWidth": "100px",
+			"isShown": true
+		},
+		{ "id": "0QJ3BC", "cmpName": "datePicker", "defaultWidth": "124px", "minWidth": "50px", "isShown": true }
 	],
 	"statusLabels": [
 		{ "id": "sl102", "title": "Stuck", "color": "#E2445C" },
 		{ "id": "sl103", "title": "Almost done", "color": "#0086C0" },
 		{ "id": "sl101", "title": "Working on it", "color": "#FDAB3D" },
 		{ "id": "sl100", "title": "Done", "color": "#00C875" },
-		{ "id": "sl104", "title": "Needs testing", "color": "#ff158a" },
+		{ "id": "sl104", "title": "", "color": "#C4C4C4" },
+		{ "id": "sl105", "title": "Needs testing", "color": "#ff158a" },
 		{ "id": "Lg3XgI", "title": "Backlog", "color": "#66ccff" },
 		{ "id": "JjZXmo", "title": "Waiting for Feedback", "color": "#7f5347" },
 		{ "id": "tO3N1C", "title": "Waiting for Feedback", "color": "#a25ddc" },
-		{ "id": "CLTUmw", "title": "Pending Deployment", "color": "#ff642e" },
-		{ "id": "vfpl5R", "title": "", "color": "#c4c4c4" },
-		{ "id": "9ZpNpo", "title": "", "color": "#c4c4c4" },
-		{ "id": "qO75YY", "title": "", "color": "#c4c4c4" },
-		{ "id": "Trfqhg", "title": "", "color": "#c4c4c4" },
-		{ "id": "sHGnss", "title": "", "color": "#c4c4c4" },
-		{ "id": "P9LkfU", "title": "", "color": "#c4c4c4" },
-		{ "id": "QDVBHI", "title": "", "color": "#c4c4c4" },
-		{ "id": "Pj42bV", "title": "", "color": "#c4c4c4" }
+		{ "id": "CLTUmw", "title": "Pending Deployment", "color": "#ff642e" }
 	],
 	"priorityLabels": [
 		{ "id": "pl100", "title": "Critical", "color": "#333333" },

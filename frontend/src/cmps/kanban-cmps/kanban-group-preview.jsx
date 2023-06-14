@@ -1,9 +1,9 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 import { KanbanTaskPreview } from './kanban-task-preview'
 
-export function KanbanGroupPreview({ group, statusLabel, isDragDisabled }) {
+export function KanbanGroupPreview({ group, statusLabel, groupSnapshot }) {
 	return (
-		<div className="kanban-group-preview clean-list">
+		<div className="kanban-group-preview clean-list" style={{ rotate: groupSnapshot.isDragging ? '5deg' : '' }}>
 			<div className="group-title" style={{ background: statusLabel.color }}>
 				{statusLabel.title || 'Blank'} / {group.length}
 			</div>

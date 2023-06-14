@@ -19,25 +19,6 @@
 		position: relative;
 	}
 
-	.color-picker {
-		width: rem(125px);
-		background-color: $clr0;
-		border: 1px $input-hover-border-clr solid;
-		border-radius: 4px;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		z-index: 100;
-
-		.color {
-			cursor: pointer;
-			height: em(20px);
-			width: em(20px);
-			border-radius: 50%;
-			margin: 3px;
-		}
-	}
-
 	&.collapsed {
 		border-block: 1px solid $border-clr;
 
@@ -77,7 +58,7 @@
 	.group-sticky-container {
 		position: sticky;
 
-		top: 165px;
+		top: 185px;
 		z-index: 40;
 		background-color: $clr0;
 	}
@@ -206,5 +187,25 @@
 			user-select: none;
 			height: $task-row-height;
 		}
+	}
+}
+
+.color-picker {
+	position: absolute;
+	width: rem(125px);
+	background-color: $clr0;
+	border: 1px $input-hover-border-clr solid;
+	border-radius: 4px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	z-index: 100;
+
+	.color {
+		cursor: pointer;
+		height: em(20px);
+		width: em(20px);
+		border-radius: 50%;
+		margin: 3px;
 	}
 }

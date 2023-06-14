@@ -1,7 +1,13 @@
 .kanban-group-list {
 	padding-inline: 38px;
 	display: flex;
-	min-width: min-content;
+	// min-width: min-content;
 	gap: 20px;
-	max-height: calc(100vh - 250px);
+	// max-height: 100%;
+	overflow-y: hidden;
+	height: 100%;
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 16px;
+	}
 }

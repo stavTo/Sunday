@@ -44,10 +44,12 @@ export function KanbanGroupList({ groups }) {
 		const sourceIdx = result.source.index
 		const taskId = result.draggableId
 		if (sourceStatus === destinationStatus && sourceIdx === destinationIdx) return
-		//TODO find task
-		//TODO find if same group rearange, if different group change status
 
 		if (sourceStatus === destinationStatus) {
+			const groupToChange = groupsByLabels.find(group => group.status === destinationStatus)
+			console.log(groupToChange)
+			const taskToMove = groupToChange.tasks.splice(sourceIdx, 1)[0]
+			groupToChange.tasks.splice(destinationIdx, 0, taskToMove)
 		}
 		// change task label
 		else {
@@ -95,6 +97,7 @@ export function KanbanGroupList({ groups }) {
 										ref={provided.innerRef}
 									>
 										<KanbanGroupPreview
+											groupSnapshot={snapshot}
 											statusLabel={boardService.getStatusLabelById(board, group.status)}
 											group={group.tasks}
 										/>
