@@ -9,6 +9,7 @@ import { TippyContainer } from '../tippy-container'
 import { utilService } from '../../services/util.service'
 import { MemberFilter } from './member-filter'
 import { showErrorMsg } from '../../services/event-bus.service'
+import { HideColumns } from './hide-columns'
 
 export function BoardFilter({ board }) {
 	const [filter, setFilter] = useState(boardService.getDefaultFilter())
@@ -46,7 +47,7 @@ export function BoardFilter({ board }) {
 	}
 
 	function unsetActive(ev) {
-		if (ev.target.closest('.empty-search-icon, .member-filter')) return
+		if (ev.target.closest('.empty-search-icon, .member-filter, .hide-columns')) return
 		if (!elSearchInput.current.value) setInputFocused(false)
 		setActive('')
 	}
@@ -126,15 +127,16 @@ export function BoardFilter({ board }) {
 					<span className="filter-text">Sort</span>
 				</div>
 			</TippyContainer> */}
-			{/* <TippyContainer txt={'Hidden columns'} offset={[0, 15]} delay={[0, 0]}>
-				<div
-					className={`hide-container btn-primary ${active === 'hide' && 'active'}`}
-					onClick={ev => onSetActive(ev, 'hide')}
-				>
-					<span className="filter-icon">{FILTER_HIDE}</span>
-					<span className="filter-text">Hide</span>
+			<TippyContainer txt={'Hidden columns'} offset={[0, 15]} delay={[0, 0]}>
+				<div className={`hide-container btn-primary ${active === 'hide' && 'active'}`}>
+					<div className="hide-button" onClick={ev => onSetActive(ev, 'hide')}>
+						<span className="filter-icon">{FILTER_HIDE}</span>
+						<span className="filter-text">Hide</span>
+					</div>
+
+					{active === 'hide' && <HideColumns setFilter={setFilter} board={board}></HideColumns>}
 				</div>
-			</TippyContainer> */}
+			</TippyContainer>
 		</section>
 	)
 }

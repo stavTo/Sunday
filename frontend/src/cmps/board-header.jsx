@@ -146,9 +146,7 @@ export function BoardHeader({ board }) {
 						</div>
 					</div>
 				</div>
-				<div className="board-info">
-					<span>{board.description}</span>
-				</div>
+				<span className="board-info">{board.description}</span>
 				<BoardToolbar />
 				<div className="board-header-bottom">
 					<button className="btn-new-task btn-text" onClick={onAddTask}>
@@ -170,7 +168,6 @@ export function BoardHeader({ board }) {
 						<span className="modal-title">{board.title}</span>
 						<input type="text" placeholder="Enter name" />
 						<ul className="user-list clean-list">
-							{/* //TODO make this find all users EXCEPT logged in user */}
 							{board.members.map(member => (
 								<li key={member._id}>
 									<img src={member.imgUrl} alt="member img" />

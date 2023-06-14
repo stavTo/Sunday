@@ -871,3 +871,15 @@ export const ICON_PRIORITY = (
 		<path fill="#333" d="M16.5 3.5v3h-13v-3h13Z"></path>
 	</svg>
 )
+
+export const ICON_STATUS = (
+	<svg xmlns="http://www.w3.org/2000/svg" width="20" height="10" viewBox="0 0 20 20" className="icon status-icon">
+		<path
+			fill="none"
+			d="M1.5 2.5c0-.347.347-.693.693-.693h15.614c.346 0 .693.346.693.693v15c0 .347-.347.693-.693.693H2.193c-.346 0-.693-.346-.693-.693v-15Z"
+		></path>
+		<path fill="#f53e5a" d="M3.5 13.5v3h13v-3h-13Z"></path>
+		<path fill="#f9ab3d" d="M16.5 11.5h-13v-3h13v3Z"></path>
+		<path fill="#44ca72" d="M16.5 3.5v3h-13v-3h13Z"></path>
+	</svg>
+)
