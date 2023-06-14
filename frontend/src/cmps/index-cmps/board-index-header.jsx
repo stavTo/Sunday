@@ -3,6 +3,7 @@ import headerBackground from '../../assets/img/board-index/header-background.svg
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBolt } from '@fortawesome/free-solid-svg-icons'
 import { TippyContainer } from '../tippy-container'
+import aiBot from '../../assets/img/ai_render.png'
 
 export function BoardIndexHeader({ setToggleInputModal }) {
     return (
@@ -14,13 +15,17 @@ export function BoardIndexHeader({ setToggleInputModal }) {
                 </div>
                 <img src={headerBackground} />
             </div>
-            <div className="flex row gap-1">
-                <TippyContainer txt="Generate AI templates">
-                    <button className="ai-btn btn-primary p-half-em" onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}>
-                        <FontAwesomeIcon icon={faBolt} style={{ color: "#ffffff" }} />
-                        Generate AI templates
-                    </button>
-                </TippyContainer>
+            <div className="right-section">
+                <div className="ai-bot"><img src={aiBot} /></div>
+                <div className="flex row gap-1">
+                    <div className="btn-wrapper">
+                        <div className="ai-btn btn-primary p-half-em" onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}>
+                            <FontAwesomeIcon icon={faBolt} style={{ color: "#ffffff" }} />
+                            Generate AI templates
+                        </div>
+                        <div className="glow"></div>
+                    </div>
+                </div>
             </div>
         </section>
     )

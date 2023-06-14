@@ -1,6 +1,5 @@
 .board-index {
     display: flex;
-    // position: relative;
 
     .index-container {
         display: grid;
@@ -26,40 +25,106 @@
         background-color: $bg-clr7;
 
         .template-modal {
-            text-align: center;
-            margin: 0;
             position: absolute;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            background: $clr0;
+            padding-block-start: 2em;
             top: 50%;
             left: 50%;
-            -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-            width: 500px;
-            height: 150px;
-            overflow: hidden;
+            width: 800px;
+            height: 200px;
             transition: height 0.5s, transform 0.26s ease;
-            padding: 1em;
-            box-shadow: $card-hover-shadow;
+            z-index: 99999;
+
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                padding: 2em;
+                background-color: rgba(255, 255, 255, 0.6);
+                backdrop-filter: blur(3px);
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+                -webkit-backdrop-filter: blur(3px);
+                border-radius: 10px;
+                background-clip: padding-box;
+            }
+
+            .box-1 {
+                position: absolute;
+                z-index: 999999;
+                left: -50px;
+                top: -50px;
+                width: 100px;
+                height: 100px;
+                border-radius: 10px;
+
+                background-color: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+                border: 2px solid transparent;
+            }
+
+            .box-2 {
+                position: absolute;
+                z-index: 999999;
+                right: -30px;
+                bottom: -30px;
+                width: 70px;
+                height: 70px;
+                border-radius: 10px;
+                background-color: rgba(255, 255, 255, 0.3);
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+                border: 2px solid transparent;
+            }
 
             &.expanded {
                 height: 300px;
             }
 
-            h1 {
-                padding-block-start: 1em;
-                margin: 0 auto;
+            h2 {
+                text-align: center;
+                font-weight: 300;
+            }
+
+            .input-container {
+                position: relative;
             }
 
             input {
-                width: 350px;
+                width: 600px;
                 margin: 0 auto;
+                padding: .7em;
+                color: $clr3;
+                text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                border: 0;
+                border-radius: 10px;
+                background-color: rgba(255, 255, 255, 0.25);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+                outline: none;
+
+                &::placeholder {
+                    color: rgba(73, 73, 73, 0.5);
+                    transition: .3s;
+                }
+
+                &:focus::placeholder {
+                    opacity: 0;
+                }
             }
 
             button {
+                all: unset;
                 position: absolute;
                 border: none;
                 padding: .4em;
@@ -71,18 +136,20 @@
             }
 
             .submit-btn {
-                bottom: 5px;
-                right: 5px;
+                right: 10px;
+                top: 5px;
+                transition: .3s ease-in-out;
+                cursor: pointer;
             }
 
             .ai-load {
                 margin-inline: auto;
                 padding-block: 2em;
+
                 img {
                     width: 90px;
                     height: 90px;
                 }
-
 
                 display: flex;
                 align-self: center;
@@ -90,6 +157,7 @@
 
             .ai-form {
                 gap: 1em;
+                padding-inline: 2em;
             }
         }
     }
@@ -113,6 +181,8 @@
     .inbox-preview {
         text-align: center;
     }
+
+
 
     .right-panel {
         margin-block-start: 1em;
@@ -152,4 +222,19 @@
             }
         }
     }
+}
+
+.index-back-panel {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: $transparent-overlay-clr;
+    z-index: 9999;
+    visibility: visible;
+}
+
+#ai-particles {
+    z-index: 9999;
 }

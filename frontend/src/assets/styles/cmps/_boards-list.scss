@@ -8,18 +8,18 @@
     height: fit-content;
 
     .expand-arrow-container {
-        transform: rotate(-90deg);
+        transform: rotate(270deg);
         width: min-content;
+        transition: transform .4s;
     }
 
     .close-arrow-container {
         transform: rotate(180deg);
+        transition: transform .4s;
+
     }
 
     .board-list-noder {
-        // display: grid;
-        // grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        // gap: 20px;
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));

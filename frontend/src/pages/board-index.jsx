@@ -12,9 +12,14 @@ import { ICON_CLOSE } from '../assets/icons/icons'
 import { Configuration, OpenAIApi } from 'openai'
 import { boardService } from '../services/board.service'
 import { utilService } from '../services/util.service'
-import { Dna } from 'react-loader-spinner'
 import boardLoader from '../assets/img/board-loader.gif'
 import { useNavigate } from 'react-router-dom'
+import Particles from 'react-particles'
+import options from '../assets/options.json'
+import { ParticleContainer } from '../cmps/particle-container'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import { AiLoader } from '../cmps/ai-loader'
 
 export function BoardIndex() {
 	const boards = useSelector(({ boardModule }) => boardModule.boards)
@@ -23,8 +28,10 @@ export function BoardIndex() {
 	const [isLoading, setIsLoading] = useState(false)
 	const navigate = useNavigate()
 	const generateTimeout = useRef(false)
-
-	document.title = 'My Boards'
+	const inputRef = useRef('')
+	const modalRef = useRef(null);
+	const box1Ref = useRef(null);
+	const box2Ref = useRef(null);
 
 	useEffect(() => {
 		onLoadBoards()
@@ -32,8 +39,42 @@ export function BoardIndex() {
 	}, [])
 
 	useEffect(() => {
-		if (generateTimeout.current) navigateNoder()
+		if (generateTimeout.current) navigateToAIBoard()
 	}, [boards])
+
+	useEffect(() => {
+		if (toggleInputModal) {
+			const modal = modalRef.current
+			const box1 = box1Ref.current
+			const box2 = box2Ref.current
+
+			if (modal && box1 && box2) {
+				function boxMove(e, box, speed) {
+					let x = (window.innerWidth - e.pageX * speed) / 100
+					let y = (window.innerHeight - e.pageY * speed) / 100
+					box.style.transform = `translateX(${x}px) translateY(${y}px)`
+				}
+
+				document.addEventListener("mousemove", (e) => {
+					boxMove(e, box1, 2)
+					boxMove(e, box2, 2)
+				});
+
+				return () => {
+					document.removeEventListener("mousemove", (e) => {
+						boxMove(e, box1, 2)
+						boxMove(e, box2, 2)
+					})
+				}
+			}
+		}
+	}, [toggleInputModal])
+
+	useEffect(() => {
+		// if (aiQuery) getBoardFromAI()
+		if (aiQuery) createAiBoard()
+		// navigateToAIBoard()
+	}, [aiQuery])
 
 	async function onLoadBoards() {
 		try {
@@ -43,134 +84,95 @@ export function BoardIndex() {
 		}
 	}
 
-	function handleChange(ev) {
-		setAiQuery(ev.target.value)
-	}
-
 	function handleSubmit(ev) {
 		ev.preventDefault()
-		// sendToGpt()
-		navigateToAIBoard()
+		setAiQuery(inputRef.current.value)
 	}
 
 
-	const openai = new OpenAIApi(new Configuration({
-		apiKey: process.env.REACT_APP_OPENAI_API_KEY
-	}))
-
-	function getAiInstructions() {
+	function _getAiInstructions() {
 		return [{
 			"role": "system", "content": `
 		You are an AI assistant helping with the creation of project management templates for a project management app. Please provide in your response ONLY a valid JSON string that can be parsed back to an object that includes the board name, groups, and tasks based on the given user input. the tasks and the division of groups must be realted to the subject of the theme that the user has entered. You MUST not reply in any other way that is not according to the following format: "{"title":\"Board Name\","groups":[{"title":\"Group Name\","tasks":[{"title":\"Task description1\"},{"title":\"Task description2\"},{"title":\"Task description3\"}]}]}". You MUST send it in a valid JSON format, DO NOT forget to wrap ALL keys and their values with apostrophes (i.e ").`},
 		{ "role": "user", "content": `My projects theme is: ${aiQuery}` }]
 	}
 
-	async function sendToGpt() {
-		setIsLoading(prevIsLoading => !prevIsLoading)
-		console.log("isLoading:", isLoading)
+	async function getBoardFromAI() {
+		const openai = new OpenAIApi(new Configuration({
+			apiKey: process.env.REACT_APP_OPENAI_API_KEY
+		}))
+		setIsLoading(true)
 		try {
 			const res = await openai.createChatCompletion({
 				model: "gpt-3.5-turbo",
-				max_tokens: 1000,
-				temperature: 0.5,
-				messages: getAiInstructions()
+				max_tokens: 2000,
+				temperature: 1,
+				messages: _getAiInstructions()
 			})
+
 			const response = res.data.choices[0].message.content
+			console.log("response:", response)
 			const aiBoard = JSON.parse(response)
+
 			createAiBoard(aiBoard)
-			await setInterval(setIsLoading(prevIsLoading => !prevIsLoading), 1000)
+			// await setInterval(setIsLoading(prevIsLoading => !prevIsLoading), 1000)
 		} catch (err) {
-			console.log("err:", err)
+			showErrorMsg("Can't add AI board, try again later")
 		} finally {
 			setIsLoading(false)
 		}
 	}
 
-	async function createAiBoard() {
+	async function createAiBoard(aiBoard) {
 		setIsLoading(prevIsLoading => !prevIsLoading)
 
 		setTimeout(() => {
-			const aiBoard = {
-				title: "Amusement Park Project",
+			const demoAiBoard = {
+				title: "Mommy's 50th Birthday Board",
 				groups: [
 					{
-						title: "Planning",
+						title: "Venue",
 						tasks: [
-							{
-								title: "Research amusement park design trends"
-							},
-							{
-								title: "Determine budget for amusement park"
-							},
-							{
-								title: "Create a list of potential rides and attractions"
-							},
-							{
-								title: "Select a location for the amusement park"
-							}
+							{ title: "Book the event hall" },
+							{ title: "Decide on the party decorations" },
+							{ title: "Hire a caterer" },
+							{ title: "Select a cake" },
+							{ title: "Purchase party favors" }
 						]
 					},
 					{
-						title: "Construction",
+						title: "Guest List",
 						tasks: [
-							{
-								title: "Hire a construction company"
-							},
-							{
-								title: "Design the layout of the amusement park"
-							},
-							{
-								title: "Build the rides and attractions"
-							},
-							{
-								title: "Install utilities such as electricity and plumbing"
-							}
+							{ title: "Finalize invite list" },
+							{ title: "Create and send out invitations" },
+							{ title: "Follow up with RSVPs" }
 						]
 					},
 					{
-						title: "Marketing",
+						title: "Entertainment",
 						tasks: [
-							{
-								title: "Develop a marketing plan"
-							},
-							{
-								title: "Create a website for the amusement park"
-							},
-							{
-								title: "Advertise the amusement park on social media"
-							},
-							{
-								title: "Partner with local businesses to promote the amusement park"
-							}
+							{ title: "Choose the music playlist" },
+							{ title: "Hire a DJ or a band" },
+							{ title: "Plan party games and activities" }
 						]
 					},
 					{
-						title: "Operations",
+						title: "Speeches and Toasts",
 						tasks: [
-							{
-								title: "Hire staff for the amusement park"
-							},
-							{
-								title: "Train staff on safety procedures"
-							},
-							{
-								title: "Create a schedule for staff"
-							},
-							{
-								title: "Purchase food and supplies for the amusement park"
-							}
+							{ title: "Decide who will give speeches or toasts" },
+							{ title: "Write a speech" },
+							{ title: "Practice speeches and toasts" }
 						]
 					}
 				]
 			}
-			console.log("aiBoard:", aiBoard)
 
 			const board = boardService.getEmptyBoard()
 			const task = boardService.getEmptyTask()
 
-			board.title = aiBoard.title
+			board.title = demoAiBoard.title
 
-			const aiGroups = aiBoard.groups.map(aiGroup => {
+			const aiGroups = demoAiBoard.groups.map(aiGroup => {
 				const group = {
 					...aiGroup,
 					id: utilService.makeId(),
@@ -196,65 +198,60 @@ export function BoardIndex() {
 		}, 3000)
 	}
 
-	async function navigateToAIBoard() {
-		await createAiBoard()
-	}
-
-	function navigateNoder() {
+	function navigateToAIBoard() {
 		navigate(`/boards/${boards[boards.length - 1]._id}`)
 		generateTimeout.current = false
 	}
 
-	// async function navigateToAIBoard() {
-	// 	const lastBoard = await boardService.getLastBoard()
-	// 	navigate(`/boards/${lastBoard._id}`)
-	// }
-
 	if (!boards) return <BoardLoader />
 
 	return (
-		<section className="board-index">
-			<SideBar isExpandable={false} />
-			<section className="index-body">
-				<section className="index-container">
-					<div className="header-wrapper">
-						<BoardIndexHeader setToggleInputModal={setToggleInputModal} />
-					</div>
-					<section className="boards-list">
-						<BoardList boards={boards} />
-						<IndexInbox />
-					</section>
-					<BoardIndexAside setToggleInputModal={setToggleInputModal} toggleInputModal={toggleInputModal} />
-				</section>
+		<>
+			{toggleInputModal && <div className="index-back-panel"></div>}
+			<section className="board-index">
 				{toggleInputModal &&
-					<div className={`${isLoading ? 'expanded template-modal flex column' : 'template-modal flex column'}`}>
-						<form onSubmit={handleSubmit} className="flex column justify-center ai-form">
-							<h1>To create a new board with a powerful template, enter a few details regarding your project</h1>
-							<input
-								autoComplete="off"
-								className="filter-search-input"
-								type="search"
-								placeholder="Enter a description regarding your project"
-								name="txt"
-								value={aiQuery}
-								onChange={handleChange}
-							/>
-							{isLoading &&
-								<img className="ai-load" src={boardLoader} alt="Loader" />}
-							<button className="submit-btn btn-primary pointer" type="submit">Submit</button>
-							<button className="submit-btn btn-primary pointer" type="submit">
-								Submit
+					<ParticleContainer />}
+				<SideBar />
+				<section className="index-body">
+					<section className="index-container">
+						<div className="header-wrapper">
+							<BoardIndexHeader setToggleInputModal={setToggleInputModal} />
+						</div>
+						<section className="boards-list">
+							<BoardList boards={boards} />
+							<IndexInbox />
+						</section>
+						<BoardIndexAside setToggleInputModal={setToggleInputModal} toggleInputModal={toggleInputModal} />
+					</section>
+					{toggleInputModal &&
+						<div className={`template-modal flex column ${isLoading ? 'expanded' : ''}`} ref={modalRef}>
+							<form onSubmit={handleSubmit} className="flex column justify-center ai-form">
+								<h2>Generate new boards with powerful AI templates</h2>
+								<div className="input-container">
+									<input
+										autoComplete="off"
+										type="text"
+										placeholder="Write your prompt..."
+										ref={inputRef}
+									/>
+									<button className="submit-btn pointer" type="submit">
+										<FontAwesomeIcon icon={faPaperPlane} />
+									</button>
+								</div>
+								{isLoading && <AiLoader />}
+							</form>
+							<button
+								className="close-btn btn-primary flex pointer"
+								onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}
+							>
+								{ICON_CLOSE}
 							</button>
-						</form>
-						<button
-							className="close-btn btn-primary flex pointer"
-							onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}
-						>
-							{ICON_CLOSE}
-						</button>
-					</div>
-				}
+							<div className="box-1" ref={box1Ref}></div>
+							<div className="box-2" ref={box2Ref}></div>
+						</div>
+					}
+				</section>
 			</section>
-		</section>
+		</>
 	)
 }

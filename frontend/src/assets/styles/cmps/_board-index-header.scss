@@ -24,6 +24,23 @@
         }
     }
 
+    .ai-bot {
+        height: 75px;
+        position: absolute;
+        right: 300px;
+        top: 0;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .btn-wrapper {
+        min-width: max-content;
+        height: 40px;
+        position: relative;
+    }
+
     .ai-btn {
         display: flex;
         gap: .3em;
@@ -35,9 +52,52 @@
         font-family: Figtree;
         width: fit-content;
         font-size: 16px;
+        z-index: 2;
+        position: relative;
+    }
 
-        &:hover {
-            background-color: $bg-clr1-darker;
+    .glow {
+        position: absolute;
+        top: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    .glow::before,
+    .glow::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(45deg, #00ffff, #009fff, #0073ea, #3080c6, #0060b9, #1f76c2);
+        background-size: 400%;
+        height: calc(100% + 3px);
+        width: calc(100% + 3px);
+        z-index: -1;
+        animation: animate 10s linear infinite;
+        border-radius: 5px;
+    }
+
+    @keyframes animate {
+        0% {
+            background-position: 0 0;
         }
+
+        50% {
+            background-position: 400% 0;
+        }
+
+        100% {
+            background-position: 0 0;
+        }
+    }
+
+    .glow::after {
+        filter: blur(30px);
+        opacity: 0.3;
+        z-index: -1;
     }
 }

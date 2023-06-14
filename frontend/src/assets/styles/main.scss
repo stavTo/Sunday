@@ -63,10 +63,12 @@
 @import 'cmps/kanban-cmps/_kanban-group-preview';
 @import 'cmps/kanban-cmps/kanban-group-list';
 @import 'cmps/kanban-cmps/kanban-task-preview';
+
 // Board index cmps
 @import 'cmps/board-index-header';
 @import 'cmps/boards-list';
 @import 'cmps/board-preview';
+@import 'cmps/ai-loader';
 
 // Dynamic Task Components
 @import 'cmps/dynamic-task-cmps/label-picker';
