@@ -28,6 +28,7 @@ export function GroupSummary({ group, isCollapsed, provided }) {
 			<div className="summary-data-container">
 				{isCollapsed && <div className="colored-border" style={{ backgroundColor: group.style.color }}></div>}
 				{board.cmpsOrder.map(cmp => {
+					if (!cmp.isShown) return
 					switch (cmp.cmpName) {
 						case STATUS_PICKER:
 						case PRIORITY_PICKER:

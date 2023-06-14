@@ -8,8 +8,7 @@ import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd'
 import { useState } from 'react'
 export function GroupList({ groups }) {
 	const board = useSelector(({ selectedBoardModule }) => selectedBoardModule.selectedBoard)
-	const [isDragDisabled, setIsDragDisabled] = useState(true)
-	const [isDragging, setIsDragging] = useState(false)
+	const [isDragDisabled, setIsDragDisabled] = useState(false)
 	const [allGroupsCollapsed, setAllGroupsCollapsed] = useState(false)
 
 	function onAddGroup() {
@@ -85,7 +84,12 @@ export function GroupList({ groups }) {
 					<section {...provided.droppableProps} ref={provided.innerRef} className="group-list">
 						<ul className="clean-list">
 							{groups.map((group, idx) => (
-								<Draggable key={group.id} draggableId={group.id} index={idx}>
+								<Draggable
+									isDragDisabled={isDragDisabled}
+									key={group.id}
+									draggableId={group.id}
+									index={idx}
+								>
 									{(provided, snapshot) => (
 										<li {...provided.draggableProps} ref={provided.innerRef}>
 											<GroupPreview
