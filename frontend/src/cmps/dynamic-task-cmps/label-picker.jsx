@@ -168,8 +168,8 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 
 	function onEditorClose(ev) {
 		if (!ev.target.closest('.label-picker-popup')) {
-			setIsEditor(false)
 			onSaveLabels()
+			setIsEditor(false)
 		}
 	}
 
@@ -178,6 +178,7 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 		const value = target.value
 		const newLabels = boardLabels.map(l => (l.id !== field ? l : { ...l, title: value }))
 		setBoardLabels(newLabels)
+
 	}
 
 	function onAddNewLabel() {
@@ -194,11 +195,13 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 	}
 
 	async function onSaveLabels() {
-		setIsEditor(false)
 		try {
-			updateLabels(board, labelsName, boardLabels)
+			console.log(boardLabels)
+			await updateLabels(board, labelsName, boardLabels)
 		} catch (err) {
 			showErrorMsg('Cant edit label')
+		} finally {
+			setIsEditor(false)
 		}
 	}
 
@@ -214,15 +217,21 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 	}
 
 	function onSetLabelStyle(label) {
+		if (label.id.includes('104')) return showErrorMsg('Cant change default color')
 		setIsPalleteOpen(prev => !prev)
 		setLabelToEdit(label)
+	}
+
+	function onSetColorPickerClose(ev) {
+		if (ev.target.closest('.color-picker')) return
+		setIsPalleteOpen(false)
 	}
 
 	if (!board[labelsName].length) return
 
 	return (
 		<div className="label-picker-popup" style={styles.popper} {...attributes.popper} ref={popperRef}>
-			{isPalleteOpen && <ColorPicker setIsColorPickerOpen={setIsPalleteOpen} setEntityStyle={setLabelStyle} />}
+			{isPalleteOpen && <ColorPicker onSetColorPickerClose={onSetColorPickerClose} setIsColorPickerOpen={setIsPalleteOpen} setEntityStyle={setLabelStyle} />}
 			<div className="modal-up-arrow" ref={setArrowElement} style={styles.arrow}></div>
 			<ul className="labels-input-list clean-list">
 				{boardLabels.map(label => {
@@ -235,11 +244,15 @@ function LabelPickerPopUpEditor({ board, labelsName, styles, popperRef, setArrow
 								<span
 									className="icon-color-bucket"
 									style={{ backgroundColor: label.color }}
-									onClick={() => onSetLabelStyle(label)}
-								>
+									onClick={() => onSetLabelStyle(label)}>
 									{ICON_COLOR_BUCKET}
 								</span>
-								<input type="text" value={label.title} name={label.id} onChange={handleChange}></input>
+								<input
+									type="text"
+									value={label.title}
+									name={label.id}
+									onChange={handleChange}>
+								</input>
 							</div>
 						</li>
 					)

@@ -59,7 +59,7 @@
 			display: grid;
 			grid-template-rows: repeat(6, auto);
 			grid-auto-flow: column;
-			column-gap: 10px;
+			column-gap: 20px;
 			padding: 16px 24px 0px 24px;
 
 			li {
@@ -119,35 +119,41 @@
 
 	.input-container {
 		position: relative;
+		border: 1px $border-clr solid;
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		height: rem(32px);
+		width: rem(152px);
+		gap: 10px;
 
 		input {
+			all: unset;
 			color: $clr1;
-			height: rem(32px);
-			width: rem(152px);
-
+			text-align: left;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 
 		.remove-label-btn {
 			position: absolute;
 			color: $icon-color;
-			right: -20px;
+			right: -15px;
 			top: 2px;
 			opacity: 0;
 		}
 
 		.icon-color-bucket {
-			position: absolute;
-			left: 5px;
-			top: 5px;
-			height: 24px;
-			width: 24px;
+			// position: relative;
+			min-height: 24px;
+			min-width: 24px;
 			border-radius: 4px;
-
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-inline-start: 3px;
 			svg {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				translate: -50% -50%;
 				color: $clr0;
 			}
 		}
