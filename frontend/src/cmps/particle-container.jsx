@@ -12,17 +12,32 @@ export function ParticleContainer() {
       }
     },
     "particles": {
+      // "shadow": {
+      //   "blur": 20,
+      //   "color": {
+      //     "value": "#fff"
+      //   },
+      //   "enable": true,
+      //   "offset": {
+      //     "x": 0,
+      //     "y": 0
+      //   }
+      // },
       "number": {
         "value": 150
       },
-      "color": {
-        "value": "#ffffff"
-      },
       "shape": {
-        "type": "circle"
+        "type": "circle",
       },
       "opacity": {
-        "value": 0.8
+        "value": 0.8,
+        "random": true, // Set to false in our case 
+        "anim": {
+          "enable": true,
+          "speed": 4,
+          "opacity_min": 0.4,
+          "sync": false
+        }
       },
       "size": {
         "value": 3
@@ -30,7 +45,7 @@ export function ParticleContainer() {
       "line_linked": {
         "enable": true,
         "distance": 120,
-        "color": "#ffffff",
+        "color": "#96f8ff",
         "opacity": 0.6,
         "width": 1
       },
@@ -70,51 +85,6 @@ export function ParticleContainer() {
       }
     }
   }
-
-  // const particleOptions = {
-  //     background: {
-  //       color: {
-  //         value: "transparent", // Set background color to transparent
-  //       },
-  //     },
-  //     particles: {
-  //       number: {
-  //         value: 80, // Increase the number of particles
-  //       },
-  //       color: {
-  //         value: "#ffffff",
-  //       },
-  //       shape: {
-  //         type: "circle",
-  //       },
-  //       opacity: {
-  //         value: 0.8,
-  //       },
-  //       size: {
-  //         value: 3,
-  //       },
-  //       lineLinked: {
-  //         enable: true,
-  //         distance: 120, // Decrease the maximum distance for connections
-  //         color: "#ffffff",
-  //         opacity: 0.6, // Increase the connection opacity
-  //         width: 1,
-  //       },
-  //       move: {
-  //         enable: true,
-  //         speed: 2,
-  //       },
-  //     },
-  //     interactivity: {
-  //       detectsOn: "canvas",
-  //       events: {
-  //         onHover: {
-  //           enable: true,
-  //           mode: "repulse",
-  //         },
-  //       },
-  //     },
-  //   };
 
 
   const particlesInit = useCallback(async engine => {

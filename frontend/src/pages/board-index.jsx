@@ -12,10 +12,7 @@ import { ICON_CLOSE } from '../assets/icons/icons'
 import { Configuration, OpenAIApi } from 'openai'
 import { boardService } from '../services/board.service'
 import { utilService } from '../services/util.service'
-import boardLoader from '../assets/img/board-loader.gif'
 import { useNavigate } from 'react-router-dom'
-import Particles from 'react-particles'
-import options from '../assets/options.json'
 import { ParticleContainer } from '../cmps/particle-container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
@@ -133,18 +130,18 @@ export function BoardIndex() {
 					{
 						title: "Venue",
 						tasks: [
-							{ title: "Book the event hall" },
 							{ title: "Decide on the party decorations" },
+							{ title: "Book the event hall" },
+							{ title: "Purchase party favors" },
 							{ title: "Hire a caterer" },
-							{ title: "Select a cake" },
-							{ title: "Purchase party favors" }
+							{ title: "Select a cake" }
 						]
 					},
 					{
 						title: "Guest List",
 						tasks: [
-							{ title: "Finalize invite list" },
 							{ title: "Create and send out invitations" },
+							{ title: "Finalize invite list" },
 							{ title: "Follow up with RSVPs" }
 						]
 					},
@@ -242,8 +239,7 @@ export function BoardIndex() {
 							</form>
 							<button
 								className="close-btn btn-primary flex pointer"
-								onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}
-							>
+								onClick={() => setToggleInputModal(toggleInputModal => !toggleInputModal)}>
 								{ICON_CLOSE}
 							</button>
 							<div className="box-1" ref={box1Ref}></div>
