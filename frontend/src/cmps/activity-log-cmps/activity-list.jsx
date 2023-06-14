@@ -6,7 +6,7 @@ import { boardService } from '../../services/board.service'
 export function ActivityList({ board }) {
     const [activities, setActivities] = useState([])
     const [filter, setFilter] = useState(boardService.getActivityFilter())
-
+    
     useEffect(() => {
         setActivities(boardService.loadActivities(board, filter))
     }, [filter, board])

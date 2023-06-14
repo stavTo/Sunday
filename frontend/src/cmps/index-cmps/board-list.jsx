@@ -17,7 +17,7 @@ export function BoardList({ boards }) {
 				Recently visited
 			</h1>
 			{toggleView && (
-				<ul className="board-list-noder clean-list">
+				<ul className="index-board-list clean-list">
 					{boards &&
 						boards.map(board => {
 							return (
