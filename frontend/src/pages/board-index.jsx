@@ -69,7 +69,8 @@ export function BoardIndex() {
 
 	useEffect(() => {
 		// if (aiQuery) getBoardFromAI()
-		if (aiQuery) createAiBoard()
+		// if (aiQuery) createAiBoard()
+		if (aiQuery) getBoardFromAI()
 		// navigateToAIBoard()
 	}, [aiQuery])
 
@@ -113,11 +114,9 @@ export function BoardIndex() {
 			})
 
 			const response = res.data.choices[0].message.content
-			console.log('response:', response)
 			const aiBoard = JSON.parse(response)
 
 			createAiBoard(aiBoard)
-			// await setInterval(setIsLoading(prevIsLoading => !prevIsLoading), 1000)
 		} catch (err) {
 			showErrorMsg("Can't add AI board, try again later")
 		} finally {
@@ -126,77 +125,33 @@ export function BoardIndex() {
 	}
 
 	async function createAiBoard(aiBoard) {
-		setIsLoading(prevIsLoading => !prevIsLoading)
+		const board = boardService.getEmptyBoard()
+		const task = boardService.getEmptyTask()
 
-		setTimeout(() => {
-			const demoAiBoard = {
-				title: "Mommy's 50th Birthday Board",
-				groups: [
-					{
-						title: 'Venue',
-						tasks: [
-							{ title: "Decide on the party decorations" },
-							{ title: "Book the event hall" },
-							{ title: "Purchase party favors" },
-							{ title: "Hire a caterer" },
-							{ title: "Select a cake" }
-						]
-					},
-					{
-						title: 'Guest List',
-						tasks: [
-							{ title: "Create and send out invitations" },
-							{ title: "Finalize invite list" },
-							{ title: "Follow up with RSVPs" }
-						]
-					},
-					{
-						title: 'Entertainment',
-						tasks: [
-							{ title: 'Choose the music playlist' },
-							{ title: 'Hire a DJ or a band' },
-							{ title: 'Plan party games and activities' },
-						],
-					},
-					{
-						title: 'Speeches and Toasts',
-						tasks: [
-							{ title: 'Decide who will give speeches or toasts' },
-							{ title: 'Write a speech' },
-							{ title: 'Practice speeches and toasts' },
-						],
-					},
-				],
+		board.title = aiBoard.title
+
+		const aiGroups = aiBoard.groups.map(aiGroup => {
+			const group = {
+				...aiGroup,
+				id: utilService.makeId(),
+				style: { color: utilService.getRandomColor() },
 			}
 
-			const board = boardService.getEmptyBoard()
-			const task = boardService.getEmptyTask()
+			const aiTasks = group.tasks.map(aiTask => ({
+				...task,
+				...aiTask,
+				id: utilService.makeId(),
+			}))
 
-			board.title = demoAiBoard.title
+			group.tasks = aiTasks
+			return group
+		})
 
-			const aiGroups = demoAiBoard.groups.map(aiGroup => {
-				const group = {
-					...aiGroup,
-					id: utilService.makeId(),
-					style: { color: utilService.getRandomColor() },
-				}
+		board.groups.push(...aiGroups)
+		addBoard(board)
 
-				const aiTasks = group.tasks.map(aiTask => ({
-					...task,
-					...aiTask,
-					id: utilService.makeId(),
-				}))
-
-				group.tasks = aiTasks
-				return group
-			})
-
-			board.groups.push(...aiGroups)
-			addBoard(board)
-
-			setIsLoading(prevIsLoading => !prevIsLoading)
-			generateTimeout.current = true
-		}, 3000)
+		setIsLoading(prevIsLoading => !prevIsLoading)
+		generateTimeout.current = true
 	}
 
 	function navigateToAIBoard() {
