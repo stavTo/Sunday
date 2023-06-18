@@ -22,6 +22,15 @@ function getById(boardId, filter = {}) {
 async function remove(boardId) {
 	return httpService.delete(BASE_URL + boardId)
 }
+
+async function sendAPIRequest(query) {
+	const aiQuery = {
+		query
+	}
+	console.log("aiQuery", aiQuery)
+	return httpService.post(BASE_URL + 'aiBoard', aiQuery)
+}
+
 async function save(board) {
 	try {
 		let savedBoard
@@ -649,4 +658,5 @@ export const boardService = {
 	getActivityFilter,
 	removeBatchTasks,
 	getLastBoard,
+	sendAPIRequest,
 }

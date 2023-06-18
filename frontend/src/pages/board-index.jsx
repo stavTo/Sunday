@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { SideBar } from '../cmps/side-bar'
-import { addBoard, loadBoards } from '../store/board.actions'
-import { useSelector } from 'react-redux'
+import { loadBoards } from '../store/board.actions'
+import { useSelector, useDispatch } from 'react-redux'
 import { showErrorMsg } from '../services/event-bus.service'
 import { BoardLoader } from '../cmps/board-loader'
 import { BoardIndexHeader } from '../cmps/index-cmps/board-index-header'
@@ -9,14 +9,13 @@ import { BoardList } from '../cmps/index-cmps/board-list'
 import { BoardIndexAside } from '../cmps/index-cmps/BoardIndexAside'
 import { IndexInbox } from '../cmps/index-cmps/IndexInbox.jsx'
 import { ICON_CLOSE } from '../assets/icons/icons'
-import { Configuration, OpenAIApi } from 'openai'
 import { boardService } from '../services/board.service'
-import { utilService } from '../services/util.service'
 import { useNavigate } from 'react-router-dom'
 import { ParticleContainer } from '../cmps/particle-container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons'
 import { AiLoader } from '../cmps/ai-loader'
+import { ADD_BOARD } from '../store/board.reducer'
 
 export function BoardIndex() {
 	const boards = useSelector(({ boardModule }) => boardModule.boards)
@@ -24,6 +23,7 @@ export function BoardIndex() {
 	const [aiQuery, setAiQuery] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 	const navigate = useNavigate()
+	const dispatch = useDispatch()
 	const generateTimeout = useRef(false)
 	const inputRef = useRef('')
 	const modalRef = useRef(null)
@@ -68,10 +68,7 @@ export function BoardIndex() {
 	}, [toggleInputModal])
 
 	useEffect(() => {
-		// if (aiQuery) getBoardFromAI()
-		// if (aiQuery) createAiBoard()
 		if (aiQuery) getBoardFromAI()
-		// navigateToAIBoard()
 	}, [aiQuery])
 
 	async function onLoadBoards() {
@@ -99,60 +96,48 @@ export function BoardIndex() {
 	}
 
 	async function getBoardFromAI() {
-		const openai = new OpenAIApi(
-			new Configuration({
-				apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-			})
-		)
 		setIsLoading(true)
 		try {
-			const res = await openai.createChatCompletion({
-				model: 'gpt-3.5-turbo',
-				max_tokens: 2000,
-				temperature: 1,
-				messages: _getAiInstructions(),
-			})
-
-			const response = res.data.choices[0].message.content
-			const aiBoard = JSON.parse(response)
-
-			createAiBoard(aiBoard)
+			const boardAi = await boardService.sendAPIRequest(aiQuery)
+			console.log("boardAi:", boardAi)
+			dispatch({ type: ADD_BOARD, board: boardAi })
+			navigate(`/boards/${boardAi._id}`)
 		} catch (err) {
-			showErrorMsg("Can't add AI board, try again later")
+			showErrorMsg(`Couldn't add AI board`)
 		} finally {
 			setIsLoading(false)
 		}
 	}
 
-	async function createAiBoard(aiBoard) {
-		const board = boardService.getEmptyBoard()
-		const task = boardService.getEmptyTask()
+	// async function createAiBoard(aiBoard) {
+	// 	const board = boardService.getEmptyBoard()
+	// 	const task = boardService.getEmptyTask()
 
-		board.title = aiBoard.title
+	// 	board.title = aiBoard.title
 
-		const aiGroups = aiBoard.groups.map(aiGroup => {
-			const group = {
-				...aiGroup,
-				id: utilService.makeId(),
-				style: { color: utilService.getRandomColor() },
-			}
+	// 	const aiGroups = aiBoard.groups.map(aiGroup => {
+	// 		const group = {
+	// 			...aiGroup,
+	// 			id: utilService.makeId(),
+	// 			style: { color: utilService.getRandomColor() },
+	// 		}
 
-			const aiTasks = group.tasks.map(aiTask => ({
-				...task,
-				...aiTask,
-				id: utilService.makeId(),
-			}))
+	// 		const aiTasks = group.tasks.map(aiTask => ({
+	// 			...task,
+	// 			...aiTask,
+	// 			id: utilService.makeId(),
+	// 		}))
 
-			group.tasks = aiTasks
-			return group
-		})
+	// 		group.tasks = aiTasks
+	// 		return group
+	// 	})
 
-		board.groups.push(...aiGroups)
-		addBoard(board)
+	// 	board.groups.push(...aiGroups)
+	// 	addBoard(board)
 
-		setIsLoading(prevIsLoading => !prevIsLoading)
-		generateTimeout.current = true
-	}
+	// 	setIsLoading(prevIsLoading => !prevIsLoading)
+	// 	generateTimeout.current = true
+	// }
 
 	function navigateToAIBoard() {
 		navigate(`/boards/${boards[boards.length - 1]._id}`)

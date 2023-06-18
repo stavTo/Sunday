@@ -107,6 +107,19 @@ function randomPastTime() {
   return Date.now() - pastTime
 }
 
+function getRandomColor() {
+	const colors = ['#037f4c', '#00c875', '#9cd326', '#cab641', '#ffcb00', '#784bd1', '#a25ddc', '#0086c0', '#66ccff',
+		'#bb3354', '#e2445c', '#ff158a', '#ff5ac4', '#ff642e', '#fdab3d',
+		'#7f5347', '#c4c4c4', '#808080']
+	return colors[getRandomIntInclusive(0, colors.length - 1)]
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
+}
+
 export const utilService = {
   makeId,
   getRandomInt,
@@ -114,5 +127,7 @@ export const utilService = {
   generateRandomName,
   timeAgo,
   generateRandomImg,
-  randomPastTime
+  randomPastTime,
+  getRandomColor,
+  getRandomIntInclusive
 }

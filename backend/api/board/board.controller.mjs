@@ -1,6 +1,5 @@
 import { boardService } from './board.service.mjs'
 import { logger } from '../../services/logger.service.mjs'
-import { socketService } from '../../services/socket.service.mjs'
 
 export async function getBoards(req, res) {
 	try {
@@ -46,6 +45,17 @@ export async function addBoard(req, res) {
 	} catch (err) {
 		logger.error('Failed to add board', err)
 		res.status(400).send({ err: 'Failed to add board' })
+	}
+}
+
+export async function createAIBoard(req, res) {
+	try {
+		const { query } = req.body
+		const addedBoard = await boardService.sendAPIRequest(query)
+		res.json(addedBoard)
+	} catch (err) {
+		logger.error('Failed to add AI board', err)
+		throw err
 	}
 }
 

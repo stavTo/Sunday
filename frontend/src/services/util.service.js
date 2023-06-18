@@ -150,7 +150,6 @@ function getRandomColor() {
 		'#bb3354', '#e2445c', '#ff158a', '#ff5ac4', '#ff642e', '#fdab3d',
 		'#7f5347', '#c4c4c4', '#808080']
 	return colors[getRandomIntInclusive(0, colors.length - 1)]
-
 }
 
 function hexToRgba(hex, alpha = 1) {
