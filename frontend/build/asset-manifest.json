@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.60acc2cc.css",
-    "main.js": "/static/js/main.322334e6.js",
+    "main.js": "/static/js/main.a3a5a9a6.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
     "static/media/ai_render.png": "/static/media/ai_render.2d16898fbb065ae04950.png",
     "static/media/empty-inbox.svg": "/static/media/empty-inbox.2a02a6e40e9e0b38cc34c4bf53e6b0a8.svg",
@@ -14,20 +14,20 @@
     "static/media/guest.png": "/static/media/guest.0d14c6999b4a5c8e86a7.png",
     "static/media/search_empty.svg": "/static/media/search_empty.ef07d4480c18aec679a7a58989c66444.svg",
     "static/media/templates-banner.png": "/static/media/templates-banner.c84b7a0cfa8898cf311d.png",
-    "static/media/quick_search_recent_board.svg": "/static/media/quick_search_recent_board.6f9409e2cfe89b36b09c7ae8df20d61a.svg",
-    "static/media/header-background.svg": "/static/media/header-background.79b01caac01d51be783549e50ef9be4e.svg",
+    "static/media/quick_search_recent_board.svg": "/static/media/quick_search_recent_board.9d0e5319b91c3a83aa4e04ffb0aaa65d.svg",
+    "static/media/header-background.svg": "/static/media/header-background.9967ce8a4a6348e4b69fef932045df88.svg",
     "static/media/lionsgate.avif": "/static/media/lionsgate.1a920581bcb607d0be08.avif",
     "static/media/HoltCat.avif": "/static/media/HoltCat.bf370453bd821a7f911a.avif",
-    "static/media/get-started.svg": "/static/media/get-started.9870841293cc764128ee217fb52b33c6.svg",
-    "static/media/help-center.svg": "/static/media/help-center.7c8e9a1696651f8a0b5c3070d6a04c8e.svg",
-    "static/media/webinars.svg": "/static/media/webinars.44c7acf6d0c8d293c439d10b1c46b682.svg",
+    "static/media/get-started.svg": "/static/media/get-started.2711242f16ec130e8d5c6a921865f7cd.svg",
+    "static/media/help-center.svg": "/static/media/help-center.747825195b603d950acdba04d997c93d.svg",
+    "static/media/webinars.svg": "/static/media/webinars.6b7819da0ef0ab2efc7de371edc5b5b0.svg",
     "index.html": "/index.html",
     "main.60acc2cc.css.map": "/static/css/main.60acc2cc.css.map",
-    "main.322334e6.js.map": "/static/js/main.322334e6.js.map",
+    "main.a3a5a9a6.js.map": "/static/js/main.a3a5a9a6.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.60acc2cc.css",
-    "static/js/main.322334e6.js"
+    "static/js/main.a3a5a9a6.js"
   ]
 }

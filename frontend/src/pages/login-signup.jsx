@@ -1,38 +1,38 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import logo from '../assets/img/logo.png'
-import { BTN_ARROW } from '../assets/icons/icons'
-import { useEffect, useState } from 'react'
-import { userService } from '../services/user.service'
-import { login, signup } from '../store/user.actions'
-import { showErrorMsg } from '../services/event-bus.service'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import logo from '../assets/img/logo.png';
+import { BTN_ARROW } from '../assets/icons/icons';
+import { useEffect, useState } from 'react';
+import { userService } from '../services/user.service';
+import { login, signup } from '../store/user.actions';
+import { showErrorMsg } from '../services/event-bus.service';
 
 export function LoginSignUp() {
-	const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
-	const [isSignUp, setIsSignUp] = useState(false)
-	const location = useLocation()
-	const navigate = useNavigate()
+	const [credentials, setCredentials] = useState(userService.getEmptyCredentials());
+	const [isSignUp, setIsSignUp] = useState(false);
+	const location = useLocation();
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		setIsSignUp(location.pathname.includes('sign-up'))
-	}, [location])
+		setIsSignUp(location.pathname.includes('sign-up'));
+	}, [location]);
 
 	function handleChange({ target }) {
-		const field = target.name
-		const value = target.value
-		setCredentials(prev => ({ ...prev, [field]: value }))
+		const field = target.name;
+		const value = target.value;
+		setCredentials(prev => ({ ...prev, [field]: value }));
 	}
 
 	async function onSubmit(ev) {
-		ev.preventDefault()
+		ev.preventDefault();
 		try {
-			isSignUp ? await signup(credentials) : await login(credentials)
-			navigate('/boards')
+			isSignUp ? await signup(credentials) : await login(credentials);
+			navigate('/boards');
 		} catch (err) {
-			showErrorMsg(err?.response?.data || 'Something went wrong')
+			showErrorMsg(err?.response?.data || 'Something went wrong');
 		}
 	}
 
-	const { fullname, email, password } = credentials
+	const { fullname, email, password } = credentials;
 
 	return (
 		<section className="login">
@@ -102,5 +102,5 @@ export function LoginSignUp() {
 				</div>
 			)}
 		</section>
-	)
+	);
 }
