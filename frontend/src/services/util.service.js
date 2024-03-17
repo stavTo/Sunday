@@ -52,7 +52,7 @@ function timeSince(timeStamp) {
 			.toDateString()
 			.match(/ [a-zA-Z]*/)[0]
 			.replace(' ', '')
-		const year = date.getFullYear() === now.getFullYear() ? '' : ' ' + timeStamp.getFullYear()
+		const year = date.getFullYear() === now.getFullYear() ? '' : ' ' + new Date(timeStamp).getFullYear()
 		return day + ' ' + month + year
 	}
 }
